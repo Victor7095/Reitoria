@@ -10,38 +10,75 @@
         <link rel="stylesheet" href="../CSS/home.css" >
         <!-- Linkagens JS -->
         <script src="../parallax-template/js/materialize.js"></script>
+   
     </head>
 
     <body>
-        <!--fazendo com que a página fique com margem através do container-->
         <div class="container">
+
             <!--cabeçalho da página de menu logins-->
             <header>
-                <nav class="row">
-                    <div class="col s3"><a style="move-to: ">Discentes</a></div>
-                    <div class="col s3"><a style="move-to: ">Empresas</a></div>
-                    <div class="col s3"><a style="move-to: ">Reitoria</a></div>
-                    <div class="col s3"><a style="move-to: ">Técnicos Administrativos</a></div>
+                <nav class="cabecalhoHome">
+                    <a href="#quadroLoginDisc">Discentes</a>
+                    <a href="#quadroLoginEmp">Empresas</a>
+                    <a href="#quadroLoginRet">Reitoria</a>
+                    <a href="#quadroLoginEmp">Técnicos Administrativos</a>
+                
                 </nav>
-
             </header>
+
             <!--mensagem de boas vindas-->
             <h4>
                 Seja bem-vindo ao<br>
                 <img src="../../Imagens/logoOMT.png" alt="Logotipo do OMT" height="150" width="300">
+                
             </h4>
 
-            <figure id="quadroLogin">
+            <!--formulário de login Discentes(disc)-->
+            <figure id="quadroLoginDisc" class="quadroLogin">
                 <h4>Discentes</h4>
-                <form>
-                    <input type="text"  placeholder="matricula">
-                    <input type="password" placeholder="senha">
+                <form id="loginDisc" class="loginMenu">
+                    <input id="matriculaLoginDisc" type="text"  placeholder="matricula">
+                    <input id="senhaLoginDisc" type="password" placeholder="senha">
+                    <input id="buttonLoginDisc" type="button" value="Entrar">
+                    
                 </form>
-
             </figure>
-
+            
+            <!--formulário de login Empresas(Emp)-->
+            <figure id="quadroLoginEmp" class="quadroLogin">
+                <h4>Empresas</h4>
+                <form id="loginEmp" class="loginMenu">
+                    <input id="cnpjLoginEmp" type="text" placeholder="CNPJ">
+                    <input id="senhaLoginEmp" type="password" placeholder="Senha">
+                    <input id="buttonLoginEmp" type="button" value="Entrar">
+                
+                </form>
+            </figure>
+            
+            <!--formulário de login Reitoria(Ret)-->
+            <figure id="quadroLoginRet" class="quadroLogin">
+                <h4>Reitoria</h4>
+                <form id="loginRet" class="loginMenu">
+                    <input id="acessoLoginRet" type="text" placeholder="Nome de Acesso">
+                    <input id="senhaLoginRet" type="password" placeholder="Senha">
+                    <input id="buttonLoginRet" type="button" value="Entrar">
+                
+                </form>
+            </figure>
+            
+            <!--formulário de login Técnicos Administrativos(Tec)-->
+            <figure id="quadroLoginTec" class="quadroLogin">
+                <h4>Técnicos Administrativos</h4>
+                <form id="loginTec" class="loginMenu">
+                    <input id="acessoLogiTec" type="text" placeholder="Nome de Acesso">
+                    <input id="senhaLoginTec" type="password" placeholder="Senha">
+                    <input id="buttonLoginTec" type="button" value="Entrar">
+                
+                </form>
+            </figure>
+            
         </div>
     </body>
-
 </html>
 
