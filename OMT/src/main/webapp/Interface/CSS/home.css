@@ -8,9 +8,7 @@ header{
     background: #19882c;
     z-index: 2;
 }
-form{
-    text-align: center;
-}
+
 h4{
     text-align: center;
     font-size: 24px;
@@ -28,12 +26,4 @@ titulo{
 nav.cabecalhoHome{
     background: #0a5517;
     font-size: 12px;
-}
-
-figure.quadroLogin{
-    background: blanchedalmond;
-    border-style: solid;
-    border-radius: 20px;
-    border-color: #000;
-
 }
