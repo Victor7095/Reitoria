@@ -1,5 +1,5 @@
 /*!
- * Materialize v1.0.0-rc.1 (http://materializecss.com)
+ * Materialize v1.0.0-beta (http://materializecss.com)
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
@@ -2253,7 +2253,9 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+     -moz-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -3718,6 +3720,10 @@ table span.badge {
   left: 100%;
 }
 
+.row .col.offset-s0{
+    margin-left: 0%;
+}
+
 @media only screen and (min-width: 601px) {
   .row .col.m1 {
     width: 8.3333333333%;
@@ -3899,6 +3905,10 @@ table span.badge {
   .row .col.push-m12 {
     left: 100%;
   }
+  
+  .row .col.offset-m0{
+    margin-left: 0%;
+}
 }
 
 @media only screen and (min-width: 993px) {
@@ -4082,6 +4092,9 @@ table span.badge {
   .row .col.push-l12 {
     left: 100%;
   }
+  .row .col.offset-l0{
+    margin-left: 0%;
+}
 }
 
 @media only screen and (min-width: 1201px) {
@@ -4265,6 +4278,10 @@ table span.badge {
   .row .col.push-xl12 {
     left: 100%;
   }
+  
+  .row .col.offset-xl0{
+    margin-left: 0%;
+}
 }
 
 nav {
@@ -4980,6 +4997,7 @@ small {
   height: auto;
   min-height: 48px;
   line-height: 1.5em;
+  word-break: break-all;
   background-color: #323232;
   padding: 10px 25px;
   font-size: 1.1rem;
@@ -5509,7 +5527,7 @@ button.btn-floating {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.btn-flat.disabled, .btn-flat.btn-flat[disabled] {
+.btn-flat.disabled {
   background-color: transparent !important;
   color: #b3b2b2 !important;
   cursor: default;
@@ -5575,6 +5593,7 @@ button.btn-floating {
 
 .dropdown-content li:focus {
   outline: none;
+  background-color: #dadada;
 }
 
 .dropdown-content li.divider {
@@ -5604,20 +5623,12 @@ button.btn-floating {
   width: 24px;
 }
 
-body.keyboard-focused .dropdown-content li:focus {
-  background-color: #dadada;
-}
-
 .input-field.col .dropdown-content [type="checkbox"] + label {
   top: 1px;
   left: 0;
   height: 18px;
   -webkit-transform: none;
           transform: none;
-}
-
-.dropdown-trigger {
-  cursor: pointer;
 }
 
 /*!
@@ -5855,20 +5866,12 @@ body.keyboard-focused .dropdown-content li:focus {
   border-bottom: 1px solid #ddd;
 }
 
-.collapsible-header:focus {
-  outline: 0;
-}
-
 .collapsible-header i {
   width: 2rem;
   font-size: 1.6rem;
   display: inline-block;
   text-align: center;
   margin-right: 1rem;
-}
-
-.keyboard-focused .collapsible-header:focus {
-  background-color: #eee;
 }
 
 .collapsible-body {
@@ -6542,7 +6545,6 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
           transform-origin: 0 0;
 }
 
-.input-field > input[type]:-webkit-autofill:not(.browser-default) + label,
 .input-field > input[type=date]:not(.browser-default) + label,
 .input-field > input[type=time]:not(.browser-default) + label {
   -webkit-transform: translateY(-14px) scale(0.8);
@@ -7232,16 +7234,16 @@ select:disabled {
   background-color: transparent;
 }
 
-body.keyboard-focused .select-dropdown.dropdown-content li:focus {
-  background-color: rgba(0, 0, 0, 0.08);
-}
-
 .select-dropdown.dropdown-content li:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
 
 .select-dropdown.dropdown-content li.selected {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.select-dropdown.dropdown-content li:focus {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .prefix ~ .select-wrapper {
@@ -7410,7 +7412,7 @@ input[type=range]::-webkit-slider-thumb {
   margin: -5px 0 0 0;
 }
 
-.keyboard-focused input[type=range]:focus:not(.active)::-webkit-slider-thumb {
+input[type=range].focused:focus:not(.active)::-webkit-slider-thumb {
   -webkit-box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
           box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
 }
@@ -7449,7 +7451,7 @@ input[type=range]:-moz-focusring {
   outline-offset: -1px;
 }
 
-.keyboard-focused input[type=range]:focus:not(.active)::-moz-range-thumb {
+input[type=range].focused:focus:not(.active)::-moz-range-thumb {
   box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
 }
 
@@ -7482,7 +7484,7 @@ input[type=range]::-ms-thumb {
   transition: box-shadow .3s, -webkit-box-shadow .3s;
 }
 
-.keyboard-focused input[type=range]:focus:not(.active)::-ms-thumb {
+input[type=range].focused:focus:not(.active)::-ms-thumb {
   box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
 }
 
@@ -8477,19 +8479,10 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s,
- visibility 0s 1s,
- -webkit-transform .3s;
-  transition: opacity .3s,
- visibility 0s 1s,
- -webkit-transform .3s;
-  transition: opacity .3s,
- transform .3s,
- visibility 0s 1s;
-  transition: opacity .3s,
- transform .3s,
- visibility 0s 1s,
- -webkit-transform .3s;
+  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s, visibility 0s 1s;
+  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,19 +8535,10 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s,
- visibility 0s,
- -webkit-transform .3s;
-  transition: opacity .3s,
- visibility 0s,
- -webkit-transform .3s;
-  transition: opacity .3s,
- transform .3s,
- visibility 0s;
-  transition: opacity .3s,
- transform .3s,
- visibility 0s,
- -webkit-transform .3s;
+  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
+  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s, visibility 0s;
+  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
   z-index: -1;
 }
 
@@ -8838,12 +8822,6 @@ input[type=range]::-ms-thumb {
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
-  }
-  .datepicker-date-display {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 270px;
-        -ms-flex: 0 1 270px;
-            flex: 0 1 270px;
   }
   .datepicker-controls,
   .datepicker-table,

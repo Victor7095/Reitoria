@@ -4,25 +4,39 @@
         <meta charset="UTF-8" lang="pt-BR">
         <title>Observatório do Mundo Trabalho</title>
         <!-- referenciamento css-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../parallax-template/css/materialize.css">
-        <link rel="stylesheet" href="../parallax-template/css/materialize.min.css">
         <link rel="stylesheet" href="../parallax-template/css/style.css">
         <link rel="stylesheet" href="../CSS/home.css" >
         <!-- Linkagens JS -->
-        <script src="../parallax-template/js/materialize.js"></script>
     </head>
 
     <body>
+        <header>
+            <div class="container">
+                <nav id="cabecalhoHome">
+                    <div class="nav-wrapper">
+                        <a href="#!" class="brand-logo">OMT</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down white-text">
+                            <li><a href="">Discentes</a></li>
+                            <li><a href="">Empresas</a></li>
+                            <li><a href="">Reitoria</a></li>
+                            <li><a href="">Técnicos Administrativos</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="">Discentes</a></li>
+                    <li><a href="">Empresas</a></li>
+                    <li><a href="">Reitoria</a></li>
+                    <li><a href="">Técnicos Administrativos</a></li>
+                </ul>
+            </div>
+        </header>
         <div class="container">
             <!--cabeçalho da página de menu logins-->
-            <header>
-                <nav class="cabecalhoHome">
-                    <a href="#quadroLoginDisc">Discentes</a>
-                    <a href="#quadroLoginEmp">Empresas</a>
-                    <a href="#quadroLoginRet">Reitoria</a>
-                    <a href="#quadroLoginTec">Técnicos Administrativos</a>
-                </nav>
-            </header>
 
             <!--mensagem de boas vindas-->
             <h4>
@@ -30,46 +44,78 @@
                 <img src="../../Imagens/logoOMT.png" alt="Logotipo do OMT" height="150" width="300">
             </h4>
 
-            <!--formulário de login Discentes(disc)-->
-            <div class="card-content">
-                <h4>Discentes</h4>
-                <form id="loginDisc" class="loginMenu">
-                    <input id="matriculaLoginDisc" type="text"  placeholder="matricula">
-                    <input id="senhaLoginDisc" type="password" placeholder="senha">
-                    <input id="buttonLoginDisc" type="button" value="Entrar">    
-                </form>
+            <div class="row">
+                <div class="col s12 l4 xl3 offset-l1 offset-xl2" id="tabsLogin">
+                    <ul class="tabs">
+                        <li class="tab"><a href="#loginDisc">Discentes</a></li>
+                        <li class="tab"><a href="#loginEmp">Empresas</a></li>
+                        <li class="tab"><a href="#loginRet">Reitoria</a></li>
+                        <li class="tab"><a href="#loginTec">Campus</a></li>
+                    </ul>
+                </div>
+
+                <!--formulário de login Discentes(disc)-->
+                <div class="col s8 l6 xl5 offset-s2 offset-l0">
+                    <div class="card" id="loginDisc">
+                        <div class="card-content">
+                            <h4>Discentes</h4>
+                            <form action="" class="loginMenu">
+                                <input id="matriculaLoginDisc" type="text"  placeholder="matrícula">
+                                <input id="senhaLoginDisc" type="password" placeholder="senha">
+                                <input class="btn" id="buttonLoginDisc" type="button" value="Entrar">    
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--formulário de login Empresas(Emp)-->
+                    <div class="card" id="loginEmp">
+                        <div class="card-content">
+                            <h4>Empresas</h4>
+                            <form action="" class="loginMenu">
+                                <input id="cnpjLoginEmp" type="text" placeholder="CNPJ">
+                                <input id="senhaLoginEmp" type="password" placeholder="Senha">
+                                <input class="btn" id="buttonLoginEmp" type="button" value="Entrar">
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--formulário de login Reitoria(Ret)-->
+                    <div class="card" id="loginRet">
+                        <div class="card-content">
+                            <h4>Reitoria</h4>
+                            <form action="" class="loginMenu">
+                                <input id="acessoLoginRet" type="text" placeholder="Nome de Acesso">
+                                <input id="senhaLoginRet" type="password" placeholder="Senha">
+                                <input class="btn" id="buttonLoginRet" type="button" value="Entrar">
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--formulário de login Técnicos Administrativos(Tec)-->
+                    <div class="card" id="loginTec">
+                        <div class="card-content">
+                            <h4>Campus</h4>
+                            <form action="" class="loginMenu">
+                                <input id="acessoLogiTec" type="text" placeholder="Nome de Acesso">
+                                <input id="senhaLoginTec" type="password" placeholder="Senha">
+                                <input class="btn" id="buttonLoginTec" type="button" value="Entrar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
-            <!--formulário de login Empresas(Emp)-->
-            <div class="card-content">
-                <h4>Empresas</h4>
-                <form id="loginEmp" class="loginMenu">
-                    <input id="cnpjLoginEmp" type="text" placeholder="CNPJ">
-                    <input id="senhaLoginEmp" type="password" placeholder="Senha">
-                    <input id="buttonLoginEmp" type="button" value="Entrar">
-                </form>
-            </div>
-            
-            <!--formulário de login Reitoria(Ret)-->
-            <div class="card-content">
-                <h4>Reitoria</h4>
-                <form id="loginRet" class="loginMenu">
-                    <input id="acessoLoginRet" type="text" placeholder="Nome de Acesso">
-                    <input id="senhaLoginRet" type="password" placeholder="Senha">
-                    <input id="buttonLoginRet" type="button" value="Entrar">
-                </form>
-            </div>
-            
-            <!--formulário de login Técnicos Administrativos(Tec)-->
-            <div class="card-content">
-                <h4>Técnicos Administrativos</h4>
-                <form id="loginTec" class="loginMenu">
-                    <input id="acessoLogiTec" type="text" placeholder="Nome de Acesso">
-                    <input id="senhaLoginTec" type="password" placeholder="Senha">
-                    <input id="buttonLoginTec" type="button" value="Entrar">
-                </form>
-            </div>    
         </div>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="../parallax-template/js/materialize.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.tabs').tabs();
+            });
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
     </body>
 </html>
 
