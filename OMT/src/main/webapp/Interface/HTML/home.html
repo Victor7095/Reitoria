@@ -4,10 +4,10 @@
         <meta charset="UTF-8" lang="pt-BR">
         <title>Observatório do Mundo Trabalho</title>
         <!-- referenciamento css-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../parallax-template/css/materialize.css">
-        <link rel="stylesheet" href="../parallax-template/css/style.css">
-        <link rel="stylesheet" href="../CSS/home.css" >
+        <link href="../_CSS/FontsGoogle.css" rel="stylesheet">
+        <link rel="stylesheet" href="../_CSS/parallax-template/css/materialize.css">
+        <link rel="stylesheet" href="../_CSS/parallax-template/css/style.css">
+        <link rel="stylesheet" href="../_CSS/home.css" >
         <!-- Linkagens JS -->
     </head>
 
@@ -59,10 +59,11 @@
                     <div class="card" id="loginDisc">
                         <div class="card-content">
                             <h4>Discentes</h4>
-                            <form action="" class="loginMenu">
+                            <form action="/OMT/Login" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="discente"/>
                                 <input id="matriculaLoginDisc" type="text"  placeholder="matrícula">
                                 <input id="senhaLoginDisc" type="password" placeholder="senha">
-                                <input class="btn" id="buttonLoginDisc" type="button" value="Entrar">    
+                                <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
                             </form>
                         </div>
                     </div>
@@ -71,10 +72,11 @@
                     <div class="card" id="loginEmp">
                         <div class="card-content">
                             <h4>Empresas</h4>
-                            <form action="" class="loginMenu">
+                            <form action="/OMT/Login" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="empresa"/>
                                 <input id="cnpjLoginEmp" type="text" placeholder="CNPJ">
                                 <input id="senhaLoginEmp" type="password" placeholder="Senha">
-                                <input class="btn" id="buttonLoginEmp" type="button" value="Entrar">
+                                <input class="btn" id="buttonLoginEmp" type="submit" value="Entrar">
                             </form>
                         </div>
                     </div>
@@ -83,10 +85,11 @@
                     <div class="card" id="loginRet">
                         <div class="card-content">
                             <h4>Reitoria</h4>
-                            <form action="" class="loginMenu">
+                            <form action="/OMT/Login" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="reitoria"/>
                                 <input id="acessoLoginRet" type="text" placeholder="Nome de Acesso">
                                 <input id="senhaLoginRet" type="password" placeholder="Senha">
-                                <input class="btn" id="buttonLoginRet" type="button" value="Entrar">
+                                <input class="btn" id="buttonLoginRet" type="submit" value="Entrar">
                             </form>
                         </div>
                     </div>
@@ -95,10 +98,11 @@
                     <div class="card" id="loginTec">
                         <div class="card-content">
                             <h4>Campus</h4>
-                            <form action="" class="loginMenu">
+                            <form action="/OMT/Login" method="POST" class="loginMenu">
+                                <input type="hidden" name="entidade" value="campus"/>
                                 <input id="acessoLogiTec" type="text" placeholder="Nome de Acesso">
                                 <input id="senhaLoginTec" type="password" placeholder="Senha">
-                                <input class="btn" id="buttonLoginTec" type="button" value="Entrar">
+                                <input class="btn" id="buttonLoginTec" type="submit" value="Entrar">
                             </form>
                         </div>
                     </div>
@@ -106,8 +110,8 @@
 
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="../parallax-template/js/materialize.js"></script>
+        <script src="../_JS/jquery-3.2.1.min.js"></script>
+        <script src="../_CSS/parallax-template/js/materialize.js"></script>
         <script>
             $(document).ready(function () {
                 $('.tabs').tabs();
