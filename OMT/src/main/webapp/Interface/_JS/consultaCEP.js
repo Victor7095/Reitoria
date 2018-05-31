@@ -35,7 +35,7 @@ function initCEP() {
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.
-                        limpa_formulário_cep();
+                        $("#endereco").val("");
                         alert("CEP não encontrado.");
                     }
                 });
