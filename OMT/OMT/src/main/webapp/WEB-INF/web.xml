@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>EmpresaServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.EmpresaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DiscenteServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.DiscenteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EventosServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.EventosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpresaServlet</servlet-name>
+        <url-pattern>/EmpresaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiscenteServlet</servlet-name>
+        <url-pattern>/DiscenteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventosServlet</servlet-name>
+        <url-pattern>/EventosServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
