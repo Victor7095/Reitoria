@@ -30,14 +30,17 @@
                                 </div>
                             </form>
                         </div>-->
-                    <div class="row">
-                        <div class="col s9">
-                            <h3>Informações dos Alunos Cadastrados</h3>
+                    <h3>Informações dos Alunos Cadastrados</h3>
+                    <br><br>
+                    <p>
+                        <div class="row">
+                            <form method="get" action="">
+                                <input name="search" type="text" class="input col s4" placeholder="Insira o nome de um aluno aqui...">
+                                <button type="submit" class="btn" style="margin-left: 20px">Pesquisar</button>
+                                <a href="../Cadastro/aluno.jsp" class="btn btn-large green waves-effect right">Cadastrar Aluno</a>
+                            </form>
                         </div>
-                        <div class="col s3 right">
-                            <button class="btn-large" style="margin-top: 30px;" type="submit">Adicionar um Aluno</button>
-                        </div>
-                    </div>
+                    </p>
                     <br>
                     <div class="row">
                         <table class="striped">
@@ -57,9 +60,9 @@
                                     <td>4324234</td>
                                     <td>432432532</td>
                                     <td class="center-align">
-                                        <button class="btn-small green">Ver</button>
-                                        <button class="btn-small yellow darken-2">Alterar</button>
-                                        <button class="btn-small red">Deletar</button>
+                                        <button class="btn-small waves-effect green">Ver</button>
+                                        <button class="btn-small waves-effect yellow darken-2">Alterar</button>
+                                        <button class="btn-small waves-effect red">Deletar</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -68,9 +71,9 @@
                                     <td>723894</td>
                                     <td>44326732</td>
                                     <td class="center-align">
-                                        <button class="btn-small green">Ver</button>
-                                        <button class="btn-small yellow darken-2">Alterar</button>
-                                        <button class="btn-small red">Deletar</button>
+                                        <button class="btn-small waves-effect green">Ver</button>
+                                        <button class="btn-small waves-effect yellow darken-2">Alterar</button>
+                                        <button class="btn-small waves-effect red">Deletar</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -79,9 +82,9 @@
                                     <td>678432</td>
                                     <td>432672</td>
                                     <td class="center-align">
-                                        <button class="btn-small green">Ver</button>
-                                        <button class="btn-small yellow darken-2">Alterar</button>
-                                        <button class="btn-small red">Deletar</button>
+                                        <button class="btn-small waves-effect green">Ver</button>
+                                        <button class="btn-small waves-effect yellow darken-2">Alterar</button>
+                                        <button class="btn-small waves-effect red">Deletar</button>
                                     </td>
                                 </tr>
                             </tbody>

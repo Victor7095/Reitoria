@@ -30,14 +30,17 @@
                                 </div>
                             </form>
                         </div>-->
-                    <div class="row">
-                        <div class="col s9">
-                            <h3>Informações dos Eventos Cadastrados</h3>
+                    <h3>Informações dos Eventos Cadastrados</h3>
+                    <br><br>
+                    <p>
+                        <div class="row">
+                            <form method="get" action="">
+                                <input name="search" type="text" class="input col s4" placeholder="Insira o nome de um evento aqui...">
+                                <button type="submit" class="btn" style="margin-left: 20px">Pesquisar</button>
+                                <a href="../Cadastro/evento.jsp" class="btn btn-large green waves-effect right">Cadastrar Evento</a>
+                            </form>
                         </div>
-                        <div class="col s3 right">
-                            <button class="btn-large" style="margin-top: 30px;" type="submit">Adicionar um Evento</button>
-                        </div>
-                    </div>
+                    </p>
                     <br>
                     <div class="row">
                         <div class="col s12">
@@ -56,7 +59,7 @@
                                         <td>1</td>
                                         <td>Semana de Informática</td>
                                         <td>Semana onde se realiza palestras e exposições voltadas pra área de informática.</td>
-                                        <td>Evento Futuro</td>
+                                        <td>Inscrições Abertas</td>
                                         <td class="center-align">
                                             <button class="btn-small green">Ver</button>
                                             <button class="btn-small yellow darken-2">Alterar</button>
