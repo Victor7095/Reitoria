@@ -13,6 +13,7 @@ public class HibernateUtil<T> {
     private String message = "";
 
     public String salvar(T classe) {
+        HibernateFactory.initSessionFactory();
         session = HibernateFactory.getSessionFactory().openSession();
         session.beginTransaction();
         try {

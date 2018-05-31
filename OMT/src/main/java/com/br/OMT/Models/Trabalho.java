@@ -42,12 +42,12 @@ public class Trabalho implements Serializable {
     private Entidade entidade;
 
     @Transient
-    private Trabalho getInstance;
+    private static Trabalho getInstance;
 
     private Trabalho() {
     }
 
-    public Trabalho getInstance() {
+    public static Trabalho getInstance() {
         if (getInstance == null) {
             getInstance = new Trabalho();
         }

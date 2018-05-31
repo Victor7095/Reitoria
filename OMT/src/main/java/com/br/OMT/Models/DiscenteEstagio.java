@@ -32,12 +32,12 @@ public class DiscenteEstagio implements Serializable {
     private Trabalho trabalho;
 
     @Transient
-    private DiscenteEstagio getInstance;
+    private static DiscenteEstagio getInstance;
 
     private DiscenteEstagio() {
     }
 
-    public DiscenteEstagio getInstance() {
+    public static DiscenteEstagio getInstance() {
         if (getInstance == null) {
             getInstance = new DiscenteEstagio();
         }

@@ -36,13 +36,12 @@ public class Discente extends Usuario implements Serializable {
     private DiscenteEstagio discenteEstagio;
 
     @Transient
-    private Discente getInstance;
+    private static Discente getInstance;
 
     private Discente() {
     }
 
-    @Override
-    public Discente getInstance() {
+    public static Discente getInstance() {
         if (getInstance == null) {
             getInstance = new Discente();
         }

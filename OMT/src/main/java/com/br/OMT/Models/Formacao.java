@@ -34,12 +34,12 @@ public class Formacao implements Serializable {
     private Discente discente;
 
     @Transient
-    private Formacao getInstance;
+    private static Formacao getInstance;
 
     private Formacao() {
     }
 
-    public Formacao getInstance() {
+    public static Formacao getInstance() {
         if (getInstance == null) {
             getInstance = new Formacao();
         }

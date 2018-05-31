@@ -44,12 +44,12 @@ public class Eventos implements Serializable {
     private Entidade entidade;
 
     @Transient
-    private Eventos getInstance;
+    private static Eventos getInstance;
 
     private Eventos() {
     }
 
-    public Eventos getInstance() {
+    public static Eventos getInstance() {
         if (getInstance == null) {
             getInstance = new Eventos();
         }

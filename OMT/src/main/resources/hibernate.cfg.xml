@@ -52,13 +52,13 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="com.br.OMT.models.Usuario"/>
-    <mapping class="com.br.ONT.models.Trabalho"/>
+    <mapping class="com.br.OMT.models.Trabalho"/>
     <mapping class="com.br.OMT.models.Projetos"/>
-    <mapping class="com.br.ONT.models.Formacao"/>
+    <mapping class="com.br.OMT.models.Formacao"/>
     <mapping class="com.br.OMT.models.Eventos"/>
-    <mapping class="com.br.ONT.models.Entidade"/>
+    <mapping class="com.br.OMT.models.Entidade"/>
     <mapping class="com.br.OMT.models.DiscenteEstagio"/>
-    <mapping class="com.br.ONT.models.Discente"/>
-    <mapping class="com.br.ONT.models.CursosEspecializantes"/>
+    <mapping class="com.br.OMT.models.Discente"/>
+    <mapping class="com.br.OMT.models.CursosEspecializantes"/>
   </session-factory>
 </hibernate-configuration>

@@ -66,12 +66,12 @@ public class Entidade implements Serializable {
     private List<Eventos> eventos;
 
     @Transient
-    private Entidade getInstance;
+    private static Entidade getInstance;
 
     private Entidade() {
     }
 
-    public Entidade getInstance() {
+    public static Entidade getInstance() {
         if (getInstance == null) {
             getInstance = new Entidade();
         }

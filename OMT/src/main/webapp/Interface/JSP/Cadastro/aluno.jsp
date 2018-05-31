@@ -27,10 +27,10 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" name="cadastrar-aluno" method="post" action="">
+                                <form class="col s12" name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet">
                                     <div class="row">
                                         <div class="input-field col s5 offset-s1">
-                                            <label for="usuario">Usuário</label>
+                                            <label for="usuario">Matrícula</label>
                                             <input type="text" id="usuario" name="usuario" required>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
                                         <div class="col s2 offset-s1">
-                                            <button type="submit" class="btn btn-large waves-effect waves-green">Cadastrar</button>
+                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>

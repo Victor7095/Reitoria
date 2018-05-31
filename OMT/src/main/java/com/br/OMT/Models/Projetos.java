@@ -31,12 +31,12 @@ public class Projetos implements Serializable {
     private Discente discente;
 
     @Transient
-    private Projetos getInstance;
+    private static Projetos getInstance;
 
     private Projetos() {
     }
 
-    public Projetos getInstance() {
+    public static Projetos getInstance() {
         if (getInstance == null) {
             getInstance = new Projetos();
         }

@@ -21,21 +21,35 @@ function initCEP() {
             if (validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                $("#endereco").val("...");
-
+                $("#estado").val("...");
+                $("#cidade").val("...");
+                $("#bairro").val("...");
+                $("#rua").val("...");
+                $("#complemento").val("...");
                 //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                     if (!("erro" in dados)) {
-                        
-                        var endereco = dados.logradouro + ". " + dados.bairro + ". " + dados.localidade + "/" + dados.uf + ".";
-                        $("#endereco").val(endereco);
-                        $("#endereco").trigger("change");
-                        
+
+                        $("#estado").val(dados.uf);
+                        $("#cidade").val(dados.localidade);
+                        $("#bairro").val(dados.bairro);
+                        $("#rua").val(dados.logradouro);
+                        $("#complemento").val(dados.complemento);
+                        $("#estado").trigger("change");
+                        $("#cidade").trigger("change");
+                        $("#bairro").trigger("change");
+                        $("#rua").trigger("change");
+                        $("#complemento").trigger("change");
+
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.
-                        $("#endereco").val("");
+                        $("#estado").val("");
+                        $("#cidade").val("");
+                        $("#bairro").val("");
+                        $("#rua").val("");
+                        $("#complemento").val("");
                         alert("CEP não encontrado.");
                     }
                 });
@@ -48,7 +62,7 @@ function initCEP() {
         } //end if.
         else {
             //cep sem valor, limpa formulário.
-                $("#endereco").val("");
+            $("#endereco").val("");
         }
     });
 }

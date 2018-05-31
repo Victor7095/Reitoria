@@ -8,6 +8,7 @@ package com.br.OMT.models;
 import java.io.Serializable;
 import javax.persistence.*;
 
+
 /**
  *
  * @author vinic
@@ -30,12 +31,12 @@ public class CursosEspecializantes implements Serializable {
     private Discente discente;
 
     @Transient
-    private CursosEspecializantes getInstance;
+    private static CursosEspecializantes getInstance;
 
     private CursosEspecializantes() {
     }
 
-    public CursosEspecializantes getInstance() {
+    public static CursosEspecializantes getInstance() {
         if (getInstance == null) {
             getInstance = new CursosEspecializantes();
         }

@@ -27,7 +27,7 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" method="post" name="cadastrar-evento" action="">
+                                <form class="col s12" method="post" name="cadastrar-evento" action="/OMT/EventosServlet">
                                     <div class="row">
                                         <div class="input-field col s7 offset-s1">
                                             <label for="nome">Nome do Evento</label>
@@ -78,7 +78,7 @@
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
                                         <div class="col s2 offset-s1">
-                                            <button type="submit" class="btn btn-large waves-effect waves-green">Cadastrar</button>
+                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>

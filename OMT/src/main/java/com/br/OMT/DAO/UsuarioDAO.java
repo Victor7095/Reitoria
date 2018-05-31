@@ -15,12 +15,7 @@ public class UsuarioDAO {
         huu = new HibernateUtil<>();
     }
 
-    public int salvar(Usuario usuario) {
-        String s = huu.salvar(usuario);
-        if (s.equals("")) {
-            return 1;
-        } else {
-            return 0;
-        }
+    public String salvar(Usuario usuario) {
+        return huu.salvar(usuario);
     }
 }

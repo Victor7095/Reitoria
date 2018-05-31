@@ -27,13 +27,7 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" method="post" name="cadastrar-empresa" action="">
-                                    <div class="row">
-                                        <div class="input-field col s10 offset-s1">
-                                            <label for="nome">Nome da Empresa</label>
-                                            <input type="text" id="nome" name="nome" required>
-                                        </div>
-                                    </div>
+                                <form class="col s12" method="post" name="cadastrar-empresa" action="/OMT/EmpresaServlet">
                                     <div class="row">
                                         <div class="input-field col s6 offset-s1">
                                             <label for="cnpj">CNPJ</label>
@@ -42,6 +36,12 @@
                                         <div class="input-field col s4">
                                             <label for="cnae">CNAE</label>
                                             <input type="text" id="cnae" name="cnae" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s10 offset-s1">
+                                            <label for="nome">Nome da Empresa</label>
+                                            <input type="text" id="nome" name="nome" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -58,10 +58,64 @@
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="endereco">Endereço</label>
-                                            <input type="text" id="endereco" name="endereco" readonly required>
+                                            <label for="estado">Estado</label>
+                                            <input type="text" id="estado" name="estado" readonly required>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="cidade">Cidade</label>
+                                            <input type="text" id="cidade" name="cidade" readonly required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="bairro">Bairro</label>
+                                            <input type="text" id="bairro" name="bairro" readonly required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="rua">Rua</label>
+                                            <input type="text" id="rua" name="rua" readonly required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="numero">Numero</label>
+                                            <input type="text" id="numero" name="numero" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="complemento">Complemento</label>
+                                            <input type="text" id="complemento" name="complemento" readonly required>
+                                        </div>
+                                    </div>  
+                                    
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label> Usuário padrão</label>
+                                        </div>
+                                    </div>  
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="nome">Nome</label>
+                                            <input type="text" id="nome" name="nome"  required>
+                                        </div>
+                                    </div>   
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="usuario">Usuário (nome para entrar no sistema)</label>
+                                            <input type="text" id="usuario" name="usuario"  required>
+                                        </div>
+                                    </div>  
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="senha">Senha</label>
+                                            <input type="password" id="senha" name="senha"  required>
+                                        </div>
+                                    </div>  
                                     
                                     <br><br>
                                     <div class="row">
@@ -69,7 +123,7 @@
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
                                         <div class="col s2 offset-s1">
-                                            <button type="submit" class="btn btn-large waves-effect waves-green">Cadastrar</button>
+                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>
