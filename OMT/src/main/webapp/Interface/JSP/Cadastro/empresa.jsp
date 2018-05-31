@@ -46,14 +46,20 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
-                                            <label for="endereco">Endereço</label>
-                                            <input type="text" id="endereco" name="endereco" required>
+                                            <label for="nomeFantasia">Nome Fantasia da Empresa</label>
+                                            <input type="text" id="nomeFantasia" name="nomeFantasia" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s10 offset-s1">
-                                            <label for="nomeFantasia">Nome Fantasia da Empresa</label>
-                                            <input type="text" id="nomeFantasia" name="nomeFantasia" required>
+                                        <div class="input-field col s3 offset-s1">
+                                            <label for="cep">CEP</label>
+                                            <input type="text" id="cep" name="cep" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s10 offset-s1">
+                                            <label for="endereco">Endereço</label>
+                                            <input type="text" id="endereco" name="endereco" readonly required>
                                         </div>
                                     </div>
                                     
@@ -74,8 +80,9 @@
             </div>
         </div>
         <script src="../../_JS/jquery-3.2.1.min.js"></script>
+        <script src="../../_CSS/parallax-template/js/materialize.js"></script>
         <script src="../../_JS/jquery.mask.js"></script>
         <script src="../../_JS/mask.js"></script>
-        <script src="../../_CSS/parallax-template/js/materialize.js"></script>
+        <script src="../../_JS/consultaCEP.js"></script>
     </body>
 </html>
