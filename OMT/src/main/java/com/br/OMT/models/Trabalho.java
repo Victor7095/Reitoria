@@ -34,6 +34,9 @@ public class Trabalho implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date tempoFinal;
 
+    @Column(name = "tipo")
+    private char tipo;
+
     @OneToOne(mappedBy = "trabalho")
     private DiscenteEstagio discenteEstagio;
 
@@ -116,6 +119,14 @@ public class Trabalho implements Serializable {
 
     public void setEntidade(Entidade entidade) {
         this.entidade = entidade;
+    }
+
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
     }
 
 }

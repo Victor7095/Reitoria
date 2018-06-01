@@ -5,8 +5,8 @@
  */
 package com.br.OMT.Servlets;
 
-import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.models.Discente;
+import com.br.OMT.DAO.ProjetosDAO;
+import com.br.OMT.models.Projetos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,11 +18,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vinic
  */
-public class DiscenteServlet extends HttpServlet {
+public class ProjetoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
     }
 
     @Override
@@ -31,19 +32,17 @@ public class DiscenteServlet extends HttpServlet {
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                Discente d = Discente.getInstance();
-                d.setNome(request.getParameter("nome"));
-                d.setRG(request.getParameter("rg"));
-                d.setCPF(request.getParameter("cpf"));
-                d.setSenha(request.getParameter("senha"));
-                d.setUsuario(request.getParameter("usuario"));
-                d.setTipo('D');
-                DiscenteDAO ddao = new DiscenteDAO();
-                String str = ddao.salvar(d);
+                Projetos p = Projetos.getInstance();
+
+                p.setNome(request.getParameter("nome"));
+                p.setDescricao(request.getParameter("descricao"));
+                p.setArea(request.getParameter("area"));
+                ProjetosDAO pdao = new ProjetosDAO();
+                String str = pdao.salvar(p);
                 if (str.equals("")) {
-                    response.getWriter().println("Salvo!");
+                    response.getWriter().println("Certo!");
                 } else {
-                    response.getWriter().println("Errado!");
+                    response.getWriter().println("Errado:: "+str);
                 }
             }
         }

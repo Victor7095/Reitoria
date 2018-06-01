@@ -22,7 +22,7 @@ public class Entidade implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cnpj", nullable = false, length = 14)
+    @Column(name = "cnpj", nullable = false, length = 20)
     private String CNPJ;
 
     @Column(name = "cnae", nullable = false, length = 14)

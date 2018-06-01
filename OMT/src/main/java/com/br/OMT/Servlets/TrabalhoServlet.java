@@ -5,8 +5,8 @@
  */
 package com.br.OMT.Servlets;
 
-import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.models.Discente;
+import com.br.OMT.DAO.TrabalhoDAO;
+import com.br.OMT.models.Trabalho;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vinic
  */
-public class DiscenteServlet extends HttpServlet {
+public class TrabalhoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,19 +31,20 @@ public class DiscenteServlet extends HttpServlet {
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                Discente d = Discente.getInstance();
-                d.setNome(request.getParameter("nome"));
-                d.setRG(request.getParameter("rg"));
-                d.setCPF(request.getParameter("cpf"));
-                d.setSenha(request.getParameter("senha"));
-                d.setUsuario(request.getParameter("usuario"));
-                d.setTipo('D');
-                DiscenteDAO ddao = new DiscenteDAO();
-                String str = ddao.salvar(d);
+                Trabalho t = Trabalho.getInstance();
+                t.setProfissao(request.getParameter("profissao"));
+                t.setTipo(request.getParameter("tipo").charAt(0));
+                t.setSalario(Double.parseDouble(request.getParameter("salario")));
+                t.setDescricao(request.getParameter("descricao"));
+                //t.setTempoFinal(request.getParameter("inicio"));
+                //t.setTempoInicio(request.getParameter("fim"));
+                //t.setEntidade(entidade);
+                TrabalhoDAO tdao = new TrabalhoDAO();
+                String str = tdao.salvar(t);
                 if (str.equals("")) {
-                    response.getWriter().println("Salvo!");
+                    response.getWriter().println("Certo");
                 } else {
-                    response.getWriter().println("Errado!");
+                    response.getWriter().println("Errrado: " + str);
                 }
             }
         }

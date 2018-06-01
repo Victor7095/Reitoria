@@ -26,10 +26,10 @@ public class Discente extends Usuario implements Serializable {
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
     private byte[] foto;
 
-    @OneToMany(cascade = ALL, mappedBy = "usuario")
+    @OneToMany(cascade = ALL, mappedBy = "discente")
     private List<Projetos> projetos;
 
-    @OneToMany(cascade = ALL, mappedBy = "usuario")
+    @OneToMany(cascade = ALL, mappedBy = "discente")
     private List<CursosEspecializantes> cursos;
 
     @OneToOne(mappedBy = "discente")

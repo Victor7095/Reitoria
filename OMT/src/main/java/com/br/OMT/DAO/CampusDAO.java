@@ -7,39 +7,39 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Discente;
+import com.br.OMT.models.Entidade;
+import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 /**
  *
  * @author vinic
  */
-public class DiscenteDAO {
+public class CampusDAO {
 
-    HibernateUtil<Discente> hud;
+    HibernateUtil<Entidade> hue;
     Session s;
 
-    public DiscenteDAO() {
+    public CampusDAO() {
         HibernateFactory.initSessionFactory();
+        hue = new HibernateUtil<>();
         s = HibernateFactory.getSessionFactory().openSession();
-        hud = new HibernateUtil<>();
     }
 
-    public String salvar(Discente discente) {
-        return hud.salvar(discente);
+    public String salvar(Entidade e) {
+        return hue.salvar(e);
     }
 
-    public Discente buscarById(Long id) {
-        Discente d = null;
+    public Entidade findByCNPJ(String cnpj) {
+        Entidade e = null;
         try {
             s.beginTransaction();
-            Query query = s.createQuery("from Discente d where d.id =:id");
-            query.setParameter("id", id);
-            d = (Discente) query.getSingleResult();
+            Query query = s.createQuery("from Entidade e where e.CNPJ =:cnpj");
+            query.setParameter("cnpj", cnpj);
+            e = (Entidade) query.getSingleResult();
             s.getTransaction().commit();
-            return d;
+            return e;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
             return null;

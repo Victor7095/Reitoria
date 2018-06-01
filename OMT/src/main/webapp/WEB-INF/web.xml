@@ -16,6 +16,30 @@
         <servlet-name>EventosServlet</servlet-name>
         <servlet-class>com.br.OMT.Servlets.EventosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProjetoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.ProjetoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormacaoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.FormacaoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CursosEspecializantesServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.CursosEspecializantesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdmistradoresServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.AdmistradoresServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CampusServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.CampusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TrabalhoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.TrabalhoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -31,6 +55,30 @@
     <servlet-mapping>
         <servlet-name>EventosServlet</servlet-name>
         <url-pattern>/EventosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProjetoServlet</servlet-name>
+        <url-pattern>/ProjetoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormacaoServlet</servlet-name>
+        <url-pattern>/FormacaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CursosEspecializantesServlet</servlet-name>
+        <url-pattern>/CursosEspecializantesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdmistradoresServlet</servlet-name>
+        <url-pattern>/AdmistradoresServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CampusServlet</servlet-name>
+        <url-pattern>/CampusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrabalhoServlet</servlet-name>
+        <url-pattern>/TrabalhoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

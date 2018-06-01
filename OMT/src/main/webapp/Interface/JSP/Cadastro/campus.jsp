@@ -1,8 +1,3 @@
-<%-- 
-    Document   : empresa
-    Created on : 28/05/2018, 20:39:40
-    Author     : Gabriel San Martin
---%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastro de Empresa - OMT</title>
+        <title>Cadastro de Campus - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">    
     </head>
@@ -23,12 +18,12 @@
                 <div class="col s8 offset-s2">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
-                            <h3>Cadastro de Empresa</h3>
+                            <h3>Cadastro de Campus</h3>
                         </div>
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" method="post" name="cadastrar-empresa" action="/OMT/EmpresaServlet">
+                                <form class="col s12" method="post" name="cadastrar-campus" action="/OMT/CampusServlet">
                                     <div class="row">
                                         <div class="input-field col s6 offset-s1">
                                             <label for="cnpj">CNPJ</label>
@@ -41,13 +36,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
-                                            <label for="nome">Nome da Empresa</label>
+                                            <label for="nome">Nome do Campus</label>
                                             <input type="text" id="nome" name="nome" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
-                                            <label for="nomeFantasia">Nome Fantasia da Empresa</label>
+                                            <label for="nomeFantasia">Nome Fantasia do Campus</label>
                                             <input type="text" id="nomeFantasia" name="nomeFantasia" required>
                                         </div>
                                     </div>
@@ -93,6 +88,8 @@
                                             <input type="text" id="complemento" name="complemento" readonly required>
                                         </div>
                                     </div>  
+                                    <label>Tipo (YAN AQUI É UM SELECT - CAMPUS OU REITORIA)
+                                    <input type="text" name="tipo"/>
                                     
                                     <div class="row">
                                         <div class="col s10 offset-s1">
