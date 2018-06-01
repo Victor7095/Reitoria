@@ -3,12 +3,13 @@
     Created on : 28/05/2018, 20:38:44
     Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Aluno - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">        
@@ -30,7 +31,7 @@
                                 <form class="col s12" name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet">
                                     <div class="row">
                                         <div class="input-field col s5 offset-s1">
-                                            <label for="usuario">MatrÃ­cula</label>
+                                            <label for="usuario">Matrícula</label>
                                             <input type="text" id="usuario" name="usuario" required>
                                         </div>
                                     </div>
@@ -90,9 +91,5 @@
         <script src="../../_JS/jquery.mask.js"></script>
         <script src="../../_JS/mask.js"></script>
         <script src="../../_CSS/parallax-template/js/materialize.js"></script>
-        
-        <script>
-            
-        </script>
     </body>
 </html>

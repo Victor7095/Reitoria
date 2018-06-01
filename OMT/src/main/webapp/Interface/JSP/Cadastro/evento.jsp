@@ -3,12 +3,13 @@
     Created on : 28/05/2018, 20:39:30
     Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Evento - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">    
@@ -27,7 +28,7 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" method="post" name="cadastrar-evento" action="/OMT/EventosServlet">
+                                <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/EventosServlet">
                                     <div class="row">
                                         <div class="input-field col s7 offset-s1">
                                             <label for="nome">Nome do Evento</label>
@@ -37,12 +38,12 @@
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
                                             <textarea id="descricao" name="descricao" class="materialize-textarea" data-length="120"></textarea>
-                                            <label for="descricao">DescriÃ§Ã£o do Evento</label>
+                                            <label for="descricao">Descrição do Evento</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s4 offset-s1">
-                                            <span>Data de InÃ­cio das InscriÃ§Ãµes</span>
+                                            <span>Data de Início das Inscrições</span>
                                         </div>
                                         <div class="col s4 offset-s2">
                                             <input id="inscricaoInicio" name="inscricaoInicio" class="datepicker">
@@ -50,7 +51,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col s4 offset-s1">
-                                            <span>Data de Fim das InscriÃ§Ãµes</span>
+                                            <span>Data de Fim das Inscrições</span>
                                         </div>
                                         <div class="col s4 offset-s2">
                                             <input id="inscricaoFim" name="inscricaoFim" class="datepicker">
@@ -58,7 +59,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col s4 offset-s1">
-                                            <span>Data de InÃ­cio do Evento</span>
+                                            <span>Data de Início do Evento</span>
                                         </div>
                                         <div class="col s4 offset-s2">
                                             <input id="inicio" name="inicio" class="datepicker">
@@ -93,7 +94,18 @@
         <script src="../../_JS/mask.js"></script>
         <script src="../../_CSS/parallax-template/js/materialize.js"></script>
         <script>
-            $(".datepicker").datepicker();
+            $(".datepicker").datepicker({
+                selectMonths: true,
+                selectYears: true,
+                clear: false,
+                format: 'dd/mm/yyyy',
+                today: "Hoje",
+                close: "X",
+                autoClose: true
+            });
+            $('#cadastrar-evento').submit(function (e) {
+                alert($('#inscricaoInicio').val());
+            });
         </script>
     </body>
 </html>

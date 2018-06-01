@@ -3,12 +3,13 @@
     Created on : 29/05/2018, 14:27:55
     Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Alunos - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">          
@@ -32,7 +33,7 @@
                         </div>-->
                     <div class="row">
                         <div class="col s9">
-                            <h3>InformaÃ§Ãµes dos Alunos Cadastrados</h3>
+                            <h3>Informações dos Alunos Cadastrados</h3>
                         </div>
                         <div class="col s3 right">
                             <button class="btn-large" style="margin-top: 30px;" type="submit">Adicionar um Aluno</button>
@@ -47,7 +48,7 @@
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
-                                    <th class="center-align">AÃ§Ãµes</th>
+                                    <th class="center-align">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,7 +65,7 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Pedro VinÃ­cius de Oliveira Pequeno</td>
+                                    <td>Pedro Vinícius de Oliveira Pequeno</td>
                                     <td>723894</td>
                                     <td>44326732</td>
                                     <td class="center-align">
@@ -89,7 +90,8 @@
                     </div>
                 </div>
             </div>
-            <script src="../../_JS/jquery-3.2.1.min.js"></script>
-            <script src="../../_CSS/parallax-template/js/materialize.js"></script>
+        </div>
+        <script src="../../_JS/jquery-3.2.1.min.js"></script>
+        <script src="../../_CSS/parallax-template/js/materialize.js"></script>
     </body>
 </html>

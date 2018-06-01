@@ -3,12 +3,13 @@
     Created on : 28/05/2018, 20:39:40
     Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Empresa - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">    
@@ -95,7 +96,7 @@
                                     
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label> Usu√°rio padr√£o</label>
+                                            <label> Usu·rio padr„o</label>
                                         </div>
                                     </div>  
                                     <div class="row">
@@ -106,7 +107,7 @@
                                     </div>   
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="usuario">Usu√°rio (nome para entrar no sistema)</label>
+                                            <label for="usuario">Usu·rio (nome para entrar no sistema)</label>
                                             <input type="text" id="usuario" name="usuario"  required>
                                         </div>
                                     </div>  
