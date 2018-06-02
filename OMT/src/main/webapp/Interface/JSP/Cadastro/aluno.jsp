@@ -20,7 +20,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col s8 offset-s2">
+                <div class="col s12">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align" title="Cadastrar um aluno">
                             <h3>Cadastro de Aluno</h3>
@@ -30,33 +30,33 @@
                             <div class="row">
                                 <form class="col s12" name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet">
                                     <div class="row">
-                                        <div class="input-field col s5 offset-s1">
+                                        <div class="input-field col s12 offset-s0 m5 offset-m1">
                                             <label for="usuario">Matrícula</label>
                                             <input type="text" id="usuario" name="usuario" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s5 offset-s1">
+                                        <div class="input-field col s12 m5 offset-m1">
                                             <label for="senha">Senha</label>
                                             <input type="password" id="senha" name="senha" required>
                                         </div>
-                                        <div class="input-field col s5">
+                                        <div class="input-field col s12 m5">
                                             <label for="confirmar">Confirmar Senha</label>
                                             <input type="password" id="confirmar" name="confirmar" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s10 offset-s1">
+                                        <div class="input-field col s12 m10 offset-m1">
                                             <label for="nome">Nome Completo</label>
                                             <input type="text" id="nome" name="nome" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s6 offset-s1">
+                                        <div class="input-field col s12 m5 offset-m1">
                                             <label for="cpf">CPF</label>
                                             <input type="text" name="cpf" id="cpf" maxlength="14" required>
                                         </div>
-                                        <div class="input-field col s4">
+                                        <div class="input-field col s12 m5">
                                             <label for="rg">RG</label>
                                             <input type="text" id="rg" name="rg" maxlength="" required>
                                         </div>
@@ -72,11 +72,11 @@
                                     </div>-->
 
                                     <br><br>
-                                    <div class="row">
-                                        <div class="col s2 offset-s3">
+                                    <div class="row center">
+                                        <div class="col s12 m2 offset-m2 btn-mb-sm">
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
-                                        <div class="col s2 offset-s1">
+                                        <div class="col s12 m2 offset-m4">
                                             <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>

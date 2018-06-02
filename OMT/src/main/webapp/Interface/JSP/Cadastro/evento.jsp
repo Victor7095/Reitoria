@@ -74,11 +74,11 @@
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="row">
-                                        <div class="col s2 offset-s3">
+                                    <div class="row center">
+                                        <div class="col m12 l2 offset-l2 btn-mb-md">
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
-                                        <div class="col s2 offset-s1">
+                                        <div class="col m12 l2 offset-l3">
                                             <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Novo projeto - OMT</title>
+        <title>Novo administrador - OMT</title>
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../../_CSS/parallax-template/css/style.css">  
     </head>
@@ -13,25 +13,25 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 l6">
-                    <form id="cadastrar-formacao" method="POST" action="/OMT/ProjetoServlet" class="card-panel">
+                    <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet" class="card-panel">
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="nome" id="nome" type="text" class="validate">
+                                <input name="nome" id="nome" type="text" class="validate" required>
                                 <label for="nome">Nome</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="descricao" type="text" class="validate" name="descricao"/>
-                                <label for="descricao">Descricao</label>
+                                <input id="usuario" type="text" class="validate" name="usuario" required=""/>
+                                <label for="usuario">Usuário (nome para entrar no sistema)</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="area" type="text" class="validate" name="area"/>
-                                <label for="area">Área</label>
+                                <input id="senha" type="password" class="validate" name="senha" required/>
+                                <label for="senha">Senha</label>
                             </div>
                         </div>
                         <div class="row">

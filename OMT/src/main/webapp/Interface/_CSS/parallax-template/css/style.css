@@ -37,11 +37,17 @@ p {
   #index-banner .section {
     top: 10%;
   }
+  .btn-mb-md{
+      margin-bottom: 25px !important;
+  }
 }
 
 @media only screen and (max-width : 600px) {
   #index-banner .section {
     top: 0;
+  }
+  .btn-mb-sm{
+      margin-bottom: 25px !important;
   }
 }
 
