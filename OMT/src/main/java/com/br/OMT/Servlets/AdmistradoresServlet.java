@@ -6,7 +6,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.UsuarioDAO;
-import com.br.OMT.models.Usuario;
+import com.br.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

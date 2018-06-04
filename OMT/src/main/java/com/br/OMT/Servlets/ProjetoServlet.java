@@ -6,7 +6,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.ProjetosDAO;
-import com.br.OMT.models.Projetos;
+import com.br.models.Projetos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

@@ -7,7 +7,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Entidade;
+import com.br.models.Entidade;
 import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

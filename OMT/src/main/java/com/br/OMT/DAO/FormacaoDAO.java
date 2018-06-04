@@ -6,7 +6,7 @@
 package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Formacao;
+import com.br.models.Formacao;
 
 /**
  *

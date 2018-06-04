@@ -6,7 +6,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EventoDAO;
-import com.br.OMT.models.Eventos;
+import com.br.models.Eventos;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
