@@ -7,8 +7,8 @@ package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.DAO.FormacaoDAO;
-import com.br.models.Discente;
-import com.br.models.Formacao;
+import com.br.OMT.models.Discente;
+import com.br.OMT.models.Formacao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

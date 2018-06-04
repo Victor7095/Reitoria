@@ -7,8 +7,8 @@ package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EmpresaDAO;
 import com.br.OMT.DAO.UsuarioDAO;
-import com.br.models.Entidade;
-import com.br.models.Usuario;
+import com.br.OMT.models.Entidade;
+import com.br.OMT.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

@@ -6,7 +6,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.TrabalhoDAO;
-import com.br.models.Trabalho;
+import com.br.OMT.models.Trabalho;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
