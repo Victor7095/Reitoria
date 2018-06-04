@@ -29,6 +29,8 @@ public class ProjetoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
@@ -42,7 +44,7 @@ public class ProjetoServlet extends HttpServlet {
                 if (str.equals("")) {
                     response.getWriter().println("Certo!");
                 } else {
-                    response.getWriter().println("Errado:: "+str);
+                    response.getWriter().println("Errado:: " + str);
                 }
             }
         }

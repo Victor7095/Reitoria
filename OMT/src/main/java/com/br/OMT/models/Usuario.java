@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
     private String senha;
 
     @Column(name = "tipo", nullable = false, length = 1)
-    private char tipo;
+    private char tipo; // A= adm    D- discente
 
     @ManyToOne
     @JoinColumn(name = "entidade", nullable = true)

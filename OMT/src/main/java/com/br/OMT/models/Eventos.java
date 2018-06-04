@@ -10,7 +10,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "eventsos")
+@Table(name = "eventos")
 public class Eventos implements Serializable {
 
     @Id
@@ -24,11 +24,11 @@ public class Eventos implements Serializable {
     private String descricao;
 
     @Column(name = "dataInicioInscricao", nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dataInicioIncricao;
 
     @Column(name = "dataFinalInscricao", nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dataFinalIncricao;
 
     @Column(name = "dataInicioEvento", nullable = true)

@@ -28,6 +28,8 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {

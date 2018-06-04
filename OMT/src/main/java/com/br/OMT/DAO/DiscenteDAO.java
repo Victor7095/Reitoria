@@ -47,4 +47,40 @@ public class DiscenteDAO {
             s.close();
         }
     }
+
+    public Discente loginByCPF(String cpf, String senha) {
+        Discente d = null;
+        try {
+            s.beginTransaction();
+            Query query = s.createQuery("from Discente d where d.CPF =:cpf and d.senha = :senha");
+            query.setParameter("cpf", cpf);
+            query.setParameter("senha", senha);
+            d = (Discente) query.getSingleResult();
+            s.getTransaction().commit();
+            return d;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+
+    public Discente loginByMatricula(String matricula, String senha) {
+        Discente d = null;
+        try {
+            s.beginTransaction();
+            Query query = s.createQuery("from Discente d where d.usuario =:matricula and d.senha = :senha");
+            query.setParameter("matricula", matricula);
+            query.setParameter("senha", senha);
+            d = (Discente) query.getSingleResult();
+            s.getTransaction().commit();
+            return d;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
 }
