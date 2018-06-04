@@ -33,6 +33,9 @@ public class Usuario implements Serializable {
 
     @Column(name = "tipo", nullable = false, length = 1)
     private char tipo; // A= adm    D- discente
+    
+    @Column(name = "cargo", nullable = false, length = 1)
+    private char cargo; // C- CIE-E, E-extensão, G, geral
 
     @ManyToOne
     @JoinColumn(name = "entidade", nullable = true)
