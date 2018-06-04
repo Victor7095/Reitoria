@@ -4,8 +4,8 @@ header{
     top: 0;
     right: 0;
     left: 0;
-    border-bottom: 1px solid #ccc;
-    background: #19882c;
+    border-bottom: transparent;
+    background: white;
     z-index: 2;
 }
 
@@ -16,21 +16,31 @@ h4{
 
 }
 titulo{
+    background-color: #19882c;
     font-size: 32px;
     color: #FFFFFF;
     font-family:Cambria;
     text-align: center;
 }
 
-/*configurações específicas*/
-#cabecalhoHome{
-    background: #0a5517;
-    font-size: 12px;
+li img{
+    height: 70px;
+    width: 70px;
+    
 }
 
-#cabecalhoHome a{
-    color: white;
-}   
+/*configurações específicas*/
+#cabecalhoHome{
+    background: transparent;
+    border: transparent;
+}
+
+#imgUser{
+    border-radius: 40px;
+    height: 70px;
+    width: 70px;
+    border-color: black;
+}
 
 .tabs{
     height: auto;
@@ -40,6 +50,8 @@ titulo{
     display: block;
     width: 100%;
     border-bottom: 1px solid #f0f0f0;
+    background-color: transparent;
+        
 }
 .tab-content{
     height: 200px;
