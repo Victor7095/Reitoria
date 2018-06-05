@@ -28,7 +28,8 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet">
+                                <form class="col s12" name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet"
+                                      enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="input-field col s12 offset-s0 m5 offset-m1">
                                             <label for="usuario">Matrícula</label>
@@ -61,7 +62,8 @@
                                             <input type="text" id="rg" name="rg" maxlength="" required>
                                         </div>
                                     </div>
-
+                                    <img src="/OMT/DiscenteServlet" width="500" height="500"/>
+                                    <input type="file" name="foto"/>
                                     <!--<div class="row">
                                         <div class="col s4 offset-s4">
                                             <img src="../../../Imagens/student.png" width="200" height="200" id="imagem">

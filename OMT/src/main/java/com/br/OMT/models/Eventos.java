@@ -7,7 +7,9 @@ package com.br.OMT.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "eventos")
@@ -43,6 +45,8 @@ public class Eventos implements Serializable {
     @JoinColumn(name = "entidade")
     private Entidade entidade;
 
+    @OneToMany(mappedBy = "evento", cascade = ALL)
+    private List<FotosEventos> fotos;
     @Transient
     private static Eventos getInstance;
 
