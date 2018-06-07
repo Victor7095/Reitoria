@@ -12,7 +12,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Aluno - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">      
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
     </head>
     <body>
         <header>
@@ -24,7 +25,7 @@
                     <h4><a href="#">Voltar</a></h4>
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="center-align">Cadastro de Egresso</h4><br>
+                            <h4 class="center-align" name="titulo">Cadastro de Egresso</h4><br>
                             <form name="cadastrar-egresso" method="post" action="/OMT/DiscenteServlet"
                                   enctype="multipart/form-data">
                                 <div class="section">
