@@ -108,8 +108,10 @@
 
             </div>
         </div>
+        
         <script src="JS/jquery-3.2.1.min.js"></script>
         <script src="CSS/parallax-template/js/materialize.js"></script>
+        
         <script>
             $('#matriculaLoginDisc').blur(function () {
                 if ($('#matriculaLoginDisc').val().length === 11) {
@@ -117,7 +119,7 @@
                 } else {
                     $('#tipoLogin').val("matricula");
                 }
-            })
+            });
             $(document).ready(function () {
                 $('.tabs').tabs();
             });
