@@ -21,16 +21,16 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">
-                    <h4><a href=""><-- Voltar</a></h4>
+                    <h4><a href="#">Voltar</a></h4>
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="center-align">Cadastro de Aluno</h4><br>
-                            <form name="cadastrar-aluno" method="post" action="/OMT/DiscenteServlet"
+                            <h4 class="center-align">Cadastro de Egresso</h4><br>
+                            <form name="cadastrar-egresso" method="post" action="/OMT/DiscenteServlet"
                                   enctype="multipart/form-data">
                                 <div class="section">
                                     <div class="row">
                                         <div class="col s12 m10 offset-m1">
-                                            <h5>Informações Básicas do Aluno</h5>
+                                            <h5>Informações Básicas</h5>
                                         </div>
                                         <div class="input-field col s12 m10 offset-m1">
                                             <label for="nome">Nome Completo</label>
