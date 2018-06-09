@@ -28,7 +28,8 @@
                         <br>
                         <div class="card-content">
                             <div class="row">
-                                <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/EventosServlet">
+                                <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/EventosServlet" 
+                                      enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="input-field col s7 offset-s1">
                                             <label for="nome">Nome do Evento</label>
@@ -73,6 +74,7 @@
                                             <input id="fim" name="fim" class="datepicker">
                                         </div>
                                     </div>
+                                    <input type="file" name="foto" multiple="multiple"
                                     <br><br>
                                     <div class="row center">
                                         <div class="col m12 l2 offset-l2 btn-mb-md">

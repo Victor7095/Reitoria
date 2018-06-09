@@ -16,12 +16,23 @@ public class FotosEventos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fotos", nullable = true)
+    @Lob
+    @Column(name = "foto", nullable = true,  columnDefinition = "longblob")
     private byte[] foto;
 
     @ManyToOne
     @JoinColumn(name = "evento", nullable = true)
     private Eventos evento;
+
+    @Transient
+    private static FotosEventos getInstance;
+
+    public static FotosEventos getInstance() {
+        if (getInstance == null) {
+            getInstance = new FotosEventos();
+        }
+        return getInstance;
+    }
 
     public Long getId() {
         return id;

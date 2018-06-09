@@ -47,6 +47,7 @@ public class Eventos implements Serializable {
 
     @OneToMany(mappedBy = "evento", cascade = ALL)
     private List<FotosEventos> fotos;
+    
     @Transient
     private static Eventos getInstance;
 

@@ -60,5 +60,6 @@ Contributor(s):
     <mapping class="com.br.OMT.models.DiscenteEstagio"/>
     <mapping class="com.br.OMT.models.Discente"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
+    <mapping class="com.br.OMT.models.FotosEventos"/>
   </session-factory>
 </hibernate-configuration>
