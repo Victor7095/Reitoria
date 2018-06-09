@@ -38,23 +38,23 @@ public class LoginServlet extends HttpServlet {
         if (request != null && request.getMethod().equalsIgnoreCase("post")) {
             String entidade = request.getParameter("entidade");
             if (entidade.equals("discente")) {
-                Discente d = Discente.getInstance();
+                Discente d;
                 DiscenteDAO ddao = new DiscenteDAO();
                 String login = request.getParameter("login");
                 String senha = request.getParameter("senha");
                 if (request.getParameter("tipoLogin").equals("cpf")) {
                     d = ddao.loginByCPF(login, senha);
                     if (d != null) {
-                        response.getWriter().println("Bem-Vindo Discente " + d.getNome());
+                        response.sendRedirect("/OMT/discente/alunoIndex.jsp");
                     } else {
-                        response.getWriter().println("Senha errada");
+                        response.getWriter().println("ERRO");//erro
                     }
                 } else {
                     d = ddao.loginByMatricula(login, senha);
                     if (d != null) {
-                        response.getWriter().println("Bem-Vindo Discente " + d.getNome());
+                        response.sendRedirect("/OMT/discente/alunoIndex.jsp");
                     } else {
-                        response.getWriter().println("Senha errada");
+                        response.getWriter().println("ERRO");//erro
                     }
                 }
             } else {
@@ -67,16 +67,16 @@ public class LoginServlet extends HttpServlet {
                     Entidade e;
                     e = u.getEntidade();
                     if (e != null) {
-                        if (entidade.equals("empresa")) {
-                            response.getWriter().println("Vocé é " + u.getNome() + " empresa = " + e.getNomeFantasia());
-                        } else if (entidade.equals("campus")) {
-                            response.getWriter().println("Vocé é " + u.getNome() + " campus = " + e.getNomeFantasia());
-                        } else {
-                            response.getWriter().println("Vocé é " + u.getNome() + " reitoria = " + e.getNomeFantasia());
+                        if (entidade.equals("empresa") && e.getTipo()=='E') {
+                            response.sendRedirect("/OMT/erros/manutencao.jsp");
+                        } else if (entidade.equals("campus") && e.getTipo()=='C') {
+                            response.sendRedirect("/OMT/erros/manutencao.jsp");
+                        } else if(entidade.equals("reitoria") && e.getTipo()=='R') {
+                            response.sendRedirect("/OMT/erros/manutencao.jsp");
                         }
                     }
                 } else {
-                    response.getWriter().println("Errado + "+usuario + "  "+senha);
+                    response.getWriter().println("Errado + " + usuario + "  " + senha);
                 }
             }
         }

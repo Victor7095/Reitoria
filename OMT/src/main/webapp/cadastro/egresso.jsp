@@ -1,8 +1,3 @@
-<%-- 
-    Document   : aluno
-    Created on : 28/05/2018, 20:38:44
-    Author     : Gabriel San Martin
---%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>

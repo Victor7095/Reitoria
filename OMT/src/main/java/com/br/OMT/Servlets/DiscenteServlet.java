@@ -58,26 +58,19 @@ public class DiscenteServlet extends HttpServlet {
                         } else {
                             switch (item.getFieldName()) {
                                 case "usuario":
-                                    System.out.println("Usuario: " + item.getString());
                                     d.setUsuario(item.getString());
                                     break;
                                 case "senha":
-                                    System.out.println("Senha: " + item.getString());
                                     d.setSenha(item.getString());
                                     break;
-                                case "confirmar":
-                                    System.out.println("Confirmar: " + item.getString());
-                                    break;
                                 case "nome":
-                                    System.out.println("Nome: " + item.getString());
+                                    response.getWriter().println("Gelo! "+item.getString());
                                     d.setNome(item.getString());
                                     break;
                                 case "cpf":
-                                    System.out.println("CPF: " + item.getString());
                                     d.setCPF(item.getString());
                                     break;
                                 case "rg":
-                                    System.out.println("RG: " + item.getString());
                                     d.setRG(item.getString());
                                     break;
                             }
@@ -89,7 +82,7 @@ public class DiscenteServlet extends HttpServlet {
                 DiscenteDAO ddao = new DiscenteDAO();
                 String str = ddao.salvar(d);
                 if (str.equals("")) {
-                    response.getWriter().println("Certo!");
+                    response.getWriter().println("Certo! "+d.getNome());
                 } else {
                     response.getWriter().println("Errado!");
                 }

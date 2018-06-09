@@ -58,7 +58,7 @@
                             <h4>Discentes</h4>
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
-                                <input type="hidden" name="tipoLogin"/>
+                                <input type="hidden" name="tipoLogin" id="tipoLogin"/>
                                 <input id="matriculaLoginDisc" type="text"  name="login" placeholder="matrícula">
                                 <input id="senhaLoginDisc" type="password" name="senha" placeholder="senha">
                                 <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
@@ -114,10 +114,13 @@
         
         <script>
             $('#matriculaLoginDisc').blur(function () {
-                if ($('#matriculaLoginDisc').val().length === 11) {
+                if ($('#matriculaLoginDisc').val().length === 14) {
                     $('#tipoLogin').val("cpf");
+                    alert($('#tipoLogin').val());
                 } else {
+                     alert("mat");
                     $('#tipoLogin').val("matricula");
+                    alert($('#tipoLogin').val());
                 }
             });
             $(document).ready(function () {
