@@ -80,27 +80,27 @@
                     <embed src="alterar_perfil.jsp" id="alterar_perfil" class="col s12 offset-x30">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="curriculo.html.jsp">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="alterar_perfil.html.jsp">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="alterar_perfil.html.jsp">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="alterar_perfil.html.jsp">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="alterar_perfil.html.jsp">
                 </div>
                 
-                <div class="col s10">
+                <div class="col s10 z-depth-0">
                     <embed src="alterar_perfil.html.jsp">
                 </div>
             </div>
