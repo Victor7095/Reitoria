@@ -8,9 +8,11 @@ package com.br.OMT.DAO;
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.models.FotosEventos;
-import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -31,4 +33,20 @@ public class FotosEventosDAO {
         return hue.salvar(e);
     }
 
+    public List<FotosEventos> listFotosEventos(Long id) {
+        List<FotosEventos> lfe = null;
+        try {
+            s.beginTransaction();
+            Query query = s.createQuery("from FotosEventos fe where fe.evento.id =:id");
+            query.setParameter("id", id);
+            lfe = query.getResultList();
+            s.getTransaction().commit();
+            return lfe;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
 }

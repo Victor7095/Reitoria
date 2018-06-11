@@ -3,9 +3,6 @@
     Created on : 07/06/2018, 10:57:31
     Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!--DAQUI-->
 <header>
     <div class="container">
@@ -22,4 +19,4 @@
         </div>
     </div>
 </header>
-<!--ATÃ‰ AQUI-->
+<!--ATÉ AQUI-->
