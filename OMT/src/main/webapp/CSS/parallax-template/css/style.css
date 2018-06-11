@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+body{
+    background-color: #dddddd;
+}
 
 nav ul a,
 nav .brand-logo {
@@ -60,4 +63,21 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+#cabecalhoHome .nav-wrapper{
+    background-color: darkgreen;
+}
+
+#cabecalhoHome .nav-wrapper ul li a{
+    color:white;
+}
+
+
+input.file-caption-name{
+    height:auto;
+}
+
+.modal{
+    bottom:auto;
 }

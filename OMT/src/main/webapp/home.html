@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" lang="pt-BR">
-        <title>ObservatÃ³rio do Mundo Trabalho</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Observatório do Mundo Trabalho</title>
         <!-- referenciamento css-->
         <link href="CSS/FontsGoogle.css" rel="stylesheet">
         <link rel="stylesheet" href="CSS/parallax-template/css/materialize.css">
@@ -13,27 +14,25 @@
 
     <body>
         <header>
-            <div class="container">
-                <nav id="cabecalhoHome">
-                    <div class="nav-wrapper">
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul class="right hide-on-med-and-down white-text">
-                            <li><a href="">Suporte</a></li>
-                            <li><a href="">Acessibilidade</a></li>
-                            <li><a href="">Site do IFAM</a></li>
-                        </ul>
-                    </div>
-                </nav>
+            <nav id="cabecalhoHome">
+                <div class="nav-wrapper">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down white-text">
+                        <li><a href="">Suporte</a></li>
+                        <li><a href="">Acessibilidade</a></li>
+                        <li><a href="">Site do IFAM</a></li>
+                    </ul>
+                </div>
+            </nav>
 
-                <ul class="sidenav" id="mobile-demo">
-                    <li><a href="">Suporte</a></li>
-                    <li><a href="">Acessibilidade</a></li>
-                    <li><a href="">Site do IFAM</a></li>        
-                </ul>
-            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="">Suporte</a></li>
+                <li><a href="">Acessibilidade</a></li>
+                <li><a href="">Site do IFAM</a></li>        
+            </ul>
         </header>
         <div class="container">
-            <!--cabeÃ§alho da pÃ¡gina de menu logins-->
+            <!--cabeçalho da página de menu logins-->
 
             <!--mensagem de boas vindas-->
             <h4>
@@ -51,22 +50,22 @@
                     </ul>
                 </div>
 
-                <!--formulÃ¡rio de login Discentes(disc)-->
-                <div class="col s8 l6 xl5 offset-s2 offset-l0">
+                <!--formulário de login Discentes(disc)-->
+                <div class="col s12 m8 l6 xl5 offset-m2 offset-l0">
                     <div class="card" id="loginDisc">
                         <div class="card-content">
                             <h4>Discentes</h4>
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
-                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="matrÃ­cula">
+                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="matrícula">
                                 <input id="senhaLoginDisc" type="password" name="senha" placeholder="senha">
                                 <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
                             </form>
                         </div>
                     </div>
 
-                    <!--formulÃ¡rio de login Empresas(Emp)-->
+                    <!--formulário de login Empresas(Emp)-->
                     <div class="card" id="loginEmp">
                         <div class="card-content">
                             <h4>Empresas</h4>
@@ -79,7 +78,7 @@
                         </div>
                     </div>
 
-                    <!--formulÃ¡rio de login Reitoria(Ret)-->
+                    <!--formulário de login Reitoria(Ret)-->
                     <div class="card" id="loginRet">
                         <div class="card-content">
                             <h4>Reitoria</h4>
@@ -92,7 +91,7 @@
                         </div>
                     </div>
 
-                    <!--formulÃ¡rio de login TÃ©cnicos Administrativos(Tec)-->
+                    <!--formulário de login Técnicos Administrativos(Tec)-->
                     <div class="card" id="loginTec">
                         <div class="card-content">
                             <h4>Campus</h4>
@@ -108,17 +107,17 @@
 
             </div>
         </div>
-        
+
         <script src="JS/jquery-3.2.1.min.js"></script>
         <script src="CSS/parallax-template/js/materialize.js"></script>
-        
+
         <script>
             $('#matriculaLoginDisc').blur(function () {
                 if ($('#matriculaLoginDisc').val().length === 14) {
                     $('#tipoLogin').val("cpf");
                     alert($('#tipoLogin').val());
                 } else {
-                     alert("mat");
+                    alert("mat");
                     $('#tipoLogin').val("matricula");
                     alert($('#tipoLogin').val());
                 }

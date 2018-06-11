@@ -44,9 +44,9 @@
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script>
             $(document).ready(function () {
-                $('.carousel').carousel();
                 $('.carousel.carousel-slider').carousel({
-                    fullWidth: true
+                    fullWidth: true,
+                    indicators: true
                 });
             });
         </script>

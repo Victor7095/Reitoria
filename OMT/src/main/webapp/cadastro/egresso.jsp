@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col s8 offset-s2">
+                <div class="col s12 l8 offset-l2">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
                             <h3>Cadastro de Egresso</h3>
@@ -24,33 +24,33 @@
                                 <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/DiscenteServlet" 
                                       enctype="multipart/form-data">
                                     <div class="row">
-                                        <div class="input-field col s7 offset-s1">
+                                        <div class="input-field col s12 l10 offset-l1">
                                             <label for="usuario">Matrícula</label>
                                             <input type="text" id="usuario" name="usuario" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s5 offset-s1">
+                                        <div class="input-field col s12 l5 offset-l1">
                                             <label for="senha">Senha</label>
                                             <input type="password" id="senha" name="senha" required>
                                         </div>
-                                        <div class="input-field col s5">
+                                        <div class="input-field col s12 l5">
                                             <label for="confirmar">Confirmar Senha</label>
                                             <input type="password" id="confirmar" name="confirmar" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s10 offset-s1">
+                                        <div class="input-field col s12 l10 offset-l1">
                                             <label for="nome">Nome Completo</label>
                                             <input type="text" id="nome" name="nome" required>                                        
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s5 offset-s1">
+                                        <div class="input-field col s12 l5 offset-l1">
                                             <label for="cpf">CPF</label>
                                             <input type="text" id="cpf" name="cpf" required> 
                                         </div>
-                                        <div class="input-field col s5">
+                                        <div class="input-field col s12 l5">
                                             <label for="rg">RG</label>
                                             <input type="text" id="rg" name="rg" required> 
                                         </div>
