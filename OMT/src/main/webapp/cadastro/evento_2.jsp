@@ -25,7 +25,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col s8 offset-s2">
+                <div class="col s8">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
                             <h3>Cadastro de Evento</h3>
@@ -84,10 +84,10 @@
                                     </div>
                                     <br><br>
                                     <div class="row center">
-                                        <div class="col m12 l2 offset-l2 btn-mb-md">
+                                        <div class="col m12 l2 btn-mb-md">
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
-                                        <div class="col m12 l2 offset-l3">
+                                        <div class="col m12 l2 offset-l2">
                                             <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>
