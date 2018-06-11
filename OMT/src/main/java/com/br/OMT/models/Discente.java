@@ -19,9 +19,9 @@ import static javax.persistence.CascadeType.ALL;
 @Table(name = "discente")
 public class Discente extends Usuario implements Serializable {
 
-    @Column(name = "rg", nullable = false, length = 15)
+    @Column(name = "rg", nullable = false, length = 15, unique = true)
     private String RG;
-    @Column(name = "cpf", nullable = false, length = 15)
+    @Column(name = "cpf", nullable = false, length = 15, unique = true)
     private String CPF;
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")

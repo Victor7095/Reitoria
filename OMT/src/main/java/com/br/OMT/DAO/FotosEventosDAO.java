@@ -33,6 +33,23 @@ public class FotosEventosDAO {
         return hue.salvar(e);
     }
 
+    public FotosEventos fotosEventosById(Long id) {
+        FotosEventos fe = null;
+        try {
+            s.beginTransaction();
+            Query query = s.createQuery("from FotosEventos fe where fe.id =:id");
+            query.setParameter("id", id);
+            fe = (FotosEventos) query.getSingleResult();
+            s.getTransaction().commit();
+            return fe;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+
     public List<FotosEventos> listFotosEventos(Long id) {
         List<FotosEventos> lfe = null;
         try {

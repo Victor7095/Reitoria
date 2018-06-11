@@ -25,7 +25,7 @@
                                       enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="input-field col s7 offset-s1">
-                                            <label for="usuario">Usuário</label>
+                                            <label for="usuario">Matrícula</label>
                                             <input type="text" id="usuario" name="usuario" required>
                                         </div>
                                     </div>

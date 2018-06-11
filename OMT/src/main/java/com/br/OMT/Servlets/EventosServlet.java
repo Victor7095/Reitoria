@@ -10,6 +10,7 @@ import com.br.OMT.DAO.FotosEventosDAO;
 import com.br.OMT.models.Eventos;
 import com.br.OMT.models.FotosEventos;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,13 @@ public class EventosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        FotosEventos ef;
+        FotosEventosDAO efdao = new FotosEventosDAO();
+        ef = efdao.fotosEventosById(Long.parseLong(request.getParameter("id")));
+        response.setContentType("image/jpeg");
+        OutputStream out = response.getOutputStream();
+        out.write(ef.getFoto());
+        out.flush();
     }
 
     @Override
@@ -100,9 +108,9 @@ public class EventosServlet extends HttpServlet {
                         FotosEventosDAO fedao = new FotosEventosDAO();
                         String foi = fedao.salvar(fe);
                         if (!foi.equals("")) {
-                             response.getWriter().println("RRROER() "+foi);
-                             break;
-                        } 
+                            response.getWriter().println("RRROER() " + foi);
+                            break;
+                        }
                     }
                 } else {
                     response.getWriter().println("Sem foto");

@@ -144,9 +144,7 @@
                 close: "X",
                 autoClose: true
             });
-            $('#cadastrar-evento').submit(function (e) {
-                alert($('#inscricaoInicio').val());
-            });
+            
         </script>
     </body>
 </html>
