@@ -79,7 +79,6 @@
                                             <input id="fim" name="fim" class="datepicker">
                                         </div>
                                     </div>
-                                    <input type="file" name="foto" multiple="multiple">
                                     <div class="file-loading">
                                         <input id="input-b1" name="input-b1[]" type="file" multiple>
                                     </div>
