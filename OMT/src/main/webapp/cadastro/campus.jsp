@@ -8,10 +8,10 @@
         <title>Cadastro de Campus - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">    
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <header>
-        </header>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s12 xl8 offset-xl2">
@@ -138,6 +138,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>

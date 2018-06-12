@@ -17,12 +17,11 @@
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
-        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>    
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <header>
-
-        </header>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s12 xl8 offset-xl2">
@@ -81,6 +80,20 @@
                                                 <input id="input-b1" name="input-b1[]" type="file" multiple>
                                             </div>
                                         </div>
+                                        <div class="col s4 offset-s2">
+                                            <input id="inicio" name="inicio" class="datepicker">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s4 offset-s1">
+                                            <span>Data de Fim do Evento</span>
+                                        </div>
+                                        <div class="col s4 offset-s2">
+                                            <input id="fim" name="fim" class="datepicker">
+                                        </div>
+                                    </div>
+                                    <div class="file-loading">
+                                        <input id="input-b1" name="input-b1[]" type="file" multiple>
                                     </div>
                                     <br><br>
                                     <div class="row center">
@@ -98,6 +111,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
@@ -155,6 +169,7 @@
                 close: "X",
                 autoClose: true
             });
+            
         </script>
     </body>
 </html>

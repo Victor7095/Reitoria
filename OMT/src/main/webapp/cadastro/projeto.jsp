@@ -8,30 +8,25 @@
         <title>Novo projeto</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
-                <div class="col s12 xl8 offset-xl2">
-                    <div class="card">
-                        <div class="card-action green darken-3 white-text center-align">
-                            <h3>Novo Projeto</h3>
-                        </div>
-                        <br>
-                        <form id="cadastrar-formacao" method="POST" action="/OMT/ProjetoServlet" class="card-panel">
-
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input name="nome" id="nome" type="text" class="validate">
-                                    <label for="nome">Nome</label>
-                                </div>
+                <div class="col s12 l6 offset-l3">
+                    <form id="cadastrar-formacao" method="POST" action="/OMT/ProjetoServlet" class="card-panel">
+                        <div class="row"><h4 class="center-align">Cadastrar Projeto</h4></div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="nome" id="nome" type="text" class="validate">
+                                <label for="nome">Nome</label>
                             </div>
 
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="descricao" type="text" class="validate" name="descricao"/>
-                                    <label for="descricao">Descricao</label>
-                                </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="descricao" name="descricao" class="materialize-textarea validate"></textarea>
+                                <label for="descricao">Descrição</label>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
@@ -56,10 +51,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script src="../JS/jquery-3.2.1.min.js"></script>
-    <script src="../JS/jquery.mask.js"></script>
-    <script src="../JS/mask.js"></script>
-    <script src="../CSS/parallax-template/js/materialize.js"></script>
-</body>
+        <%@include file="../footer.jsp"%>
+        <script src="../JS/jquery-3.2.1.min.js"></script>
+        <script src="../JS/jquery.mask.js"></script>
+        <script src="../JS/mask.js"></script>
+        <script src="../CSS/parallax-template/js/materialize.js"></script>
+    </body>
 </html>

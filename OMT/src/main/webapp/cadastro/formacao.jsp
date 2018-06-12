@@ -13,45 +13,41 @@
         <title>Nova formação</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col s12 xl8 offset-xl2">
-                    <div class="card">
-                        <div class="card-action green darken-3 white-text center-align">
-                            <h3>Nova Formação</h3>
-                        </div>
-                        <br>
-                        <div class="card-content">
+        <%@include file="../header.jsp"%>
+        <div class="container row">
+            <div class="col s12 l10 offset-l1">
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="col s12 l8 offset-l2">
                             <form id="cadastrar-formacao" method="post" action="/OMT/FormacaoServlet">
+                                <h4 class="center-align">Cadastrar Formação</h4><br>
                                 <div class="row">
-                                    <div class="input-field col s6">
-                                        <input name="nome" id="nome" type="text" class="validate">
-                                        <label for="nome">Nome</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input id="escola" type="text" class="validate" name="escola"/>
-                                        <label for="escola">Escola</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s4">
                                         <input type="text" id="anofinalizacao" class="datepicker" class="validate" name="anofinalizacao"/>  
                                         <label for="anofinalizacao">Ano de finalização</label>
                                     </div>
                                 </div>
-                                
                                 <div class="row">
-                                    <div class='col s5 m6'>
-                                        <div class='left-align'>
-                                            <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
-                                        </div>
+                                    <div class="input-field col s12">
+                                        <input name="nome" id="nome" type="text" class="validate">
+                                        <label for="nome">Nome</label>
                                     </div>
-                                    <div class='col s5 m6'>
-                                        <div class='right-align'>
-                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Confirmar</button>
-                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="escola" type="text" class="validate" name="escola"/>
+                                        <label for="escola">Escola</label>
+                                    </div>
+                                </div>
+                                <div class="row center">
+                                    <div class="col m12 l2 offset-l2 btn-mb-md">
+                                        <button type="reset" class="btn btn-large waves-effect white black-text">Limpar</button>
+                                    </div>
+                                    <div class="col m12 l2 offset-l3">
+                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect green">Cadastrar</button>
                                     </div>
                                 </div>
                             </form>
@@ -60,6 +56,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>

@@ -13,11 +13,10 @@
         <title>Cadastro de Empresa - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">    
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <header>
-
-        </header>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s8 offset-s2">
@@ -32,17 +31,17 @@
                                     <div class="row">
                                         <div class="input-field col s6 offset-s1">
                                             <label for="cnpj">CNPJ</label>
-                                            <input type="text" id="cnpj" name="cnpj" required>
+                                            <input type="text" id="cnpj" name="cnpj" class="validate" required>
                                         </div>
                                         <div class="input-field col s4">
                                             <label for="cnae">CNAE</label>
-                                            <input type="text" id="cnae" name="cnae" required>
+                                            <input type="text" id="cnae" name="cnae" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
                                             <label for="nome">Nome da Empresa</label>
-                                            <input type="text" id="nome" name="nome" required>
+                                            <input type="text" id="nome" name="nome" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -54,7 +53,7 @@
                                     <div class="row">
                                         <div class="input-field col s3 offset-s1">
                                             <label for="cep">CEP</label>
-                                            <input type="text" id="cep" name="cep" required>
+                                            <input type="text" id="cep" name="cep" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -102,29 +101,29 @@
                                     <div class="row">
                                         <div class="col s10 offset-s1">
                                             <label for="nome">Nome</label>
-                                            <input type="text" id="nome" name="nome"  required>
+                                            <input type="text" id="nome" name="nome" class="validate" required>
                                         </div>
                                     </div>   
                                     <div class="row">
                                         <div class="col s10 offset-s1">
                                             <label for="usuario">Usuário (nome para entrar no sistema)</label>
-                                            <input type="text" id="usuario" name="usuario"  required>
+                                            <input type="text" id="usuario" name="usuario" class="validate" required>
                                         </div>
                                     </div>  
                                     <div class="row">
                                         <div class="col s10 offset-s1">
                                             <label for="senha">Senha</label>
-                                            <input type="password" id="senha" name="senha"  required>
+                                            <input type="password" id="senha" name="senha" class="validate" required>
                                         </div>
                                     </div>  
                                     
                                     <br><br>
                                     <div class="row">
                                         <div class="col s2 offset-s3">
-                                            <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
+                                            <button type="reset" class="btn btn-large waves-effect white black-text">Limpar</button>
                                         </div>
                                         <div class="col s2 offset-s1">
-                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
+                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect green">Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>
@@ -134,6 +133,7 @@
                 </div>
             </div>
         </div>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>

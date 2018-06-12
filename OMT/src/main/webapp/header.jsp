@@ -11,7 +11,7 @@
                 <div id="img-wrapper">
                     <div id="logo">
                         <a id="omt-logo">
-                            <img src="img/logoOMT.png" alt="OMT">
+                            <img src="../img/logoOMT.png" alt="OMT">
                         </a>
                     </div>
                 </div>

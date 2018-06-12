@@ -8,14 +8,22 @@
         <title>Novo trabalho - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
-                <div class="col s12 xl8 offset-xl2">
-                    <div class="card">
-                        <div class="card-action green darken-3 white-text center-align">
-                            <h3>Novo Trabalho</h3>
+                <div class="col s12 l6 offset-l3">
+                    <form id="cadastrar-formacao" method="POST" action="/OMT/TrabalhoServlet" class="card-panel">
+                        <div class="row">
+                            <h4 class="center-align">Cadastrar Trabalho</h4>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="profissao" id="profissao" type="text" class="validate">
+                                <label for="profissao">Profissão</label>
+                            </div>
                         </div>
                         <div class="card-content">
                             <form id="cadastrar-formacao" method="POST" action="/OMT/TrabalhoServlet">
@@ -80,24 +88,24 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script src="../JS/jquery-3.2.1.min.js"></script>
-    <script src="../JS/jquery.mask.js"></script>
-    <script src="../JS/mask.js"></script>
-    <script src="../CSS/parallax-template/js/materialize.js"></script>
-    <script>
-        $(".datepicker").datepicker({
-            selectMonths: true,
-            selectYears: true,
-            clear: false,
-            format: 'dd/mm/yyyy',
-            today: "Hoje",
-            close: "X",
-            autoClose: true
-        });
-        $('#cadastrar-evento').submit(function (e) {
-            alert($('#inscricaoInicio').val());
-        });
-    </script>
-</body>
+        <%@include file="../footer.jsp"%>
+        <script src="../JS/jquery-3.2.1.min.js"></script>
+        <script src="../JS/jquery.mask.js"></script>
+        <script src="../JS/mask.js"></script>
+        <script src="../CSS/parallax-template/js/materialize.js"></script>
+        <script>
+            $(".datepicker").datepicker({
+                selectMonths: true,
+                selectYears: true,
+                clear: false,
+                format: 'dd/mm/yyyy',
+                today: "Hoje",
+                close: "X",
+                autoClose: true
+            });
+            $('#cadastrar-evento').submit(function (e) {
+                alert($('#inscricaoInicio').val());
+            });
+        </script>
+    </body>
 </html>
