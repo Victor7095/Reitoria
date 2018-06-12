@@ -25,6 +25,9 @@ public class Eventos implements Serializable {
     @Column(name = "descricao", nullable = false, length = 100)
     private String descricao;
 
+    @Column(name = "local", nullable = false, length = 200)
+    private String local;
+
     @Column(name = "dataInicioInscricao", nullable = true)
     @Temporal(TemporalType.DATE)
     private Date dataInicioIncricao;
@@ -47,7 +50,7 @@ public class Eventos implements Serializable {
 
     @OneToMany(mappedBy = "evento", cascade = ALL)
     private List<FotosEventos> fotos;
-    
+
     @Transient
     private static Eventos getInstance;
 
@@ -115,6 +118,22 @@ public class Eventos implements Serializable {
 
     public void setDataFinalEvento(Date dataFinalEvento) {
         this.dataFinalEvento = dataFinalEvento;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public List<FotosEventos> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(List<FotosEventos> fotos) {
+        this.fotos = fotos;
     }
 
     public Entidade getEntidade() {

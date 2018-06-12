@@ -6,13 +6,11 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.DAO.EmpresaDAO;
 import com.br.OMT.DAO.UsuarioDAO;
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -67,12 +65,10 @@ public class LoginServlet extends HttpServlet {
                     Entidade e;
                     e = u.getEntidade();
                     if (e != null) {
-                        if (entidade.equals("empresa") && e.getTipo()=='E') {
-                            response.sendRedirect("/OMT/erros/manutencao.jsp");
-                        } else if (entidade.equals("campus") && e.getTipo()=='C') {
-                            response.sendRedirect("/OMT/erros/manutencao.jsp");
-                        } else if(entidade.equals("reitoria") && e.getTipo()=='R') {
-                            response.sendRedirect("/OMT/erros/manutencao.jsp");
+                        if (entidade.equals("campus") && e.getTipo() == 'C') {
+                            response.sendRedirect("/OMT/campus/campusIndex.jsp");
+                        } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
+                            response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
                         }
                     }
                 } else {
