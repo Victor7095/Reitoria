@@ -101,7 +101,7 @@
                                     <div class="row">
                                         <div class="col s10 offset-s1">
                                             <label for="nome">Nome</label>
-                                            <input type="text" id="nome" name="nome" class="validate" required>
+                                            <input type="text" id="nomeUsuario" name="nomeUsuario" class="validate" required>
                                         </div>
                                     </div>   
                                     <div class="row">
@@ -138,6 +138,6 @@
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
-        <script src="../JS/consultaCEP.js"></script>
+        <script src="../JS/consultaCNPJ.js"></script>
     </body>
 </html>

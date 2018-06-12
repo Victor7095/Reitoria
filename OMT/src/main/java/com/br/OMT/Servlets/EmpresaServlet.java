@@ -50,7 +50,7 @@ public class EmpresaServlet extends HttpServlet {
                 e.setComplemento(request.getParameter("complemento"));
 
                 Usuario u = Usuario.getInstance();
-                u.setNome(request.getParameter("nome"));
+                u.setNome(request.getParameter("nomeUsuario"));
                 u.setUsuario(request.getParameter("usuario"));
                 u.setSenha(request.getParameter("senha"));
                 EmpresaDAO edao = new EmpresaDAO();
