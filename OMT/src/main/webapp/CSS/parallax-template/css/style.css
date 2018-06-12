@@ -81,3 +81,7 @@ input.file-caption-name{
 .modal{
     bottom:auto;
 }
+
+.svg-inline--fa{
+    margin-right: 10px;
+}
