@@ -14,7 +14,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col s8 offset-s2">
+                <div class="col s12 xl8 offset-xl2">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
                             <h3>Cadastro de Campus</h3>
@@ -24,102 +24,110 @@
                             <div class="row">
                                 <form class="col s12" method="post" name="cadastrar-campus" action="/OMT/CampusServlet">
                                     <div class="row">
-                                        <div class="input-field col s6 offset-s1">
+                                        <div class="input-field col s12 xl6 offset-xl1">
                                             <label for="cnpj">CNPJ</label>
                                             <input type="text" id="cnpj" name="cnpj" required>
                                         </div>
-                                        <div class="input-field col s4">
+                                        <div class="input-field col s12 xl4">
                                             <label for="cnae">CNAE</label>
                                             <input type="text" id="cnae" name="cnae" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s10 offset-s1">
+                                        <div class="input-field col s12 xl10 offset-xl1">
                                             <label for="nome">Nome do Campus</label>
                                             <input type="text" id="nome" name="nome" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s10 offset-s1">
+                                        <div class="input-field col s12 xl10 offset-xl1">
                                             <label for="nomeFantasia">Nome Fantasia do Campus</label>
                                             <input type="text" id="nomeFantasia" name="nomeFantasia" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s3 offset-s1">
+                                        <div class="input-field col s12 xl3 offset-xl1">
                                             <label for="cep">CEP</label>
                                             <input type="text" id="cep" name="cep" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="estado">Estado</label>
                                             <input type="text" id="estado" name="estado" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="cidade">Cidade</label>
                                             <input type="text" id="cidade" name="cidade" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="bairro">Bairro</label>
                                             <input type="text" id="bairro" name="bairro" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="rua">Rua</label>
                                             <input type="text" id="rua" name="rua" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="numero">Numero</label>
                                             <input type="text" id="numero" name="numero" >
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="complemento">Complemento</label>
                                             <input type="text" id="complemento" name="complemento" readonly required>
                                         </div>
                                     </div>  
-                                    <label>Tipo (YAN AQUI É UM SELECT - CAMPUS OU REITORIA)
-                                    <input type="text" name="tipo"/>
-                                    
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="input-field col s12 xl10 offset-xl1">
+                                            <select>
+                                                <option value="" disabled selected>Selecionar opção</option>
+                                                <option value="1">Campus</option>
+                                                <option value="2">Reitoria</option>
+                                            </select>
+                                            <label>Tipo</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label> Usuário padrão</label>
                                         </div>
                                     </div>  
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="nome">Nome</label>
                                             <input type="text" id="nome" name="nome"  required>
                                         </div>
                                     </div>   
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="usuario">Usuário (nome para entrar no sistema)</label>
                                             <input type="text" id="usuario" name="usuario"  required>
                                         </div>
                                     </div>  
                                     <div class="row">
-                                        <div class="col s10 offset-s1">
+                                        <div class="col s12 xl10 offset-xl1">
                                             <label for="senha">Senha</label>
                                             <input type="password" id="senha" name="senha"  required>
                                         </div>
                                     </div>  
-                                    
+
                                     <br><br>
                                     <div class="row">
-                                        <div class="col s2 offset-s3">
+                                        <div class="col s12 m2 center offset-m2 offset-l3 btn-mb-md">
                                             <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
                                         </div>
-                                        <div class="col s2 offset-s1">
+                                        <div class="col s12 m2 center offset-m2 offset-l1">
                                             <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
                                         </div>
                                     </div>
@@ -135,5 +143,10 @@
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
         <script src="../JS/consultaCEP.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+        </script>
     </body>
 </html>

@@ -25,7 +25,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col s12 l8 offset-l2">
+                <div class="col s12 xl8 offset-xl2">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
                             <h3>Cadastro de Evento</h3>
@@ -36,25 +36,25 @@
                                 <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/EventosServlet" 
                                       enctype="multipart/form-data">
                                     <div class="row">
-                                        <div class="input-field col s12 l10 offset-l1">
+                                        <div class="input-field col s12 xl10 offset-xl1">
                                             <label for="nome">Nome do Evento</label>
                                             <input type="text" id="nome" name="nome" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s12 l10 offset-l1">
+                                        <div class="input-field col s12 xl10 offset-xl1">
                                             <textarea id="descricao" name="descricao" class="materialize-textarea" data-length="120"></textarea>
                                             <label for="descricao">Descrição do Evento</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s12 l5 offset-l1">
+                                        <div class="col s12 xl5 offset-xl1">
                                             <div class="input-field">
                                                 <input type="text" id="inscricaoInicio" name="inscricaoInicio" class="datepicker">
                                                 <label for="inscricaoInicio" class="">Data de Início das Inscrições</label>
                                             </div>
                                         </div>
-                                        <div class="col s12 l5">
+                                        <div class="col s12 xl5">
                                             <div class="input-field">
                                                 <input type="text" id="inscricaoFim" name="inscricaoFim" class="datepicker">
                                                 <label for="inscricaoFim" class="">Data de Fim das Inscrições</label>
@@ -62,13 +62,13 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col s12 l5 offset-l1">
+                                        <div class="col s12 xl5 offset-xl1">
                                             <div class="input-field">
                                                 <input type="text" id="inicio" name="inicio" class="datepicker">
                                                 <label for="inicio" class="">Data de Início do Evento</label>
                                             </div>
                                         </div>
-                                        <div class="col s12 l5">
+                                        <div class="col s12 xl5">
                                             <div class="input-field">
                                                 <input type="text" id="fim" name="fim" class="datepicker">
                                                 <label for="fim" class="">Data de Fim do Evento</label>
@@ -76,16 +76,18 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="file-loading">
-                                            <input id="input-b1" name="input-b1[]" type="file" multiple>
+                                        <div class="col s12 xl10 offset-xl1">
+                                            <div class="file-loading">
+                                                <input id="input-b1" name="input-b1[]" type="file" multiple>
+                                            </div>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="row center">
-                                        <div class="col m12 offset-l3 l2 btn-mb-md">
+                                        <div class="col m12 offset-xl3 xl2 btn-mb-md">
                                             <button type="reset" class="btn waves-effect waves-green">Limpar</button>
                                         </div>
-                                        <div class="col m12 l2 offset-l2">
+                                        <div class="col m12 xl2 offset-xl2">
                                             <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">Cadastrar <i class="fa fa-paper-plane"></i></button>
                                         </div>
                                     </div>
@@ -129,7 +131,18 @@
                 previewFileType: "image",
                 browseClass: "btn btn-success",
                 browseLabel: "Escolher imagens",
-                browseIcon: "<i class=\"fa fa-folder-open\"></i> "
+                browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
+                previewZoomButtonIcons: {
+                    prev: '<i class="fa fa-caret-left fa-lg"></i>',
+                    next: '<i class="fa fa-caret-right fa-lg"></i>',
+                    toggleheader: '<i class="fa fa-arrows-alt-v fa-lg"></i>',
+                    fullscreen: '<i class="fa fa-expand-arrows-alt fa-lg"></i>',
+                    borderless: '<i class="fa fa-expand fa-lg"></i>',
+                    close: '<i class="fa fa-times fa-lg"></i>'
+                },
+                layoutTemplates: {
+                    actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
+                }
             });
         </script>
         <script>

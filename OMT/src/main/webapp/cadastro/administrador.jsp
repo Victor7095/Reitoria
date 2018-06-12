@@ -13,33 +13,37 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 l6">
-                    <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet" class="card-panel">
+                    <div class="card">
+                        <div class="card-content">
+                            <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet">
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="nome" id="nome" type="text" class="validate" required>
-                                <label for="nome">Nome</label>
-                            </div>
-                        </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input name="nome" id="nome" type="text" class="validate" required>
+                                        <label for="nome">Nome</label>
+                                    </div>
+                                </div>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="usuario" type="text" class="validate" name="usuario" required=""/>
-                                <label for="usuario">Usuário (nome para entrar no sistema)</label>
-                            </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="usuario" type="text" class="validate" name="usuario" required=""/>
+                                        <label for="usuario">Usuário (nome para entrar no sistema)</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="senha" type="password" class="validate" name="senha" required/>
+                                        <label for="senha">Senha</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Confirmar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="senha" type="password" class="validate" name="senha" required/>
-                                <label for="senha">Senha</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 right-align">
-                                <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Confirmar</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
