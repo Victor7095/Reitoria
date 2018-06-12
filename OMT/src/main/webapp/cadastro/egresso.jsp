@@ -12,26 +12,11 @@
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <div id="omt-header-wrapper">
-                    <div id="omt-header">
-                        <div id="img-wrapper">
-                            <div id="logo">
-                                <a id="omt-logo">
-                                    <img src="../img/logoOMT.png" alt="OMT">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <%@include file="../header.jsp"%>
         <div class="row">
             <div class="col s12 l6 offset-l3">
-                <div id="omt-card">
-                    <h4 class="center-align">Cadastro de Egresso</h4>
-                    <br>
+                <div class="card-panel">
+                    <div class="row"><h4 class="center-align">Cadastro de Egresso</h4></div>
                     <div class="row">
                         <div class="col s12 offset-s1 l10 offset-l1">
                             <form method="post" id="cadastrar-evento" action="/OMT/DiscenteServlet" 
@@ -139,11 +124,7 @@
                 -->
             </div>
         </div>
-        <footer>
-            <div class="container">
-                
-            </div>
-        </footer>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>

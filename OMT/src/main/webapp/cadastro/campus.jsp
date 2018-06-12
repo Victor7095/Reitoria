@@ -11,21 +11,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <div id="omt-header-wrapper">
-                    <div id="omt-header">
-                        <div id="img-wrapper">
-                            <div id="logo">
-                                <a id="omt-logo">
-                                    <img src="../img/logoOMT.png" alt="OMT">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s8 offset-s2">
@@ -153,11 +139,7 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="container">
-
-            </div>
-        </footer>
+        <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>
