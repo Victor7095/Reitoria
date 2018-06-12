@@ -8,9 +8,23 @@
         <title>Cadastro de Campus - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">    
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
         <header>
+            <div class="container">
+                <div id="omt-header-wrapper">
+                    <div id="omt-header">
+                        <div id="img-wrapper">
+                            <div id="logo">
+                                <a id="omt-logo">
+                                    <img src="../img/logoOMT.png" alt="OMT">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
         <div class="container">
             <div class="row">
@@ -87,9 +101,18 @@
                                             <input type="text" id="complemento" name="complemento" readonly required>
                                         </div>
                                     </div>  
-                                    <label>Tipo (YAN AQUI É UM SELECT - CAMPUS OU REITORIA)
-                                    <input type="text" name="tipo"/>
-                                    
+                                    <!-- CONSERTAR
+                                    <div class="row">
+                                        <div class="input-field col s10 offset-s1">
+                                            <select id="tipo" name="tipo">
+                                                <option value="" disabled selected>Tipo</option>
+                                                <option value="1">Campus</option>
+                                                <option value="2">Reitoria</option>
+                                            </select>
+                                            <label for="tipo">Tipo</label>
+                                        </div>
+                                    </div>
+                                    -->
                                     <div class="row">
                                         <div class="col s10 offset-s1">
                                             <label> Usuário padrão</label>
@@ -113,7 +136,7 @@
                                             <input type="password" id="senha" name="senha"  required>
                                         </div>
                                     </div>  
-                                    
+
                                     <br><br>
                                     <div class="row">
                                         <div class="col s2 offset-s3">
@@ -130,10 +153,20 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <div class="container">
+
+            </div>
+        </footer>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
         <script src="../JS/consultaCEP.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('tipo').formSelect();
+            });
+        </script>
     </body>
 </html>

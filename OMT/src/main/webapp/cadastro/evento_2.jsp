@@ -17,15 +17,28 @@
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
-        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>    
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
         <header>
-
+            <div class="container">
+                <div id="omt-header-wrapper">
+                    <div id="omt-header">
+                        <div id="img-wrapper">
+                            <div id="logo">
+                                <a id="omt-logo">
+                                    <img src="../img/logoOMT.png" alt="OMT">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
         <div class="container">
             <div class="row">
-                <div class="col s8">
+                <div class="col s12 l10 offset-l1">
                     <div class="card">
                         <div class="card-action green darken-3 white-text center-align">
                             <h3>Cadastro de Evento</h3>
@@ -98,6 +111,11 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <div class="container">
+
+            </div>
+        </footer>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>

@@ -8,11 +8,27 @@
         <title>Novo administrador - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
+        <header>
+            <div class="container">
+                <div id="omt-header-wrapper">
+                    <div id="omt-header">
+                        <div id="img-wrapper">
+                            <div id="logo">
+                                <a id="omt-logo">
+                                    <img src="../img/logoOMT.png" alt="OMT">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="container">
             <div class="row">
-                <div class="col s12 l6">
+                <div class="col s12 l6 offset-l3">
                     <form id="cadastrar-formacao" method="POST" action="/OMT/AdminstradoresServlet" class="card-panel">
 
                         <div class="row">
@@ -43,6 +59,11 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <div class="container">
+                
+            </div>
+        </footer>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
