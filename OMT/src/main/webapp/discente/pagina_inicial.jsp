@@ -50,7 +50,7 @@
             <nav id="nav_news" class=" col s10"> 
                 <a class="tab" title="primeira" href="#"><<</a>
                 <a class="tab" title="anterior" href="#"><</a>
-                <a class="tab" title="atual" href="#">p√°gina atual</a>
+                <a class="tab" title="atual" href="#">P·gina atual</a>
                 <a class="tab" title="proxima" href="#">></a>
                 <a class="tab" title="ultima" href="#">>></a>
             </nav>
