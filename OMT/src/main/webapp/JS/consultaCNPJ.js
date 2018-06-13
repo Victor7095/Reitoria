@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $("#cnpj").blur(function () {
+    $("#cnpj").change(function () {
 
-        var cnpj = "04565289000147";
+        var cnpj = $(this).val().replace(/\D/g, '');
         if (cnpj != "") {
             $("#cnae").val("...");
             $("#nome").val("...");
@@ -32,16 +32,8 @@ $(document).ready(function () {
                     $("#complemento").val(dados.complemento);
 
                     /////////////////////////
-                    $("#cnae").trigger("change");
-                    $("#nome").trigger("change");
-                    $("#nomeFantasia").trigger("change");
-                    $("#cep").trigger("change");
-                    $("#estado").trigger("change");
-                    $("#cidade").trigger("change");
-                    $("#bairro").trigger("change");
-                    $("#rua").trigger("change");
-                    $("#numero").trigger("change");
-                    $("#complemento").trigger("change");
+
+                    M.updateTextFields();
                 }, error: function (e) {
                     console.log(e);
                     $("#estado").val("");

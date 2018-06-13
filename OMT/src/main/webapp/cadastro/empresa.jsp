@@ -30,65 +30,65 @@
                                 <form class="col s12" method="post" name="cadastrar-empresa" action="/OMT/EmpresaServlet">
                                     <div class="row">
                                         <div class="input-field col s6 offset-s1">
-                                            <label for="cnpj">CNPJ</label>
+                                            <label class="active" for="cnpj">CNPJ</label>
                                             <input type="text" id="cnpj" name="cnpj" class="validate" required>
                                         </div>
                                         <div class="input-field col s4">
-                                            <label for="cnae">CNAE</label>
+                                            <label class="active" for="cnae">CNAE</label>
                                             <input type="text" id="cnae" name="cnae" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
-                                            <label for="nome">Nome da Empresa</label>
+                                            <label class="active" for="nome">Nome da Empresa</label>
                                             <input type="text" id="nome" name="nome" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s10 offset-s1">
-                                            <label for="nomeFantasia">Nome Fantasia da Empresa</label>
+                                            <label class="active" for="nomeFantasia">Nome Fantasia da Empresa</label>
                                             <input type="text" id="nomeFantasia" name="nomeFantasia" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s3 offset-s1">
-                                            <label for="cep">CEP</label>
+                                            <label class="active" for="cep">CEP</label>
                                             <input type="text" id="cep" name="cep" class="validate" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="estado">Estado</label>
+                                            <label class="active" for="estado">Estado</label>
                                             <input type="text" id="estado" name="estado" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="cidade">Cidade</label>
+                                            <label class="active" for="cidade">Cidade</label>
                                             <input type="text" id="cidade" name="cidade" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="bairro">Bairro</label>
+                                            <label class="active" for="bairro">Bairro</label>
                                             <input type="text" id="bairro" name="bairro" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="rua">Rua</label>
+                                            <label class="active" for="rua">Rua</label>
                                             <input type="text" id="rua" name="rua" readonly required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="numero">Numero</label>
+                                            <label class="active" for="numero">Numero</label>
                                             <input type="text" id="numero" name="numero" >
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s10 offset-s1">
-                                            <label for="complemento">Complemento</label>
+                                            <label class="active" for="complemento">Complemento</label>
                                             <input type="text" id="complemento" name="complemento" readonly required>
                                         </div>
                                     </div>  

@@ -80,20 +80,6 @@
                                                 <input id="input-b1" name="input-b1[]" type="file" multiple>
                                             </div>
                                         </div>
-                                        <div class="col s4 offset-s2">
-                                            <input id="inicio" name="inicio" class="datepicker">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s4 offset-s1">
-                                            <span>Data de Fim do Evento</span>
-                                        </div>
-                                        <div class="col s4 offset-s2">
-                                            <input id="fim" name="fim" class="datepicker">
-                                        </div>
-                                    </div>
-                                    <div class="file-loading">
-                                        <input id="input-b1" name="input-b1[]" type="file" multiple>
                                     </div>
                                     <br><br>
                                     <div class="row center">
@@ -169,7 +155,7 @@
                 close: "X",
                 autoClose: true
             });
-            
+
         </script>
     </body>
 </html>

@@ -25,9 +25,11 @@
                             <form id="cadastrar-formacao" method="post" action="/OMT/FormacaoServlet">
                                 <h4 class="center-align">Cadastrar Formação</h4><br>
                                 <div class="row">
-                                    <div class="input-field col s4">
-                                        <input type="text" id="anofinalizacao" class="datepicker" class="validate" name="anofinalizacao"/>  
-                                        <label for="anofinalizacao">Ano de finalização</label>
+                                    <div class="input-field col s12">
+                                        <select name="anofinalizacao" id="anofinalizacao">
+                                            <option value="" disabled selected>Escolha o ano de formação</option>
+                                        </select>
+                                        <label>Ano de finalização</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -66,14 +68,30 @@
                 selectMonths: true,
                 selectYears: true,
                 clear: false,
-                format: 'dd/mm/yyyy',
+                format: 'yyyy',
                 today: "Hoje",
                 close: "X",
-                autoClose: true
+                autoClose: true,
+                viewMode: "years",
+                minViewMode: "years"
             });
             $('#cadastrar-formacao').submit(function (e) {
                 alert($('#anofinalizacao').val());
             });
+
+            $(document).ready(function () {
+                var date = new Date();
+                while (date.getFullYear() >= 1930) {
+                    var x = document.getElementById("anofinalizacao");
+                    var option = document.createElement("option");
+                    option.text= date.getFullYear();
+                    option.value = date.getFullYear();
+                    x.add(option);
+                    date.setFullYear(date.getFullYear()-1);
+                }
+                $('select').formSelect();
+            });
+
         </script>
     </body>
 </html>

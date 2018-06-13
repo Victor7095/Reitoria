@@ -18,7 +18,7 @@
                 <div class="card-panel">
                     <div class="row"><h4 class="center-align">Cadastro de Egresso</h4></div>
                     <div class="row">
-                        <div class="col s12 offset-s1 l10 offset-l1">
+                        <div class="col s12 offset-s0 l10 offset-l1">
                             <form method="post" id="cadastrar-evento" action="/OMT/DiscenteServlet" 
                                   enctype="multipart/form-data">
                                 <div class="row">
