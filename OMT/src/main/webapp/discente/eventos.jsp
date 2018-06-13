@@ -37,6 +37,35 @@
             </div>
             <%}%>
             <%}%>
+            <div class="container">
+                <div class="card-panel">
+                    <div class="row">
+                        <%for (Eventos e : list) {%>
+                        <div class="col s12 m6">
+                            <div class="card medium">
+                                <div class="card-content">
+                                    <span class="card-title grey-text text-darken-3"><%=e.getNome()%></span>
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="../img/logoOMT.png">
+                                    </div>
+                                    <%
+                                        String texto = e.getDescricao().substring(0, 30);
+                                    %>
+                                    <p><%=texto%></p>
+                                </div>
+                                <div class="card-action right-align">
+                                    <a class="activator">detalhes sobre o evento</a>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title"><%=e.getNome()%></span>
+                                    <p><%=e.getDescricao()%></p>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
