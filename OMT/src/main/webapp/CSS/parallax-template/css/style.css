@@ -11,58 +11,58 @@ body{
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+    color: #444;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
+.parallax-container .section {
     width: 100%;
-  }
+}
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-  .btn-mb-md{
-      margin-bottom: 25px !important;
-  }
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+    .btn-mb-md{
+        margin-bottom: 25px !important;
+    }
 }
 
 @media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-  .btn-mb-sm{
-      margin-bottom: 25px !important;
-  }
+    #index-banner .section {
+        top: 0;
+    }
+    .btn-mb-sm{
+        margin-bottom: 25px !important;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 .icon-block .material-icons {
-  font-size: inherit;
+    font-size: inherit;
 }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 
 #cabecalhoHome .nav-wrapper{
@@ -84,4 +84,19 @@ input.file-caption-name{
 
 .svg-inline--fa{
     margin-right: 10px;
+}
+
+.kv-avatar .svg-inline--fa{
+    margin-right: 0px;
+}
+
+.kv-avatar img{
+    max-width: 100%;
+}
+
+@media only screen and (max-width : 1201px){
+    #fotoPerfil{
+        margin: auto;
+        float: none;
+    }
 }
