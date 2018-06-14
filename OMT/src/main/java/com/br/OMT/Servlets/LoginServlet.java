@@ -11,6 +11,8 @@ import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Usuario;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,18 +43,47 @@ public class LoginServlet extends HttpServlet {
                 String login = request.getParameter("login");
                 String senha = request.getParameter("senha");
                 if (request.getParameter("tipoLogin").equals("cpf")) {
-                    d = ddao.loginByCPF(login, senha);
-                    if (d != null) {
-                        response.sendRedirect("/OMT/discente/alunoIndex.jsp");
+                    Long resposta = ddao.loginByCPF(login, senha);
+                    if (resposta == null) {
+                        response.getWriter().println("NULL");//erro
+
+                    } else if (resposta == -1) {
+                        response.getWriter().println("-1");//erro
+
                     } else {
-                        response.getWriter().println("ERRO");//erro
+                        try {
+                            d = ddao.buscarById(resposta);
+                            if (d != null) {
+                                response.sendRedirect("/OMT/discente/alunoIndex.jsp");
+                            } else {
+                                response.getWriter().println("ERRO");//erro
+                            }
+                        } catch (Exception ex) {
+                            response.getWriter().println("ERRO " + ex.getMessage());//erro
+                        }
+
                     }
+
                 } else {
-                    d = ddao.loginByMatricula(login, senha);
-                    if (d != null) {
-                        response.sendRedirect("/OMT/discente/alunoIndex.jsp");
+                    Long resposta = ddao.loginByMatricula(login, senha);
+                    if (resposta == null) {
+                        response.getWriter().println("NULL");//erro
+
+                    } else if (resposta == -1) {
+                        response.getWriter().println("-1");//erro
+
                     } else {
-                        response.getWriter().println("ERRO");//erro
+                        try {
+                            d = ddao.buscarById(resposta);
+                            if (d != null) {
+                                response.sendRedirect("/OMT/discente/alunoIndex.jsp");
+                            } else {
+                                response.getWriter().println("ERRO");//erro
+                            }
+                        } catch (Exception ex) {
+                            response.getWriter().println("ERRO " + ex.getMessage());//erro
+                        }
+
                     }
                 }
             } else {
@@ -60,20 +91,35 @@ public class LoginServlet extends HttpServlet {
                 UsuarioDAO udao = new UsuarioDAO();
                 String usuario = request.getParameter("usuario");
                 String senha = request.getParameter("senha");
-                u = udao.login(usuario, senha);
-                if (u != null) {
-                    Entidade e;
-                    e = u.getEntidade();
-                    if (e != null) {
-                        if (entidade.equals("campus") && e.getTipo() == 'C') {
-                            response.sendRedirect("/OMT/campus/campusIndex.jsp");
-                        } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
-                            response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
-                        }
-                    }
+                Long resposta = udao.login(usuario, senha);
+                if (resposta == null) {
+                    response.getWriter().println("NULL");//erro
+
+                } else if (resposta == -1) {
+                    response.getWriter().println("-1");//erro
+
                 } else {
-                    response.getWriter().println("Errado + " + usuario + "  " + senha);
+                    try {
+                        u = udao.buscarById(resposta);
+                        if (u != null) {
+                            Entidade e;
+                            e = u.getEntidade();
+                            if (e != null) {
+                                if (entidade.equals("campus") && e.getTipo() == 'C') {
+                                    response.sendRedirect("/OMT/campus/campusIndex.jsp");
+                                } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
+                                    response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
+                                }
+                            }
+                        } else {
+                            response.getWriter().println("Errado + " + usuario + "  " + senha);
+                        }
+                    } catch (Exception ex) {
+                        response.getWriter().println("ERRO " + ex.getMessage());//erro
+                    }
+
                 }
+
             }
         }
 

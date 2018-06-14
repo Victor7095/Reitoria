@@ -11,6 +11,8 @@ import com.br.OMT.models.Discente;
 import com.br.OMT.models.Formacao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,16 +42,20 @@ public class FormacaoServlet extends HttpServlet {
                 f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
                 Discente d;
                 DiscenteDAO ddao = new DiscenteDAO();
-                d = ddao.buscarById(new Long(2));
-
-                f.setDiscente(d);
-                FormacaoDAO fdao = new FormacaoDAO();
-                String str = fdao.salvar(f);
-                if (str.equals("")) {
-                    response.getWriter().println("Certo!");
-                } else {
-                    response.getWriter().println("Errado:: " + str);
+                try {
+                    d = ddao.buscarById(new Long(2));
+                    f.setDiscente(d);
+                    FormacaoDAO fdao = new FormacaoDAO();
+                    String str = fdao.salvar(f);
+                    if (str.equals("")) {
+                        response.getWriter().println("Certo!");
+                    } else {
+                        response.getWriter().println("Errado:: " + str);
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(FormacaoServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             }
         }
     }

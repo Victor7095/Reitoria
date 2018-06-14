@@ -36,6 +36,7 @@ public class FotosEventosDAO {
     public FotosEventos fotosEventosById(Long id) {
         FotosEventos fe = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from FotosEventos fe where fe.id =:id");
             query.setParameter("id", id);
@@ -53,6 +54,7 @@ public class FotosEventosDAO {
     public List<FotosEventos> listFotosEventos(Long id) {
         List<FotosEventos> lfe = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from FotosEventos fe where fe.evento.id =:id");
             query.setParameter("id", id);

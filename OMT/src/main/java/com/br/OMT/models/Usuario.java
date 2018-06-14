@@ -28,12 +28,16 @@ public class Usuario implements Serializable {
     @Column(name = "usuario", nullable = false, length = 100, unique = true)
     private String usuario;
 
-    @Column(name = "senha", nullable = false, length = 100)
+    @Transient
     private String senha;
+
+    @Lob
+    @Column(name = "senha", nullable = false, length = 255, columnDefinition = "BLOB")
+    private byte[] senhaBanco;
 
     @Column(name = "tipo", nullable = false, length = 1)
     private char tipo; // A= adm    D- discente
-    
+
     @Column(name = "cargo", nullable = false, length = 1)
     private char cargo; // C- CIE-E, E-extensão, G, geral
 
@@ -113,6 +117,22 @@ public class Usuario implements Serializable {
 
     public void setEntidade(Entidade entidade) {
         this.entidade = entidade;
+    }
+
+    public byte[] getSenhaBanco() {
+        return senhaBanco;
+    }
+
+    public void setSenhaBanco(byte[] senhaBanco) {
+        this.senhaBanco = senhaBanco;
+    }
+
+    public char getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(char cargo) {
+        this.cargo = cargo;
     }
 
 }

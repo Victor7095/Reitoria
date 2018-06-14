@@ -24,7 +24,6 @@ public class CampusDAO {
     public CampusDAO() {
         HibernateFactory.initSessionFactory();
         hue = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(Entidade e) {
@@ -34,6 +33,7 @@ public class CampusDAO {
     public Entidade findByCNPJ(String cnpj) {
         Entidade e = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Entidade e where e.CNPJ =:cnpj");
             query.setParameter("cnpj", cnpj);

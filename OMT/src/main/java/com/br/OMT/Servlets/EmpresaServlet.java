@@ -7,10 +7,13 @@ package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EmpresaDAO;
 import com.br.OMT.DAO.UsuarioDAO;
+import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -53,21 +56,30 @@ public class EmpresaServlet extends HttpServlet {
                 u.setNome(request.getParameter("nomeUsuario"));
                 u.setUsuario(request.getParameter("usuario"));
                 u.setSenha(request.getParameter("senha"));
-                EmpresaDAO edao = new EmpresaDAO();
-                String str = edao.salvar(e);
-                if (str.equals("")) {
-                    u.setTipo('A');
-                    u.setEntidade(edao.findByCNPJ(e.getCNPJ()));
-                    UsuarioDAO udao = new UsuarioDAO();
-                    str = udao.salvar(u);
+                byte[] senhaCriptografada;
+
+                try {
+                    senhaCriptografada = new Criptografia().encrypt(u.getSenha());
+                    u.setSenhaBanco(senhaCriptografada);
+                    EmpresaDAO edao = new EmpresaDAO();
+                    String str = edao.salvar(e);
                     if (str.equals("")) {
-                        response.getWriter().println("OK");
+                        u.setTipo('A');
+                        u.setEntidade(edao.findByCNPJ(e.getCNPJ()));
+                        UsuarioDAO udao = new UsuarioDAO();
+                        str = udao.salvar(u);
+                        if (str.equals("")) {
+                            response.getWriter().println("OK");
+                        } else {
+                            response.getWriter().println("ERRO: " + str);
+                        }
                     } else {
                         response.getWriter().println("ERRO: " + str);
                     }
-                } else {
-                    response.getWriter().println("ERRO: " + str);
+                } catch (Exception ex) {
+                    Logger.getLogger(EmpresaServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             }
         }
 

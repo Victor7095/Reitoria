@@ -35,6 +35,7 @@ public class EventoDAO {
     public List<Eventos> listEventos() {
         List<Eventos> le = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Eventos e");
             le = query.getResultList();

@@ -8,12 +8,16 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
+import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,13 +37,21 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Discente d;
+        /*Discente d;
         DiscenteDAO ddao = new DiscenteDAO();
         d = ddao.buscarById(new Long(1));
         response.setContentType("image/jpeg");
         OutputStream out = response.getOutputStream();
         out.write(d.getFoto());
-        out.flush();
+        out.flush(); */
+        Discente d;
+        try {
+            d = new DiscenteDAO().buscarById(new Long(4));
+
+            response.getWriter().println(d.getSenha());
+        } catch (Exception ex) {
+            response.getWriter().println(ex.getMessage());
+        }
     }
 
     @Override
@@ -60,11 +72,8 @@ public class DiscenteServlet extends HttpServlet {
                                 case "usuario":
                                     d.setUsuario(item.getString());
                                     break;
-                                case "senha":
-                                    d.setSenha(item.getString());
-                                    break;
                                 case "nome":
-                                    response.getWriter().println("Gelo! "+item.getString());
+                                    response.getWriter().println("Gelo! " + item.getString());
                                     d.setNome(item.getString());
                                     break;
                                 case "cpf":
@@ -80,12 +89,30 @@ public class DiscenteServlet extends HttpServlet {
                 } catch (Exception ex) {
                 }
                 DiscenteDAO ddao = new DiscenteDAO();
-                String str = ddao.salvar(d);
-                if (str.equals("")) {
-                    response.getWriter().println("Certo! "+d.getNome());
-                } else {
-                    response.getWriter().println("Errado!");
+
+                Random r = new Random();
+                int tam = r.nextInt(4) + 3;
+                int senha = r.nextInt(tam * 1000);
+                d.setSenha(Integer.toString(senha));
+                byte[] senhaCriptografada;
+
+                try {
+                    senhaCriptografada = new Criptografia().encrypt(d.getSenha());
+                    String str;
+                    try {
+                        str = ddao.salvar(d);
+                        if (str.equals("")) {
+                            response.getWriter().println("Salvo!");
+                        } else {
+                            response.getWriter().println("Errado!");
+                        }
+                    } catch (Exception ex) {
+                        response.getWriter().println("Erro! " + ex.getMessage());
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
             } else {
                 String butao = request.getParameter("acao");
                 if (butao.equals("cadastrar")) {
@@ -97,12 +124,29 @@ public class DiscenteServlet extends HttpServlet {
                     d.setUsuario(request.getParameter("usuario"));
                     d.setTipo('D');
                     DiscenteDAO ddao = new DiscenteDAO();
-                    String str = ddao.salvar(d);
-                    if (str.equals("")) {
-                        response.getWriter().println("Salvo!");
-                    } else {
-                        response.getWriter().println("Errado!");
+                    Random r = new Random();
+                    int tam = r.nextInt(4) + 3;
+                    int senha = r.nextInt(tam * 1000);
+                    d.setSenha(Integer.toString(senha));
+                    byte[] senhaCriptografada;
+
+                    try {
+                        senhaCriptografada = new Criptografia().encrypt(d.getSenha());
+                        String str;
+                        try {
+                            str = ddao.salvar(d);
+                            if (str.equals("")) {
+                                response.getWriter().println("Salvo!");
+                            } else {
+                                response.getWriter().println("Errado!");
+                            }
+                        } catch (Exception ex) {
+                            response.getWriter().println("Erro! " + ex.getMessage());
+                        }
+                    } catch (Exception ex) {
+                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
+
                 }
             }
         }

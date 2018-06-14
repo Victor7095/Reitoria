@@ -116,11 +116,8 @@
             $('#matriculaLoginDisc').blur(function () {
                 if ($('#matriculaLoginDisc').val().length === 14) {
                     $('#tipoLogin').val("cpf");
-                    alert($('#tipoLogin').val());
                 } else {
-                    alert("mat");
                     $('#tipoLogin').val("matricula");
-                    alert($('#tipoLogin').val());
                 }
             });
             $(document).ready(function () {

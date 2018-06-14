@@ -54,7 +54,7 @@
                                     <div id="fotoPerfil" class="input-field col s12 m6 l6 xl4">
                                         <div class="kv-avatar">
                                             <div class="file-loading">
-                                                <input id="inputFoto" name="inputFoto" type="file" required>
+                                                <input id="inputFoto" name="inputFoto" type="file">
                                             </div>
                                         </div>
                                         <div class="kv-avatar-hint"><small>Select file < 1500 KB</small></div>

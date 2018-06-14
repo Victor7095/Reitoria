@@ -7,7 +7,9 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
+import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
+import java.util.Random;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -23,21 +25,22 @@ public class DiscenteDAO {
 
     public DiscenteDAO() {
         HibernateFactory.initSessionFactory();
-        s = HibernateFactory.getSessionFactory().openSession();
         hud = new HibernateUtil<>();
     }
 
-    public String salvar(Discente discente) {
+    public String salvar(Discente discente) throws Exception {
         return hud.salvar(discente);
     }
 
-    public Discente buscarById(Long id) {
+    public Discente buscarById(Long id) throws Exception {
         Discente d = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Discente d where d.id =:id");
             query.setParameter("id", id);
             d = (Discente) query.getSingleResult();
+            d.setSenha(new Criptografia().decrypt(d.getSenhaBanco()));
             s.getTransaction().commit();
             return d;
         } catch (HibernateException ex) {
@@ -48,17 +51,25 @@ public class DiscenteDAO {
         }
     }
 
-    public Discente loginByCPF(String cpf, String senha) {
+    public Long loginByCPF(String cpf, String senha) {
         Discente d = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Discente d where d.CPF =:cpf and d.senha = :senha");
+            Query query = s.createQuery("from Discente d where d.CPF =:cpf");
             query.setParameter("cpf", cpf);
-            query.setParameter("senha", senha);
             d = (Discente) query.getSingleResult();
             s.getTransaction().commit();
-            return d;
+            d.setSenha(new Criptografia().decrypt(d.getSenhaBanco()));
+            if (d.getSenha().equals(senha)) {
+                return d.getId();
+            } else {
+                return new Long(-1);
+            }
         } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } catch (Exception ex) {
             s.getTransaction().rollback();
             return null;
         } finally {
@@ -66,17 +77,25 @@ public class DiscenteDAO {
         }
     }
 
-    public Discente loginByMatricula(String matricula, String senha) {
+    public Long loginByMatricula(String matricula, String senha) {
         Discente d = null;
         try {
+            s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Discente d where d.usuario =:matricula and d.senha = :senha");
+            Query query = s.createQuery("from Discente d where d.usuario =:matricula");
             query.setParameter("matricula", matricula);
-            query.setParameter("senha", senha);
             d = (Discente) query.getSingleResult();
             s.getTransaction().commit();
-            return d;
+            d.setSenha(new Criptografia().decrypt(d.getSenhaBanco()));
+            if (d.getSenha().equals(senha)) {
+                return d.getId();
+            } else {
+                return new Long(-1);
+            }
         } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } catch (Exception ex) {
             s.getTransaction().rollback();
             return null;
         } finally {
