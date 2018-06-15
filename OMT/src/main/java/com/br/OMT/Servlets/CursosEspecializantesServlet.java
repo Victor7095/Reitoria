@@ -41,9 +41,8 @@ public class CursosEspecializantesServlet extends HttpServlet {
                 ce.setNivel(Integer.parseInt(request.getParameter("nivel")));
 
                 Discente d;
-                DiscenteDAO ddao = new DiscenteDAO();
                 try {
-                    d = ddao.buscarById(new Long(2));
+                    d = (Discente) request.getSession().getAttribute("usuario");
                     ce.setDiscente(d);
 
                     CursosEspecializantesDAO cedao = new CursosEspecializantesDAO();

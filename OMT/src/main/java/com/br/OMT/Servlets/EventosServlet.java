@@ -7,6 +7,7 @@ package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EventoDAO;
 import com.br.OMT.DAO.FotosEventosDAO;
+import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Eventos;
 import com.br.OMT.models.FotosEventos;
 import java.io.IOException;
@@ -102,6 +103,7 @@ public class EventosServlet extends HttpServlet {
             e.setDataFinalEvento(finalEvento);
             e.setDataInicioIncricao(inicioInscricao);
             e.setDataFinalIncricao(finalInscricao);
+            e.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
             EventoDAO edao = new EventoDAO();
             String str = edao.salvar(e);
             if (str.equals("")) {
@@ -137,7 +139,7 @@ public class EventosServlet extends HttpServlet {
                     e.setDataInicioEvento(df.parse(request.getParameter("inicio")));
                     e.setDataFinalEvento(df.parse(request.getParameter("fim")));
 
-                    //e.setEntidade(entidade);
+                    e.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
                     EventoDAO edao = new EventoDAO();
                     String str = edao.salvar(e);
                     if (str.equals("")) {

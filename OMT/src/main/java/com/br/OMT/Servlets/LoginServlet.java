@@ -54,6 +54,7 @@ public class LoginServlet extends HttpServlet {
                         try {
                             d = ddao.buscarById(resposta);
                             if (d != null) {
+                                request.getSession().setAttribute("usuario", d);
                                 response.sendRedirect("/OMT/discente/alunoIndex.jsp");
                             } else {
                                 response.getWriter().println("ERRO");//erro
@@ -76,6 +77,7 @@ public class LoginServlet extends HttpServlet {
                         try {
                             d = ddao.buscarById(resposta);
                             if (d != null) {
+                                request.getSession().setAttribute("usuario", d);
                                 response.sendRedirect("/OMT/discente/alunoIndex.jsp");
                             } else {
                                 response.getWriter().println("ERRO");//erro
@@ -106,8 +108,12 @@ public class LoginServlet extends HttpServlet {
                             e = u.getEntidade();
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
+                                    request.getSession().setAttribute("usuario", u);
+                                    request.getSession().setAttribute("entidade", e);
                                     response.sendRedirect("/OMT/campus/campusIndex.jsp");
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
+                                    request.getSession().setAttribute("usuario", u);
+                                    request.getSession().setAttribute("entidade", e);
                                     response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
                                 }
                             }
