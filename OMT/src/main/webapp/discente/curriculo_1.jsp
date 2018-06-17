@@ -1,11 +1,3 @@
-<%-- 
-    Document   : curriculo
-    Created on : 07/06/2018, 15:20:11
-    Author     : Natan S. dos Santos
---%>
-<%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
@@ -19,8 +11,8 @@
     <body>
         <%@include file="../header.jsp"%>
         <div class="container">
-            <div id="to-pdf">
-                <div class="card-panel">
+            <div class="card-panel">
+                <div id="to-pdf">
                     <section>
                         <h3>Dados pessoais <button class="btn red"><i class="fa fa-edit"></i>Atualizar informações</button></h3>
                         <div class="row">
@@ -133,22 +125,33 @@
 
         <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
-        <script src="../JS/jquery.mask.js"></script>
-        <script src="../JS/mask.js"></script>
         <script src="../JS/jspdf.min.js"></script>
-        <script src="../JS/html2canvas.min.js"></script>
-        <script type="text/javascript">
-            
+        <script src="../JS/html2pdf.js"></script>
+        <script>
 
-       
-    
+            var pdf = new jsPDF('p', 'pt', 'a4');
+            var canvas = pdf.canvas;
+            canvas.height = 72 * 11;
+            canvas.width = 72 * 8.5;
+            ;
+            var conteudoPDF = document.getElementById('to-pdf');
+            // var width = 400;
+            html2pdf(conteudoPDF, pdf, function (pdf) {
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+                document.body.appendChild(iframe);
+                iframe.src = pdf.output('datauristring');
+
+                //var div = document.createElement('pre');
+                //div.innerText=pdf.output();
+                //document.body.appendChild(div);
+            }
+            );
+
             $("#btnBaixarCurriculo").click(function () {
-                var pdf = new jsPDF('p', 'pt', 'a4');
-                pdf.addHTML(document.getElementById("to-pdf"), function () {
-                    pdf.save('web.pdf');
-                });
-
+                pdf.save("q.pdf");
             });
         </script>
+
     </body>
 </html>

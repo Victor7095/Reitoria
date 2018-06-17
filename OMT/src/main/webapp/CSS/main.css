@@ -91,3 +91,11 @@ footer .container{
     display: inline-block;
     margin: 1.375em 0;
 }
+
+.foto-curriculo{
+    max-width: 100%;
+}
+
+.bold-text{
+    font-weight: bold;
+}

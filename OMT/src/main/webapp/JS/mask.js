@@ -5,9 +5,9 @@
  */
 
 $(document).ready(function () {
-    $("#cpf").mask('000.000.000-00', {reverse: false});
-    $("#rg").mask('00.000.000-0', {reverse: false});
-    $("#cnpj").mask('00.000.000/0000-00', {reverse: false});
-    $("#cnae").mask('00000-0/00', {reverse: false});
-    $("#cep").mask('00000-000', {reverse: false});
+    $("#cpf, .CPF").mask('000.000.000-00', {reverse: false});
+    $("#rg, .RG").mask('00.000.000-0', {reverse: false});
+    $("#cnpj, .CNPJ").mask('00.000.000/0000-00', {reverse: false});
+    $("#cnae, .CNAE").mask('00000-0/00', {reverse: false});
+    $("#cep, .CEP").mask('00000-000', {reverse: false});
 });
