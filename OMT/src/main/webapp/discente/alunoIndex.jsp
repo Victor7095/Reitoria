@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     <head>
         <title>Bem-Vindo caro Aluno</title>
         <meta charset="UTF-8">
@@ -18,18 +18,11 @@
             <%@include file="../header.jsp"%>
             <%@include file="alunoMenu.jsp"%>
         </header>
-        <div class="row">
-            <div class="col s2 z-depth-0">  
-                <ul class="tabs center">
-                    <!--Imagem do Usuário-->
-                    <li><img class="" id="imgUser" alt="Sem Imagem" src="../img/student.png"></li>
-
-                </ul>      
-
+        <div class="container">
+            <div class="card-panel">
+                <img id="imgUser" src="../img/student.png">
             </div>
-
         </div>
-
         <footer>
 
         </footer>
