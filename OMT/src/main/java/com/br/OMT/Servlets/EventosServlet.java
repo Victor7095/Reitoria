@@ -53,6 +53,7 @@ public class EventosServlet extends HttpServlet {
         if (ServletFileUpload.isMultipartContent(request)) {
             String nome = "";
             String descricao = "";
+            String local = "";
             Date inicioInscricao = null, finalInscricao = null, inicioEvento = null, finalEvento = null;
             List<byte[]> fotos = new ArrayList<>();
             try {
@@ -73,6 +74,9 @@ public class EventosServlet extends HttpServlet {
                             case "inscricaoInicio":
                                 inicioInscricao = df.parse(item.getString());
                                 break;
+                            case "local":
+                                local = item.getString();
+                                break;
                             case "inscricaoFim":
                                 finalInscricao = df.parse(item.getString());
                                 break;
@@ -92,6 +96,7 @@ public class EventosServlet extends HttpServlet {
             }
             Eventos e = Eventos.getInstance();
             e.setNome(nome);
+            e.setLocal(local);
             e.setDescricao(descricao);
             e.setDataInicioEvento(inicioEvento);
             e.setDataFinalEvento(finalEvento);

@@ -47,6 +47,12 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="input-field col s12 xl10 offset-xl1">
+                                            <textarea id="local" name="local" class="materialize-textarea" data-length="120"></textarea>
+                                            <label for="local">Local do Evento</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col s12 xl5 offset-xl1">
                                             <div class="input-field">
                                                 <input type="text" id="inscricaoInicio" name="inscricaoInicio" class="datepicker">

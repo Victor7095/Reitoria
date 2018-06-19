@@ -22,21 +22,23 @@
     <body>
         <div class="container">
             <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
-                for (Eventos e : list) {
+                //for (Eventos e : list) {
             %>
-            <h3>ID: <%=e.getId()%></h3>
-            <h3>Nome: <%=e.getNome()%></h3>
-            <h3>Descrição: <%=e.getDescricao()%></h3>
-            <%
-                List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
+            <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
                 if (list2 != null && list2.size() > 0) {%>
+            <div class="carousel carousel-slider">
+                <%   for (FotosEventos fe : list2) {%>
+                <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
+                    <%}%>
+                List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
+                if (list2 != null && list2.size() > 0) {%> 
             <div class="carousel carousel-slider">
                 <%   for (FotosEventos fe : list2) {%>
                 <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
                     <%}%>
             </div>
             <%}%>
-            <%}%>
+            <%}%>--%>
             <div class="container">
                 <div class="card-panel">
                     <div class="row">
@@ -46,10 +48,13 @@
                                 <div class="card-content">
                                     <span class="card-title grey-text text-darken-3"><%=e.getNome()%></span>
                                     <div class="card-image waves-effect waves-block waves-light">
-                                        <img src="../img/logoOMT.png">
+                                        <%
+                                            List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId());
+                                        %>
+                                        <img src="/OMT/EventosServlet?id=<%=list2.get(0).getId()%>">
                                     </div>
                                     <%
-                                        String texto = e.getDescricao().substring(0, 30);
+                                        String texto = e.getDescricao();
                                     %>
                                     <p><%=texto%></p>
                                 </div>

@@ -10,37 +10,29 @@
         <link rel="stylesheet" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" href="../CSS/parallax-template/css/style.css">
         <link rel="stylesheet" href="../CSS/general.css" >
-        <link rel="stylesheet" href="../CSS/main.css">
+        <!--<link rel="stylesheet" href="../CSS/main.css">-->
         <!-- Linkagens JS -->
     </head>
-
     <body>
         <header>
-
+            <%@include file="../header.jsp"%>
+            <%@include file="alunoMenu.jsp"%>
         </header>
-        
-            <div class="row">
-                <%@include file="alunoMenu.jsp"%>
+        <div class="row">
+            <div class="col s2 z-depth-0">  
+                <ul class="tabs center">
+                    <!--Imagem do Usuário-->
+                    <li><img class="" id="imgUser" alt="Sem Imagem" src="../img/student.png"></li>
 
-                <div class="col s2 z-depth-0">  
-                    <ul class="tabs center">
-                        <!--Imagem do Usuário-->
-                        <li><img class="" id="imgUser" alt="Sem Imagem" src="../img/student.png"></li>
-
-                    </ul>      
-
-                </div>
+                </ul>      
 
             </div>
-       
-            <footer>
-                
-            </footer>
+
+        </div>
+
+        <footer>
+
+        </footer>
     </body>
 </html>
 
-
-<script>
-    
-    
-<script>
