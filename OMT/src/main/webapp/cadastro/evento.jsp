@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
-        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
@@ -88,12 +88,13 @@
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="row center">
-                                        <div class="col m12 offset-xl3 xl2 btn-mb-md">
-                                            <button type="reset" class="btn waves-effect waves-green">Limpar</button>
+                                    <div class="row">
+                                        <div class="col s12 m3 center offset-m2 offset-l3 xl4 offset-xl2 btn-mb-md">
+                                            <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
                                         </div>
-                                        <div class="col m12 xl2 offset-xl2">
-                                            <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">Cadastrar <i class="fa fa-paper-plane"></i></button>
+                                        <div class="col s12 m3 center offset-m2 offset-l1 xl4">
+                                            <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
+                                                <i class="fa fa-check"></i>Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>

@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">    
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+        <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -124,11 +125,12 @@
 
                                     <br><br>
                                     <div class="row">
-                                        <div class="col s12 m2 center offset-m2 offset-l3 btn-mb-md">
-                                            <button type="reset" class="btn btn-large waves-effect waves-green">Limpar</button>
+                                        <div class="col s12 m3 center offset-m2 offset-l3 xl4 offset-xl2 btn-mb-md">
+                                            <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
                                         </div>
-                                        <div class="col s12 m2 center offset-m2 offset-l1">
-                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect waves-green">Cadastrar</button>
+                                        <div class="col s12 m3 center offset-m2 offset-l1 xl4">
+                                            <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
+                                                <i class="fa fa-check"></i>Cadastrar</button>
                                         </div>
                                     </div>
                                 </form>

@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css"> 
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+        <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -17,7 +18,7 @@
                 <div class="col s12 l8 offset-l2">
                     <div class="card-panel">
                         <div class="row">
-                            <form id="cadastrar-formacao"  class="col s10 offset-s1 l8 offset-l2" method="post" action="/OMT/CursosEspecializantesServlet">
+                            <form id="cadastrar-formacao"  class="col s12 l10 offset-l1" method="post" action="/OMT/CursosEspecializantesServlet">
                                 <div class="row"><h4 class="center-align">Cadastro de Curso Complementar</h4></div>
                                 <div class="row">
                                     <div class="input-field col s12 m6">
@@ -30,8 +31,14 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row center">
-                                    <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect green">Confirmar</button>
+                                <div class="row">
+                                    <div class="col s12 m3 center offset-m2 offset-l3 xl4 offset-xl2 btn-mb-md">
+                                        <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
+                                    </div>
+                                    <div class="col s12 m3 center offset-m2 offset-l1 xl4">
+                                        <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
+                                            <i class="fa fa-check"></i>Cadastrar</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
