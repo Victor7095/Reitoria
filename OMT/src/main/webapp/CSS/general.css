@@ -1,3 +1,7 @@
+body{
+    background-color: whitesmoke;
+}
+
 /*configurações gerais*/
 header{
     min-height: 60px;
@@ -23,25 +27,38 @@ titulo{
     text-align: center;
 }
 
-nav img{
-    width: 50px;
-    height: 50px;
-    margin-top: 10px;
-}
-
 embed{
     align-content: space-around;
     height: max-content;
     width: max-content;
 }
 
+#nav{
+    background-color: #19982c;
+}
 
+#icones{
+    display: block;
+    width: 1000px;
+}
+
+#icone{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+#icone-wrapper{
+    margin-left: 1em;
+    margin-right: 1em;
+}
 
 /*configurações específicas*/
 #navUsers{
     display: block;
     border-color: transparent;
-    background-color: transparent;
+    background-color: #19982c;
     border-style: none;
     appearance: menu;
     align-items: center;
