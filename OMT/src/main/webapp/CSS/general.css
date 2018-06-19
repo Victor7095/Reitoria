@@ -82,7 +82,32 @@ embed{
 .indicator{
     display: none;
 }
+.tabs .tab a{
+    color:#000;
+} /*Black color to the text*/
 
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: #aea;
+    outline: none;
+}
+
+.tabs .tab:hover {
+    background-color:#cfc;
+    color:#000;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+    background-color:#aea;
+    color:#000;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#19882c;
+} /*Color of underline*/
+
+#tabsLogin ul{
+    box-shadow: 1px 1px 5px gray;
+}
 
 @media (min-width: 993px) {
     #loginForms{
