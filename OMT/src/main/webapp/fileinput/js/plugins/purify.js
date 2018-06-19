@@ -224,7 +224,7 @@
     var MUSTACHE_EXPR = /\{\{[\s\S]*|[\s\S]*\}\}/gm;
     var ERB_EXPR = /<%[\s\S]*|[\s\S]*%>/gm;
 
-    /* Decide if document with <html>... should be returned */
+    /* Decide if document with <html lang="pt-br">... should be returned */
     var WHOLE_DOCUMENT = false;
 
     /* Decide if a DOM `HTMLBodyElement` should be returned, instead of a html string.
