@@ -13,13 +13,22 @@ import com.br.OMT.models.Projetos;
  * @author vinic
  */
 public class ProjetosDAO {
+
     HibernateUtil<Projetos> hup;
-    
-    public ProjetosDAO(){
+
+    public ProjetosDAO() {
         hup = new HibernateUtil<>();
     }
-    
-    public String salvar(Projetos p){
+
+    public String salvar(Projetos p) {
         return hup.salvar(p);
+    }
+
+    public String atualizar(Projetos p) {
+        return hup.atualizar(p);
+    }
+
+    public String deletar(Projetos p) {
+        return hup.deletar(p);
     }
 }

@@ -26,6 +26,14 @@ public class UsuarioDAO {
         return huu.salvar(usuario);
     }
 
+    public String atualizar(Usuario usuario) {
+        return huu.atualizar(usuario);
+    }
+    
+    public String deletar(Usuario usuario) {
+        return huu.deletar(usuario);
+    }
+    
     public Usuario buscarById(Long id) throws Exception {
         Usuario u = null;
         try {

@@ -19,8 +19,16 @@ public class DiscenteEstagioDAO {
     public DiscenteEstagioDAO() {
         hude = new HibernateUtil<>();
     }
-    
-    public String salvar(DiscenteEstagio de){
+
+    public String salvar(DiscenteEstagio de) {
         return hude.salvar(de);
+    }
+
+    public String atualizar(DiscenteEstagio de) {
+        return hude.atualizar(de);
+    }
+
+    public String deletar(DiscenteEstagio de) {
+        return hude.deletar(de);
     }
 }

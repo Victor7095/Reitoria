@@ -13,13 +13,22 @@ import com.br.OMT.models.CursosEspecializantes;
  * @author vinic
  */
 public class CursosEspecializantesDAO {
+
     HibernateUtil<CursosEspecializantes> huce;
-    
-    public CursosEspecializantesDAO(){
+
+    public CursosEspecializantesDAO() {
         huce = new HibernateUtil<>();
     }
-    
-    public String salvar(CursosEspecializantes ce){
+
+    public String salvar(CursosEspecializantes ce) {
         return huce.salvar(ce);
+    }
+
+    public String atualizar(CursosEspecializantes ce) {
+        return huce.atualizar(ce);
+    }
+
+    public String deletar(CursosEspecializantes ce) {
+        return huce.deletar(ce);
     }
 }

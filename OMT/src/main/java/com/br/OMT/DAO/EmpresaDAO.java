@@ -31,6 +31,14 @@ public class EmpresaDAO {
         return hue.salvar(e);
     }
 
+    public String atualizar(Entidade e) {
+        return hue.atualizar(e);
+    }
+
+    public String deletar(Entidade e) {
+        return hue.deletar(e);
+    }
+
     public Entidade findByCNPJ(String cnpj) {
         Entidade e = null;
         try {

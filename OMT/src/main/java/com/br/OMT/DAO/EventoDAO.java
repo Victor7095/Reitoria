@@ -32,6 +32,14 @@ public class EventoDAO {
         return hue.salvar(evento);
     }
 
+    public String atualizar(Eventos evento) {
+        return hue.atualizar(evento);
+    }
+
+    public String deletar(Eventos evento) {
+        return hue.deletar(evento);
+    }
+
     public List<Eventos> listEventos() {
         List<Eventos> le = null;
         try {

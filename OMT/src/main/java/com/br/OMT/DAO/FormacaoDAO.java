@@ -23,4 +23,12 @@ public class FormacaoDAO {
     public String salvar(Formacao f) {
         return huf.salvar(f);
     }
+
+    public String atualizar(Formacao f) {
+        return huf.atualizar(f);
+    }
+
+    public String deletar(Formacao f) {
+        return huf.deletar(f);
+    }
 }

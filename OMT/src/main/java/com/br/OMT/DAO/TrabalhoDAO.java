@@ -13,13 +13,23 @@ import com.br.OMT.models.Trabalho;
  * @author vinic
  */
 public class TrabalhoDAO {
+
     private HibernateUtil<Trabalho> hut;
-    
-    public TrabalhoDAO(){
+
+    public TrabalhoDAO() {
         hut = new HibernateUtil<>();
     }
-    
-    public String salvar(Trabalho t){
+
+    public String salvar(Trabalho t) {
         return hut.salvar(t);
     }
+
+    public String atualizar(Trabalho t) {
+        return hut.atualizar(t);
+    }
+
+    public String deletar(Trabalho t) {
+        return hut.deletar(t);
+    }
+
 }

@@ -33,6 +33,14 @@ public class FotosEventosDAO {
         return hue.salvar(e);
     }
 
+    public String atualizar(FotosEventos e) {
+        return hue.atualizar(e);
+    }
+
+    public String deletar(FotosEventos e) {
+        return hue.deletar(e);
+    }
+
     public FotosEventos fotosEventosById(Long id) {
         FotosEventos fe = null;
         try {

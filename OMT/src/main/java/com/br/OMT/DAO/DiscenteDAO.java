@@ -32,6 +32,14 @@ public class DiscenteDAO {
         return hud.salvar(discente);
     }
 
+    public String atualizar(Discente discente) {
+        return hud.atualizar(discente);
+    }
+
+    public String deletar(Discente discente) {
+        return hud.deletar(discente);
+    }
+
     public Discente buscarById(Long id) throws Exception {
         Discente d = null;
         try {
