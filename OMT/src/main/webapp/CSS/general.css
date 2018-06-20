@@ -33,13 +33,26 @@ embed{
     width: max-content;
 }
 
-#nav{
+#nav-bar{
+    width: 100%;
     background-color: #19982c;
+    overflow: auto;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-#icones{
-    display: block;
-    width: 1000px;
+#nav-bar a{
+    float: left;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+
+#nav-bar a:hover{
+    background-color: darkgreen;
 }
 
 #icone{
