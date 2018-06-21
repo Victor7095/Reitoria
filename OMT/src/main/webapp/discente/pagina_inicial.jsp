@@ -17,6 +17,9 @@
         <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
     </head>
     <body>
+        <%@include file="../header.jsp"%>
+        <%@include file="alunoMenu.jsp"%>    
+
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
             <div class="card col s10">
@@ -57,7 +60,7 @@
             </div>
             
         </div>
-        
+            <%@include file="../footer.jsp"%>
     </body>
 </html>
 

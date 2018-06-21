@@ -16,6 +16,9 @@
         <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
+    <%@include file="../header.jsp"%>
+    <%@include file="alunoMenu.jsp"%>    
         <h1>Hello World!</h1>
+    <%@include file="../footer.jsp"%>
     </body>
 </html>

@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
     </head>
     <body>
+        <%@include file="../header.jsp"%>
+        <%@include file="alunoMenu.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">
@@ -88,5 +90,6 @@
     <script src="../JS/jquery.mask.js"></script>
     <script src="../JS/mask.js"></script>
     <script src="../CSS/parallax-template/js/materialize.js"></script>
+    <%@include file="../footer.jsp"%>
     </body>
 </html>

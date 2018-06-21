@@ -10,6 +10,8 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
+        <%@include file="alunoMenu.jsp"%>    
+
         <div class="container">
             <div class="card-panel">
                 <div id="to-pdf">
@@ -152,6 +154,6 @@
                 pdf.save("q.pdf");
             });
         </script>
-
+        <%@include file="../footer.jsp"%>
     </body>
 </html>

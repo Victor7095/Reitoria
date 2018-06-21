@@ -20,6 +20,9 @@
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">
     </head>
     <body>
+        <%@include file="../header.jsp"%>
+        <%@include file="alunoMenu.jsp"%>    
+
         <div class="container">
             <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
                 //for (Eventos e : list) {
@@ -84,5 +87,6 @@
                 });
             });
         </script>
+        <%@include file="../footer.jsp"%>
     </body>
 </html>

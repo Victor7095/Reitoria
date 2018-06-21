@@ -1,3 +1,11 @@
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+</head>
+
 <nav class="row" id="nav-bar">
     <div class="col s12">
         <div id="flex-line">
