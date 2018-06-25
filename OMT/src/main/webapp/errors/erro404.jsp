@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <a href="../home.html"> Página Inicial</a>|
+        <a href="../home.jsp"> Página Inicial</a>|
         <a href="#"> Página do IFAM </a>
         <div class="center-align">
 
