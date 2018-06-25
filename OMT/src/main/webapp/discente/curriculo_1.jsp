@@ -5,7 +5,7 @@
         <title>Currículo</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
