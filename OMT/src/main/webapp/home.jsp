@@ -13,6 +13,12 @@
         <script src="fileinput/js/fontawesome-all.min.js"></script>
         <link rel="stylesheet" href="CSS/general.css" >
         <!-- Linkagens JS -->
+        <style>
+            #div-forms{
+                background: linear-gradient(to right, #1A6325 0%, #4F9C45 30%, #4F9C45 70%, #1A6325 100%);
+                padding: 30px 0;
+            }
+        </style>
     </head>
 
     <body>
