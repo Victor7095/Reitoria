@@ -40,6 +40,10 @@
         <servlet-name>TrabalhoServlet</servlet-name>
         <servlet-class>com.br.OMT.Servlets.TrabalhoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pdf</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.pdf</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -80,6 +84,10 @@
         <servlet-name>TrabalhoServlet</servlet-name>
         <url-pattern>/TrabalhoServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pdf</servlet-name>
+        <url-pattern>/pdf</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -88,5 +96,4 @@
     <welcome-file-list>
         <welcome-file>home.html</welcome-file>
     </welcome-file-list>
-    
 </web-app>

@@ -98,6 +98,7 @@ public class DiscenteServlet extends HttpServlet {
 
                 try {
                     senhaCriptografada = new Criptografia().encrypt(d.getSenha());
+                    d.setSenhaBanco(senhaCriptografada);
                     String str;
                     try {
                         str = ddao.salvar(d);
@@ -105,6 +106,7 @@ public class DiscenteServlet extends HttpServlet {
                             response.getWriter().println("Salvo!");
                         } else {
                             response.getWriter().println("Errado!");
+                            response.getWriter().println(str);
                         }
                     } catch (Exception ex) {
                         response.getWriter().println("Erro! " + ex.getMessage());

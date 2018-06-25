@@ -35,10 +35,10 @@ public class Usuario implements Serializable {
     @Column(name = "senha", nullable = false, length = 255, columnDefinition = "BLOB")
     private byte[] senhaBanco;
 
-    @Column(name = "tipo", nullable = false, length = 1)
+    @Column(name = "tipo", nullable = true, length = 1)
     private char tipo; // A= adm    D- discente
 
-    @Column(name = "cargo", nullable = false, length = 1)
+    @Column(name = "cargo", nullable = true, length = 1)
     private char cargo; // C- CIE-E, E-extensão, G, geral
 
     @ManyToOne
