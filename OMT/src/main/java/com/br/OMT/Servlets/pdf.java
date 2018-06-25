@@ -7,12 +7,8 @@ package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EventoDAO;
 import com.br.OMT.models.Eventos;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,13 +19,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
-import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 /**
  *
@@ -78,32 +73,20 @@ public class pdf extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("ola");
-        String jrxml = "testePDF.jrxml";
-        String jasper;
-        File file = new File("hibernate.cfg.xml");
-        URL url = (pdf.class
-                       .getClassLoader().getResource("testePDF.jrxml"));
-        out.println(url);
-        try {
+        String path = this.getClass().getClassLoader().getResource("").getPath();
+        String jrxml = path + "testePDF.jrxml";
 
-            jasper = JasperCompileManager.compileReportToFile(jrxml);
-            System.out.println(jasper);
+        try {
             Map<String, Object> parametros = new HashMap();
-            parametros.put("descricao", "456");
+            parametros.put("descricao", "123");
             List<Eventos> dataSource = new EventoDAO().listEventos();
+            
+            JasperReport report = JasperCompileManager.compileReport(jrxml);
 
             JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(dataSource);
+            JasperPrint print = JasperFillManager.fillReport(report, parametros, ds);
+            JasperExportManager.exportReportToPdfFile(print, "c:/Users/Aluno/Desktop/eventos2.pdf");
 
-            JasperPrint print = JasperFillManager.fillReport("testePDF.jasper", parametros, ds);
-
-            OutputStream saida = new FileOutputStream("testePDF.pdf");
-
-            JRExporter exporter = new JRPdfExporter();
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, saida);
-
-            exporter.exportReport(); // gera o relatório no fluxo de saída  
         } catch (JRException ex) {
             Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
         }

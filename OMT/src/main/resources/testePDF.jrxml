@@ -4,7 +4,7 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="id" class="java.lang.Integer"/>
+	<field name="id" class="java.lang.Long"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="descricao" class="java.lang.String"/>
 	<field name="local" class="java.lang.String"/>
