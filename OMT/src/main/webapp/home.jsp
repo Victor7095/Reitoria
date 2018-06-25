@@ -29,7 +29,7 @@
             </h4>
 
             <div class="row">
-                <div class="col s12 l4 xl3 offset-l1 offset-xl2" id="tabsLogin">
+                <div class="col s12 m10 l4 xl3 offset-l1 offset-xl2 offset-m1" id="tabsLogin">
                     <ul class="tabs">
                         <li class="tab"><a href="#loginDisc"><i class="fas fa-user-graduate fa-lg"></i>Discentes</a></li>
                         <!--li class="tab"><a href="#loginEmp"><i class="fas fa-user-lock fa-lg"></i>Empresas</a></li-->

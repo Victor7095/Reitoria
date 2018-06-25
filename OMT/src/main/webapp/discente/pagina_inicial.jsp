@@ -15,11 +15,11 @@
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
         <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
     </head>
     <body>
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>    
-
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
             <div class="card col s10">
