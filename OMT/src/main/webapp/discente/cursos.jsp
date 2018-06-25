@@ -17,9 +17,13 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
-        <%@include file="alunoMenu.jsp"%>    
+        <% if (request.getSession().getAttribute("usuario") != null) {%>
 
+        <%@include file="alunoMenu.jsp"%>    
         <h1>Hello World!</h1>
+        <%} else {%>
+        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        <%}%>
         <%@include file="../footer.jsp"%>
     </body>
 </html>

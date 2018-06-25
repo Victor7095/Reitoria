@@ -18,17 +18,19 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
+        <% if (request.getSession().getAttribute("usuario") != null) {%>
+
         <%@include file="../discente/alunoMenu.jsp"%>
         <div class="container">
             <div id="to-pdf">
                 <div class="card-panel">
-                    <section>
+                    <section id="dadosPessoais">
                         <h3>Dados pessoais <button class="btn red"><i class="fa fa-edit"></i>Atualizar informações</button></h3>
                         <div class="row">
                             <div class="col s12 m2">
-                                <img class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
+                                <img id="fotoCurriculo" class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
                             </div>
-                            <div class="col s10">
+                            <div class="col s12 m10">
                                 <h4>Victor Yan</h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus,Amazonas,Brasil</h6>
@@ -131,7 +133,9 @@
                 </div>
             </div>
         </div>
-
+        <%} else {%>
+        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        <%}%>
         <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
@@ -139,10 +143,10 @@
         <script src="../JS/jspdf.min.js"></script>
         <script src="../JS/html2canvas.min.js"></script>
         <script type="text/javascript">
-            
 
-       
-    
+
+
+
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');
                 pdf.addHTML(document.getElementById("to-pdf"), function () {

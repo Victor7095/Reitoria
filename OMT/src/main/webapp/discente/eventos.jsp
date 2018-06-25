@@ -9,7 +9,7 @@
 <%@page import="com.br.OMT.DAO.FotosEventosDAO"%>
 <%@page import="com.br.OMT.models.FotosEventos"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -23,19 +23,20 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
-        <%@include file="alunoMenu.jsp"%>    
+        <% if (request.getSession().getAttribute("usuario") != null) {%>
 
+        <%@include file="alunoMenu.jsp"%>    
         <div class="container">
-            <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sess√£o
+            <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sess„o
                 //for (Eventos e : list) {
             %>
-            <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sess√£o
+            <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sess„o
                 if (list2 != null && list2.size() > 0) {%>
             <div class="carousel carousel-slider">
                 <%   for (FotosEventos fe : list2) {%>
                 <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
                     <%}%>
-                List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sess√£o
+                List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sess„o
                 if (list2 != null && list2.size() > 0) {%> 
             <div class="carousel carousel-slider">
                 <%   for (FotosEventos fe : list2) {%>
@@ -49,27 +50,20 @@
                     <div class="row">
                         <%for (Eventos e : list) {%>
                         <div class="col s12 m6">
-                            <div class="card medium">
-                                <div class="card-content">
-                                    <span class="card-title grey-text text-darken-3"><%=e.getNome()%></span>
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                        <%
-                                            List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId());
-                                        %>
-                                        <img src="/OMT/EventosServlet?id=<%=list2.get(0).getId()%>">
-                                    </div>
-                                    <%
-                                        String texto = e.getDescricao();
-                                    %>
-                                    <p><%=texto%></p>
+                            <div class="carousel carousel-slider center">
+                                <%
+                                    List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId());
+                                %>
+                                <div class="carousel-fixed-item center">
+                                    <a class="btn waves-effect white grey-text darken-text-2">button</a>
                                 </div>
-                                <div class="card-action right-align">
-                                    <a class="activator">detalhes sobre o evento</a>
+                                <%for (FotosEventos fe : list2) {%>
+                                <div class="carousel-item red white-text" href="#one!">
+                                    <h2>First Panel</h2>
+                                    <img src="/OMT/EventosServlet?id=<%=fe.getId()%>">
+                                    <p class="white-text">This is your first panel</p>
                                 </div>
-                                <div class="card-reveal">
-                                    <span class="card-title"><%=e.getNome()%></span>
-                                    <p><%=e.getDescricao()%></p>
-                                </div>
+                                <% }%>
                             </div>
                         </div>
                         <%}%>
@@ -77,6 +71,9 @@
                 </div>
             </div>
         </div>
+        <%} else {%>
+        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        <%}%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>

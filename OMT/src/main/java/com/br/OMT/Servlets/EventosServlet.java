@@ -50,7 +50,7 @@ public class EventosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("ISO-8859-1");
         if (ServletFileUpload.isMultipartContent(request)) {
             String nome = "";
             String descricao = "";
@@ -63,6 +63,7 @@ public class EventosServlet extends HttpServlet {
                     if (!item.isFormField()) {
                         fotos.add(item.get());
                     } else {
+                        System.out.println(item.getString());
                         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                         df.setLenient(false);
                         switch (item.getFieldName()) {

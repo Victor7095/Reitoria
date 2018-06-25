@@ -144,3 +144,10 @@ embed{
         margin-top: -7px;
     }
 }
+#fotoCurriculo{
+    max-width: 100%;
+}
+
+#dadosPessoais h4{
+    text-align: left;
+}

@@ -11,7 +11,7 @@
     <body>
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>    
-
+        <% if (request.getSession().getAttribute("usuario") != null) {%>
         <div class="container">
             <div class="card-panel">
                 <div id="to-pdf">
@@ -124,7 +124,9 @@
                 </div>
             </div>
         </div>
-
+        <%} else {%>
+        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        <%}%>
         <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jspdf.min.js"></script>

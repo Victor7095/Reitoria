@@ -19,6 +19,7 @@
     <body>
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>
+        <% if (request.getSession().getAttribute("usuario") != null) {%>
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">
@@ -51,35 +52,16 @@
                                     </div>
                                 </div>
                                 <div class="section">
+
+                                    <br><br>
                                     <div class="row">
-                                        <div class="col s12 m10 offset-m1">
-                                            <h5>Acesso</h5>
-                                            <div class="input-field">
-                                                <label for="senha">Senha</label>
-                                                <input type="password" id="senha" name="senha" required>
-                                            </div>
-                                            <div class="input-field">
-                                                <label for="confirmar">Confirmar Senha</label>
-                                                <input type="password" id="confirmar" name="confirmar" required>
-                                            </div>
-                                            <div class="input-field">
-                                                  <label for="nova">Nova Senha</label>
-                                                  <input type="password" id="novaSenha" name="nova"> 
-                                            </div>
-                                        
+                                        <div class="col s6 btn-mb-sm">
+                                            <button type="reset" class="btn btn-large waves-effect waves-green white black-text">Limpar</button>
+                                        </div>
+                                        <div class="col s6 ">
+                                            <button type="submit" name="acao" value="editar" class="btn btn-large waves-effect waves-green green">Atualizar</button>
+                                        </div>
                                     </div>
-                                </div>
-
-
-                                <br><br>
-                                <div class="row">
-                                    <div class="col s6 btn-mb-sm">
-                                        <button type="reset" class="btn btn-large waves-effect waves-green white black-text">Limpar</button>
-                                    </div>
-                                    <div class="col s6 ">
-                                        <button type="submit" name="acao" value="editar" class="btn btn-large waves-effect waves-green green">Atualizar</button>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -87,10 +69,13 @@
             </div>
         </div>
     </div>
+    <%} else {%>
+    <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+    <%}%>
     <script src="../JS/jquery-3.2.1.min.js"></script>
     <script src="../JS/jquery.mask.js"></script>
     <script src="../JS/mask.js"></script>
     <script src="../CSS/parallax-template/js/materialize.js"></script>
     <%@include file="../footer.jsp"%>
-    </body>
+</body>
 </html>
