@@ -20,7 +20,7 @@
             <!--Cursos Extra-curriculares-->
             <a href="cursos.jsp"><img id="icone" src="../img/Icons/icones/png/notepad-2.png" title="Cursos Extras"></a>
             <!--Currículo do Aluno-->
-            <a href="curriculo_1.jsp"><img id="icone" src="../img/Icons/icones/png/diploma.png" title="Guia do Currículo"></a>
+            <a href="curriculo.jsp"><img id="icone" src="../img/Icons/icones/png/diploma.png" title="Guia do Currículo"></a>
             <!--Voltar para Página de Login-->
             <a href="../home.jsp"><img id="icone" src="../img/Icons/icones/png/exit-1.png" alt="Sair" title="Sair para página de Login"></a>
         </div>

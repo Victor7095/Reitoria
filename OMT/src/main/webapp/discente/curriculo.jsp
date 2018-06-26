@@ -3,6 +3,7 @@
     Created on : 07/06/2018, 15:20:11
     Author     : Natan S. dos Santos
 --%>
+<%@page import="com.br.OMT.models.Discente"%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
@@ -18,7 +19,8 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
-        <% if (request.getSession().getAttribute("usuario") != null) {%>
+        <%  Discente d = (Discente) request.getSession().getAttribute("usuario");
+            if (d != null) {%>
 
         <%@include file="../discente/alunoMenu.jsp"%>
         <div class="container">
@@ -31,7 +33,7 @@
                                 <img id="fotoCurriculo" class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
                             </div>
                             <div class="col s12 m10">
-                                <h4>Victor Yan</h4>
+                                <h4><%=d.getNome()%></h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus,Amazonas,Brasil</h6>
                             </div>
@@ -67,11 +69,11 @@
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">CPF</td>
-                                            <td class="col s6 xl10 left-align CPF">02546569279 </td>
+                                            <td class="col s6 xl10 left-align CPF"><%=d.getCPF()%> </td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Endereço residencial</td>
-                                            <td class="col s6 xl10 left-align">Pqp</td>
+                                            <td class="col s6 xl10 left-align">Av. Torquato Tapajós</td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Endereço eletrônico</td>

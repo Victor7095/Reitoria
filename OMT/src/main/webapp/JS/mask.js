@@ -10,4 +10,5 @@ $(document).ready(function () {
     $("#cnpj, .CNPJ").mask('00.000.000/0000-00', {reverse: false});
     $("#cnae, .CNAE").mask('00000-0/00', {reverse: false});
     $("#cep, .CEP").mask('00000-000', {reverse: false});
+    $(".data").mask('00/00/0000', {reverse: false});
 });

@@ -192,3 +192,32 @@ embed{
         float: left;
     }
 }
+
+.carousel-item h2{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 20px #000, 0 -10px 20px #000, 
+        0 10px 20px #000, -20px 0 40px #000, 
+        20px 0 40px #000; 
+}
+
+
+.carousel-item p{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 20px #000, 0 -10px 20px #000, 
+        0 10px 20px #000, -20px 0 40px #000, 
+        20px 0 40px #000; 
+}
+
+.carousel-item a, .carousel-fixed-item{
+    bottom: 0;
+    position: absolute;
+}
+
+.foto-evento{
+    width: 100%;
+}
