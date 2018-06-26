@@ -7,7 +7,6 @@ package com.br.OMT.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import static javax.persistence.CascadeType.ALL;
 
 /**
  *

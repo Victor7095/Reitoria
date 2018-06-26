@@ -6,14 +6,9 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.Hibernate.HibernateFactory;
-import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -25,8 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
 
 /**
  *

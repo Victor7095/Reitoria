@@ -13,7 +13,8 @@
         <title>Currículo</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" htef="../CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/curriculo.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
@@ -25,12 +26,12 @@
             <div id="to-pdf">
                 <div class="card-panel">
                     <section id="dadosPessoais">
-                        <h3>Dados pessoais <button class="btn red"><i class="fa fa-edit"></i>Atualizar informações</button></h3>
+                        <h3>Dados pessoais <button class="btn red not-printable"><i class="fa fa-edit"></i>Atualizar informações</button></h3>
                         <div class="row">
-                            <div class="col s12 m2">
+                            <div class="col s12 m4 l3">
                                 <img id="fotoCurriculo" class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
                             </div>
-                            <div class="col s12 m10">
+                            <div class="col s12 m8 l9">
                                 <h4>Victor Yan</h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus,Amazonas,Brasil</h6>
@@ -71,7 +72,7 @@
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Endereço residencial</td>
-                                            <td class="col s6 xl10 left-align">Pqp</td>
+                                            <td class="col s6 xl10 left-align">Av. Djalma Batista</td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Endereço eletrônico</td>
@@ -83,7 +84,7 @@
                         </div>
                     </section>
                     <section>
-                        <h3>Formação acadêmica/ titulação <button class="btn red"><i class="fa fa-plus"></i>Adicionar formação</button></h3>
+                        <h3>Formação acadêmica/ titulação <a href="../cadastro/formacao.jsp" class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar formação</a></h3>
                         <table>
                             <tbody>
                                 <tr class="row">
@@ -100,7 +101,7 @@
                         </table>
                     </section>
                     <section>
-                        <h3>Áreas de atuação <button class="btn red"><i class="fa fa-plus"></i>Adicionar área de atuação</button></h3>
+                        <h3>Áreas de atuação <button class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar área de atuação</button></h3>
                         <table>
                             <tbody>
                                 <tr class="row">
@@ -111,7 +112,7 @@
                         </table>
                     </section>
                     <section>
-                        <h3>Idiomas <button class="btn red"><i class="fa fa-plus"></i>Adicionar idioma</button></h3>
+                        <h3>Idiomas <button class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar idioma</button></h3>
                         <table>
                             <tbody>
                                 <tr class="row">
@@ -127,8 +128,8 @@
                     </section>
                     <br>
                     <div class="right-align">
-                        <button id="btnBaixarCurriculo" class="btn red"><i class="fa fa-download"></i>Baixar</button>
-                        <button class="btn red"><i class="fa fa-print"></i>Imprimir</button>
+                        <button id="btnBaixarCurriculo" class="btn red not-printable"><i class="fa fa-download"></i>Baixar</button>
+                        <button id="btnImprimirCurriculo" class="btn red not-printable"><i class="fa fa-print"></i>Imprimir</button>
                     </div>
                 </div>
             </div>
@@ -143,16 +144,26 @@
         <script src="../JS/jspdf.min.js"></script>
         <script src="../JS/html2canvas.min.js"></script>
         <script type="text/javascript">
-
-
-
-
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');
-                pdf.addHTML(document.getElementById("to-pdf"), function () {
-                    pdf.save('web.pdf');
-                });
+                var original = $("#to-pdf");
+                var novo = Object.assign({}, original);
 
+                $($(novo).find('.not-printable')).each(function () {
+                    $(this).hide();
+                });
+                var padding = $(novo).css('padding');
+                $(novo).css('padding', '20px');
+                pdf.addHTML(novo, function () {
+                    pdf.save('web.pdf');
+                    $($(novo).find('.not-printable')).each(function () {
+                        $(this).show();
+                    });
+                    $(novo).css('padding', padding);
+                });
+            });
+            $("#btnImprimirCurriculo").click(function () {
+                window.print();
             });
         </script>
         <%@include file="../footer.jsp"%>

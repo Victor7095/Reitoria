@@ -9,7 +9,6 @@ import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
-import java.util.Random;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

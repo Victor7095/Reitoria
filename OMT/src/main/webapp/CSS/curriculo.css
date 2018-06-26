@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/06/2018, 19:19:23
+    Author     : user
+*/
+#fotoCurriculo{
+    max-width: 100%;
+}
+
+#dadosPessoais h4{
+    font-size: 2.28rem;
+    text-align: left;
+}
+
+@media print{
+    .container{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .container,.card-panel, #to-pdf, #to-pdf > *{
+        margin:0px;
+        padding: 0px;
+    }
+    #to-pdf > .card-panel{
+        border: none;
+        box-shadow: none;
+    }
+    #dadosPessoais .row .col:nth-child(2) h3,h4,h5,h6{
+        margin: 3px;
+    }
+    #dadosPessoais .row{
+        margin-top: 0px;
+    }
+    h3{
+        font-size: 25px;
+        widows: 0;
+    }
+    h4{
+        font-size: 20px;
+        widows: 0;
+    }
+    h5{
+        font-size: 18px;
+        widows: 0;
+    }
+    h6{
+        font-size: 16px;
+        widows: 0;
+    }
+    #fotoCurriculo{
+        max-width: 25%;
+    }
+}

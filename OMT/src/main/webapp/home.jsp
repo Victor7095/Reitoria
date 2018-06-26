@@ -106,7 +106,7 @@
         <script src="CSS/parallax-template/js/materialize.js"></script>
 
         <script>
-            $('#matriculaLoginDisc').blur(function () {
+            $('#loginDisc form').submit(function () {
                 if ($('#matriculaLoginDisc').val().length === 14) {
                     $('#tipoLogin').val("cpf");
                 } else {
@@ -122,4 +122,3 @@
         </script>
     </body>
 </html>
-
