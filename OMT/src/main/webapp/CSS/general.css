@@ -151,3 +151,44 @@ embed{
 #dadosPessoais h4{
     text-align: left;
 }
+
+@media print{
+    html,body,.container,section{
+        margin:0 ;
+        padding:0 ;
+        width:100% ;
+    }
+    section{
+        padding: 0;
+    }
+    #fotoCurriculo{
+        width: 100px;
+    }
+    nav, header, footer, button.btn{
+        display: none;
+    }
+    .card-panel{
+        margin:0 ;
+        padding:0 ;
+        border:none;
+        box-shadow:none;
+    }
+    #to-pdf h3:first-of-type{
+        margin-top: 0;
+    }
+    h3{
+        font-size: 25px;
+    }
+    h4{
+        font-size: 20px;
+    }
+    h5{
+        font-size: 18px;
+    }
+    h6{
+        font-size: 16px;
+    }
+    #dadosPessoais .row .col{
+        float: left;
+    }
+}

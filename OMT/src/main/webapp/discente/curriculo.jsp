@@ -13,7 +13,7 @@
         <title>Currículo</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" htef="../CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
@@ -128,7 +128,7 @@
                     <br>
                     <div class="right-align">
                         <button id="btnBaixarCurriculo" class="btn red"><i class="fa fa-download"></i>Baixar</button>
-                        <button class="btn red"><i class="fa fa-print"></i>Imprimir</button>
+                        <button id="btnImprimirCurriculo" class="btn red"><i class="fa fa-print"></i>Imprimir</button>
                     </div>
                 </div>
             </div>
@@ -138,23 +138,21 @@
         <%}%>
         <%@include file="../footer.jsp"%>
         <script src="../JS/jquery-3.2.1.min.js"></script>
+        <script src="../CSS/parallax-template/js/materialize.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
         <script src="../JS/jspdf.min.js"></script>
         <script src="../JS/html2canvas.min.js"></script>
         <script type="text/javascript">
-
-
-
-
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');
                 pdf.addHTML(document.getElementById("to-pdf"), function () {
                     pdf.save('web.pdf');
                 });
-
+            });
+            $("#btnImprimirCurriculo").click(function () {
+                window.print();
             });
         </script>
-        <%@include file="../footer.jsp"%>
     </body>
 </html>

@@ -52,7 +52,7 @@
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
-                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="matrícula">
+                                <input id="matriculaLoginDisc" type="text" class="CPF"  name="login" placeholder="matrícula">
                                 <input id="senhaLoginDisc" type="password" name="senha" placeholder="senha">
                                 <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
                             </form>
@@ -104,9 +104,10 @@
 
         <script src="JS/jquery-3.2.1.min.js"></script>
         <script src="CSS/parallax-template/js/materialize.js"></script>
-
+        <script src="JS/jquery.mask.js"></script>
+        <script src="JS/mask.js"></script>
         <script>
-            $('#matriculaLoginDisc').blur(function () {
+            $('#loginDisc form').submit(function () {
                 if ($('#matriculaLoginDisc').val().length === 14) {
                     $('#tipoLogin').val("cpf");
                 } else {
