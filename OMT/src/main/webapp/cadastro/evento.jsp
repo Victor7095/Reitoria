@@ -18,7 +18,6 @@
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
         <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -55,13 +54,13 @@
                                     <div class="row">
                                         <div class="col s12 xl5 offset-xl1">
                                             <div class="input-field">
-                                                <input type="text" id="inscricaoInicio" name="inscricaoInicio" class="datepicker">
+                                                <input type="text" id="inscricaoInicio" name="inscricaoInicio" class="datepicker data">
                                                 <label for="inscricaoInicio" class="">Data de Início das Inscrições</label>
                                             </div>
                                         </div>
                                         <div class="col s12 xl5">
                                             <div class="input-field">
-                                                <input type="text" id="inscricaoFim" name="inscricaoFim" class="datepicker">
+                                                <input type="text" id="inscricaoFim" name="inscricaoFim" class="datepicker data">
                                                 <label for="inscricaoFim" class="">Data de Fim das Inscrições</label>
                                             </div>
                                         </div>
@@ -69,13 +68,13 @@
                                     <div class="row">
                                         <div class="col s12 xl5 offset-xl1">
                                             <div class="input-field">
-                                                <input type="text" id="inicio" name="inicio" class="datepicker">
+                                                <input type="text" id="inicio" name="inicio" class="datepicker data">
                                                 <label for="inicio" class="">Data de Início do Evento</label>
                                             </div>
                                         </div>
                                         <div class="col s12 xl5">
                                             <div class="input-field">
-                                                <input type="text" id="fim" name="fim" class="datepicker">
+                                                <input type="text" id="fim" name="fim" class="datepicker data">
                                                 <label for="fim" class="">Data de Fim do Evento</label>
                                             </div>
                                         </div>
@@ -130,6 +129,15 @@
         <script src="../fileinput/themes/fa/theme.min.js"></script>
         <script src="../fileinput/js/locales/pt-BR.js"></script>
         <script>
+            $(".datepicker").datepicker({
+                selectMonths: true,
+                selectYears: true,
+                clear: false,
+                format: 'dd/mm/yyyy',
+                today: "Hoje",
+                close: "X",
+                autoClose: true
+            });
             $('#input-b1').fileinput({
                 theme: 'fa',
                 language: 'pt-BR',
@@ -151,18 +159,6 @@
                     actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
                 }
             });
-        </script>
-        <script>
-            $(".datepicker").datepicker({
-                selectMonths: true,
-                selectYears: true,
-                clear: false,
-                format: 'dd/mm/yyyy',
-                today: "Hoje",
-                close: "X",
-                autoClose: true
-            });
-
         </script>
     </body>
 </html>

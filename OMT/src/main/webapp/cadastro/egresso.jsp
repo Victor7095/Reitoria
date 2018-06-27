@@ -28,15 +28,21 @@
                 display: inline-block;
                 max-width: 100%;
             }
-            .kv-avatar .file-input {
-                display: table-cell;
+            .kv-avatar .file-input, .kv-avatar .file-input img {
                 max-width: 100%;
+            }
+            .krajee-default.file-preview-frame .kv-file-content{
+                width: auto;
+                height: auto;
             }
             .kv-reqd {
                 color: red;
                 font-family: monospace;
                 font-weight: normal;
                 max-width: 100%;
+            }
+            .krajee-default .file-caption-info, .krajee-default .file-size-info{
+                width: auto;
             }
         </style>
     </head>
@@ -51,7 +57,7 @@
                             <form method="post" id="cadastrar-evento" action="/OMT/DiscenteServlet" 
                                   enctype="multipart/form-data">
                                 <div class="row">
-                                    <div id="fotoPerfil" class="input-field col s12 m6 l6 xl4">
+                                    <div id="fotoPerfil" class="input-field col s12 m6 offset-m3 l8 offset-m2 xl6 offset-xl3">
                                         <div class="kv-avatar">
                                             <div class="file-loading">
                                                 <input id="inputFoto" name="inputFoto" type="file">
@@ -59,7 +65,7 @@
                                         </div>
                                         <div class="kv-avatar-hint"><small>Select file < 1500 KB</small></div>
                                     </div>
-                                    <div class="col s12 m10 l10 xl7">
+                                    <div class="col s12 m10 offset-m1">
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <label for="usuario">Matrícula</label>
@@ -84,16 +90,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="row">
-                                    <div class="input-field col s12 l5 offset-l1">
-                                        <label for="senha">Senha</label>
-                                        <input type="password" id="senha" name="senha" required>
-                                    </div>
-                                    <div class="input-field col s12 l5">
-                                        <label for="confirmar">Confirmar Senha</label>
-                                        <input type="password" id="confirmar" name="confirmar" required>
-                                    </div>
-                                </div>-->
                                 <br><br>
 
                                 <div class="row">

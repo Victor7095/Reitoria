@@ -145,11 +145,76 @@ embed{
     }
 }
 
+#dadosPessoais h4{
+    text-align: left;
+}
+
 @media print{
-    .not-printable{
-        display: none !important;
+    html,body,.container,section{
+        margin:0 ;
+        padding:0 ;
+        width:100% ;
     }
-    nav, footer, video, audio, object, embed { 
-        display:none; 
+    section{
+        padding: 0;
     }
+    #fotoCurriculo{
+        width: 100px;
+    }
+    nav, header, footer, button.btn{
+        display: none;
+    }
+    .card-panel{
+        margin:0 ;
+        padding:0 ;
+        border:none;
+        box-shadow:none;
+    }
+    #to-pdf h3:first-of-type{
+        margin-top: 0;
+    }
+    h3{
+        font-size: 25px;
+    }
+    h4{
+        font-size: 20px;
+    }
+    h5{
+        font-size: 18px;
+    }
+    h6{
+        font-size: 16px;
+    }
+    #dadosPessoais .row .col{
+        float: left;
+    }
+}
+
+.carousel-item h2{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 20px #000, 0 -10px 20px #000, 
+        0 10px 20px #000, -20px 0 40px #000, 
+        20px 0 40px #000; 
+}
+
+
+.carousel-item p{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 20px #000, 0 -10px 20px #000, 
+        0 10px 20px #000, -20px 0 40px #000, 
+        20px 0 40px #000; 
+}
+
+.carousel-item a, .carousel-fixed-item{
+    bottom: 0;
+    position: absolute;
+}
+
+.foto-evento{
+    width: 100%;
 }

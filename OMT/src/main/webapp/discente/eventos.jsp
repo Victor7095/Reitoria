@@ -55,13 +55,13 @@
                                     List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId());
                                 %>
                                 <div class="carousel-fixed-item center">
-                                    <a class="btn waves-effect white grey-text darken-text-2">button</a>
+                                    <a class="btn waves-effect blue white-text">Saiba mais</a>
                                 </div>
                                 <%for (FotosEventos fe : list2) {%>
-                                <div class="carousel-item red white-text" href="#one!">
-                                    <h2>First Panel</h2>
-                                    <img src="/OMT/EventosServlet?id=<%=fe.getId()%>">
-                                    <p class="white-text">This is your first panel</p>
+                                <div class="carousel-item teal white-text" href="#one!">
+                                    <h2><%=e.getNome()%></h2>
+                                    <img class="foto-evento" src="/OMT/EventosServlet?id=<%=fe.getId()%>">
+                                    <p class="white-text"><%=e.getDescricao()%></p>
                                 </div>
                                 <% }%>
                             </div>

@@ -45,7 +45,7 @@ public class Eventos implements Serializable {
     private Date dataFinalEvento;
 
     @ManyToOne
-    @JoinColumn(name = "entidade", nullable = false)
+    @JoinColumn(name = "entidade", nullable = true)
     private Entidade entidade;
 
     @OneToMany(mappedBy = "evento", cascade = ALL)

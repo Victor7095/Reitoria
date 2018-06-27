@@ -68,6 +68,7 @@ public class DiscenteDAO {
             d = (Discente) query.getSingleResult();
             s.getTransaction().commit();
             d.setSenha(new Criptografia().decrypt(d.getSenhaBanco()));
+            System.out.println(d.getSenha());
             if (d.getSenha().equals(senha)) {
                 return d.getId();
             } else {
