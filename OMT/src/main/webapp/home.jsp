@@ -33,7 +33,6 @@
                 Seja bem-vindo ao<br>
                 <img src="img/logoOMT.png" alt="Logotipo do OMT" height="150" width="300">
             </h4>
-
             <div class="row">
                 <div class="col s12 m10 l4 xl3 offset-l1 offset-xl2 offset-m1" id="tabsLogin">
                     <ul class="tabs">

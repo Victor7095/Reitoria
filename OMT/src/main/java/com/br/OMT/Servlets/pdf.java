@@ -8,6 +8,7 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.EventoDAO;
 import com.br.OMT.models.Eventos;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
@@ -72,7 +73,6 @@ public class pdf extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String jrxml = path + "testePDF.jrxml";
 
@@ -80,13 +80,17 @@ public class pdf extends HttpServlet {
             Map<String, Object> parametros = new HashMap();
             parametros.put("descricao", "123");
             List<Eventos> dataSource = new EventoDAO().listEventos();
-            
+
             JasperReport report = JasperCompileManager.compileReport(jrxml);
 
             JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(dataSource);
             JasperPrint print = JasperFillManager.fillReport(report, parametros, ds);
-            JasperExportManager.exportReportToPdfFile(print, "c:/Users/Aluno/Desktop/eventos2.pdf");
+            //JasperExportManager.exportReportToPdfFile(print, this.getClass().getClassLoader().getResource("").getPath() + "eventos2.pdf");
 
+            response.setContentType("application/x-download");
+            response.addHeader("Content-disposition", "attachment; filename=eventos.pdf");
+            OutputStream out = response.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(print, out);
         } catch (JRException ex) {
             Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
         }

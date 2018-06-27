@@ -47,6 +47,7 @@
             <%}%>--%>
             <div class="container">
                 <div class="card-panel">
+                    <a href="/OMT/pdf">Olá mundo!</a>
                     <div class="row">
                         <%for (Eventos e : list) {%>
                         <div class="col s12 m6">
