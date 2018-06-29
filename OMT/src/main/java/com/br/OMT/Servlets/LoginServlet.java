@@ -101,9 +101,10 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     try {
                         u = udao.buscarById(resposta);
-                        if (u != null) {
+                        if (u != null) {                            
                             Entidade e;
                             e = u.getEntidade();
+                            response.getWriter().println("Entidade: "+e);//
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);
@@ -112,7 +113,7 @@ public class LoginServlet extends HttpServlet {
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
+                                    response.sendRedirect("/OMT/reitoria/pagina_inicial.jsp");
                                 }
                             }
                         } else {
