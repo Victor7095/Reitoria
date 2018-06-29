@@ -101,9 +101,10 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     try {
                         u = udao.buscarById(resposta);
-                        if (u != null) {
+                        if (u != null) {                            
                             Entidade e;
                             e = u.getEntidade();
+                            response.getWriter().println("Entidade: "+e);//
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);

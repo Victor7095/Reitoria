@@ -161,7 +161,7 @@ embed{
     #fotoCurriculo{
         width: 100px;
     }
-    nav, header, footer, button.btn{
+    nav, header, footer, button.btn, a.btn{
         display: none;
     }
     .card-panel{

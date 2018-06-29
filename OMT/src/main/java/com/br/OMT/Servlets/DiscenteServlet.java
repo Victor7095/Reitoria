@@ -66,7 +66,6 @@ public class DiscenteServlet extends HttpServlet {
                                     d.setUsuario(item.getString());
                                     break;
                                 case "nome":
-                                    response.getWriter().println("Gelo! " + item.getString());
                                     d.setNome(item.getString());
                                     break;
                                 case "cpf":
@@ -96,7 +95,7 @@ public class DiscenteServlet extends HttpServlet {
                     try {
                         str = ddao.salvar(d);
                         if (str.equals("")) {
-                            response.getWriter().println("Salvo!");
+                            response.getWriter().println("Salvo! "+d.getSenha());
                         } else {
                             response.getWriter().println("Errado!");
                             response.getWriter().println(str);

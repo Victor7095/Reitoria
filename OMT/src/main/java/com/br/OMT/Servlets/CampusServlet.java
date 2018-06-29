@@ -67,6 +67,7 @@ public class CampusServlet extends HttpServlet {
                     String str = cdao.salvar(e);
                     if (str.equals("")) {
                         u.setTipo('A');
+                        response.getWriter().println("Eai? "+cdao.findByCNPJ(e.getCNPJ()));
                         u.setEntidade(cdao.findByCNPJ(e.getCNPJ()));
                         UsuarioDAO udao = new UsuarioDAO();
                         str = udao.salvar(u);
