@@ -8,7 +8,7 @@
             <!--Oportunidade de Estágios-->
             <a href="cadastra_estagios.jsp"><img id="icone" src="../img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos"></a>
             <!--Cursos Extra-curriculares-->
-            <a href="cadastra_cursos.jsp"><img id="icone" src="../img/Icons/icones/png/notepad-2.png" title="Cursos Extras"></a>
+            <a href="../cadastro/evento.jsp"><img id="icone" src="../img/Icons/icones/png/notepad-2.png" title="Cursos Extras"></a>
             <!--Voltar para Página de Login-->
             <a href="../home.jsp"><img id="icone" src="../img/Icons/icones/png/exit-1.png" alt="Sair" title="Sair para página de Login"></a>
         </div>
