@@ -109,7 +109,7 @@ public class LoginServlet extends HttpServlet {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/campus/campusIndex.jsp");
+                                    response.sendRedirect("/OMT/campus/pagina_inicial.jsp");
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
