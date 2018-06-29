@@ -86,10 +86,10 @@
                                 </div>  
                                 <div class="row">
                                     <div class="input-field col s12 xl10 offset-xl1">
-                                        <select>
+                                        <select name="tipo">
                                             <option value="" disabled selected>Selecionar opção</option>
-                                            <option value="1">Campus</option>
-                                            <option value="2">Reitoria</option>
+                                            <option value="C">Campus</option>
+                                            <option value="R">Reitoria</option>
                                         </select>
                                         <label>Tipo</label>
                                     </div>
