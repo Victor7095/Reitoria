@@ -21,7 +21,7 @@
         <%@include file="../header.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {%>
 
-        <%@include file="reitoriaMenu.jsp"%>   
+        <%@include file="campusMenu.jsp"%>   
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
             <div class="card col s10">
