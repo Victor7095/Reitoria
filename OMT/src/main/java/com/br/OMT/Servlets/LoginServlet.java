@@ -113,7 +113,7 @@ public class LoginServlet extends HttpServlet {
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/reitoria/reitoriaIndex.jsp");
+                                    response.sendRedirect("/OMT/reitoria/pagina_inicial.jsp");
                                 }
                             }
                         } else {
