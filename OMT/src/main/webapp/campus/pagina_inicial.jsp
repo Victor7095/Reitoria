@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Aluno - OMT</title>
+        <title>Home Reitoria - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
         <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
@@ -21,12 +21,12 @@
         <%@include file="../header.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {%>
 
-        <%@include file="alunoMenu.jsp"%>   
+        <%@include file="reitoriaMenu.jsp"%>   
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
             <div class="card col s10">
                 <div class="card-content" id="recentBlock1">
-                    <input type="button" src="../img/Icons/icones/png/archive-3.png" name="recent1">
+                    <input type="image" src="" name="recent1">
                     <label id="recentText1"/>
 
                 </div>   
@@ -51,7 +51,7 @@
 
 
             </div>
-
+         
 
         </div>
         <%} else {%> 
@@ -60,4 +60,5 @@
         <%@include file="../footer.jsp"%>
     </body>
 </html>
+
 
