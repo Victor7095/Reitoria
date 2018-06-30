@@ -232,6 +232,12 @@
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
                 allowedFileExtensions: ["jpg", "png", "gif"]
             });
+            $('#cadastrar-evento').submit(function(){
+                $('#cpf').unmask('000.000.000-00');
+                $('#rg').unmask('00.000.000-0');
+                alert($("#cpf").val());
+                alert($("#rg").val());
+            });
         </script>
     </body>
 </html>
