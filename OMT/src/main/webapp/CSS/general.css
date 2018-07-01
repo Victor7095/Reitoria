@@ -45,14 +45,10 @@ embed{
 }
 
 #flex-line a{
-    display: inline;
-    float: left;
-    text-align: center;
-    padding-left: 35px;
-    padding-right: 35px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 36px;
+    display: inline-block;
+    position: relative;
+    width: 10%;
+    height: 65px;
 }
 
 #flex-line a:hover{
