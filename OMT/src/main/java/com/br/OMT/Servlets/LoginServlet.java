@@ -40,52 +40,28 @@ public class LoginServlet extends HttpServlet {
                 DiscenteDAO ddao = new DiscenteDAO();
                 String login = request.getParameter("login");
                 String senha = request.getParameter("senha");
-                if (request.getParameter("tipoLogin").equals("cpf")) {
-                    Long resposta = ddao.loginByCPF(login, senha);
-                    if (resposta == null) {
-                        response.getWriter().println("NULL");//erro
+                Long resposta = ddao.login(login, senha);
+                if (resposta == null) {
+                    response.getWriter().println("NULL");//erro
 
-                    } else if (resposta == -1) {
-                        response.getWriter().println("-1");//erro
-
-                    } else {
-                        try {
-                            d = ddao.buscarById(resposta);
-                            if (d != null) {
-                                request.getSession().setAttribute("usuario", d);
-                                response.sendRedirect("/OMT/discente/pagina_inicial.jsp");
-                            } else {
-                                response.getWriter().println("ERRO");//erro
-                            }
-                        } catch (Exception ex) {
-                            response.getWriter().println("ERRO " + ex.getMessage());//erro
-                        }
-
-                    }
+                } else if (resposta == -1) {
+                    response.getWriter().println("-1");//erro
 
                 } else {
-                    Long resposta = ddao.loginByMatricula(login, senha);
-                    if (resposta == null) {
-                        response.getWriter().println("NULL");//erro
-
-                    } else if (resposta == -1) {
-                        response.getWriter().println("-1");//erro
-
-                    } else {
-                        try {
-                            d = ddao.buscarById(resposta);
-                            if (d != null) {
-                                request.getSession().setAttribute("usuario", d);
-                                response.sendRedirect("/OMT/discente/pagina_inicial.jsp");
-                            } else {
-                                response.getWriter().println("ERRO");//erro
-                            }
-                        } catch (Exception ex) {
-                            response.getWriter().println("ERRO " + ex.getMessage());//erro
+                    try {
+                        d = ddao.buscarById(resposta);
+                        if (d != null) {
+                            request.getSession().setAttribute("usuario", d);
+                            response.sendRedirect("/OMT/discente/pagina_inicial.jsp");
+                        } else {
+                            response.getWriter().println("ERRO");//erro
                         }
-
+                    } catch (Exception ex) {
+                        response.getWriter().println("ERRO " + ex.getMessage());//erro
                     }
+
                 }
+
             } else {
                 Usuario u;
                 UsuarioDAO udao = new UsuarioDAO();
@@ -101,10 +77,10 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     try {
                         u = udao.buscarById(resposta);
-                        if (u != null) {                            
+                        if (u != null) {
                             Entidade e;
                             e = u.getEntidade();
-                            response.getWriter().println("Entidade: "+e);//
+                            response.getWriter().println("Entidade: " + e);//
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);

@@ -21,10 +21,16 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "nome", nullable = false, length = 100)
+    @Lob
+    @Column(name = "nome", nullable = false, length = 255, columnDefinition = "BLOB")
+    private byte[] nomeBanco;
+    @Transient
     private String nome;
 
-    @Column(name = "usuario", nullable = false, length = 100, unique = true)
+    @Lob
+    @Column(name = "usuario", nullable = false, length = 255, columnDefinition = "BLOB")
+    private byte[] usuarioBanco;
+    @Transient
     private String usuario;
 
     @Transient
@@ -132,6 +138,22 @@ public class Usuario implements Serializable {
 
     public void setCargo(char cargo) {
         this.cargo = cargo;
+    }
+
+    public byte[] getNomeBanco() {
+        return nomeBanco;
+    }
+
+    public void setNomeBanco(byte[] nomeBanco) {
+        this.nomeBanco = nomeBanco;
+    }
+
+    public byte[] getUsuarioBanco() {
+        return usuarioBanco;
+    }
+
+    public void setUsuarioBanco(byte[] usuarioBanco) {
+        this.usuarioBanco = usuarioBanco;
     }
 
 }

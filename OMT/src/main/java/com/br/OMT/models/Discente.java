@@ -19,9 +19,15 @@ import static javax.persistence.CascadeType.ALL;
 @Table(name = "discente")
 public class Discente extends Usuario implements Serializable {
 
-    @Column(name = "rg", nullable = false, length = 15, unique = true)
+    @Lob
+    @Column(name = "rg", nullable = false, length = 255, columnDefinition = "BLOB")
+    private byte[] RGbanco;
+    @Transient
     private String RG;
-    @Column(name = "cpf", nullable = false, length = 15, unique = true)
+    @Lob
+    @Column(name = "cpf", nullable = false, length = 255, columnDefinition = "BLOB")
+    private byte[] CPFbanco;
+    @Transient
     private String CPF;
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
@@ -95,6 +101,22 @@ public class Discente extends Usuario implements Serializable {
 
     public void setDiscenteEstagio(DiscenteEstagio discenteEstagio) {
         this.discenteEstagio = discenteEstagio;
+    }
+
+    public byte[] getRGbanco() {
+        return RGbanco;
+    }
+
+    public void setRGbanco(byte[] RGbanco) {
+        this.RGbanco = RGbanco;
+    }
+
+    public byte[] getCPFbanco() {
+        return CPFbanco;
+    }
+
+    public void setCPFbanco(byte[] CPFbanco) {
+        this.CPFbanco = CPFbanco;
     }
 
 }

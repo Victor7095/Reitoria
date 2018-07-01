@@ -29,11 +29,11 @@ public class UsuarioDAO {
     public String atualizar(Usuario usuario) {
         return huu.atualizar(usuario);
     }
-    
+
     public String deletar(Usuario usuario) {
         return huu.deletar(usuario);
     }
-    
+
     public Usuario buscarById(Long id) throws Exception {
         Usuario u = null;
         try {
@@ -42,8 +42,10 @@ public class UsuarioDAO {
             Query query = s.createQuery("from Usuario u where u.id =:id");
             query.setParameter("id", id);
             u = (Usuario) query.getSingleResult();
-            u.setSenha(new Criptografia().decrypt(u.getSenhaBanco()));
             s.getTransaction().commit();
+            Criptografia c = new Criptografia();
+            u.setNome(c.decrypt(u.getNomeBanco()));
+            u.setUsuario(c.decrypt(u.getUsuarioBanco()));
             return u;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
@@ -56,13 +58,16 @@ public class UsuarioDAO {
     public Long login(String usuario, String senha) {
         Usuario u = null;
         try {
+            Criptografia c = new Criptografia();
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            Query query = s.createQuery("from Usuario u where u.usuario =:usuario");
-            query.setParameter("usuario", usuario);
+            System.out.println("heloooooooooooo");
+            Query query = s.createQuery("from Usuario u where u.usuarioBanco =:usuario");
+            query.setParameter("usuario", c.encrypt(usuario));
             u = (Usuario) query.getSingleResult();
-            u.setSenha(new Criptografia().decrypt(u.getSenhaBanco()));
+            u.setSenha(c.decrypt(u.getSenhaBanco()));
             s.getTransaction().commit();
+            System.out.println(u.getSenha());
             if (u.getSenha().equals(senha)) {
                 return u.getId();
             } else {
@@ -70,9 +75,11 @@ public class UsuarioDAO {
             }
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
+            System.out.println(ex.getMessage());
             return null;
         } catch (Exception ex) {
             s.getTransaction().rollback();
+            System.out.println(ex.getMessage());
             return null;
         } finally {
             s.close();

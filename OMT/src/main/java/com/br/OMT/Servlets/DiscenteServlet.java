@@ -51,6 +51,7 @@ public class DiscenteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        String usuario = "", rg = "", cpf = "", nome = "", acao = "";
         Discente d = Discente.getInstance();
         byte[] foto = null;
         if (request != null) {
@@ -59,20 +60,23 @@ public class DiscenteServlet extends HttpServlet {
                     List<FileItem> m = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
                     for (FileItem item : m) {//Mudar a ordem dos inputs, colocar o usuario em cima da imagem
                         if (!item.isFormField()) {
-                            d.setFoto(item.get());
+                            foto = item.get();
                         } else {
                             switch (item.getFieldName()) {
                                 case "usuario":
-                                    d.setUsuario(item.getString());
+                                    usuario = item.getString();
                                     break;
                                 case "nome":
-                                    d.setNome(item.getString());
+                                    nome = item.getString();
                                     break;
                                 case "cpf":
-                                    d.setCPF(item.getString());
+                                    cpf = item.getString();
                                     break;
                                 case "rg":
-                                    d.setRG(item.getString());
+                                    rg = item.getString();
+                                    break;
+                                case "acao":
+                                    acao = item.getString();
                                     break;
                             }
                         }
@@ -81,43 +85,12 @@ public class DiscenteServlet extends HttpServlet {
                 } catch (Exception ex) {
                 }
                 DiscenteDAO ddao = new DiscenteDAO();
-
-                Random r = new Random();
-                int tam = r.nextInt(4) + 3;
-                int senha = r.nextInt(tam * 1000);
-                d.setSenha(Integer.toString(senha));
-                byte[] senhaCriptografada;
-
-                try {
-                    senhaCriptografada = new Criptografia().encrypt(d.getSenha());
-                    d.setSenhaBanco(senhaCriptografada);
-                    String str;
-                    try {
-                        str = ddao.salvar(d);
-                        if (str.equals("")) {
-                            response.getWriter().println("Salvo! "+d.getSenha());
-                        } else {
-                            response.getWriter().println("Errado!");
-                            response.getWriter().println(str);
-                        }
-                    } catch (Exception ex) {
-                        response.getWriter().println("Erro! " + ex.getMessage());
-                    }
-                } catch (Exception ex) {
-                    Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            } else {
-                String butao = request.getParameter("acao");
-                if (butao.equals("cadastrar")) {
-                    //Discente d = Discente.getInstance();
-                    d.setNome(request.getParameter("nome"));
-                    d.setRG(request.getParameter("rg"));
-                    d.setCPF(request.getParameter("cpf"));
-                    d.setSenha(request.getParameter("senha"));
-                    d.setUsuario(request.getParameter("usuario"));
-                    d.setTipo('D');
-                    DiscenteDAO ddao = new DiscenteDAO();
+                if (acao.equals("cadastrar")) {
+                    d.setCPF(cpf);
+                    d.setFoto(foto);
+                    d.setRG(rg);
+                    d.setUsuario(usuario);
+                    d.setNome(nome);
                     Random r = new Random();
                     int tam = r.nextInt(4) + 3;
                     int senha = r.nextInt(tam * 1000);
@@ -125,14 +98,20 @@ public class DiscenteServlet extends HttpServlet {
                     byte[] senhaCriptografada;
 
                     try {
-                        senhaCriptografada = new Criptografia().encrypt(d.getSenha());
+                        Criptografia c = new Criptografia();
+                        d.setUsuarioBanco(c.encrypt(d.getUsuario()));
+                        d.setNomeBanco(c.encrypt(d.getNome()));
+                        d.setCPFbanco(c.encrypt(d.getCPF()));
+                        d.setRGbanco(c.encrypt(d.getRG()));
+                        d.setSenhaBanco(new Criptografia().encrypt(d.getSenha()));
                         String str;
                         try {
                             str = ddao.salvar(d);
                             if (str.equals("")) {
-                                response.getWriter().println("Salvo!");
+                                response.getWriter().println("Salvo! " + d.getSenha());
                             } else {
                                 response.getWriter().println("Errado!");
+                                response.getWriter().println(str);
                             }
                         } catch (Exception ex) {
                             response.getWriter().println("Erro! " + ex.getMessage());
@@ -140,8 +119,8 @@ public class DiscenteServlet extends HttpServlet {
                     } catch (Exception ex) {
                         Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
                 }
+
             }
         }
     }

@@ -6,16 +6,11 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.CampusDAO;
-import com.br.OMT.DAO.EmpresaDAO;
 import com.br.OMT.DAO.UsuarioDAO;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,10 +54,11 @@ public class CampusServlet extends HttpServlet {
                 u.setUsuario(request.getParameter("usuario"));
                 
                 u.setSenha(request.getParameter("senha"));
-                byte[] senhaCriptografada;
                 try {
-                    senhaCriptografada = new Criptografia().encrypt(u.getSenha());
-                    u.setSenhaBanco(senhaCriptografada);
+                    Criptografia c = new Criptografia();
+                    u.setNomeBanco(c.encrypt(u.getNome()));
+                    u.setUsuarioBanco(c.encrypt(u.getUsuario()));
+                    u.setSenhaBanco(c.encrypt(u.getSenha()));
                     CampusDAO cdao = new CampusDAO();
                     String str = cdao.salvar(e);
                     if (str.equals("")) {
