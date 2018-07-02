@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function () {
+    $("#matriculaLoginDisc").mask('000000000000000',{reverse:false});
     $("#cpf, .CPF").mask('000.000.000-00', {reverse: false});
     $("#rg, .RG").mask('00.000.000-0', {reverse: false});
     $("#cnpj, .CNPJ").mask('00.000.000/0000-00', {reverse: false});

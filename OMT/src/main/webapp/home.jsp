@@ -23,7 +23,7 @@
 
     <body>
         <header>
-        <%@include file="header.jsp"%>
+            <%@include file="header.jsp"%>
         </header>
         <div class="container">
             <!--cabeçalho da página de menu logins-->
@@ -51,9 +51,12 @@
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
-                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="matrícula">
-                                <input id="senhaLoginDisc" type="password" name="senha" placeholder="senha">
-                                <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
+                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="Matrícula ou CPF(sem pontuação)">
+                                <input id="senhaLoginDisc" type="password" name="senha" placeholder="Senha">
+
+                                <div class="right-align">
+                                    <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -79,6 +82,7 @@
                                 <input type="hidden" name="entidade" value="reitoria"/>
                                 <input id="acessoLoginRet" name="usuario" type="text" placeholder="Nome de Acesso">
                                 <input id="senhaLoginRet" name="senha" type="password" placeholder="Senha">
+                                <br>
                                 <input class="btn" id="buttonLoginRet" type="submit" value="Entrar">
                             </form>
                         </div>
@@ -92,6 +96,7 @@
                                 <input type="hidden" name="entidade" value="campus"/>
                                 <input id="acessoLogiTec" type="text" name="usuario" placeholder="Nome de Acesso">
                                 <input id="senhaLoginTec" type="password" name="senha" placeholder="Senha">
+                                <br>
                                 <input class="btn" id="buttonLoginTec" type="submit" value="Entrar">
                             </form>
                         </div>
