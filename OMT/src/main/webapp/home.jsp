@@ -82,8 +82,9 @@
                                 <input type="hidden" name="entidade" value="reitoria"/>
                                 <input id="acessoLoginRet" name="usuario" type="text" placeholder="Nome de Acesso">
                                 <input id="senhaLoginRet" name="senha" type="password" placeholder="Senha">
-                                <br>
-                                <input class="btn" id="buttonLoginRet" type="submit" value="Entrar">
+                                <div class="right-align">
+                                    <input class="btn" id="buttonLoginRet" type="submit" value="Entrar">
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -96,8 +97,9 @@
                                 <input type="hidden" name="entidade" value="campus"/>
                                 <input id="acessoLogiTec" type="text" name="usuario" placeholder="Nome de Acesso">
                                 <input id="senhaLoginTec" type="password" name="senha" placeholder="Senha">
-                                <br>
-                                <input class="btn" id="buttonLoginTec" type="submit" value="Entrar">
+                                <div class="right-align">
+                                    <input class="btn" id="buttonLoginTec" type="submit" value="Entrar">
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -40,6 +40,7 @@ embed{
     text-align: center;
     max-width: 100%;
     line-height: 50px;
+    height: 50px;
 }
 
 #flex-line{
@@ -51,7 +52,8 @@ embed{
     display: inline-block;
     position: relative;
     height: 100%;
-    margin-right: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 #flex-line a:hover{

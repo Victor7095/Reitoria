@@ -19,7 +19,7 @@
                     <div class="center-align"><h4 style="padding: 20px 0">Cadastro de Campus</h4></div>
                     <div class="row">
                         <div class="col s12 l10 offset-l1">
-                            <form class="col s12" method="post" name="cadastrar-campus" action="/OMT/CampusServlet">
+                            <form class="col s12" method="post" name="cadastrar-campus" id="cadastrar-campus" action="/OMT/CampusServlet">
                                 <div class="row">
                                     <div class="input-field col s12 xl6 offset-xl1">
                                         <label for="cnpj">CNPJ</label>
@@ -43,9 +43,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="input-field col s12 xl3 offset-xl1">
+                                    <div class="input-field col s12 xl6 offset-xl1">
                                         <label for="cep">CEP</label>
                                         <input type="text" id="cep" name="cep" required>
+                                        <span class="helper-text" data-error="wrong" data-success="right">
+                                            Preenchendo o CEP, outros campos relacionados ao endereço serão preenchidos automaticamente
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -81,7 +84,7 @@
                                 <div class="row">
                                     <div class="col s12 xl10 offset-xl1">
                                         <label for="complemento">Complemento</label>
-                                        <input type="text" id="complemento" name="complemento" readonly required>
+                                        <input type="text" id="complemento" name="complemento" required>
                                     </div>
                                 </div>  
                                 <div class="row">
@@ -94,10 +97,9 @@
                                         <label>Tipo</label>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col s12 xl10 offset-xl1">
-                                        <label> Usuário padrão</label>
+                                        <h6> Usuário padrão</h6>
                                     </div>
                                 </div>  
                                 <div class="row">
@@ -107,9 +109,10 @@
                                     </div>
                                 </div>   
                                 <div class="row">
-                                    <div class="col s12 xl10 offset-xl1">
-                                        <label for="usuario">Usuário (nome para entrar no sistema)</label>
+                                    <div class="input-field col s12 xl10 offset-xl1">
+                                        <label for="usuario">Usuário</label>
                                         <input type="text" id="usuario" name="usuario"  required>
+                                        <span class="helper-text" data-error="wrong" data-success="right">Nome para entrar no sistema</span>
                                     </div>
                                 </div>  
                                 <div class="row">
@@ -144,6 +147,10 @@
         <script>
             $(document).ready(function () {
                 $('select').formSelect();
+            });
+            $('#cadastrar-campus').submit(function () {
+                $('#cnpj').unmask('00.000.000/0000-00');
+                $('#cnae').unmask('00000-0/00');
             });
         </script>
     </body>

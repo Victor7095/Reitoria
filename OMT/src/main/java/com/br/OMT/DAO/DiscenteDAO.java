@@ -9,6 +9,8 @@ import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
+import java.util.ArrayList;
+import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -38,6 +40,23 @@ public class DiscenteDAO {
     public String deletar(Discente discente) {
         return hud.deletar(discente);
     }
+    
+    public List<Discente> listar() {
+        List<Discente> le = null;
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("from Discente d");
+            le = query.getResultList();
+            s.getTransaction().commit();
+            return le;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
 
     public Discente buscarById(Long id) throws Exception {
         Discente d = null;
@@ -48,11 +67,10 @@ public class DiscenteDAO {
             query.setParameter("id", id);
             d = (Discente) query.getSingleResult();
             s.getTransaction().commit();
-            Criptografia c = new Criptografia();
-            d.setNome(c.decrypt(d.getNomeBanco()));
-            d.setUsuario(c.decrypt(d.getUsuarioBanco()));
-            d.setCPF(c.decrypt(d.getCPFbanco()));
-            d.setRG(c.decrypt(d.getNomeBanco()));
+            d.setNome(Criptografia.decrypt(d.getNomeBanco()));
+            d.setUsuario(Criptografia.decrypt(d.getUsuarioBanco()));
+            d.setCPF(Criptografia.decrypt(d.getCPFbanco()));
+            d.setRG(Criptografia.decrypt(d.getRGbanco()));
             return d;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();

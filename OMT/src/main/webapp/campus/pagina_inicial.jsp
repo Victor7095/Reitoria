@@ -24,35 +24,24 @@
         <%@include file="campusMenu.jsp"%>   
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
-            <div class="card col s10">
+            <div class="card col s12 l10 offset-l1">
                 <div class="card-content" id="recentBlock1">
                     <input type="image" src="" name="recent1">
                     <label id="recentText1"/>
-
                 </div>   
-
                 <div class="card-content" id="recentBlock2">
                     <input type="image" src="" name="recent2">
                     <label id="recentText2"/>
-
                 </div>    
-
                 <div class="card-content" id="recentBlock3">
                     <input type="image" src="" name="recent3">
                     <label id="recentText3"/>
-
                 </div>    
-
                 <div class="card-content" id="recentBlock4">
                     <input type="image" src="" name="recent3">
                     <label id="recentText2"/>
-
                 </div>    
-
-
             </div>
-         
-
         </div>
         <%} else {%> 
         <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
