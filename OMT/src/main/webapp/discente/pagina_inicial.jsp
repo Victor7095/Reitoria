@@ -24,7 +24,7 @@
         <%@include file="alunoMenu.jsp"%>   
         <div class="center-align container row" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
-            <div class="card col s10">
+            <div class="card col s12">
                 <div class="card-content" id="recentBlock1">
                     <input type="button" src="../img/Icons/icones/png/archive-3.png" name="recent1">
                     <label id="recentText1"/>
