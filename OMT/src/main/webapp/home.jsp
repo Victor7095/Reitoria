@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Observatório do Mundo Trabalho</title>
+        <title>ObservatÃ³rio do Mundo Trabalho</title>
         <!-- referenciamento css-->
         <link href="CSS/FontsGoogle.css" rel="stylesheet">
         <link rel="stylesheet" href="CSS/parallax-template/css/materialize.css">
@@ -26,12 +26,12 @@
             <%@include file="header.jsp"%>
         </header>
         <div class="container">
-            <!--cabeçalho da página de menu logins-->
+            <!--cabeÃ§alho da pÃ¡gina de menu logins-->
 
             <!--mensagem de boas vindas-->
             <h4>
                 Seja bem-vindo ao<br>
-                <img src="img/logoOMT.png" alt="Logotipo do OMT" height="150" width="300">
+                <img src="img/logoInicial.png" alt="Logotipo do OMT" height="150" width="300">
             </h4>
             <div class="row">
                 <div class="col s12 m10 l4 xl3 offset-l1 offset-xl2 offset-m1" id="tabsLogin">
@@ -44,14 +44,14 @@
                 </div>
 
                 <div class="col s12 m8 l6 xl5 offset-m2 offset-l0" id="loginForms">
-                    <!--formulário de login Discentes(disc)-->
+                    <!--formulÃ¡rio de login Discentes(disc)-->
                     <div class="card" id="loginDisc">
                         <div class="card-content">
                             <h4>Discentes</h4>
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
-                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="Matrícula ou CPF(sem pontuação)">
+                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="MatrÃ­cula ou CPF(sem pontuaÃ§Ã£o)">
                                 <input id="senhaLoginDisc" type="password" name="senha" placeholder="Senha">
 
                                 <div class="right-align">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <!--formulário de login Empresas(Emp)-->
+                    <!--formulÃ¡rio de login Empresas(Emp)-->
                     <!--div class="card" id="loginEmp">
                         <div class="card-content">
                             <h4>Empresas</h4>
@@ -74,7 +74,7 @@
                         </div>
                     </div-->
 
-                    <!--formulário de login Reitoria(Ret)-->
+                    <!--formulÃ¡rio de login Reitoria(Ret)-->
                     <div class="card" id="loginRet">
                         <div class="card-content">
                             <h4>Reitoria</h4>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                    <!--formulário de login Técnicos Administrativos(Tec)-->
+                    <!--formulÃ¡rio de login TÃ©cnicos Administrativos(Tec)-->
                     <div class="card" id="loginTec">
                         <div class="card-content">
                             <h4>Campus</h4>
