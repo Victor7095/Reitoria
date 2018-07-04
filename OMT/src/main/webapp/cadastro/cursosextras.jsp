@@ -7,12 +7,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Novo curso complementar</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css"> 
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">
+        <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
+        <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
+        <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+        <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
-        <%@include file="../header.jsp"%>
         <div class="container">
             <div class="row">
                 <div class="col s12 l8 offset-l2">

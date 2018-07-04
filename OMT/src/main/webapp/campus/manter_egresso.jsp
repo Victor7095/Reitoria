@@ -9,6 +9,7 @@
 <%@page import="com.br.OMT.models.Discente"%>
 <%@page import="com.br.OMT.DAO.DiscenteDAO"%>
 <%@page pageEncoding="ISO-8859-1"%>
+<%@page import="com.br.OMT.models.Entidade"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,8 +26,20 @@
     <body>
         <%@include file="../header.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {%>
+        <%!HttpSession session;%>
+        <%if (request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") != null) {%>
+        <%!Entidade e;%>
+        <%e = (Entidade) request.getSession().getAttribute("entidade");%>
+        <%if (e.getTipo() == 'R') {%>
+        <%@include file="../reitoria/reitoriaMenu.jsp"%>
+        <%} else if (e.getTipo() == 'C') {%>
+        <%@include file="../campus/campusMenu.jsp"%>
+        <%} else {%>
+        <% response.getWriter().print("Deu Erro");%>
+        <%}%>
 
-        <%@include file="campusMenu.jsp"%>   
+        <%}%>
+
         <% DiscenteDAO ddao = new DiscenteDAO();
             List<Discente> discentes = ddao.listar();%>
         <div class="container row" >
@@ -40,10 +53,10 @@
                         <th>RG</th>
                         <th>CPF</th>
                     </tr>
-                    <%for(Discente d: discentes){
-                        d.setNome(Criptografia.decrypt(d.getNomeBanco()));
-                        d.setRG(Criptografia.decrypt(d.getRGbanco()));
-                        d.setCPF(Criptografia.decrypt(d.getCPFbanco()));
+                    <%for (Discente d : discentes) {
+                            d.setNome(Criptografia.decrypt(d.getNomeBanco()));
+                            d.setRG(Criptografia.decrypt(d.getRGbanco()));
+                            d.setCPF(Criptografia.decrypt(d.getCPFbanco()));
                     %>
                     <tr>
                         <td><%=d.getNome()%></td>
