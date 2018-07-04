@@ -232,10 +232,15 @@
                 layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
                 allowedFileExtensions: ["jpg", "png", "gif"]
             });
-            $('#cadastrar-egresso').submit(function(){
+            $('#cadastrar-egresso').submit(function () {
                 $('#cpf').unmask('000.000.000-00');
                 $('#rg').unmask('00.000.000-0');
             });
+            function myConfirmation() {
+                return 'Are you sure you want to quit?';
+            }
+
+            window.onbeforeunload = myConfirmation;
         </script>
     </body>
 </html>

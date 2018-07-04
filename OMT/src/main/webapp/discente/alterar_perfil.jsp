@@ -22,8 +22,8 @@
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {
-        Discente d = (Discente)request.getSession().getAttribute("usuario");
-        byte[] foto = d.getFoto();%>
+                Discente d = (Discente) request.getSession().getAttribute("usuario");
+                byte[] foto = d.getFoto();%>
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">
@@ -38,12 +38,16 @@
                                             <h5>Informações Básicas</h5>
                                         </div>
                                         <div class="col s12 offset-s0 m5 center">
-                                            <img src="<%=d.getFoto()%>" width="150" height="150" style="margin-top: 80px"><br>
+                                            <img src="/OMT/DiscenteServlet?id=<%=d.getId()%>" width="150" height="150"><br>
                                             <input type="file" name="foto">
                                         </div>
                                         <div class="input-field col s12 m10 offset-m1">
                                             <label for="nome">Nome Completo</label>
                                             <input type="text" id="nome" name="nome" value="<%=d.getNome()%>">
+                                        </div>
+                                        <div class="input-field col s12 m10 offset-m1">
+                                            <label for="matricula">Matrícula</label>
+                                            <input type="text" name="matricula" id="matricula" maxlength="14" value="<%=d.getUsuario()%>">
                                         </div>
                                         <div class="input-field col s12 m5 offset-m1">
                                             <label for="cpf">CPF</label>
@@ -57,12 +61,11 @@
                                 </div>
                                 <br><br>
                                 <div class="row">
-                                    <div class="col s12 m3 center offset-m2 offset-l3 xl4 offset-xl2 btn-mb-md">
-                                        <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
-                                    </div>
-                                    <div class="col s12 m3 center offset-m2 offset-l1 xl4">
-                                        <button type="submit" name="acao" value="alterar" class="btn waves-effect waves-green">
-                                            <i class="fa fa-check"></i>Confirmar</button>
+                                    <div class="col s12 m10 offset-m1">
+                                        <div class="right-align">
+                                            <button type="submit" name="acao" value="alterar" class="btn waves-effect waves-green">
+                                                <i class="fa fa-check"></i>Alterar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

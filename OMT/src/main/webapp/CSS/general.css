@@ -40,7 +40,7 @@ embed{
     text-align: center;
     max-width: 100%;
     line-height: 50px;
-    height: 50px;
+    height: auto;
 }
 
 #flex-line{
@@ -51,7 +51,7 @@ embed{
 #flex-line a{
     display: inline-block;
     position: relative;
-    height: 100%;
+    height: 56px;
     padding-right: 1em;
     padding-left: 1em;
 }

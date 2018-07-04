@@ -9,6 +9,7 @@ import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -30,20 +31,16 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*Discente d;
-        DiscenteDAO ddao = new DiscenteDAO();
-        d = ddao.buscarById(new Long(1));
-        response.setContentType("image/jpeg");
-        OutputStream out = response.getOutputStream();
-        out.write(d.getFoto());
-        out.flush(); */
         Discente d;
+        DiscenteDAO ddao = new DiscenteDAO();
         try {
-            d = new DiscenteDAO().buscarById(new Long(4));
-
-            response.getWriter().println(d.getSenha());
+            d = ddao.buscarById(Long.parseLong(request.getParameter("id")));
+            response.setContentType("image/jpeg");
+            OutputStream out = response.getOutputStream();
+            out.write(d.getFoto());
+            out.flush();
         } catch (Exception ex) {
-            response.getWriter().println(ex.getMessage());
+            Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
