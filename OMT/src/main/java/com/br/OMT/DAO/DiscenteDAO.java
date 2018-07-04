@@ -29,7 +29,7 @@ public class DiscenteDAO {
         hud = new HibernateUtil<>();
     }
 
-    public String salvar(Discente discente) throws Exception {
+     public String salvar(Discente discente) throws Exception {
         return hud.salvar(discente);
     }
 
