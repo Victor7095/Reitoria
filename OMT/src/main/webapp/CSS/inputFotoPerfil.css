@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/07/2018, 13:20:03
+    Author     : Yan e Pedro
+*/
+.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    max-width: 100%;
+}
+.kv-avatar {
+    display: inline-block;
+    max-width: 100%;
+}
+.kv-avatar .file-input, .kv-avatar .file-input img {
+    max-width: 100%;
+}
+.krajee-default.file-preview-frame .kv-file-content{
+    width: auto;
+    height: auto;
+}
+.kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+    max-width: 100%;
+}
+.krajee-default .file-caption-info, .krajee-default .file-size-info{
+    width: auto;
+}

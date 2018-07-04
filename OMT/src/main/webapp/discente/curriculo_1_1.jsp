@@ -49,18 +49,6 @@
                                             <td class="col s6 xl10 left-align">LIMA, V. Y. P.</td>
                                         </tr>
                                         <tr class="row">
-                                            <td class="col s6 xl2 right-align bold-text">Sexo</td>
-                                            <td class="col s6 xl10 left-align">Masculino</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col s6 xl2 right-align bold-text">Etnia</td>
-                                            <td class="col s6 xl10 left-align">Branca</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col s6 xl2 right-align bold-text">Filiação</td>
-                                            <td class="col s6 xl10 left-align">Lino Eugenio Auzier e Lima e Cyana Lara Pereira</td>
-                                        </tr>
-                                        <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Estado Civil</td>
                                             <td class="col s6 xl10 left-align">Casado</td>
                                         </tr>
@@ -71,14 +59,6 @@
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Nascimento</td>
                                             <td class="col s6 xl10 left-align">14/06/2001 - Brasil</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col s6 xl2 right-align bold-text">Carteira de Identidade</td>
-                                            <td class="col s6 xl10 left-align">40028922 SSP - AM - 12/07/2012</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col s6 xl2 right-align bold-text">CPF</td>
-                                            <td class="col s6 xl10 left-align CPF"><%=d.getCPF()%> </td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col s6 xl2 right-align bold-text">Endereço residencial</td>

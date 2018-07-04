@@ -13,38 +13,9 @@
         <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="../CSS/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
         <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
-        <style>
-            .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
-                margin: 0;
-                padding: 0;
-                border: none;
-                box-shadow: none;
-                text-align: center;
-                max-width: 100%;
-            }
-            .kv-avatar {
-                display: inline-block;
-                max-width: 100%;
-            }
-            .kv-avatar .file-input, .kv-avatar .file-input img {
-                max-width: 100%;
-            }
-            .krajee-default.file-preview-frame .kv-file-content{
-                width: auto;
-                height: auto;
-            }
-            .kv-reqd {
-                color: red;
-                font-family: monospace;
-                font-weight: normal;
-                max-width: 100%;
-            }
-            .krajee-default .file-caption-info, .krajee-default .file-size-info{
-                width: auto;
-            }
-        </style>
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -167,7 +138,8 @@
         <script src="../JS/jquery-3.2.1.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
-        <script src="../CSS/parallax-template/js/materialize.js"></script><!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
+        <script src="../CSS/parallax-template/js/materialize.js"></script>
+        <!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
             wish to resize images before upload. This must be loaded before fileinput.min.js -->
         <script src="../fileinput/js/plugins/piexif.min.js" type="text/javascript"></script>
         <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
@@ -196,20 +168,6 @@
                 borderless: '<i class="fa fa-expand fa-lg"></i>',
                 close: '<i class="fa fa-times fa-lg"></i>'
             };
-            $('#input-b1').fileinput({
-                theme: 'fa',
-                language: 'pt-BR',
-                showUpload: false,
-                allowedFileTypes: ["image", "video"],
-                previewFileType: "image",
-                browseClass: "btn btn-success",
-                browseLabel: "Escolher imagens",
-                browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
-                previewZoomButtonIcons: previewZoomButtonIcons,
-                layoutTemplates: {
-                    actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
-                }
-            });
 
             var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' +
                     'onclick="alert(\'Call your custom code here.\')">' +
@@ -221,8 +179,8 @@
                 maxFileSize: 1500,
                 showClose: false,
                 showCaption: false,
-                browseLabel: '',
-                removeLabel: '',
+                browseLabel: 'Escolher foto',
+                removeLabel: 'Remover',
                 browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
                 removeTitle: 'Cancel or reset changes',
                 elErrorContainer: '#kv-avatar-errors-1',
@@ -236,11 +194,6 @@
                 $('#cpf').unmask('000.000.000-00');
                 $('#rg').unmask('00.000.000-0');
             });
-            function myConfirmation() {
-                return 'Are you sure you want to quit?';
-            }
-
-            window.onbeforeunload = myConfirmation;
         </script>
     </body>
 </html>
