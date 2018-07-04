@@ -63,8 +63,9 @@
                                 <%for (FotosEventos fe : list2) {%>
                                 <div class="carousel-item teal white-text" href="#one!">
                                     <h2><%=e.getNome()%></h2>
-                                    <img class="foto-evento" src="/OMT/EventosServlet?id=<%=fe.getId()%>">
-                                    <p class="white-text"><%=e.getDescricao()%></p>
+                                    <div class="valign-wrapper" style="height: 100%;">
+                                        <img class="foto-evento" src="/OMT/EventosServlet?id=<%=fe.getId()%>">
+                                    </div>
                                 </div>
                                 <% }%>
                             </div>

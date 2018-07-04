@@ -3,6 +3,9 @@
     Created on : 07/06/2018, 15:20:11
     Author     : Natan S. dos Santos
 --%>
+<%@page import="com.br.OMT.models.Formacao"%>
+<%@page import="java.util.List"%>
+<%@page import="com.br.OMT.DAO.FormacaoDAO"%>
 <%@page import="com.br.OMT.models.Discente"%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
@@ -21,14 +24,16 @@
     <body>
         <%@include file="../header.jsp"%>
         <%  Discente d = (Discente) request.getSession().getAttribute("usuario");
-            if (d != null) {%>
-
+            if (d != null) {
+                FormacaoDAO fdao = new FormacaoDAO();
+                List<Formacao> formacoes = fdao.listarPorID(d.getId());
+        %>
         <%@include file="../discente/alunoMenu.jsp"%>
         <div class="container">
             <div id="to-pdf">
                 <div class="card-panel">
                     <section id="dadosPessoais">
-                        <h3>Dados pessoais <button class="btn red not-printable"><i class="fa fa-edit"></i>Atualizar informações</button></h3>
+                        <h3>Dados pessoais <a href="../discente/alterar_perfil.jsp" class="btn red not-printable"><i class="fa fa-edit"></i>Atualizar informações</a></h3>
                         <div class="row">
                             <div class="col s12 m4 l3">
                                 <img id="fotoCurriculo" class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
@@ -36,7 +41,7 @@
                             <div class="col s12 m10">
                                 <h4><%=d.getNome()%></h4>
                                 <h5>Aluno no IFAM</h5>
-                                <h6>Manaus,Amazonas,Brasil</h6>
+                                <h6>Manaus, Amazonas, Brasil</h6>
                             </div>
                         </div>
                         <br class="hide-on-med-and-up">
@@ -101,16 +106,19 @@
                         <h3>Formação acadêmica/ titulação <a href="../cadastro/formacao.jsp" class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar formação</a></h3>
                         <table>
                             <tbody>
+                                <%if (formacoes.size() > 0) {
+                                        for (Formacao f : formacoes) {%>
                                 <tr class="row">
-                                    <td class="col s6 xl2 bold-text right-align">2016</td>
-                                    <td class="col s6 xl10 left-align">Ensino Médio (2o grau) . 
-                                        Instituto Federal de Educação, Ciência e Tecnologia do Amazonas, IFAM, Manaus, Brasil </td>
+                                    <td class="col s2 bold-text right-align"><%=f.getAnoTermino()%></td>
+                                    <td class="col s5 left-align"><%=f.getEscola()%></td>
+                                    <td class="col s5 left-align"><%=f.getNome()%></td>
                                 </tr>
+                                <%      }
+                                } else {%>
                                 <tr class="row">
-                                    <td class="col s6 xl2 bold-text right-align">2013-2015</td>
-                                    <td class="col s6 xl10 left-align">Ensino Fundamental (1o grau) . 
-                                        Escola Celus Ltda, CELUS, Brasil, Ano de obtenção: 2015     </td>
+                                    <td>Nenhuma formação ainda registrada</td>
                                 </tr>
+                                <%}%>
                             </tbody>
                         </table>
                     </section>

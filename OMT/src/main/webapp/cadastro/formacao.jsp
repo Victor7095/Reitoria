@@ -77,9 +77,6 @@
                 viewMode: "years",
                 minViewMode: "years"
             });
-            $('#cadastrar-formacao').submit(function (e) {
-                alert($('#anofinalizacao').val());
-            });
 
             $(document).ready(function () {
                 var date = new Date();

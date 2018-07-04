@@ -58,6 +58,7 @@ embed{
 
 #flex-line a:hover{
     background-color: darkgreen;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 992px){
@@ -193,6 +194,10 @@ embed{
     #dadosPessoais .row .col{
         float: left;
     }
+}
+
+.carousel *{
+    max-height: 100%;
 }
 
 .carousel-item h2{

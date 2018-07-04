@@ -40,7 +40,6 @@
                                                     <input id="inputFoto" name="inputFoto" type="file">
                                                 </div>
                                             </div>
-                                            <div class="kv-avatar-hint"><small>Select file < 1500 KB</small></div>
                                         </div>
                                         <div class="input-field col s12 m10 offset-m1">
                                             <label for="nome">Nome Completo</label>
@@ -113,25 +112,13 @@
             borderless: '<i class="fa fa-expand fa-lg"></i>',
             close: '<i class="fa fa-times fa-lg"></i>'
         };
-        $('#input-b1').fileinput({
-            theme: 'fa',
-            language: 'pt-BR',
-            showUpload: false,
-            allowedFileTypes: ["image", "video"],
-            previewFileType: "image",
-            browseClass: "btn btn-success",
-            browseLabel: "Escolher imagens",
-            browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
-            previewZoomButtonIcons: previewZoomButtonIcons,
-            layoutTemplates: {
-                actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
-            }
-        });
-
-        var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' +
-                'onclick="alert(\'Call your custom code here.\')">' +
-                '<i class="fa fa-trash-alt"></i>' +
-                '</button>';
+        var footerInputFoto = '<div class="file-thumbnail-footer">\n' +
+                '    <div class="file-footer-caption" title="{caption}">\n' +
+                '        <div class="file-caption-info">{caption}</div>\n' +
+                '        <div class="file-size-info">{size}</div>\n' +
+                '    </div>\n' +
+                '    {progress}\n{actions}\n' +
+                '</div>';
         $("#inputFoto").fileinput({
             theme: 'fa',
             overwriteInitial: true,
@@ -146,7 +133,8 @@
             msgErrorClass: 'alert alert-block alert-danger',
             defaultPreviewContent: '<img src="/OMT/DiscenteServlet?id='+id+'" alt="Your Avatar">',
             previewZoomButtonIcons: previewZoomButtonIcons,
-            layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
+            layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}',
+            footer:footerInputFoto},
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
         $('#cadastrar-egresso').submit(function () {
