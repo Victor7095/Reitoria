@@ -97,7 +97,7 @@
                                         <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
                                     </div>
                                     <div class="col s12 m3 center offset-m2 offset-l1 xl4">
-                                        <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
+                                        <button data-target="show-password" type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
                                             <i class="fa fa-check"></i>Cadastrar</button>
                                     </div>
                                 </div>
