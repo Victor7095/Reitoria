@@ -1,5 +1,6 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page import="com.br.OMT.models.*"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -7,18 +8,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Aluno - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">
         <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
-        <link href="../CSS/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css" />
+        <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/general.css">  
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
         <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
     </head>
     <body>
         <%@include file="../header.jsp"%>
+    <%!HttpSession session;%>
+    <%if (request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") != null) {%>
+    <%!Entidade e;%>
+    <%e = (Entidade) request.getSession().getAttribute("entidade");%>
+    <%if (e.getTipo() == 'R') {%>
+    <%@include file="../reitoria/reitoriaMenu.jsp"%>
+    <%} else if (e.getTipo() == 'C') {%>
+    <%@include file="../campus/campusMenu.jsp"%>
+    <%} else {%>
+    <% response.getWriter().print("Deu Erro");%>
+    <%}%>
+
+    <%}%>
+>
         <div class="row">
             <div class="col s12 l6 offset-l3">
                 <div class="card-panel">
