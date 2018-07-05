@@ -1,5 +1,5 @@
 
-<nav id="cabecalhoHome" class="not-printable">
+<nav class="not-printable">
     <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down white-text">
@@ -13,7 +13,7 @@
     </div>
 </nav>
 
-<ul class="sidenav not-printable" id="mobile-demo">
+<ul>
     <li><a href="">Suporte</a></li>
     <li><a href="">Acessibilidade</a></li>
     <li><a href="http://www2.ifam.edu.br">Site do IFAM</a></li>        

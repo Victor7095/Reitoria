@@ -4,21 +4,11 @@
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Observatório do Mundo Trabalho</title>
-        <!-- referenciamento css-->
-        <link href="CSS/FontsGoogle.css" rel="stylesheet">
-        <link rel="stylesheet" href="CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" href="CSS/parallax-template/css/style.css">
-        <script src="fileinput/js/fontawesome-all.min.js"></script>
-        <link rel="stylesheet" href="CSS/general.css" >
-        <!-- Linkagens JS -->
-        <style>
-            #div-forms{
-                background: linear-gradient(to right, #1A6325 0%, #4F9C45 30%, #4F9C45 70%, #1A6325 100%);
-                padding: 30px 0;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Observat�rio do Mundo Trabalho</title>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/mdb.css"/>
+        <link rel="stylesheet" href="css/fontawesome.css"/>
     </head>
 
     <body>
@@ -36,10 +26,10 @@
             <div class="row">
                 <div class="col s12 m10 l4 xl3 offset-l1 offset-xl2 offset-m1" id="tabsLogin">
                     <ul class="tabs">
-                        <li class="tab"><a href="#loginDisc"><i class="fas fa-user-graduate fa-lg"></i>Discentes</a></li>
+                        <li><a href="#loginDisc"><i class="fas fa-user-graduate fa-lg"></i>Discentes</a></li>
                         <!--li class="tab"><a href="#loginEmp"><i class="fas fa-user-lock fa-lg"></i>Empresas</a></li-->
-                        <li class="tab"><a href="#loginRet"><i class="fas fa-university fa-lg"></i>Reitoria</a></li>
-                        <li class="tab"><a href="#loginTec"><i class="fas fa-school fa-lg"></i>Campus</a></li>
+                        <li><a href="#loginRet"><i class="fas fa-university fa-lg"></i>Reitoria</a></li>
+                        <li><a href="#loginTec"><i class="fas fa-school fa-lg"></i>Campus</a></li>
                     </ul>
                 </div>
 
@@ -47,15 +37,15 @@
                     <!--formulário de login Discentes(disc)-->
                     <div class="card" id="loginDisc">
                         <div class="card-content">
-                            <h4>Discentes Teste</h4>
+                            <h4>Discentes</h4>
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
                                 <input id="matriculaLoginDisc" type="text"  name="login" placeholder="Matrícula ou CPF(sem pontuação)">
                                 <input id="senhaLoginDisc" type="password" name="senha" placeholder="Senha">
 
-                                <div class="right-align">
-                                    <input class="btn" id="buttonLoginDisc" type="submit" value="Entrar">    
+                                <div>
+                                    <input id="buttonLoginDisc" type="submit" value="Entrar">    
                                 </div>
                             </form>
                         </div>
@@ -107,18 +97,9 @@
 
             </div>
         </div>
-
-        <script src="JS/jquery-3.2.1.min.js"></script>
-        <script src="CSS/parallax-template/js/materialize.js"></script>
-        <script src="JS/jquery.mask.js"></script>
-        <script src="JS/mask.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.tabs').tabs();
-            });
-            $(document).ready(function () {
-                $('.sidenav').sidenav();
-            });
-        </script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/mdb.min.js"></script>
     </body>
 </html>
