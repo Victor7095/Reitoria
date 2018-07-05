@@ -10,6 +10,7 @@
 <%@page import="com.br.OMT.models.Eventos"%>
 <%@page import="com.br.OMT.DAO.FotosEventosDAO"%>
 <%@page import="com.br.OMT.models.FotosEventos"%>
+<%@page import="com.br.OMT.models.Discente"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,6 +29,8 @@
 
         <%@include file="alunoMenu.jsp"%>   
         <div class="center-align container row" >
+            <%Discente d = ((Discente) request.getSession().getAttribute("usuario"));%>
+            <%=d.getId()%>
             <% if (request.getSession().getAttribute("usuario") != null) {%>
             <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
                 //for (Eventos e : list) {

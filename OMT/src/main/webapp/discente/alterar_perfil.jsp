@@ -20,7 +20,7 @@
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {
-                Discente d = (Discente) request.getSession().getAttribute("usuario");%>
+        Discente d = ((Discente) request.getSession().getAttribute("usuario"));%>
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">

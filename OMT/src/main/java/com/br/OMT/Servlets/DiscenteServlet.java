@@ -8,12 +8,16 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,13 +35,24 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Discente d;
-        DiscenteDAO ddao = new DiscenteDAO();
         try {
+            Discente d;
+            DiscenteDAO ddao = new DiscenteDAO();
+            byte[] foto = null;
             d = ddao.buscarById(Long.parseLong(request.getParameter("id")));
             response.setContentType("image/jpeg");
+            if (d.getFoto() == null) {
+                System.out.println("oioioioioi");
+                BufferedImage bImage = ImageIO.read(new File(getServletContext().getContextPath() + "/img/student.png"));
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bImage, "png", bos);
+                foto = bos.toByteArray();
+            } else {
+                System.out.println("1221212121");
+                foto = d.getFoto();
+            }
             OutputStream out = response.getOutputStream();
-            out.write(d.getFoto());
+            out.write(foto);
             out.flush();
         } catch (Exception ex) {
             Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,10 +131,10 @@ public class DiscenteServlet extends HttpServlet {
                     } catch (Exception ex) {
                         Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }else if(acao.equals("alterar")){
+                } else if (acao.equals("alterar")) {
                     d = (Discente) request.getSession().getAttribute("usuario");
                     d.setCPF(cpf);
-                    if(foto!=null){
+                    if (foto != null) {
                         d.setFoto(foto);
                     }
                     d.setRG(rg);
