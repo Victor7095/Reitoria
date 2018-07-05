@@ -8,13 +8,13 @@
                 </div>
             </a>
             <!--Pefil do Usuário-->
-            <a href="../errors/erro404.jsp">
+            <a href="../errors/manutencao.jsp">
                 <div class="valign-wrapper">
                     <img id="icone" src="../img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens
                 </div>
             </a>
             <!--Oportunidade de Estágios-->
-            <a href="../errors/erro404.jsp">
+            <a href="../errors/manutencao.jsp">
                 <div class="valign-wrapper">
                     <img id="icone" src="../img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos
                 </div>

@@ -1,5 +1,6 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page import="com.br.OMT.models.*"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
