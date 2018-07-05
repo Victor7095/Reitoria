@@ -5,7 +5,6 @@
 --%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
-<%@page import="com.br.OMT.models.Entidade"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -19,37 +18,16 @@
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
         <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
     </head>
-
-    <%@include file="../header.jsp"%>
-    <%!HttpSession session;%>
-    <%if (request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") != null) {%>
-    <%!Entidade e;%>
-    <%e = (Entidade) request.getSession().getAttribute("entidade");%>
-    <%if (e.getTipo() == 'R') {%>
-    <%@include file="../reitoria/reitoriaMenu.jsp"%>
-    <%} else if (e.getTipo() == 'C') {%>
-    <%@include file="../campus/campusMenu.jsp"%>
-    <%} else {%>
-    <% response.getWriter().print("Deu Erro");%>
-    <%}%>
-
-    <%}%>
-    <div class="container">
+    <body>
+        <%@include file="../header.jsp"%>
         <div class="row">
-            <div class="col s12 xl8 offset-xl2">
-                <div class="card">
-                    <div class="card-action green darken-3 white-text center-align">
-                        <h3>Cadastro de Evento</h3>
-                    </div>
-                    <br>
-                    <div class="card-content">
-                        <div class="row">
-                            <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/EventosServlet" 
+            <div class="col s12 l6 offset-l3">
+                <div class="card-panel">
+                    <div class="row"><h4 class="center-align">Cadastro de Evento</h4></div>
+                    <div class="row">
+                        <div class="col s12 offset-s0 l10 offset-l1">
+                            <form method="post" id="cadastrar-evento" action="/OMT/EventosServlet" 
                                   enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="input-field col s12 xl10 offset-xl1">
@@ -120,63 +98,62 @@
                 </div>
             </div>
         </div>
-    </div>
-    <%@include file="../footer.jsp"%>
-    <script src="../JS/jquery-3.2.1.min.js"></script>
-    <script src="../JS/jquery.mask.js"></script>
-    <script src="../JS/mask.js"></script>
-    <script src="../CSS/parallax-template/js/materialize.js"></script>
-    <!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
-        wish to resize images before upload. This must be loaded before fileinput.min.js -->
-    <script src="../fileinput/js/plugins/piexif.min.js" type="text/javascript"></script>
-    <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
-        This must be loaded before fileinput.min.js -->
-    <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
-    <!-- purify.min.js is only needed if you wish to purify HTML content in your preview for 
-        HTML files. This must be loaded before fileinput.min.js -->
-    <script src="../fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
-    <!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
-       3.3.x versions without popper.min.js. -->
-    <script src="../fileinput/js/popper.min.js"></script>
-    <!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
-        dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
-    <script src="../fileinput/js/bootstrap.js"></script>
-    <!-- the main fileinput plugin file -->
-    <script src="../fileinput/js/fileinput.min.js"></script>
-    <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
-    <script src="../fileinput/themes/fa/theme.min.js"></script>
-    <script src="../fileinput/js/locales/pt-BR.js"></script>
-    <script>
-        $(".datepicker").datepicker({
-            selectMonths: true,
-            selectYears: true,
-            clear: false,
-            format: 'dd/mm/yyyy',
-            today: "Hoje",
-            close: "X",
-            autoClose: true
-        });
-        $('#input-b1').fileinput({
-            theme: 'fa',
-            language: 'pt-BR',
-            showUpload: false,
-            allowedFileTypes: ["image", "video"],
-            previewFileType: "image",
-            browseClass: "btn btn-success",
-            browseLabel: "Escolher imagens",
-            browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
-            previewZoomButtonIcons: {
-                prev: '<i class="fa fa-caret-left fa-lg"></i>',
-                next: '<i class="fa fa-caret-right fa-lg"></i>',
-                toggleheader: '<i class="fa fa-arrows-alt-v fa-lg"></i>',
-                fullscreen: '<i class="fa fa-expand-arrows-alt fa-lg"></i>',
-                borderless: '<i class="fa fa-expand fa-lg"></i>',
-                close: '<i class="fa fa-times fa-lg"></i>'
-            },
-            layoutTemplates: {
-                actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
-            }
-        });
-    </script>
-
+        <%@include file="../footer.jsp"%>
+        <script src="../JS/jquery-3.2.1.min.js"></script>
+        <script src="../JS/jquery.mask.js"></script>
+        <script src="../JS/mask.js"></script>
+        <script src="../CSS/parallax-template/js/materialize.js"></script>
+        <!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
+            wish to resize images before upload. This must be loaded before fileinput.min.js -->
+        <script src="../fileinput/js/plugins/piexif.min.js" type="text/javascript"></script>
+        <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
+            This must be loaded before fileinput.min.js -->
+        <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
+        <!-- purify.min.js is only needed if you wish to purify HTML content in your preview for 
+            HTML files. This must be loaded before fileinput.min.js -->
+        <script src="../fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
+        <!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
+           3.3.x versions without popper.min.js. -->
+        <script src="../fileinput/js/popper.min.js"></script>
+        <!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
+            dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
+        <script src="../fileinput/js/bootstrap.js"></script>
+        <!-- the main fileinput plugin file -->
+        <script src="../fileinput/js/fileinput.min.js"></script>
+        <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
+        <script src="../fileinput/themes/fa/theme.min.js"></script>
+        <script src="../fileinput/js/locales/pt-BR.js"></script>
+        <script>
+            $(".datepicker").datepicker({
+                selectMonths: true,
+                selectYears: true,
+                clear: false,
+                format: 'dd/mm/yyyy',
+                today: "Hoje",
+                close: "X",
+                autoClose: true
+            });
+            $('#input-b1').fileinput({
+                theme: 'fa',
+                language: 'pt-BR',
+                showUpload: false,
+                allowedFileTypes: ["image", "video"],
+                previewFileType: "image",
+                browseClass: "btn btn-success",
+                browseLabel: "Escolher imagens",
+                browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
+                previewZoomButtonIcons: {
+                    prev: '<i class="fa fa-caret-left fa-lg"></i>',
+                    next: '<i class="fa fa-caret-right fa-lg"></i>',
+                    toggleheader: '<i class="fa fa-arrows-alt-v fa-lg"></i>',
+                    fullscreen: '<i class="fa fa-expand-arrows-alt fa-lg"></i>',
+                    borderless: '<i class="fa fa-expand fa-lg"></i>',
+                    close: '<i class="fa fa-times fa-lg"></i>'
+                },
+                layoutTemplates: {
+                    actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
+                }
+            });
+        </script>
+    </body>
 </html>
