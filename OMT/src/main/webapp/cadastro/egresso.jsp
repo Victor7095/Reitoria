@@ -1,6 +1,5 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
-<%@page import="com.br.OMT.models.Entidade"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -8,32 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cadastro de Aluno - OMT</title>
         <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
+        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
         <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="../CSS/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css" />
         <!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
-        <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">  
+        <script defer src="../fileinput/js/fontawesome-all.min.js"></script>   
     </head>
     <body>
-    <%@include file="../header.jsp"%>
-    <%!HttpSession session;%>
-    <%if (request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") != null) {%>
-    <%!Entidade e;%>
-    <%e = (Entidade) request.getSession().getAttribute("entidade");%>
-    <%if (e.getTipo() == 'R') {%>
-    <%@include file="../reitoria/reitoriaMenu.jsp"%>
-    <%} else if (e.getTipo() == 'C') {%>
-    <%@include file="../campus/campusMenu.jsp"%>
-    <%} else {%>
-    <% response.getWriter().print("Deu Erro");%>
-    <%}%>
-
-    <%}%>
+        <%@include file="../header.jsp"%>
         <div class="row">
             <div class="col s12 l6 offset-l3">
                 <div class="card-panel">
@@ -91,62 +76,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- TESTANDO AQUI
-                <div class="card">
-                    <div class="card-action green darken-3 white-text center-align">
-                        <h3>Cadastro de Egresso</h3>
-                    </div>
-                    <br>
-                    <div class="card-content">
-                        <div class="row">
-                            <form class="col s12" method="post" id="cadastrar-evento" action="/OMT/DiscenteServlet" 
-                                  enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="input-field col s12 l10 offset-l1">
-                                        <label for="usuario">Matrícula</label>
-                                        <input type="text" id="usuario" name="usuario" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l5 offset-l1">
-                                        <label for="senha">Senha</label>
-                                        <input type="password" id="senha" name="senha" required>
-                                    </div>
-                                    <div class="input-field col s12 l5">
-                                        <label for="confirmar">Confirmar Senha</label>
-                                        <input type="password" id="confirmar" name="confirmar" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l10 offset-l1">
-                                        <label for="nome">Nome Completo</label>
-                                        <input type="text" id="nome" name="nome" required>                                        
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 l5 offset-l1">
-                                        <label for="cpf">CPF</label>
-                                        <input type="text" id="cpf" name="cpf" required> 
-                                    </div>
-                                    <div class="input-field col s12 l5">
-                                        <label for="rg">RG</label>
-                                        <input type="text" id="rg" name="rg" required> 
-                                    </div>
-                                </div>
-                                <br><br>
-                                <div class="row center">
-                                    <div class="col m12 l2 offset-l2 btn-mb-md">
-                                        <button type="reset" class="btn btn-large waves-effect white black-text">Limpar</button>
-                                    </div>
-                                    <div class="col m12 l2 offset-l3">
-                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-large waves-effect green">Cadastrar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
         <%@include file="../footer.jsp"%>
