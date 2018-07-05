@@ -47,7 +47,7 @@
                     <!--formulário de login Discentes(disc)-->
                     <div class="card" id="loginDisc">
                         <div class="card-content">
-                            <h4>Discentes</h4>
+                            <h4>Discentes Teste</h4>
                             <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                                 <input type="hidden" name="entidade" value="discente"/>
                                 <input type="hidden" name="tipoLogin" id="tipoLogin"/>
