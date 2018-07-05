@@ -116,6 +116,36 @@ public class DiscenteServlet extends HttpServlet {
                     } catch (Exception ex) {
                         Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                }else if(acao.equals("alterar")){
+                    d = (Discente) request.getSession().getAttribute("usuario");
+                    d.setCPF(cpf);
+                    if(foto!=null){
+                        d.setFoto(foto);
+                    }
+                    d.setRG(rg);
+                    d.setUsuario(usuario);
+                    d.setNome(nome);
+                    try {
+                        Criptografia c = new Criptografia();
+                        d.setUsuarioBanco(c.encrypt(d.getUsuario()));
+                        d.setNomeBanco(c.encrypt(d.getNome()));
+                        d.setCPFbanco(c.encrypt(d.getCPF()));
+                        d.setRGbanco(c.encrypt(d.getRG()));
+                        String str;
+                        try {
+                            str = ddao.atualizar(d);
+                            if (str.equals("")) {
+                                response.getWriter().println("Atualizado! " + d.getSenha());
+                            } else {
+                                response.getWriter().println("Errado!");
+                                response.getWriter().println(str);
+                            }
+                        } catch (Exception ex) {
+                            response.getWriter().println("Erro! " + ex.getMessage());
+                        }
+                    } catch (Exception ex) {
+                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }

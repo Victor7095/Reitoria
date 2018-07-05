@@ -19,8 +19,8 @@ import org.hibernate.query.Query;
  */
 public class EventoDAO {
 
-    HibernateUtil<Eventos> hue;
-    Session s;
+    private HibernateUtil<Eventos> hue;
+    private Session s;
 
     public EventoDAO() {
         HibernateFactory.initSessionFactory();
