@@ -8,7 +8,8 @@
         <title>Observat�rio do Mundo Trabalho</title>
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/mdb.css"/>
-        <link rel="stylesheet" href="css/fontawesome.css"/>
+        <link rel="stylesheet" href="css/fontawesome-all.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -16,86 +17,110 @@
             <%@include file="header.jsp"%>
         </header>
         <div class="container">
-            <!--cabeçalho da página de menu logins-->
+            <!--cabe�alho da p�gina de menu logins-->
 
             <!--mensagem de boas vindas-->
-            <h4>
+            <h4 class="text-center my-4">
                 Seja bem-vindo ao<br>
                 <img src="img/logoInicial.png" alt="Logotipo do OMT" height="150" width="300">
             </h4>
-            <div class="row">
-                <div class="col s12 m10 l4 xl3 offset-l1 offset-xl2 offset-m1" id="tabsLogin">
-                    <ul class="tabs">
-                        <li><a href="#loginDisc"><i class="fas fa-user-graduate fa-lg"></i>Discentes</a></li>
-                        <!--li class="tab"><a href="#loginEmp"><i class="fas fa-user-lock fa-lg"></i>Empresas</a></li-->
-                        <li><a href="#loginRet"><i class="fas fa-university fa-lg"></i>Reitoria</a></li>
-                        <li><a href="#loginTec"><i class="fas fa-school fa-lg"></i>Campus</a></li>
-                    </ul>
-                </div>
 
-                <div class="col s12 m8 l6 xl5 offset-m2 offset-l0" id="loginForms">
-                    <!--formulário de login Discentes(disc)-->
-                    <div class="card" id="loginDisc">
-                        <div class="card-content">
-                            <h4>Discentes</h4>
-                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                                <input type="hidden" name="entidade" value="discente"/>
-                                <input type="hidden" name="tipoLogin" id="tipoLogin"/>
-                                <input id="matriculaLoginDisc" type="text"  name="login" placeholder="Matrícula ou CPF(sem pontuação)">
-                                <input id="senhaLoginDisc" type="password" name="senha" placeholder="Senha">
+            <!--Nav Tabs-->
+            <ul class="nav nav-tabs nav-justified green darken-2" role="tablist">
+                <li class="nav-item">
+                    <a href="#login1" class="nav-link active" data-toggle="tab" role="tab">
+                        <i class="fas fa-user-graduate fa-lg"></i>
+                        Discente
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#login2" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-university fa-lg"></i>
+                        Reitoria
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#login3" class="nav-link" data-toggle="tab" role="tab">
+                        <i class="fas fa-school fa-lg"></i>
+                        Campus
+                    </a>
+                </li>
+            </ul>
 
-                                <div>
-                                    <input id="buttonLoginDisc" type="submit" value="Entrar">    
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            <div class="tab-content card">
+                <div class="tab-pane fade in show active" id="login1" role="tabpanel">
+                    <div class="mt-4 mx-4">
+                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                            <input type="hidden" name="entidade" value="discente"/>
+                            <input type="hidden" name="tipoLogin" id="tipoLogin"/>
 
-                    <!--formulário de login Empresas(Emp)-->
-                    <!--div class="card" id="loginEmp">
-                        <div class="card-content">
-                            <h4>Empresas</h4>
-                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                                <input type="hidden" name="entidade" value="empresa"/>
-                                <input id="cnpjLoginEmp" name="usuario" type="text" placeholder="CNPJ">
-                                <input id="senhaLoginEmp" name="senha" type="password" placeholder="Senha">
-                                <input class="btn" id="buttonLoginEmp" type="submit" value="Entrar">
-                            </form>
-                        </div>
-                    </div-->
+                            <label for="matriculaLoginDisc" class="grey-text">Matr�cula ou CPF(sem pontua��o)</label>
+                            <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">
 
-                    <!--formulário de login Reitoria(Ret)-->
-                    <div class="card" id="loginRet">
-                        <div class="card-content">
-                            <h4>Reitoria</h4>
-                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                                <input type="hidden" name="entidade" value="reitoria"/>
-                                <input id="acessoLoginRet" name="usuario" type="text" placeholder="Nome de Acesso">
-                                <input id="senhaLoginRet" name="senha" type="password" placeholder="Senha">
-                                <div class="right-align">
-                                    <input class="btn" id="buttonLoginRet" type="submit" value="Entrar">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                            <br>
 
-                    <!--formulário de login Técnicos Administrativos(Tec)-->
-                    <div class="card" id="loginTec">
-                        <div class="card-content">
-                            <h4>Campus</h4>
-                            <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
-                                <input type="hidden" name="entidade" value="campus"/>
-                                <input id="acessoLogiTec" type="text" name="usuario" placeholder="Nome de Acesso">
-                                <input id="senhaLoginTec" type="password" name="senha" placeholder="Senha">
-                                <div class="right-align">
-                                    <input class="btn" id="buttonLoginTec" type="submit" value="Entrar">
-                                </div>
-                            </form>
-                        </div>
+                            <label for="senhaLoginDisc" class="grey-text">Senha</label>
+                            <input class="form-control" id="senhaLoginDisc" type="password" name="senha">
+
+                            <div class="text-center my-4">
+                                <button class="btn btn-green" id="buttonLoginDisc" type="submit">Entrar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="login2" role="tabpanel">
+                    <div class="mt-4 mx-4">
+                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                            <input type="hidden" name="entidade" value="reitoria"/>
 
+                            <label for="acessoLoginRet" class="grey-text">Nome de Acesso</label>
+                            <input class="form-control" id="acessoLoginRet" name="usuario" type="text">
+
+                            <br>
+
+                            <label for="senhaLoginRet" class="grey-text">Senha</label>
+                            <input class="form-control" id="senhaLoginRet" name="senha" type="password">
+
+                            <div class="text-center my-4">
+                                <button class="btn btn-green" id="buttonLoginRet" type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="login3" role="tabpanel">
+                    <div class="mt-4 mx-4">
+                        <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                            <input type="hidden" name="entidade" value="campus"/>
+
+                            <label for="acessoLogiTec" class="grey-text">Nome de Acesso</label>
+                            <input class="form-control" id="acessoLogiTec" type="text" name="usuario">
+
+                            <br>
+
+                            <label for="senhaLoginTec" class="grey-text">Senha</label>
+                            <input class="form-control" id="senhaLoginTec" type="password" name="senha">
+
+                            <div class="text-center my-4">
+                                <button class="btn btn-green" id="buttonLoginTec" type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+
+            <!--formulário de login Empresas(Emp)-->
+            <!--div class="card" id="loginEmp">
+                <div class="card-content">
+                    <h4>Empresas</h4>
+                    <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
+                        <input type="hidden" name="entidade" value="empresa"/>
+                        <input id="cnpjLoginEmp" name="usuario" type="text" placeholder="CNPJ">
+                        <input id="senhaLoginEmp" name="senha" type="password" placeholder="Senha">
+                        <input class="btn" id="buttonLoginEmp" type="submit" value="Entrar">
+                    </form>
+                </div>
+            </div-->
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
