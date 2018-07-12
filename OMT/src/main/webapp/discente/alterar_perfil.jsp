@@ -6,21 +6,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Perfil Aluno - OMT</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
         <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
         <link rel="stylesheet" href="../fileinput/css/bootstrap.css">
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
-        <link href="../CSS/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css" />
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
         <%@include file="../header.jsp"%>
         <%@include file="alunoMenu.jsp"%>
-        <% if (request.getSession().getAttribute("usuario") != null) {
-                Discente d = (Discente) request.getSession().getAttribute("usuario");%>
+        <% if (discente != null) {%>
         <div class="container">
             <div class="row">
                 <div class="col s12 offset-s0 m8 offset-m2">
@@ -28,7 +26,7 @@
                         <div class="card-content">
                             <h4 class="center-align">Perfil do Usuário</h4><br>
                             <form id="cadastrar-egresso" name="cadastrar-egresso" method="post" action="/OMT/DiscenteServlet"
-                                  enctype="multipart/form-data" data-id="<%=d.getId()%>">
+                                  enctype="multipart/form-data" data-id="<%=discente.getId()%>">
                                 <div class="section">
                                     <div class="row">
                                         <div class="col s12 m10 offset-m1">
@@ -43,19 +41,19 @@
                                         </div>
                                         <div class="input-field col s12 m10 offset-m1">
                                             <label for="nome">Nome Completo</label>
-                                            <input type="text" id="nome" name="nome" value="<%=d.getNome()%>">
+                                            <input type="text" id="nome" name="nome" value="<%=discente.getNome()%>">
                                         </div>
                                         <div class="input-field col s12 m10 offset-m1">
                                             <label for="matricula">Matrícula</label>
-                                            <input type="text" name="matricula" id="matricula" maxlength="14" value="<%=d.getUsuario()%>">
+                                            <input type="text" name="matricula" id="matricula" maxlength="14" value="<%=discente.getUsuario()%>">
                                         </div>
                                         <div class="input-field col s12 m5 offset-m1">
                                             <label for="cpf">CPF</label>
-                                            <input type="text" name="cpf" id="cpf" maxlength="14" value="<%=d.getCPF()%>">
+                                            <input type="text" name="cpf" id="cpf" maxlength="14" value="<%=discente.getCPF()%>">
                                         </div>
                                         <div class="input-field col s12 m5">
                                             <label for="rg">RG</label>
-                                            <input type="text" id="rg" name="rg" maxlength="8" value="<%=d.getRG()%>">
+                                            <input type="text" id="rg" name="rg" maxlength="8" value="<%=discente.getRG()%>">
                                         </div>
                                     </div>
                                 </div>
@@ -78,10 +76,11 @@
     <%} else {%>
     <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
     <%}%>
-    <script src="../JS/jquery-3.2.1.min.js"></script>
-    <script src="../JS/jquery.mask.js"></script>
-    <script src="../JS/mask.js"></script>
-    <script src="../CSS/parallax-template/js/materialize.js"></script>
+    <%@include file="../footer.jsp"%>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/mdb.min.js"></script>
     <!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
         wish to resize images before upload. This must be loaded before fileinput.min.js -->
     <script src="../fileinput/js/plugins/piexif.min.js" type="text/javascript"></script>
@@ -131,10 +130,10 @@
             removeTitle: 'Cancel or reset changes',
             elErrorContainer: '#kv-avatar-errors-1',
             msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="/OMT/DiscenteServlet?id='+id+'" alt="Your Avatar">',
+            defaultPreviewContent: '<img src="/OMT/DiscenteServlet?id=' + id + '" alt="Your Avatar">',
             previewZoomButtonIcons: previewZoomButtonIcons,
             layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}',
-            footer:footerInputFoto},
+                footer: footerInputFoto},
             allowedFileExtensions: ["jpg", "png", "gif"]
         });
         $('#cadastrar-egresso').submit(function () {
@@ -142,6 +141,5 @@
             $('#rg').unmask('00.000.000-0');
         });
     </script>
-    <%@include file="../footer.jsp"%>
 </body>
 </html>

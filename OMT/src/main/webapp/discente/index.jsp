@@ -17,37 +17,38 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Aluno - OMT</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <%@include file="../header.jsp"%>
         <% if (request.getSession().getAttribute("usuario") != null) {%>
 
         <%@include file="alunoMenu.jsp"%>   
-        <div class="center-align container row" >
-            <% if (request.getSession().getAttribute("usuario") != null) {%>
-            <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
-                //for (Eventos e : list) {
-            %>
-            <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
-                if (list2 != null && list2.size() > 0) {%>
-            <div class="carousel carousel-slider">
-                <%   for (FotosEventos fe : list2) {%>
-                <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
-                    <%}%>
-                List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
-                if (list2 != null && list2.size() > 0) {%> 
-            <div class="carousel carousel-slider">
-                <%   for (FotosEventos fe : list2) {%>
-                <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
-                    <%}%>
-            </div>
-            <%}%>
-            <%}%>--%>
-            <div class="container">
+        <% if (discente != null) {%>
+        <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
+            //for (Eventos e : list) {
+        %>
+        <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
+            if (list2 != null && list2.size() > 0) {%>
+        <div class="carousel carousel-slider">
+            <%   for (FotosEventos fe : list2) {%>
+            <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
+                <%}%>
+            List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
+            if (list2 != null && list2.size() > 0) {%> 
+        <div class="carousel carousel-slider">
+            <%   for (FotosEventos fe : list2) {%>
+            <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
+                <%}%>
+        </div>
+        <%}%>
+        <%}%>--%>
+        <div class="container mt-4">
+            <div class="card">
+                <h1 class="my-4 mx-4">Bem-vindo <%=d.getNome()%>!</h1>
                 <div class="card-panel">
                     <!--<a href="/OMT/pdf">Olá mundo!</a>-->
                     <div class="row">
@@ -74,26 +75,18 @@
                     </div>
                 </div>
             </div>
-            <%} else {%>
-            <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-            <%}%>
-            <script src="../JS/jquery-3.2.1.min.js"></script>
-            <script src="../JS/jquery.mask.js"></script>
-            <script src="../JS/mask.js"></script>
-            <script src="../CSS/parallax-template/js/materialize.js"></script>
-            <script>
-                $(document).ready(function () {
-                    $('.carousel.carousel-slider').carousel({
-                        fullWidth: true,
-                        indicators: true
-                    });
-                });
-            </script>
         </div>
+        <%} else {%>
+        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        <%}%>
         <%} else {%> 
         <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
         <%}%>
         <%@include file="../footer.jsp"%>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
     </body>
 </html>
 

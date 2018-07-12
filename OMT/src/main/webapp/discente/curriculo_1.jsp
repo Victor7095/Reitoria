@@ -3,9 +3,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Currículo</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>

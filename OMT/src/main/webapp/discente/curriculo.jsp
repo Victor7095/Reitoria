@@ -15,10 +15,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Currículo</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/curriculo.css">
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
@@ -29,22 +29,25 @@
                 List<Formacao> formacoes = fdao.listarPorID(d.getId());
         %>
         <%@include file="../discente/alunoMenu.jsp"%>
-        <div class="container">
+        <div class="container my-4">
             <div id="to-pdf">
-                <div class="card-panel">
-                    <section id="dadosPessoais">
-                        <h3>Dados pessoais <a href="../discente/alterar_perfil.jsp" class="btn red not-printable"><i class="fa fa-edit"></i>Atualizar informações</a></h3>
-                        <div class="row">
-                            <div class="col s12 m4 l3">
-                                <img id="fotoCurriculo" class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
+                <div class="card px-4 py-4">
+                    <section>
+                        <h3>Dados pessoais
+                            <a href="../discente/alterar_perfil.jsp" class="btn btn-md btn-light-green darken-1">
+                                <i class="fa fa-edit mr-1"></i>Atualizar informações
+                            </a>
+                        </h3>
+                        <div class="row my-4">
+                            <div class="col-auto">
+                                <img class="foto-curriculo" src="../img/student.png" alt="Your Avatar">
                             </div>
-                            <div class="col s12 m10">
+                            <div class="col-auto">
                                 <h4><%=d.getNome()%></h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus, Amazonas, Brasil</h6>
                             </div>
                         </div>
-                        <br class="hide-on-med-and-up">
                         <div class="row">
                             <div class="col s12">
                                 <table>
@@ -102,8 +105,11 @@
                             </div>
                         </div>
                     </section>
+                    <hr>
                     <section>
-                        <h3>Formação acadêmica/ titulação <a href="../cadastro/formacao.jsp" class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar formação</a></h3>
+                        <h3>Formação acadêmica/ titulação 
+                            <a href="../cadastro/formacao.jsp" class="btn btn-md btn-light-green darken-1 not-printable"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                        </h3>
                         <table>
                             <tbody>
                                 <%if (formacoes.size() > 0) {
@@ -122,8 +128,11 @@
                             </tbody>
                         </table>
                     </section>
+                    <hr>
                     <section>
-                        <h3>Áreas de atuação <button class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar área de atuação</button></h3>
+                        <h3>Áreas de atuação 
+                            <button class="btn btn-md btn-light-green darken-1"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</button>
+                        </h3>
                         <table>
                             <tbody>
                                 <tr class="row">
@@ -133,8 +142,11 @@
                             </tbody>
                         </table>
                     </section>
+                    <hr>
                     <section>
-                        <h3>Idiomas <button class="btn red not-printable"><i class="fa fa-plus"></i>Adicionar idioma</button></h3>
+                        <h3>Idiomas 
+                            <button class="btn btn-md btn-light-green darken-1"><i class="fa fa-plus mr-1"></i>Adicionar idioma</button>
+                        </h3>
                         <table>
                             <tbody>
                                 <tr class="row">
@@ -148,10 +160,10 @@
                             </tbody>
                         </table>
                     </section>
-                    <br>
+                    <hr>
                     <div class="right-align">
-                        <button id="btnBaixarCurriculo" class="btn red"><i class="fa fa-download"></i>Baixar</button>
-                        <button id="btnImprimirCurriculo" class="btn red"><i class="fa fa-print"></i>Imprimir</button>
+                        <button id="btnBaixarCurriculo" class="btn btn-md btn-light-green darken-1"><i class="fa fa-download mr-1"></i>Baixar</button>
+                        <button id="btnImprimirCurriculo" class="btn btn-md btn-light-green darken-1"><i class="fa fa-print mr-1"></i>Imprimir</button>
                     </div>
                 </div>
             </div>
@@ -160,8 +172,10 @@
         <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
         <%}%>
         <%@include file="../footer.jsp"%>
-        <script src="../JS/jquery-3.2.1.min.js"></script>
-        <script src="../CSS/parallax-template/js/materialize.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
         <script src="../JS/jquery.mask.js"></script>
         <script src="../JS/mask.js"></script>
         <script src="../JS/jspdf.min.js"></script>

@@ -26,3 +26,12 @@ and open the template in the editor.
     -webkit-border-radius: .25rem;
     border-radius: .25rem;
 }
+
+.menu-usuario img{
+    height: 30px;
+    padding: 0px 5px;
+}
+
+.foto-curriculo{
+    height: 150px;
+}
