@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                         d = ddao.buscarById(resposta);
                         if (d != null) {
                             request.getSession().setAttribute("usuario", d);
-                            response.sendRedirect("/OMT/discente/pagina_inicial.jsp");
+                            response.sendRedirect("/OMT/discente/index.jsp");
                         } else {
                             response.getWriter().println("ERRO");//erro
                         }

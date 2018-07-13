@@ -46,9 +46,9 @@
         </div>
         <%}%>
         <%}%>--%>
-        <div class="container mt-4">
+        <div class="container">
             <div class="card">
-                <h1 class="my-4 mx-4">Bem-vindo <%=d.getNome()%>!</h1>
+                <h1 class="my-4 mx-4">Bem-vindo <%=discente.getNome()%>!</h1>
                 <div class="card-panel">
                     <!--<a href="/OMT/pdf">Olá mundo!</a>-->
                     <div class="row">

@@ -1,6 +1,6 @@
 <%@page import="com.br.OMT.models.Discente"%>
 <% Discente discente = (Discente) request.getSession().getAttribute("usuario");%>
-<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario">
+<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario mb-4">
     <ul class="navbar-nav">
         <!--Pagina Inicial-->
         <li class="nav-item">

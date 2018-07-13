@@ -29,12 +29,12 @@
                 List<Formacao> formacoes = fdao.listarPorID(d.getId());
         %>
         <%@include file="../discente/alunoMenu.jsp"%>
-        <div class="container my-4">
+        <div class="container">
             <div id="to-pdf">
                 <div class="card px-4 py-4">
                     <section>
                         <h3>Dados pessoais
-                            <a href="../discente/alterar_perfil.jsp" class="btn btn-md btn-light-green darken-1">
+                            <a href="../discente/alterar_perfil.jsp" class="btn btn-md btn-light-green">
                                 <i class="fa fa-edit mr-1"></i>Atualizar informações
                             </a>
                         </h3>
@@ -108,7 +108,7 @@
                     <hr>
                     <section>
                         <h3>Formação acadêmica/ titulação 
-                            <a href="../cadastro/formacao.jsp" class="btn btn-md btn-light-green darken-1 not-printable"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                            <a href="../cadastro/formacao.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
                         </h3>
                         <table>
                             <tbody>
@@ -131,7 +131,7 @@
                     <hr>
                     <section>
                         <h3>Áreas de atuação 
-                            <button class="btn btn-md btn-light-green darken-1"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</button>
+                            <button class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</button>
                         </h3>
                         <table>
                             <tbody>
@@ -145,7 +145,7 @@
                     <hr>
                     <section>
                         <h3>Idiomas 
-                            <button class="btn btn-md btn-light-green darken-1"><i class="fa fa-plus mr-1"></i>Adicionar idioma</button>
+                            <button class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Adicionar idioma</button>
                         </h3>
                         <table>
                             <tbody>
@@ -161,9 +161,9 @@
                         </table>
                     </section>
                     <hr>
-                    <div class="right-align">
-                        <button id="btnBaixarCurriculo" class="btn btn-md btn-light-green darken-1"><i class="fa fa-download mr-1"></i>Baixar</button>
-                        <button id="btnImprimirCurriculo" class="btn btn-md btn-light-green darken-1"><i class="fa fa-print mr-1"></i>Imprimir</button>
+                    <div class="text-right">
+                        <button id="btnBaixarCurriculo" class="btn btn-md btn-light-green"><i class="fa fa-download mr-1"></i>Baixar</button>
+                        <button id="btnImprimirCurriculo" class="btn btn-md btn-light-green"><i class="fa fa-print mr-1"></i>Imprimir</button>
                     </div>
                 </div>
             </div>
@@ -176,10 +176,10 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
-        <script src="../JS/jquery.mask.js"></script>
-        <script src="../JS/mask.js"></script>
-        <script src="../JS/jspdf.min.js"></script>
-        <script src="../JS/html2canvas.min.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mask.js"></script>
+        <script src="../js/jspdf.min.js"></script>
+        <script src="../js/html2canvas.min.js"></script>
         <script type="text/javascript">
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');

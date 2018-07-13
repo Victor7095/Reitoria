@@ -13,10 +13,10 @@
         <!--Links-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="" class="nav-link">Suporte</a>
+                <a href="" class="nav-link"><i class="fa fa-question-circle fa-lg mr-1"></i>Suporte</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">Acessibilidade</a>
+                <a href="" class="nav-link"><i class="fa fa-universal-access fa-lg mr-1"></i>Acessibilidade</a>
             </li>
             <li class="nav-item">
                 <a href="http://www2.ifam.edu.br" class="nav-link">Site do IFAM</a>
