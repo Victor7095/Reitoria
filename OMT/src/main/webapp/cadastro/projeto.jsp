@@ -6,10 +6,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Novo projeto</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/main.css">
-        <script defer src="../fileinput/js/fontawesome-all.min.js"></script> 
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -59,9 +59,11 @@
             </div>
         </div>
         <%@include file="../footer.jsp"%>
-        <script src="../JS/jquery-3.2.1.min.js"></script>
-        <script src="../JS/jquery.mask.js"></script>
-        <script src="../JS/mask.js"></script>
-        <script src="../CSS/parallax-template/js/materialize.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
     </body>
 </html>

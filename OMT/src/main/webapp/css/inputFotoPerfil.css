@@ -20,7 +20,11 @@ and open the template in the editor.
 }
 .kv-avatar .file-input {
     display: table-cell;
-    width: 250px;
+    max-width: 270px;
+}
+
+.kv-avatar .file-input *{
+  max-width: 100%;   
 }
 .kv-reqd {
     color: red;

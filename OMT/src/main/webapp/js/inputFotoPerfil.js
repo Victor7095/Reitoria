@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 var id = $('#formAlterar').data('id');
+var caminhoFoto;
+if(id==undefined){
+    caminhoFoto = '<img src="/OMT/img/student.png" alt="Foto de Perfil">';
+}else{
+    caminhoFoto = '<img src="/OMT/DiscenteServlet?id='+id+'" alt="Foto de Perfil">';
+}
 var previewZoomButtonIcons = {
     prev: '<i class="fa fa-caret-left fa-lg"></i>',
     next: '<i class="fa fa-caret-right fa-lg"></i>',
@@ -45,7 +51,7 @@ $("#fotoPerfil").fileinput({
     msgErrorClass: 'alert alert-block alert-danger',
     previewZoomButtonIcons: previewZoomButtonIcons,
     previewZoomButtonClasses: previewZoomButtonClasses,
-    defaultPreviewContent: '<img src="/OMT/DiscenteServlet?id='+id+'" alt="Your Avatar">',
+    defaultPreviewContent: caminhoFoto,
     layoutTemplates: {
         main2: '{preview} ' + ' {remove} {browse}',
         footer: footerInputFoto,
