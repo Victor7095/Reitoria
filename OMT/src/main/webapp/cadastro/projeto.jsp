@@ -14,48 +14,29 @@
     <body>
         <%@include file="../header.jsp"%>
         <div class="container">
-            <div class="row">
-                <div class="col s12 l8 offset-l2">
-                    <div class="card-panel">
-                        <div class="row">
-                            <div class="col s12 l10 offset-l1">
-                                <form id="cadastrar-formacao" method="POST" action="/OMT/ProjetoServlet">
-                                    <div class="row"><h4 class="center-align">Cadastrar Projeto</h4></div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input name="nome" id="nome" type="text" class="validate">
-                                            <label for="nome">Nome</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <textarea id="descricao" name="descricao" class="materialize-textarea validate"></textarea>
-                                            <label for="descricao">Descrição</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="area" type="text" class="validate" name="area"/>
-                                            <label for="area">Área</label>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col s12 m3 center offset-m2 offset-l3 xl4 offset-xl2 btn-mb-md">
-                                            <button type="reset" class="btn waves-effect waves-green"><i class="fas fa-eraser"></i>Limpar</button>
-                                        </div>
-                                        <div class="col s12 m3 center offset-m2 offset-l1 xl4">
-                                            <button type="submit" name="acao" value="cadastrar" class="btn waves-effect waves-green">
-                                                <i class="fa fa-check"></i>Cadastrar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+            <div class="card px-4 py-4">
+                <form id="cadastrar-projeto" method="POST" action="/OMT/ProjetoServlet">
+                    <h1 class="font-weight-bold mb-4">Cadastrar Projeto</h1>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input name="nome" id="nome" type="text" class="form-control validate">
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" name="descricao" class="form-control validate"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area">Área de atuação</label>
+                        <input id="area" name="area" type="text" class="form-control validate"/>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" name="acao" value="cadastrar" class="btn btn-md btn-light-green waves-effect">
+                            <i class="fa fa-check mr-1"></i>Cadastrar</button>
+                        <button type="reset" class="btn btn-md btn-grey waves-effect"><i class="fas fa-eraser mr-1"></i>Limpar</button>
+                    </div>
+                </form>
             </div>
         </div>
         <%@include file="../footer.jsp"%>

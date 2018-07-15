@@ -3,7 +3,6 @@
     Created on : 07/06/2018, 15:17:41
     Author     : Natan S. dos Santos
 --%>
-
 <%@page import="com.br.OMT.Utils.Criptografia"%>
 <%@page import="java.util.List"%>
 <%@page import="com.br.OMT.models.Discente"%>
@@ -17,11 +16,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Reitoria - OMT</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
-        <script src="../fileinput/js/fontawesome-all.min.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <%@include file="../header.jsp"%>
@@ -42,10 +40,10 @@
 
         <% DiscenteDAO ddao = new DiscenteDAO();
             List<Discente> discentes = ddao.listar();%>
-        <div class="container row" >
+        <div class="container" >
             <%-- <%@include file="alunoMenu.jsp"%> MENU--%>
-            <div class="card col s12 l10 offset-l1">
-                <a class="btn" href="../cadastro/egresso.jsp">
+            <div class="card px-4 py-4">
+                <a class="btn btn-md btn-light-green" href="../cadastro/egresso.jsp">
                     <i class="fa fa-plus"></i>Novo egresso</a>
                 <table>
                     <tr>
@@ -71,9 +69,10 @@
         <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
         <%}%>
         <%@include file="../footer.jsp"%>
-        <script src="../JS/jquery-3.2.1.min.js"></script>
-        <script src="../JS/jquery.mask.js"></script>
-        <script src="../JS/mask.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
     </body>
 </html>
 

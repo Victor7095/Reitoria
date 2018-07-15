@@ -31,7 +31,7 @@
         <%}%>
         <div class="container">
             <div class="card py-4 px-4">
-                <h1 class="font-weight-bold">Cadastro de Egresso</h1>
+                <h1 class="font-weight-bold mb-4">Cadastro de Egresso</h1>
                 <form method="post" id="cadastrar-egresso" action="/OMT/DiscenteServlet" 
                       enctype="multipart/form-data">
                     <div class="foto-perfil form-group">
@@ -55,11 +55,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="cpf">CPF</label>
-                            <input class="form-control" type="text" id="cpf" name="cpf" maxlength="18" required> 
+                            <input class="form-control CPF" type="text" id="cpf" name="cpf" maxlength="18" required> 
                         </div>
                         <div class="form-group col-md-6">
                             <label for="rg">RG</label>
-                            <input class="form-control" type="text" id="rg" name="rg" required> 
+                            <input class="form-control RG" type="text" id="rg" name="rg" required> 
                         </div>
                     </div>
                     <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>

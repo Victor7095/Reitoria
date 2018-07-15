@@ -85,11 +85,11 @@ public class LoginServlet extends HttpServlet {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/campus/pagina_inicial.jsp");
+                                    response.sendRedirect("/OMT/campus/index.jsp");
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/reitoria/pagina_inicial.jsp");
+                                    response.sendRedirect("/OMT/reitoria/index.jsp");
                                 }
                             }
                         } else {

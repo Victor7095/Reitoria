@@ -2,7 +2,7 @@
     <div class="col s12">
         <div id="flex-line">
             <!--Pagina Inicial-->
-            <a href="pagina_inicial.jsp">
+            <a href="../reitoria/index.jsp">
                 <div class="valign-wrapper">
                     <img id="icone" src="../img/Icons/icones/png/home-1.png" title="Página Inicial">Página Inicial
                 </div>

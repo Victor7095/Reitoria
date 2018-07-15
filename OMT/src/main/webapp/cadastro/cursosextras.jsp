@@ -16,8 +16,8 @@
         <%@include file="../header.jsp"%>
         <div class="container">
             <div class="card py-4 px-4">
-                <form id="cadastrar-formacao" method="post" action="/OMT/CursosEspecializantesServlet">
-                    <h1 class="font-weight-bold">Cadastro de Curso Complementar</h1>
+                <form id="cadastrar-curso-extra" method="post" action="/OMT/CursosEspecializantesServlet">
+                    <h1 class="font-weight-bold mb-4">Cadastro de Curso Complementar</h1>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nome">Nome do Curso</label>

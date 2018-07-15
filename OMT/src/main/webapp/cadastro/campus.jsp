@@ -94,7 +94,7 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="tipo">Tipo</label>
-                                <select class="form-control" name="tipo" id="tipo">
+                                <select class="form-control" name="tipo" id="tipo" required>
                                     <option value="" disabled selected>Selecionar opção</option>
                                     <option value="C">Campus</option>
                                     <option value="R">Reitoria</option>
@@ -106,12 +106,10 @@
                     <section>
                         <h4 class="mb-4"><strong>Usuário padrão</strong></h4> 
                         <div class="form-row">
-                            <div class="form-group col">
+                            <div class="form-group col-md-6">
                                 <label for="nomeUsuario">Nome</label>
                                 <input class="form-control" type="text" id="nomeUsuario" name="nomeUsuario" required>
                             </div>
-                        </div>   
-                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="login">Usuário</label>
                                 <input class="form-control" type="text" id="login" name="login" required aria-describedby="infoLogin">
@@ -119,9 +117,15 @@
                                     Nome para entrar no sistema
                                 </small>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="senha">Senha</label>
-                                <input class="form-control" type="password" id="senha" name="senha" required>
+                                <input class="form-control validate" id="senha" type="password" name="senha" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="confirmar">Confirmar Senha</label>
+                                <input class="form-control validate" id="confirmar" type="password" name="senha" required>
                             </div>
                         </div>
                     </section>
@@ -140,7 +144,7 @@
         <script src="../js/mdb.min.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
-        <script src="../JS/consultaCEP.js"></script>
+        <script src="../js/consultaCEP.js"></script>
         <script>
             $('#cadastrar-campus').submit(function () {
                 $('#cnpj').unmask('00.000.000/0000-00');

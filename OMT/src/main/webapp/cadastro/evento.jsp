@@ -21,7 +21,7 @@
         <%@include file="../header.jsp"%>
         <div class="container">
             <div class="card px-4 py-4">
-                <h1 class="font-weight-bold">Cadastro de Evento</h1>
+                <h1 class="font-weight-bold mb-4">Cadastro de Evento</h1>
                 <form method="post" id="cadastrar-evento" action="/OMT/EventosServlet" 
                       enctype="multipart/form-data">
                     <div class="form-group">
@@ -29,37 +29,41 @@
                         <input class="form-control" type="text" id="nome" name="nome" required>
                     </div>
                     <div class="form-group">
-                        <label for="descricao">Descrição do Evento</label>
-                        <textarea id="descricao" name="descricao" class="materialize-textarea" data-length="120"></textarea>
-                    </div>
-                    <div class="form-group">
                         <label for="local">Local do Evento</label>
-                        <textarea id="local" name="local" class="materialize-textarea" data-length="120"></textarea>
+                        <input class="form-control" type="text" id="local" name="local">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inscricaoInicio">Data de Início das Inscrições</label>
-                            <input class="form-control" type="text" id="inscricaoInicio" name="inscricaoInicio">
+                            <input class="form-control data" type="text" id="inscricaoInicio" name="inscricaoInicio">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inscricaoFim">Data de Fim das Inscrições</label>
-                            <input class="form-control" type="text" id="inscricaoFim" name="inscricaoFim">
+                            <input class="form-control data" type="text" id="inscricaoFim" name="inscricaoFim">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inicio">Data de Início do Evento</label>
-                            <input class="form-control" type="text" id="inicio" name="inicio">
+                            <input class="form-control data" type="text" id="inicio" name="inicio">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="fim">Data de Fim do Evento</label>
-                            <input class="form-control" type="text" id="fim" name="fim">
+                            <input class="form-control data" type="text" id="fim" name="fim">
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="descricao">Descrição do Evento</label>
+                        <textarea id="descricao" name="descricao" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group foto-multipla">
+                        <label for="fotos">Fotos</label>
                         <div class="file-loading">
-                            <input id="input-b1" name="input-b1[]" type="file" multiple>
+                            <input id="fotos" name="fotos[]" type="file" multiple>
                         </div>
+                        <small id="infoAnoFinalizacao" class="form-text text-muted">
+                            Todas as fotos selecionadas serão exibidas para os usuários definidos
+                        </small>
                     </div>
                     <div class="text-right">
                         <button type="submit" name="acao" value="cadastrar" class="btn btn-md btn-light-green waves-effect">
@@ -84,28 +88,6 @@
         <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
         <script src="../fileinput/themes/fa/theme.min.js"></script>
         <script src="../fileinput/js/locales/pt-BR.js"></script>
-        <script>
-            $('#input-b1').fileinput({
-                theme: 'fa',
-                language: 'pt-BR',
-                showUpload: false,
-                allowedFileTypes: ["image", "video"],
-                previewFileType: "image",
-                browseClass: "btn btn-success",
-                browseLabel: "Escolher imagens",
-                browseIcon: "<i class=\"fa fa-folder-open\"></i> ",
-                previewZoomButtonIcons: {
-                    prev: '<i class="fa fa-caret-left fa-lg"></i>',
-                    next: '<i class="fa fa-caret-right fa-lg"></i>',
-                    toggleheader: '<i class="fa fa-arrows-alt-v fa-lg"></i>',
-                    fullscreen: '<i class="fa fa-expand-arrows-alt fa-lg"></i>',
-                    borderless: '<i class="fa fa-expand fa-lg"></i>',
-                    close: '<i class="fa fa-times fa-lg"></i>'
-                },
-                layoutTemplates: {
-                    actionZoom: '<button type="button" class="kv-file-zoom {zoomClass}" title="{zoomTitle}"><i class="fa fa-search-plus fa-lg"></i></button>'
-                }
-            });
-        </script>
+        <script src="../js/inputFotoPerfil.js"></script>
     </body>
 </html>

@@ -27,11 +27,11 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="cnpj">CNPJ</label>
-                                <input class="form-control validate" type="text" id="cnpj" name="cnpj" required>
+                                <input class="form-control validate CNPJ" type="text" id="cnpj" name="cnpj" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="cnae">CNAE</label>
-                                <input class="form-control validate" type="text" id="cnae" name="cnae" required>
+                                <input class="form-control validate CNAE" type="text" id="cnae" name="cnae" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cep">CEP</label>
-                            <input class="form-control validate" type="text" id="cep" name="cep" required>
+                            <input class="form-control validate CEP" type="text" id="cep" name="cep" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -84,8 +84,11 @@
                                 <input class="form-control validate" type="text" id="nomeUsuario" name="nomeUsuario" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="usuario">Usuário (nome para entrar no sistema)</label>
-                                <input class="form-control validate" type="text" id="usuario" name="usuario" required>
+                                <label for="usuario">Usuário</label>
+                                <input class="form-control validate" type="text" id="usuario" name="usuario" required aria-describedby="infoLogin">
+                                <small id="infoLogin" class="form-text text-muted">
+                                    Nome para entrar no sistema
+                                </small>
                             </div>
                         </div>  
                         <div class="form-row">
@@ -114,6 +117,12 @@
         <script src="../js/mdb.min.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
-        <script src="../JS/consultaCNPJ.js"></script>
+        <script src="../js/consultaCNPJ.js"></script>
+        <script>
+            $('#cadastrar-empresa').submit(function () {
+                $('#cnpj').unmask('00.000.000/0000-00');
+                $('#cnae').unmask('00000-0/00');
+            });
+        </script>
     </body>
 </html>
