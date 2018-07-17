@@ -22,7 +22,7 @@ public class FotosEventos implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "evento", nullable = true)
-    private Eventos evento;
+    private Evento evento;
 
     @Transient
     private static FotosEventos getInstance;
@@ -50,11 +50,11 @@ public class FotosEventos implements Serializable {
         this.foto = foto;
     }
 
-    public Eventos getEvento() {
+    public Evento getEvento() {
         return evento;
     }
 
-    public void setEvento(Eventos evento) {
+    public void setEvento(Evento evento) {
         this.evento = evento;
     }
 

@@ -7,7 +7,7 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@page import="com.br.OMT.DAO.EventoDAO"%>
-<%@page import="com.br.OMT.models.Eventos"%>
+<%@page import="com.br.OMT.models.Evento"%>
 <%@page import="com.br.OMT.DAO.FotosEventosDAO"%>
 <%@page import="com.br.OMT.models.FotosEventos"%>
 <%@page import="java.util.List"%>
@@ -24,62 +24,51 @@
     </head>
     <body>
         <%@include file="../header.jsp"%>
-        <% if (request.getSession().getAttribute("usuario") != null) {%>
-
         <%@include file="alunoMenu.jsp"%>   
-        <% if (discente != null) {%>
-        <% List<Eventos> list = new EventoDAO().listEventos(); // Request Sessão
-            //for (Eventos e : list) {
-        %>
-        <%--<% List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
-            if (list2 != null && list2.size() > 0) {%>
-        <div class="carousel carousel-slider">
-            <%   for (FotosEventos fe : list2) {%>
-            <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
-                <%}%>
-            List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId()); // Request Sessão
-            if (list2 != null && list2.size() > 0) {%> 
-        <div class="carousel carousel-slider">
-            <%   for (FotosEventos fe : list2) {%>
-            <a class="carousel-item" href="#one!"><img src="/OMT/EventosServlet?id=<%=fe.getId()%>"></a>
-                <%}%>
-        </div>
-        <%}%>
-        <%}%>--%>
+        <% if (discente != null) {
+                List<Evento> eventos = new EventoDAO().listEventos();%>
         <div class="container">
-            <div class="card">
-                <h1 class="my-4 mx-4">Bem-vindo <%=discente.getNome()%>!</h1>
-                <div class="card-panel">
-                    <!--<a href="/OMT/pdf">Olá mundo!</a>-->
+            <div class="card px-4 py-4">
+                <h1 class="mb-4">Bem-vindo <%=discente.getNome()%>!</h1>
+                <section>
+                    <h2 class="font-weight-bold mb-4">Eventos</h2>
+                    <!-- Card deck -->
                     <div class="row">
-                        <%for (Eventos e : list) {%>
-                        <div class="col s12 m6">
-                            <div class="carousel carousel-slider center">
-                                <%
-                                    List<FotosEventos> list2 = new FotosEventosDAO().listFotosEventos(e.getId());
-                                %>
-                                <div class="carousel-fixed-item center">
-                                    <a class="btn waves-effect blue white-text">Saiba mais</a>
+                        <%for (Evento e : eventos) {%>
+                        <div class="col-md-3">
+                            <!-- Card -->
+                            <div class="card mb-4">
+
+                                <!--Card image-->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
                                 </div>
-                                <%for (FotosEventos fe : list2) {%>
-                                <div class="carousel-item teal white-text" href="#one!">
-                                    <h2><%=e.getNome()%></h2>
-                                    <div class="valign-wrapper" style="height: 100%;">
-                                        <img class="foto-evento" src="/OMT/EventosServlet?id=<%=fe.getId()%>">
-                                    </div>
+
+                                <!--Card content-->
+                                <div class="card-body">
+
+                                    <!--Title-->
+                                    <h4 class="card-title"><%=e.getNome()%></h4>
+                                    <!--Text-->
+                                    <p class="card-text"><%=e.getDescricao()%></p>
+                                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                    <button type="button" class="btn btn-blue btn-md">Leia mais</button>
+
                                 </div>
-                                <% }%>
+
                             </div>
+                            <!-- Card -->
                         </div>
                         <%}%>
                     </div>
-                </div>
+                    <!-- Card deck -->
+                </section>
             </div>
         </div>
         <%} else {%>
-        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%} else {%> 
         <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
         <%}%>
         <%@include file="../footer.jsp"%>

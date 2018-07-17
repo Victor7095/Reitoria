@@ -1,23 +1,42 @@
 <%-- 
-    Document   : cadastra_evento
-    Created on : Jun 29, 2018, 12:58:15 PM
-    Author     : Guaxinim do Jambeiro
+    Document   : evento
+    Created on : 28/05/2018, 20:39:30
+    Author     : Gabriel San Martin
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <!DOCTYPE html>
-<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Aluno - OMT</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <title>Cadastro de Evento - OMT</title>
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     </head>
-    
-    <%@include file="../header.jsp" %>
-    <%@include file="campusMenu.jsp"%>
-    <%@include file="../cadastro/evento.jsp" %>
-    <%@include file="../footer.jsp" %>
+    <body>
+        <%@include file="../header.jsp" %>
+        <%@include file="../campus/campusMenu.jsp"%>
+        <%@include file="../cadastro/evento.jsp" %>
+        <%@include file="../footer.jsp" %>
+    </body>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
+        <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
+            This must be loaded before fileinput.min.js -->
+        <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
+        <!-- the main fileinput plugin file -->
+        <script src="../fileinput/js/fileinput.min.js"></script>
+        <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
+        <script src="../fileinput/themes/fa/theme.min.js"></script>
+        <script src="../fileinput/js/locales/pt-BR.js"></script>
+        <script src="../js/inputFotoPerfil.js"></script>
+    </body>
 </html>

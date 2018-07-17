@@ -13,8 +13,8 @@
         <servlet-class>com.br.OMT.Servlets.DiscenteServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EventosServlet</servlet-name>
-        <servlet-class>com.br.OMT.Servlets.EventosServlet</servlet-class>
+        <servlet-name>EventoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.EventoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProjetoServlet</servlet-name>
@@ -57,10 +57,6 @@
         <url-pattern>/DiscenteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EventosServlet</servlet-name>
-        <url-pattern>/EventosServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ProjetoServlet</servlet-name>
         <url-pattern>/ProjetoServlet</url-pattern>
     </servlet-mapping>
@@ -87,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>pdf</servlet-name>
         <url-pattern>/pdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventoServlet</servlet-name>
+        <url-pattern>/EventoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

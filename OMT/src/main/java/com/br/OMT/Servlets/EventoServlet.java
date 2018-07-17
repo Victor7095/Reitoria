@@ -8,7 +8,7 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.EventoDAO;
 import com.br.OMT.DAO.FotosEventosDAO;
 import com.br.OMT.models.Entidade;
-import com.br.OMT.models.Eventos;
+import com.br.OMT.models.Evento;
 import com.br.OMT.models.FotosEventos;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -33,7 +33,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author vinic
  */
-public class EventosServlet extends HttpServlet {
+public class EventoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -94,16 +94,16 @@ public class EventosServlet extends HttpServlet {
             } catch (FileUploadException ex) {
                 System.out.println("Erro: " + ex.getMessage());
             } catch (ParseException ex) {
-                Logger.getLogger(EventosServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EventoServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Eventos e = Eventos.getInstance();
+            Evento e = Evento.getInstance();
             e.setNome(nome);
             e.setLocal(local);
             e.setDescricao(descricao);
             e.setDataInicioEvento(inicioEvento);
             e.setDataFinalEvento(finalEvento);
-            e.setDataInicioIncricao(inicioInscricao);
-            e.setDataFinalIncricao(finalInscricao);
+            e.setDataInicioInscricao(inicioInscricao);
+            e.setDataFinalInscricao(finalInscricao);
             e.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
             EventoDAO edao = new EventoDAO();
             String str = edao.salvar(e);
@@ -120,6 +120,7 @@ public class EventosServlet extends HttpServlet {
                             break;
                         }
                     }
+                    response.sendRedirect("../OMT/campus/eventos.jsp");
                 } else {
                     response.getWriter().println("Sem foto");
                 }
@@ -129,14 +130,14 @@ public class EventosServlet extends HttpServlet {
         } else {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
-                Eventos e = Eventos.getInstance();
+                Evento e = Evento.getInstance();
                 e.setNome(request.getParameter("nome"));
                 e.setDescricao(request.getParameter("descricao"));
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 df.setLenient(false);
                 try {
-                    e.setDataInicioIncricao(df.parse(request.getParameter("inscricaoInicio")));
-                    e.setDataFinalIncricao(df.parse(request.getParameter("inscricaoFim")));
+                    e.setDataInicioInscricao(df.parse(request.getParameter("inscricaoInicio")));
+                    e.setDataFinalInscricao(df.parse(request.getParameter("inscricaoFim")));
                     e.setDataInicioEvento(df.parse(request.getParameter("inicio")));
                     e.setDataFinalEvento(df.parse(request.getParameter("fim")));
 

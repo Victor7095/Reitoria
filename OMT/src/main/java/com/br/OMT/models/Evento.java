@@ -13,7 +13,7 @@ import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Table(name = "eventos")
-public class Eventos implements Serializable {
+public class Evento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +30,11 @@ public class Eventos implements Serializable {
 
     @Column(name = "dataInicioInscricao", nullable = true)
     @Temporal(TemporalType.DATE)
-    private Date dataInicioIncricao;
+    private Date dataInicioInscricao;
 
     @Column(name = "dataFinalInscricao", nullable = true)
     @Temporal(TemporalType.DATE)
-    private Date dataFinalIncricao;
+    private Date dataFinalInscricao;
 
     @Column(name = "dataInicioEvento", nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
@@ -52,14 +52,14 @@ public class Eventos implements Serializable {
     private List<FotosEventos> fotos;
 
     @Transient
-    private static Eventos getInstance;
+    private static Evento getInstance;
 
-    private Eventos() {
+    private Evento() {
     }
 
-    public static Eventos getInstance() {
+    public static Evento getInstance() {
         if (getInstance == null) {
-            getInstance = new Eventos();
+            getInstance = new Evento();
         }
         return getInstance;
     }
@@ -88,20 +88,20 @@ public class Eventos implements Serializable {
         this.descricao = descricao;
     }
 
-    public Date getDataInicioIncricao() {
-        return dataInicioIncricao;
+    public Date getDataInicioInscricao() {
+        return dataInicioInscricao;
     }
 
-    public void setDataInicioIncricao(Date dataInicioIncricao) {
-        this.dataInicioIncricao = dataInicioIncricao;
+    public void setDataInicioInscricao(Date dataInicioIncricao) {
+        this.dataInicioInscricao = dataInicioIncricao;
     }
 
-    public Date getDataFinalIncricao() {
-        return dataFinalIncricao;
+    public Date getDataFinalInscricao() {
+        return dataFinalInscricao;
     }
 
-    public void setDataFinalIncricao(Date dataFinalIncricao) {
-        this.dataFinalIncricao = dataFinalIncricao;
+    public void setDataFinalInscricao(Date dataFinalIncricao) {
+        this.dataFinalInscricao = dataFinalIncricao;
     }
 
     public Date getDataInicioEvento() {

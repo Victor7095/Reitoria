@@ -63,7 +63,7 @@ public class Entidade implements Serializable {
     @OneToMany(cascade = ALL, mappedBy = "entidade")
     private List<Trabalho> trabalhos;
     @OneToMany(cascade = ALL, mappedBy = "entidade")
-    private List<Eventos> eventos;
+    private List<Evento> eventos;
 
     @Transient
     private static Entidade getInstance;
@@ -198,11 +198,11 @@ public class Entidade implements Serializable {
         this.trabalhos = trabalhos;
     }
 
-    public List<Eventos> getEventos() {
+    public List<Evento> getEventos() {
         return eventos;
     }
 
-    public void setEventos(List<Eventos> eventos) {
+    public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
     }
 
