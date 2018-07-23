@@ -33,5 +33,6 @@ and open the template in the editor.
 }
 
 .foto-curriculo{
-    height: 150px;
+    max-height: 150px;
+    max-width: 100%;   
 }

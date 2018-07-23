@@ -29,21 +29,21 @@
                 List<Evento> eventos = new EventoDAO().listEventos();%>
         <div class="container">
             <div class="card px-4 py-4">
-                <h1 class="mb-4">Bem-vindo <%=discente.getNome()%>!</h1>
+                <h1 class="mb-4 font-weight-bold">Bem-vindo <%=discente.getNome()%>!</h1>
                 <section>
                     <h2 class="font-weight-bold mb-4">Eventos</h2>
                     <!-- Card deck -->
                     <div class="row">
                         <%for (Evento e : eventos) {%>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <!-- Card -->
                             <div class="card mb-4">
 
                                 <!--Card image-->
                                 <div class="view overlay">
-                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                                    <img class="card-img-top" src="/OMT/EventoServlet?id=<%=e.getId()%>" alt="Card image cap">
                                     <a href="#!">
-                                        <div class="mask rgba-white-slight"></div>
+                                        <div class="mask rgba-white-light"></div>
                                     </a>
                                 </div>
 

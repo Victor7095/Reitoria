@@ -55,8 +55,8 @@
                         <div class="text-right">
                             <button type="submit" name="acao" value="alterar" class="btn btn-md btn-light-green">
                                 <i class="fa fa-check mr-1"></i>Alterar</button>
-                            <button type="reset" class="btn btn-md btn-grey">
-                                <i class="fa fa-eraser mr-1"></i>Limpar</button>
+                            <!--button type="reset" class="btn btn-md btn-grey">
+                                <i class="fa fa-eraser mr-1"></i>Limpar</button-->
                         </div>
                     </div>
                 </form>
