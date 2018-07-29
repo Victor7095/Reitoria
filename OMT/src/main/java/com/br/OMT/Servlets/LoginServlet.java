@@ -25,7 +25,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.getSession().setAttribute("usuario", null);
+        request.getSession().setAttribute("entidade", null);
+        response.sendRedirect("/OMT/home.jsp");
     }
 
     @Override

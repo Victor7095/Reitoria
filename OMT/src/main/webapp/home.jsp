@@ -52,7 +52,6 @@
                     <div class="mt-4 mx-4">
                         <form action="/OMT/LoginServlet" method="POST" class="loginMenu">
                             <input type="hidden" name="entidade" value="discente"/>
-                            <input type="hidden" name="tipoLogin" id="tipoLogin"/>
 
                             <label for="matriculaLoginDisc" class="grey-text">Matrícula ou CPF(sem pontuação)</label>
                             <input class="form-control" id="matriculaLoginDisc" type="text"  name="login">

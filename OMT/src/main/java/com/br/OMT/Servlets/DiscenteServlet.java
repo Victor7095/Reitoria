@@ -95,12 +95,11 @@ public class DiscenteServlet extends HttpServlet {
                     byte[] senhaCriptografada;
 
                     try {
-                        Criptografia c = new Criptografia();
-                        d.setUsuarioBanco(c.encrypt(d.getUsuario()));
-                        d.setNomeBanco(c.encrypt(d.getNome()));
-                        d.setCPFbanco(c.encrypt(d.getCPF()));
-                        d.setRGbanco(c.encrypt(d.getRG()));
-                        d.setSenhaBanco(new Criptografia().encrypt(d.getSenha()));
+                        d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                        d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                        d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                        d.setRGbanco(Criptografia.encrypt(d.getRG()));
+                        d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
                         String str;
                         try {
                             str = ddao.salvar(d);
@@ -126,11 +125,10 @@ public class DiscenteServlet extends HttpServlet {
                     d.setUsuario(usuario);
                     d.setNome(nome);
                     try {
-                        Criptografia c = new Criptografia();
-                        d.setUsuarioBanco(c.encrypt(d.getUsuario()));
-                        d.setNomeBanco(c.encrypt(d.getNome()));
-                        d.setCPFbanco(c.encrypt(d.getCPF()));
-                        d.setRGbanco(c.encrypt(d.getRG()));
+                        d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                        d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                        d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                        d.setRGbanco(Criptografia.encrypt(d.getRG()));
                         String str;
                         try {
                             str = ddao.atualizar(d);

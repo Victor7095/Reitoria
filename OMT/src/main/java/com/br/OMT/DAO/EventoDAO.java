@@ -7,6 +7,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
+import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Evento;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -38,6 +39,24 @@ public class EventoDAO {
 
     public String deletar(Evento evento) {
         return hue.deletar(evento);
+    }
+    
+    public Evento buscarPorNome(String nome) {
+        Evento e = null;
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("from Evento e where e.nome =:nome");
+            query.setParameter("nome", nome);
+            e = (Evento) query.getSingleResult();
+            s.getTransaction().commit();
+            return e;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
     }
 
     public List<Evento> listEventos() {

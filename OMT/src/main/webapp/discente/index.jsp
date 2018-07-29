@@ -6,11 +6,9 @@
 
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
-<%@page import="com.br.OMT.DAO.EventoDAO"%>
-<%@page import="com.br.OMT.models.Evento"%>
-<%@page import="com.br.OMT.DAO.FotosEventosDAO"%>
-<%@page import="com.br.OMT.models.FotosEventos"%>
-<%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -23,55 +21,59 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <%@include file="../header.jsp"%>
-        <%@include file="alunoMenu.jsp"%>   
-        <% if (discente != null) {
-                List<Evento> eventos = new EventoDAO().listEventos();%>
-        <div class="container">
-            <div class="card px-4 py-4">
-                <h1 class="mb-4 font-weight-bold">Bem-vindo <%=discente.getNome()%>!</h1>
-                <section>
-                    <h2 class="font-weight-bold mb-4">Eventos</h2>
-                    <!-- Card deck -->
-                    <div class="row">
-                        <%for (Evento e : eventos) {%>
-                        <div class="col-md-4">
-                            <!-- Card -->
-                            <div class="card mb-4">
+        <jsp:include page="../header.jsp"/>
+        <jsp:include page="alunoMenu.jsp"/>
+        <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
+        <c:if test="${not empty usuario}">
+            <div class="container">
+                <div class="card px-4 py-4">
+                    <h1 class="mb-4 font-weight-bold">Bem-vindo 
+                        <c:out value="${usuario.nome}"></c:out>!</h1>
+                        <section>
+                            <h2 class="font-weight-bold mb-4">Eventos</h2>
+                            <!-- Card deck -->
+                            <div class="row card-deck">
+                            <c:forEach items="${eventos}" var="evento">
+                                <div class="card col-md-3 mb-4 px-0">
+                                    <!--Card image-->
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.id}"></c:out>" alt="Card image cap">
+                                        <a href="evento.jsp?q=<c:out value="${evento.nome}"></c:out>">
+                                                <div class="mask rgba-white-light"></div>
+                                            </a>
+                                        </div>
 
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img class="card-img-top" src="/OMT/EventoServlet?id=<%=e.getId()%>" alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask rgba-white-light"></div>
-                                    </a>
-                                </div>
+                                        <!--Card content-->
+                                        <div class="card-body">
 
-                                <!--Card content-->
-                                <div class="card-body">
+                                            <!--Título do evento-->
+                                            <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
+                                            <!--Descrição-->
+                                            <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
+                                        <a href="evento.jsp?q=<c:out value="${evento.nome}"></c:out>" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+                                        </div>
 
-                                    <!--Title-->
-                                    <h4 class="card-title"><%=e.getNome()%></h4>
-                                    <!--Text-->
-                                    <p class="card-text"><%=e.getDescricao()%></p>
-                                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                    <button type="button" class="btn btn-blue btn-md">Leia mais</button>
+                                        <!-- Card footer -->
+                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                            <ul class="list-unstyled list-inline font-small">
+                                                <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                </div>
-
-                            </div>
-                            <!-- Card -->
+                                    </div>
+                            </c:forEach>
                         </div>
-                        <%}%>
-                    </div>
-                    <!-- Card deck -->
-                </section>
+                        <!-- Card deck -->
+                    </section>
+                </div>
             </div>
-        </div>
-        <%} else {%>
-        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%@include file="../footer.jsp"%>
+        </c:if>
+        <c:if test="${empty usuario}">
+            <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
+        </c:if>
+        <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

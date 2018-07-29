@@ -30,8 +30,6 @@
         <%@include file="../discente/alunoMenu.jsp"%>
         <%}%>
         <div class="container">
-            <a href="../home.jsp"> Página Inicial</a>|
-            <a href="#"> Página do IFAM </a>
             <div class="text-center">
                 <img src="../img/Icons/errors/aviso_manutencao.png" alt="Página em Manutenção">
             </div>

@@ -36,3 +36,7 @@ and open the template in the editor.
     max-height: 150px;
     max-width: 100%;   
 }
+
+.card-img-top{
+    max-height: 200px !important;
+}
