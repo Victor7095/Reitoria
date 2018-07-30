@@ -18,17 +18,17 @@
         <link rel="stylesheet" type="text/css" href="/OMT/css/style.css">  
     </head>
     <body>
-        <jsp:include page="../header.jsp"></jsp:include>
+        <jsp:include page="../header.jsp"/>
         <c:if test="${not empty usuario}">
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Discente'}">
-                <jsp:include page="/discente/alunoMenu.jsp"></jsp:include>
+                <jsp:include page="/discente/alunoMenu.jsp"/>
             </c:if>
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Usuario'}">
                 <c:if test="${entidade.tipo eq 'R'.charAt(0)}">
-                    <%@include file="/reitoria/reitoriaMenu.jsp"%>
+                    <jsp:include page="/reitoria/reitoriaMenu.jsp"/>
                 </c:if>
                 <c:if test="${entidade.tipo eq 'C'.charAt(0)}">
-                    <%@include file="/campus/campusMenu.jsp"%>
+                    <jsp:include page="/campus/campusMenu.jsp"/>
                 </c:if>
             </c:if>
         </c:if>
@@ -37,10 +37,10 @@
                 <img src="/OMT/img/Icons/errors/error_404.png" alt="error 404">
             </div>
         </div>
-        <jsp:include page="../footer.jsp"></jsp:include>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/mdb.min.js"></script>
+        <jsp:include page="../footer.jsp"/>
+        <script src="/OMT/js/jquery-3.3.1.min.js"></script>
+        <script src="/OMT/js/popper.min.js"></script>
+        <script src="/OMT/js/bootstrap.js"></script>
+        <script src="/OMT/js/mdb.min.js"></script>
     </body>
 </html>

@@ -3,13 +3,13 @@
     <a class="navbar-brand" href="/OMT/home.jsp">OMT</a>
 
     <!--Botão Menu tela pequena-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraPrincipal" aria-controls="barraPrincipal"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".barraPrincipal" aria-controls="barraPrincipal"
             aria-expanded="false" aria-label="Alternar navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <!--Conteúdo ajustável-->
-    <div class="collapse navbar-collapse" id="barraPrincipal">
+    <div class="collapse navbar-collapse barraPrincipal">
         <!--Links-->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -100,10 +101,11 @@ public class AuthenFilter implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpReq = (HttpServletRequest) request;
+        HttpServletResponse httpRes = (HttpServletResponse) response;
         PrintWriter out = response.getWriter();
         if (httpReq.getSession().getAttribute("usuario") == null) {
             out.println("Não tem permissão necessária para acessar a página");
-            return;
+            httpRes.sendRedirect("/OMT/errors/sessaoExpirada.jsp");
         } 
         else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
             System.out.println("Sou aluno");

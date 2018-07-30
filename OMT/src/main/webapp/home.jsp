@@ -1,5 +1,6 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -14,7 +15,7 @@
 
     <body>
         <header>
-            <%@include file="header.jsp"%>
+            <jsp:include page="header.jsp"/>
         </header>
         <div class="container">
             <!--cabeçalho da página de menu logins-->
@@ -121,6 +122,7 @@
                 </div>
             </div-->
         </div>
+        <jsp:include page="footer.jsp"/>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.js"></script>

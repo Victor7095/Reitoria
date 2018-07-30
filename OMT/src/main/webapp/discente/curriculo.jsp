@@ -34,9 +34,9 @@
                             </a>
                         </h3>
                         <div class="row my-4">
-                            <div class="col-sm-12 col-lg-3">
+                            <div class="col-sm-12 col-md-6 col-lg-3">
                                 <!--img class="foto-curriculo" src="/OMT/DiscenteServlet?id=<c:out value="${usuario.id}"/>" alt="Foto de perfil"-->
-                                <img class="foto-curriculo" src="../img/student.png" alt="Foto de perfil">
+                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png" alt="Foto de perfil">
                             </div>
                             <div class="col-auto">
                                 <h4><c:out value="${usuario.nome}"/></h4>

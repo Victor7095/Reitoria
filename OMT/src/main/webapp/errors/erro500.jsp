@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -23,26 +24,29 @@
         <link rel="stylesheet" type="text/css" href="../CSS/general.css">  
     </head>
     <body>
-        <%@page import="com.br.OMT.models.*"%>
-    <%@include file="../header.jsp"%>
-    <%!HttpSession session;%>
-    <%!Discente u;%>
-    <%!Entidade e;%>
-    <%if (request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") != null) {%>
-    <%e = (Entidade) request.getSession().getAttribute("entidade");%>
-        <%if (e.getTipo() == 'R') {%>
-         <%@include file="../reitoria/reitoriaMenu.jsp"%>
-        <%} else if (e.getTipo() == 'C') {%>
-            <%@include file="../campus/campusMenu.jsp"%>
-        <%}%>
-    <%} else if(request.getSession().getAttribute("usuario") != null && request.getSession().getAttribute("entidade") == null){%>
-            <%@include file="../discente/alunoMenu.jsp"%>
-    <%}%>
+        <jsp:include page="../header.jsp"/>
+        <c:if test="${not empty usuario}">
+            <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Discente'}">
+                <jsp:include page="/discente/alunoMenu.jsp"/>
+            </c:if>
+            <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Usuario'}">
+                <c:if test="${entidade.tipo eq 'R'.charAt(0)}">
+                    <jsp:include page="/reitoria/reitoriaMenu.jsp"/>
+                </c:if>
+                <c:if test="${entidade.tipo eq 'C'.charAt(0)}">
+                    <jsp:include page="/campus/campusMenu.jsp"/>
+                </c:if>
+            </c:if>
+        </c:if>
         <a href="../home.jsp"> Página Inicial</a>|
         <a href="#"> Página do IFAM </a>
         <div class="center-align card">
             <img src="../img/Icons/errors/error_500.png" alt="error 500">
         </div>
-
+        <jsp:include page="../footer.jsp"/>
+        <script src="/OMT/js/jquery-3.3.1.min.js"></script>
+        <script src="/OMT/js/popper.min.js"></script>
+        <script src="/OMT/js/bootstrap.js"></script>
+        <script src="/OMT/js/mdb.min.js"></script>
     </body>
 </html>
