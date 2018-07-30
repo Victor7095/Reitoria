@@ -37,7 +37,10 @@
                                     <!--Card image-->
                                     <div class="view overlay">
                                         <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.id}"></c:out>" alt="Card image cap">
-                                        <a href="evento.jsp?q=<c:out value="${evento.nome}"></c:out>">
+                                        <c:url value="evento.jsp" var="urlEvento">
+                                            <c:param name="q" value="${evento.nome}" />
+                                        </c:url>
+                                        <a href="${urlEvento}">
                                                 <div class="mask rgba-white-light"></div>
                                             </a>
                                         </div>
@@ -49,19 +52,19 @@
                                             <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
                                             <!--Descrição-->
                                             <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-                                        <a href="evento.jsp?q=<c:out value="${evento.nome}"></c:out>" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+                                            <a href="evento.jsp?q=oi" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
                                         </div>
 
                                         <!-- Card footer -->
                                         <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
                                             <ul class="list-unstyled list-inline font-small">
                                                 <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
-                                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
-                                                </li>
-                                            </ul>
-                                        </div>
-
+                                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
+                                            </li>
+                                        </ul>
                                     </div>
+
+                                </div>
                             </c:forEach>
                         </div>
                         <!-- Card deck -->

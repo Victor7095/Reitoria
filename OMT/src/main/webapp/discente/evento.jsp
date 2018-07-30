@@ -9,13 +9,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO"/>
-<c:set var="evento" value="${EventoDAO.buscarPorNome(param.q)}"/>
+<jsp:useBean id="URLDecoder" class="java.net.URLDecoder"/>
+<c:set var="evento" value="${EventoDAO.buscarPorNome(URLDecoder.decode(param.q,'ISO-8859-1'))}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><c:out value="${evento.nome}"/></title>
+        <title>${evento.nome}</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -28,7 +29,7 @@
             <div class="container">
                 <div class="card px-4 py-4">
                     <section>
-                        <h1 class="mb-4 font-weight-bold"><c:out value="${evento.nome}"/></h1>
+                        <h1 class="mb-4 font-weight-bold">${evento.nome}</h1>
                         <p class="text-muted">
                             <fmt:formatDate pattern="dd/MM/yyyy" value="${evento.dataInicioEvento}"/>
                         </p>
@@ -36,7 +37,7 @@
                             <!--Slides-->
                             <c:forEach items="eventos.fotos" var="foto">
                                 <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-                                    <img class="d-block w-100 rounded" src="/OMT/EventoServlet?id=<c:out value="${evento.id}"/>" alt="First slide">
+                                    <img class="d-block w-100 rounded" src="/OMT/EventoServlet?id=${evento.id}" alt="First slide">
                                 </div>
                             </c:forEach>
                         </div>

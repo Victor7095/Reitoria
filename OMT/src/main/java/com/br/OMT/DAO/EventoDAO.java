@@ -41,6 +41,7 @@ public class EventoDAO {
     }
     
     public Evento buscarPorNome(String nome) {
+        System.out.println(nome);
         Evento e = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();

@@ -64,6 +64,10 @@
         <servlet-name>pdf</servlet-name>
         <servlet-class>com.br.OMT.Servlets.pdf</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EncherBanco</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.EncherBanco</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -101,12 +105,16 @@
         <url-pattern>/TrabalhoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>EventoServlet</servlet-name>
+        <url-pattern>/EventoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>pdf</servlet-name>
         <url-pattern>/pdf</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EventoServlet</servlet-name>
-        <url-pattern>/EventoServlet</url-pattern>
+        <servlet-name>EncherBanco</servlet-name>
+        <url-pattern>/EncherBanco</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
