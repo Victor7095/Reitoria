@@ -6,6 +6,7 @@
 
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -18,15 +19,9 @@
         <link rel="stylesheet" type="text/css" href="../CSS/general.css">
     </head>
     <body>
-        <%@include file="../header.jsp"%>
-        <% if (request.getSession().getAttribute("usuario") != null) {%>
-
-        <%@include file="cursosextras.jsp"%>   
-        
-        
-        <%} else {%> 
-        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%@include file="../footer.jsp"%>
+        <jsp:include page="../header.jsp"/>
+        <jsp:include page="campusMenu.jsp"/> 
+        <jsp:include page="../cadastro/cursosextras.jsp"/>
+        <jsp:include page="../footer.jsp"/>
     </body>
 </html>

@@ -11,17 +11,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastro de Evento</title>
+        <title>Cadastro de Egresso</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
+        <link href="../css/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="../header.jsp" />
         <jsp:include page="campusMenu.jsp" />
-        <jsp:include page="../cadastro/evento.jsp" />
+        <jsp:include page="../cadastro/egresso.jsp" />
         <jsp:include page="../footer.jsp" />
     </body>
         <script src="../js/jquery-3.3.1.min.js"></script>
@@ -39,5 +40,11 @@
         <script src="../fileinput/themes/fa/theme.min.js"></script>
         <script src="../fileinput/js/locales/pt-BR.js"></script>
         <script src="../js/inputFotoPerfil.js"></script>
+        <script>
+            $('#cadastrar-egresso').submit(function () {
+                $('#cpf').unmask('000.000.000-00');
+                $('#rg').unmask('00.000.000-0');
+            });
+        </script>
     </body>
 </html>

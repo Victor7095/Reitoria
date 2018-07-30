@@ -3,12 +3,12 @@
     Created on : 07/06/2018, 15:20:11
     Author     : Natan S. dos Santos
 --%>
-<%@page import="com.br.OMT.models.Formacao"%>
-<%@page import="java.util.List"%>
-<%@page import="com.br.OMT.DAO.FormacaoDAO"%>
-<%@page import="com.br.OMT.models.Discente"%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
+<c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -22,13 +22,8 @@
         <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
-        <%@include file="../header.jsp"%>
-        <%  Discente d = (Discente) request.getSession().getAttribute("usuario");
-            if (d != null) {
-                FormacaoDAO fdao = new FormacaoDAO();
-                List<Formacao> formacoes = fdao.listarPorID(d.getId());
-        %>
-        <%@include file="../discente/alunoMenu.jsp"%>
+        <jsp:include page="../header.jsp"/>
+        <jsp:include page="../discente/alunoMenu.jsp"/>
         <div class="container">
             <div id="to-pdf">
                 <div class="card px-4 py-4">
@@ -40,11 +35,11 @@
                         </h3>
                         <div class="row my-4">
                             <div class="col-sm-12 col-lg-3">
-                                <!--img class="foto-curriculo" src="/OMT/DiscenteServlet?id=<%=d.getId()%>" alt="Foto de perfil"-->
+                                <!--img class="foto-curriculo" src="/OMT/DiscenteServlet?id=<c:out value="${usuario.id}"/>" alt="Foto de perfil"-->
                                 <img class="foto-curriculo" src="../img/student.png" alt="Foto de perfil">
                             </div>
                             <div class="col-auto">
-                                <h4><%=d.getNome()%></h4>
+                                <h4><c:out value="${usuario.nome}"/></h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus, Amazonas, Brasil</h6>
                             </div>
@@ -85,7 +80,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">CPF</th>
-                                    <td class="CPF"><%=d.getCPF()%> </td>
+                                    <td class="CPF"><c:out value="${usuario.CPF}"/> </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Endereço residencial</th>
@@ -105,25 +100,26 @@
                     <hr class="my-4">
                     <section>
                         <h3 class="font-weight-bold mb-4">Formação acadêmica/ titulação 
-                            <a href="../cadastro/formacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                            <a href="nova_formacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
                         </h3>
-                        <%if (formacoes.size() > 0) {%>
-                        <table class="table table-sm">
-                            <tbody>
-                                <%for (Formacao f : formacoes) {%>
-                                <tr>
-                                    <td><%=f.getAnoTermino()%></td>
-                                    <td><%=f.getEscola()%></td>
-                                    <td><%=f.getNome()%></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                        <%} else {%>
-                        <h4 class="grey-text text-center my-4">
-                            Nenhuma formação registrada ainda
-                        </h4>
-                        <%}%>
+                        <c:if test="${formacoes.size() > 0}">
+                            <table class="table table-sm">
+                                <tbody>
+                                    <c:forEach items="${formacoes}" var="formacao">
+                                        <tr>
+                                            <td><c:out value="${formacao.anoTermino}"/></td>
+                                            <td><c:out value="${formacao.escola}"/></td>
+                                            <td><c:out value="${formacao.nome}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
+                        <c:if test="${formacoes.size() == 0}">
+                            <h4 class="grey-text text-center my-4">
+                                Nenhuma formação registrada ainda
+                            </h4>
+                        </c:if>
                     </section>
                     <hr class="my-4">
                     <div class="row">
@@ -160,7 +156,7 @@
                         </section>
                     </div>
                     <hr>
-                        
+
                     <div class="text-right">
                         <button id="btnBaixarCurriculo" class="btn btn-md btn-cyan"><i class="fa fa-download mr-1"></i>Baixar</button>
                         <button id="btnImprimirCurriculo" class="btn btn-md btn-mdb-color"><i class="fa fa-print mr-1"></i>Imprimir</button>
@@ -168,10 +164,7 @@
                 </div>
             </div>
         </div>
-        <%} else {%>
-        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%@include file="../footer.jsp"%>
+        <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

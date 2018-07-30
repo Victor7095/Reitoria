@@ -3,7 +3,6 @@
     Created on : 07/06/2018, 15:17:41
     Author     : Natan S. dos Santos
 --%>
-
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
@@ -18,10 +17,8 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <%@include file="../header.jsp"%>
-        <% if (request.getSession().getAttribute("usuario") != null) {%>
-
-        <%@include file="reitoriaMenu.jsp"%>   
+        <jsp:include page="../header.jsp" />
+        <jsp:include page="reitoriaMenu.jsp" /> 
         <div class="container">
             <div class="card">
                 <div class="card-content" id="recentBlock1">
@@ -49,10 +46,7 @@
                 </div>    
             </div>
         </div>
-        <%} else {%> 
-        <h1> Acesso negado <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%@include file="../footer.jsp"%>
+        <jsp:include page="../footer.jsp" />
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

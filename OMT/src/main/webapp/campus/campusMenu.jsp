@@ -1,7 +1,3 @@
-<%@page import="com.br.OMT.models.Usuario"%>
-<%@page import="com.br.OMT.models.Entidade"%>
-<%Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-    Entidade entidade = (Entidade) request.getSession().getAttribute("entidade");%>
 <nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario mb-4">
     <ul class="navbar-nav">
         <!--Pagina Inicial-->
@@ -14,7 +10,6 @@
         <li class="nav-item">
             <a class="nav-link" href="/OMT/errors/manutencao.jsp">
                 <img id="icone" src="/OMT/img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens
-                </div>
             </a>
         </li>
         <!--Oportunidade de Estágios-->

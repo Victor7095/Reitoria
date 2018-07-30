@@ -1,5 +1,5 @@
-<%@page import="com.br.OMT.models.Discente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -14,14 +14,13 @@
         <link rel="stylesheet" href="../fileinput/css/fileinput.min.css" media="all" type="text/css"/>
     </head>
     <body>
-        <%@include file="../header.jsp"%>
-        <%@include file="alunoMenu.jsp"%>
-        <% if (discente != null) {%>
+        <jsp:include page="../header.jsp"/>
+        <jsp:include page="alunoMenu.jsp"/>
         <div class="container">
             <div class="card px-4 py-4">
                 <h4>Perfil do Usuário</h4><br>
                 <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet"
-                      enctype="multipart/form-data" data-id="<%=discente.getId()%>">
+                      enctype="multipart/form-data" data-id="<c:out value="${usuario.id}"/>">
                     <div class="section">
                         <h5>Informações Básicas</h5>
                         <div class="my-4">
@@ -34,20 +33,20 @@
                         </div>
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input class="form-control" type="text" id="nome" name="nome" value="<%=discente.getNome()%>">
+                            <input class="form-control" type="text" id="nome" name="nome" value="<c:out value="${usuario.nome}"/>">
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="matricula">Matrícula</label>
-                                <input class="form-control" disabled type="text" name="matricula" id="matricula" maxlength="14" value="<%=discente.getUsuario()%>">
+                                <input class="form-control" disabled type="text" name="matricula" id="matricula" maxlength="14" value="<c:out value="${usuario.usuario}"/>">
                             </div>
                             <div class="col">
                                 <label for="cpf">CPF</label>
-                                <input class="form-control CPF" type="text" name="cpf" id="cpf" maxlength="14" value="<%=discente.getCPF()%>">
+                                <input class="form-control CPF" type="text" name="cpf" id="cpf" maxlength="14" value="<c:out value="${usuario.CPF}"/>">
                             </div>
                             <div class="col">
                                 <label for="rg">RG</label>
-                                <input class="form-control RG" type="text" id="rg" name="rg" maxlength="8" value="<%=discente.getRG()%>">
+                                <input class="form-control RG" type="text" id="rg" name="rg" maxlength="8" value="<c:out value="${usuario.RG}"/>">
                             </div>
                         </div>
                     </div>
@@ -63,10 +62,7 @@
                 <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
             </div>
         </div>
-        <%} else {%>
-        <h1> Acesso negado! <a href="../home.jsp">Volte para a tela de login </a></h1>
-        <%}%>
-        <%@include file="../footer.jsp"%>
+        <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

@@ -7,7 +7,6 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Evento;
 import java.util.List;
 import org.hibernate.HibernateException;

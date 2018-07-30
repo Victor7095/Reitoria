@@ -106,6 +106,7 @@ public class AuthenFilter implements Filter {
             return;
         } 
         else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
+            System.out.println("Sou aluno");
         }
         chain.doFilter(request, response);
     }

@@ -3,7 +3,6 @@
     Created on : 07/06/2018, 15:17:41
     Author     : Natan S. dos Santos
 --%>
-
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
