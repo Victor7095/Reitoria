@@ -13,6 +13,7 @@ import com.br.OMT.models.FotosEventos;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class EventoServlet extends HttpServlet {
             String nome = "";
             String descricao = "";
             String local = "";
+            String url = "";
             Date inicioInscricao = null, finalInscricao = null, inicioEvento = null, finalEvento = null;
             List<byte[]> fotos = new ArrayList<>();
             try {
@@ -69,6 +71,7 @@ public class EventoServlet extends HttpServlet {
                         switch (item.getFieldName()) {
                             case "nome":
                                 nome = item.getString();
+                                url = Normalizer.normalize(nome, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_");
                                 break;
                             case "descricao":
                                 descricao = item.getString();
@@ -98,6 +101,7 @@ public class EventoServlet extends HttpServlet {
             }
             Evento e = Evento.getInstance();
             e.setNome(nome);
+            e.setURL(url);
             e.setLocal(local);
             e.setDescricao(descricao);
             e.setDataInicioEvento(inicioEvento);
@@ -132,6 +136,7 @@ public class EventoServlet extends HttpServlet {
             if (butao.equals("cadastrar")) {
                 Evento e = Evento.getInstance();
                 e.setNome(request.getParameter("nome"));
+                e.setURL(Normalizer.normalize(e.getNome(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
                 e.setDescricao(request.getParameter("descricao"));
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 df.setLenient(false);

@@ -82,15 +82,17 @@ public class LoginServlet extends HttpServlet {
                         if (u != null) {
                             Entidade e;
                             e = u.getEntidade();
-                            response.getWriter().println("Entidade: " + e);//
+                            response.getWriter().println("Entidade: " + e+" "+entidade+" "+e.getTipo());//
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
+                                    response.getWriter().println("132");
                                     response.sendRedirect("/OMT/campus/index.jsp");
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
+                                    response.getWriter().println("456");
                                     response.sendRedirect("/OMT/reitoria/index.jsp");
                                 }
                             }

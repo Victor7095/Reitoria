@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Reitoria - OMT</title>
+        <title>Egressos</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -48,8 +48,8 @@
                         <c:set target="${discente}" property="CPF" value="${Criptografia.decrypt(discente.CPFbanco)}"/>
                         <tr>
                             <td><c:out value="${discente.nome}"/></td>
-                            <td class="RG"><c:out value="${discente.RG}"/></td>
-                            <td class="CPF"><c:out value="${discente.CPF}"/></td>                      
+                            <td class="RG">${discente.RG}</td>
+                            <td class="CPF">${discente.CPF}</td>                      
                         </tr>
                     </c:forEach>
                 </table>

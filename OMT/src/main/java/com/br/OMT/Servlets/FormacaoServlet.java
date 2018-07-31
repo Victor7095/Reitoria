@@ -40,10 +40,10 @@ public class FormacaoServlet extends HttpServlet {
                 f.setNome(request.getParameter("nome"));
                 f.setEscola(request.getParameter("escola"));
                 f.setAnoTermino(Integer.parseInt(request.getParameter("anofinalizacao")));
-                Discente d;
+                Discente d = (Discente) request.getSession().getAttribute("usuario");
                 DiscenteDAO ddao = new DiscenteDAO();
                 try {
-                    d = ddao.buscarById(new Long(2));
+                    d = ddao.buscarById(new Long(d.getId()));
                     f.setDiscente(d);
                     FormacaoDAO fdao = new FormacaoDAO();
                     String str = fdao.salvar(f);

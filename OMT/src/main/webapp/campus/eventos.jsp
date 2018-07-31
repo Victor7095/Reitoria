@@ -44,13 +44,13 @@
                         <tbody>
                             <c:forEach items="${eventos}" var="evento">
                                 <tr>
-                                    <td><c:out value="${evento.nome}"/></td>
-                                    <td><c:out value="${evento.descricao}"/></td>
-                                    <td><c:out value="${evento.local}"/></td>
-                                    <td><c:out value="${evento.dataInicioInscricao}"/></td>
-                                    <td><c:out value="${evento.dataFinalInscricao}"/></td>
-                                    <td><c:out value="${evento.dataInicioEvento}"/></td>
-                                    <td><c:out value="${evento.dataFinalEvento}"/></td>
+                                    <td>${evento.nome}</td>
+                                    <td>${evento.descricao}</td>
+                                    <td>${evento.local}</td>
+                                    <td>${evento.dataInicioInscricao}</td>
+                                    <td>${evento.dataFinalInscricao}</td>
+                                    <td>${evento.dataInicioEvento}</td>
+                                    <td>${evento.dataFinalEvento}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -5,8 +5,8 @@
  */
 package com.br.OMT.Servlets;
 
+import com.br.OMT.DAO.CampusDAO;
 import com.br.OMT.DAO.DiscenteDAO;
-import com.br.OMT.DAO.EmpresaDAO;
 import com.br.OMT.DAO.EventoDAO;
 import com.br.OMT.DAO.FotosEventosDAO;
 import com.br.OMT.DAO.TrabalhoDAO;
@@ -58,7 +58,7 @@ public class EncherBanco extends HttpServlet {
 
             DiscenteDAO dDAO = new DiscenteDAO();
             UsuarioDAO uDAO = new UsuarioDAO();
-            EmpresaDAO eDAO = new EmpresaDAO();
+            CampusDAO cDAO = new CampusDAO();
             EventoDAO evDAO = new EventoDAO();
             TrabalhoDAO tDAO = new TrabalhoDAO();
             FotosEventosDAO feDAO = new FotosEventosDAO();
@@ -89,7 +89,7 @@ public class EncherBanco extends HttpServlet {
             e.setNumero("401");
             e.setRua("Av. 7 de setembro");
             e.setTipo('C');
-            out.println(eDAO.salvar(e));
+            out.println(cDAO.salvar(e));
 
             u = Usuario.getInstance();
             u.setNome("Yan2");
