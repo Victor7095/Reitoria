@@ -3,8 +3,7 @@
     Created on : 07/06/2018, 15:17:41
     Author     : Natan S. dos Santos
 --%>
-<%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
@@ -37,22 +36,19 @@
                                     <!--Card image-->
                                     <div class="view overlay">
                                         <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.id}"></c:out>" alt="Card image cap">
-                                        <c:url value="evento.jsp" var="urlEvento">
-                                            <c:param name="q" value="${evento.nome}" />
-                                        </c:url>
-                                        <a href="${urlEvento}">
-                                                <div class="mask rgba-white-light"></div>
-                                            </a>
-                                        </div>
+                                        <a href="evento.jsp?q=${evento.URL}">
+                                            <div class="mask rgba-white-light"></div>
+                                        </a>
+                                    </div>
 
-                                        <!--Card content-->
-                                        <div class="card-body">
+                                    <!--Card content-->
+                                    <div class="card-body">
 
-                                            <!--Título do evento-->
-                                            <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
+                                        <!--Título do evento-->
+                                        <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
                                             <!--Descrição-->
                                             <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-                                            <a href="evento.jsp?q=oi" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+                                            <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
                                         </div>
 
                                         <!-- Card footer -->

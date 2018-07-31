@@ -18,17 +18,13 @@ import com.br.OMT.models.Evento;
 import com.br.OMT.models.FotosEventos;
 import com.br.OMT.models.Trabalho;
 import com.br.OMT.models.Usuario;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.text.Normalizer;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -112,6 +108,9 @@ public class EncherBanco extends HttpServlet {
             ev.setDataFinalInscricao(Calendar.getInstance().getTime());
             ev.setDataInicioEvento(Calendar.getInstance().getTime());
             ev.setDataFinalEvento(Calendar.getInstance().getTime());
+            System.out.println(ev.getNome());
+            ev.setURL(Normalizer.normalize(ev.getNome(),Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
+            System.out.println(ev.getURL());
             ev.setLocal("IFAM-CMC");
             ev.setEntidade(e);
             out.println(evDAO.salvar(ev));
@@ -138,6 +137,9 @@ public class EncherBanco extends HttpServlet {
             ev.setDataFinalInscricao(Calendar.getInstance().getTime());
             ev.setDataInicioEvento(Calendar.getInstance().getTime());
             ev.setDataFinalEvento(Calendar.getInstance().getTime());
+            System.out.println(ev.getNome());
+            ev.setURL(Normalizer.normalize(ev.getNome(),Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
+            System.out.println(ev.getURL());
             ev.setLocal("IFAM-CMC");
             ev.setEntidade(e);
             out.println(evDAO.salvar(ev));
@@ -162,19 +164,6 @@ public class EncherBanco extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    public byte[] imageToByte(String ImageName) throws IOException {
-        // open image
-        System.out.println(ImageName);
-        File imgPath = new File(ImageName);
-        BufferedImage bufferedImage = ImageIO.read(imgPath);
-
-        // get DataBufferBytes from Raster
-        WritableRaster raster = bufferedImage.getRaster();
-        DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-
-        return (data.getData());
     }
 
 }

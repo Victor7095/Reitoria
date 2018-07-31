@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -102,12 +103,13 @@ public class AuthenFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpReq = (HttpServletRequest) request;
         HttpServletResponse httpRes = (HttpServletResponse) response;
+        httpReq.setCharacterEncoding("ISO-8859-1");
+        httpRes.setCharacterEncoding("ISO-8859-1");
         PrintWriter out = response.getWriter();
         if (httpReq.getSession().getAttribute("usuario") == null) {
             out.println("Não tem permissão necessária para acessar a página");
             httpRes.sendRedirect("/OMT/errors/sessaoExpirada.jsp");
-        } 
-        else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
+        } else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
             System.out.println("Sou aluno");
         }
         chain.doFilter(request, response);

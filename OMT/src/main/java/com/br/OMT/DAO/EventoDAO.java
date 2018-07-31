@@ -41,13 +41,30 @@ public class EventoDAO {
     }
     
     public Evento buscarPorNome(String nome) {
-        System.out.println(nome);
         Evento e = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from Evento e where e.nome =:nome");
             query.setParameter("nome", nome);
+            e = (Evento) query.getSingleResult();
+            s.getTransaction().commit();
+            return e;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
+    
+    public Evento buscarPorURL(String url) {
+        Evento e = null;
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("from Evento e where e.URL =:URL");
+            query.setParameter("URL", url);
             e = (Evento) query.getSingleResult();
             s.getTransaction().commit();
             return e;

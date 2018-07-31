@@ -21,6 +21,9 @@ public class Evento implements Serializable {
 
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
+    
+    @Column(name = "url", nullable = false, length = 50, unique = true)
+    private String URL;
 
     @Column(name = "descricao", nullable = false, length = 100)
     private String descricao;
@@ -142,6 +145,14 @@ public class Evento implements Serializable {
 
     public void setEntidade(Entidade entidade) {
         this.entidade = entidade;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL){
+        this.URL = URL;
     }
 
 }
