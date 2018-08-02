@@ -8,7 +8,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
+<jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
+<c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -100,7 +102,7 @@
                     <hr class="my-4">
                     <section>
                         <h3 class="font-weight-bold mb-4">Formação acadêmica/ titulação 
-                            <a href="nova_formacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
+                            <a href="novaFormacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
                         </h3>
                         <c:if test="${formacoes.size() > 0}">
                             <table class="table table-sm">
@@ -118,6 +120,39 @@
                         <c:if test="${formacoes.size() == 0}">
                             <h4 class="grey-text text-center my-4">
                                 Nenhuma formação registrada ainda
+                            </h4>
+                        </c:if>
+                    </section>
+                    <hr class="my-4">
+                    <section>
+                        <h3 class="font-weight-bold mb-4">Experiências profissionais
+                            <a href="novaExperienciaProfissional.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
+                        </h3>
+                        <c:if test="${trabalhosCurriculo.size() > 0}">
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>Profissão</th>
+                                        <th>Descrição</th>
+                                        <th>Início</th>
+                                        <th>Fim</th>
+                                        <th>Duração</th>
+                                    </tr>
+                                    <c:forEach items="${trabalhosCurriculo}" var="trabalhoCurriculo">
+                                        <tr>
+                                            <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.tempoInicio}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.tempoFinal}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.duracao}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
+                        <c:if test="${trabalhosCurriculo.size() == 0}">
+                            <h4 class="grey-text text-center my-4">
+                                Sem experiência profissional
                             </h4>
                         </c:if>
                     </section>

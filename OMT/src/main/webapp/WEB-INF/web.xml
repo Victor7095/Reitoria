@@ -68,6 +68,10 @@
         <servlet-name>EncherBanco</servlet-name>
         <servlet-class>com.br.OMT.Servlets.EncherBanco</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TrabalhoCurriculoServlet</servlet-name>
+        <servlet-class>com.br.OMT.Servlets.TrabalhoCurriculoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpresaServlet</servlet-name>
         <url-pattern>/EmpresaServlet</url-pattern>
@@ -115,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>EncherBanco</servlet-name>
         <url-pattern>/EncherBanco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrabalhoCurriculoServlet</servlet-name>
+        <url-pattern>/TrabalhoCurriculoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
