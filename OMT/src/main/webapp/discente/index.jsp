@@ -7,6 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="EventoDAO" class="com.br.OMT.DAO.EventoDAO" />
+<jsp:useBean id="FotosEventosDAO" class="com.br.OMT.DAO.FotosEventosDAO" />
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -32,10 +33,11 @@
                             <!-- Card deck -->
                             <div class="row card-deck">
                             <c:forEach items="${eventos}" var="evento">
+                                <c:set property="fotos" target="${evento}" value="${FotosEventosDAO.getSingleFotosEventos(evento.id)}"/>
                                 <div class="card col-md-3 mb-4 px-0">
                                     <!--Card image-->
                                     <div class="view overlay">
-                                        <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.id}"></c:out>" alt="Card image cap">
+                                        <img class="card-img-top" src="/OMT/EventoServlet?id=<c:out value="${evento.fotos[0]}"></c:out>" alt="Card image cap">
                                         <a href="evento.jsp?q=${evento.URL}">
                                             <div class="mask rgba-white-light"></div>
                                         </a>

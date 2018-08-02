@@ -40,7 +40,7 @@
                         <div class="row my-4">
                             <div class="col-sm-12 col-md-6 col-lg-3">
                                 <!--img class="foto-curriculo" src="/OMT/DiscenteServlet?id=<c:out value="${usuario.id}"/>" alt="Foto de perfil"-->
-                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png" alt="Foto de perfil">
+                                <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png" alt="Foto de perfil">
                             </div>
                             <div class="col-auto">
                                 <h4><c:out value="${usuario.nome}"/></h4>
@@ -108,12 +108,19 @@
                         </h3>
                         <c:if test="${formacoes.size() > 0}">
                             <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Escola/Instituição</th>
+                                        <th>Ano de término</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <c:forEach items="${formacoes}" var="formacao">
                                         <tr>
-                                            <td><c:out value="${formacao.anoTermino}"/></td>
-                                            <td><c:out value="${formacao.escola}"/></td>
                                             <td><c:out value="${formacao.nome}"/></td>
+                                            <td><c:out value="${formacao.escola}"/></td>
+                                            <td><c:out value="${formacao.anoTermino}"/></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -132,7 +139,7 @@
                         </h3>
                         <c:if test="${trabalhosCurriculo.size() > 0}">
                             <table class="table table-sm">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th>Profissão</th>
                                         <th>Descrição</th>
@@ -140,6 +147,8 @@
                                         <th>Fim</th>
                                         <th>Duração</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <c:forEach items="${trabalhosCurriculo}" var="trabalhoCurriculo">
                                         <tr>
                                             <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
@@ -165,19 +174,21 @@
                         </h3>
                         <c:if test="${projetos.size() > 0}">
                             <table class="table table-sm">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th>Profissão</th>
                                         <th>Descrição</th>
                                         <th>Área</th>
                                     </tr>
-                                    <c:forEach items="${projetos}" var="trabalhoCurriculo">
-                                        <tr>
-                                            <td><c:out value="${trabalhoCurriculo.nome}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.area}"/></td>
-                                        </tr>
-                                    </c:forEach>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${projetos}" var="trabalhoCurriculo">
+                                    <tr>
+                                        <td><c:out value="${trabalhoCurriculo.nome}"/></td>
+                                        <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
+                                        <td><c:out value="${trabalhoCurriculo.area}"/></td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </c:if>
@@ -194,6 +205,12 @@
                                 <a href="#" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
                             </h3>
                             <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
                                         <th>1.</th>

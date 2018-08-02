@@ -14,9 +14,7 @@
     </head>
 
     <body>
-        <header>
-            <jsp:include page="header.jsp"/>
-        </header>
+        <jsp:include page="header.jsp"/>
         <div class="container">
             <!--cabeçalho da página de menu logins-->
 
