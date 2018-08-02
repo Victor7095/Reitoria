@@ -5,10 +5,13 @@
  */
 package com.br.OMT.Servlets;
 
+import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.DAO.ProjetosDAO;
+import com.br.OMT.models.Discente;
 import com.br.OMT.models.Projetos;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +37,19 @@ public class ProjetoServlet extends HttpServlet {
         if (request != null) {
             String butao = request.getParameter("acao");
             if (butao.equals("cadastrar")) {
+                Discente d = (Discente) request.getSession().getAttribute("usuario");
+                DiscenteDAO ddao = new DiscenteDAO();
                 Projetos p = Projetos.getInstance();
 
                 p.setNome(request.getParameter("nome"));
                 p.setDescricao(request.getParameter("descricao"));
                 p.setArea(request.getParameter("area"));
+                try {
+                    d = ddao.buscarById(new Long(d.getId()));
+                } catch (Exception ex) {
+                    Logger.getLogger(ProjetoServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                p.setDiscente(d);
                 ProjetosDAO pdao = new ProjetosDAO();
                 String str = pdao.salvar(p);
                 if (str.equals("")) {

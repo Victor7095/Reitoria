@@ -9,8 +9,10 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
 <jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
+<jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetosDAO"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
+<c:set var="projetos" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -153,6 +155,35 @@
                         <c:if test="${trabalhosCurriculo.size() == 0}">
                             <h4 class="grey-text text-center my-4">
                                 Sem experiência profissional
+                            </h4>
+                        </c:if>
+                    </section>
+                    <hr class="my-4">
+                    <section>
+                        <h3 class="font-weight-bold mb-4">Participação em projetos academêmicos
+                            <a href="novoProjeto.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
+                        </h3>
+                        <c:if test="${projetos.size() > 0}">
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>Profissão</th>
+                                        <th>Descrição</th>
+                                        <th>Área</th>
+                                    </tr>
+                                    <c:forEach items="${projetos}" var="trabalhoCurriculo">
+                                        <tr>
+                                            <td><c:out value="${trabalhoCurriculo.nome}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.area}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
+                        <c:if test="${trabalhosCurriculo.size() == 0}">
+                            <h4 class="grey-text text-center my-4">
+                                Nenhum projeto registrado
                             </h4>
                         </c:if>
                     </section>
