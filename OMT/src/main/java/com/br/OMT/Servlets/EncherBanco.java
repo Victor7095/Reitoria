@@ -63,6 +63,7 @@ public class EncherBanco extends HttpServlet {
             TrabalhoDAO tDAO = new TrabalhoDAO();
             FotosEventosDAO feDAO = new FotosEventosDAO();
 
+            stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
             d = Discente.getInstance();
             d.setNome("Yan");
             d.setNomeBanco(Criptografia.encrypt(d.getNome()));
@@ -74,6 +75,7 @@ public class EncherBanco extends HttpServlet {
             d.setRGbanco(Criptografia.encrypt(d.getRG()));
             d.setSenha("456");
             d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+            d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
 
             e = Entidade.getInstance();
@@ -158,6 +160,7 @@ public class EncherBanco extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(EncherBanco.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.sendRedirect("home.jsp");
 
     }
 

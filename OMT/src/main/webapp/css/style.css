@@ -46,3 +46,39 @@ and open the template in the editor.
         display: none;
     }
 }
+
+button, 
+a.btn { 
+    background-color: #189094; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 3px; 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    font-size: 16px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    text-shadow: none; 
+} 
+button:focus { 
+    outline: 0; 
+} 
+ 
+.file-btn { 
+    position: relative; 
+} 
+.file-btn input[type="file"] { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    opacity: 0; 
+} 
+ 
+.actions { 
+    padding: 5px 0; 
+} 
+.actions button { 
+    margin-right: 5px; 
+} 
+.crop{display:none} 

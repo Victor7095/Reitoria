@@ -9,9 +9,9 @@
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
-        <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/inputFotoPerfil.css">
         <link rel="stylesheet" href="../css/croppie.css" media="all" type="text/css"/>
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
@@ -23,26 +23,20 @@
                       enctype="multipart/form-data" data-id="<c:out value="${usuario.id}"/>">
                     <div class="section">
                         <h5>Informações Básicas</h5>
-                        <img src="/OMT/DiscenteServlet?id=${usuario.id}">
-                        <div class="row my-4">
-                            <div class="col-sm-12 col-md-6">
-                                <div id="profile-img-container">
-                                    <div id="upload-demo">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="text-center">
-                                    <a class="btn btn-primary file-btn">
-                                        Carregar foto
-                                        <input type="file" accept="image/*" id="profile-picture-upload">
-                                    </a>
-                                    <a class="btn btn-primary file-btn">
-                                        Foto Padrão
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <img height="100px" src="/OMT/DiscenteServlet?id=${usuario.id}">
+                        <div class="actions"> 
+                            <button class="btn btn-md btn-primary file-btn"> 
+                                <span>Upload</span> 
+                                <input type="file" id="upload" name="upload" value="Select" /> 
+                            </button> 
+                            <div class="crop"> 
+                                <div id="upload-demo"></div>
+                                <button type="button" class="upload-result btn btn-md btn-primary">Croppie</button> 
+                            </div> 
+                            <div id="result">
+                            </div> 
+                            <input type="hidden" value="" name="fotoCortada" id="fotoCortada">
+                        </div> 
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
                             <input class="form-control" type="text" id="nome" name="nome" value="<c:out value="${usuario.nome}"/>">
@@ -50,7 +44,7 @@
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-lg-4">
                                 <label for="matricula">Matrícula</label>
-                                <input class="form-control" disabled type="text" name="matricula" id="matricula" maxlength="14" value="<c:out value="${usuario.usuario}"/>">
+                                <input class="form-control" readonly="true" type="text" name="matricula" id="matricula" maxlength="14" value="<c:out value="${usuario.usuario}"/>">
                             </div>
                             <div class="form-group col-sm-12 col-lg-4">
                                 <label for="cpf">CPF</label>
@@ -87,38 +81,62 @@
                 $('#cpf').unmask('000.000.000-00');
                 $('#rg').unmask('00.000.000-0');
             });
-            $uploadCrop = $('#upload-demo').croppie({
-                enableExif: true,
-                url: "../img/student.png",
-                viewport: {
-                    width: 200,
-                    height: 200,
-                    type: 'square'
-                },
-                boundary: {
-                    width: 250,
-                    height: 250
-                }
-            });
-            function readFile(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+            var id = $('form[name="formAlterar"]').attr("id");
+            $(function () {
+                var $uploadCrop;
 
-                    reader.onload = function (event) {
-                        $uploadCrop.croppie('bind', {
-                            url: event.target.result
+                function readFile(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $uploadCrop.croppie('bind', {
+                                url: e.target.result
+                            });
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    } else {
+                        alert("Sorry - you're browser doesn't support the FileReader API");
+                    }
+                }
+
+                $uploadCrop = $('#upload-demo').croppie({
+                    viewport: {
+                        width: 200,
+                        height: 200,
+                        type: 'circle'
+                    },
+                    boundary: {
+                        width: 300,
+                        height: 300
+                    }
+                });
+
+                $('#upload').on('change', function () {
+                    $(".crop").show();
+                    readFile(this);
+                });
+                $('.upload-result').on('click', function (ev) {
+                    $uploadCrop.croppie('result', 'canvas').then(function (resp) {
+                        popupResult({
+                            src: resp
                         });
-                    };
+                    });
+                });
 
-                    reader.readAsDataURL(input.files[0]);
-                } else {
-                    alert('Sorry - you\'re browser doesn\'t support the FileReader API');
+                function popupResult(result) {
+                    var html;
+                    if (result.html) {
+                        html = result.html;
+                    }
+                    if (result.src) {
+                        html = '<img src="' + result.src + '" />';
+                    }
+                    $("#result").html(html);
+                    $("#fotoCortada").val(html);
                 }
-            }
-            $('#profile-picture-upload').on('change', function () {
-                readFile(this);
             });
-
         </script>
     </body>
 </html>

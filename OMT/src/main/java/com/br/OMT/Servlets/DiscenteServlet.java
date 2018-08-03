@@ -58,6 +58,7 @@ public class DiscenteServlet extends HttpServlet {
                     for (FileItem item : m) {//Mudar a ordem dos inputs, colocar o usuario em cima da imagem
                         if (!item.isFormField()) {
                             foto = item.get();
+                            response.getWriter().print(item.get());
                         } else {
                             switch (item.getFieldName()) {
                                 case "usuario":
@@ -92,7 +93,6 @@ public class DiscenteServlet extends HttpServlet {
                     int tam = r.nextInt(4) + 3;
                     int senha = r.nextInt(tam * 1000);
                     d.setSenha(Integer.toString(senha));
-                    byte[] senhaCriptografada;
 
                     try {
                         d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
@@ -115,7 +115,7 @@ public class DiscenteServlet extends HttpServlet {
                     } catch (Exception ex) {
                         Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }else if(acao.equals("alterar")){
+                } else if (acao.equals("alterar")) {
                     d = (Discente) request.getSession().getAttribute("usuario");
                     try {
                         response.getWriter().println(Criptografia.decrypt(d.getUsuarioBanco()));
@@ -123,14 +123,11 @@ public class DiscenteServlet extends HttpServlet {
                         Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     d.setCPF(cpf);
-                    if(foto!=null){
-                        d.setFoto(foto);
-                    }
+                    d.setFoto(foto);
+                    response.getWriter().println("Atualizado! " + d.getFoto());
                     d.setRG(rg);
-                    d.setUsuario(usuario);
                     d.setNome(nome);
-                    try {
-                        d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                   try {
                         d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                         d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
                         d.setRGbanco(Criptografia.encrypt(d.getRG()));
