@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,26 +19,54 @@
         <jsp:include page="../header.jsp"/>
         <jsp:include page="alunoMenu.jsp"/>
         <div class="container">
+            <!--object type="image/svg+xml" data="/OMT/img/logoIF.svg">
+                Your browser does not support SVG
+                <img src="/OMT/img/logoIF.png" />
+            </object-->
             <div class="card px-4 py-4">
                 <h3 class="font-weight-bold mb-4">Seu Perfil</h3>
                 <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet"
                       enctype="multipart/form-data" data-id="<c:out value="${usuario.id}"/>">
                     <div class="section">
-                        <h5>Informações Básicas</h5>
-                        <img height="100px" src="/OMT/DiscenteServlet?id=${usuario.id}">
-                        <div class="actions"> 
-                            <button class="btn btn-md btn-primary file-btn"> 
-                                <span>Upload</span> 
-                                <input type="file" id="upload" name="upload" value="Select" /> 
-                            </button> 
-                            <div class="crop"> 
-                                <div id="upload-demo"></div>
-                                <button type="button" class="upload-result btn btn-md btn-primary">Croppie</button> 
-                            </div> 
-                            <div id="result">
-                            </div> 
-                            <input type="hidden" value="" name="fotoCortada" id="fotoCortada">
-                        </div> 
+                        <h5 class="mb-4">Informações Básicas</h5>
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-lg-3">
+                                <div class="text-center">
+                                    <c:choose>
+                                        <c:when test="${fn:length(usuario.fotoCortada) > 0}">
+                                            <div>
+                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.fotoCortada, 'UTF-8')}">
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div>
+                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <button class="btn btn-md btn-primary file-btn"> 
+                                        <span><i class="fa fa-image fa-lg left"></i>Selecionar foto de perfil</span> 
+                                        <input type="file" id="upload" name="upload" accept="image/*" value="Selecionar foto de perfil" /> 
+                                    </button> 
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-5">
+                                <div class="form-group"> 
+                                    <div class="text-center">
+                                        <div class="crop"> 
+                                            <div id="upload-demo"></div>
+                                            <button type="button" class="upload-result btn btn-md btn-primary">
+                                                <i class="fa fa-cut fa-lg left"></i>Recortar imagem
+                                            </button> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <div class="text-center" id="result"></div> 
+                                <input type="hidden" value="" name="fotoCortada" id="fotoCortada">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
                             <input class="form-control" type="text" id="nome" name="nome" value="<c:out value="${usuario.nome}"/>">
@@ -103,13 +133,13 @@
 
                 $uploadCrop = $('#upload-demo').croppie({
                     viewport: {
-                        width: 200,
+                        width: 150,
                         height: 200,
-                        type: 'circle'
+                        type: 'square'
                     },
                     boundary: {
-                        width: 300,
-                        height: 300
+                        width: 250,
+                        height: 250
                     }
                 });
 
@@ -131,10 +161,11 @@
                         html = result.html;
                     }
                     if (result.src) {
-                        html = '<img src="' + result.src + '" />';
+                        var label = "<figcaption>Foto de perfil nova</figcaption>";
+                        html = '<img class="foto-curriculo border border-light rounded z-depth-1" src="' + result.src + '" />' + label;
                     }
                     $("#result").html(html);
-                    $("#fotoCortada").val(html);
+                    $("#fotoCortada").val(result.src);
                 }
             });
         </script>

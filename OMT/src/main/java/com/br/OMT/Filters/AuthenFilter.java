@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -19,6 +18,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -110,6 +110,7 @@ public class AuthenFilter implements Filter {
             out.println("Não tem permissão necessária para acessar a página");
             httpRes.sendRedirect("/OMT/errors/sessaoExpirada.jsp");
         } else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
+            Discente d = (Discente) httpReq.getSession().getAttribute("usuario");
             System.out.println("Sou aluno");
         }
         chain.doFilter(request, response);

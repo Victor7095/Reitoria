@@ -8,7 +8,6 @@
                 aria-expanded="false" aria-label="Alternar navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!--Conteúdo ajustável-->
         <div class="collapse navbar-collapse barraPrincipal">
             <!--Links-->

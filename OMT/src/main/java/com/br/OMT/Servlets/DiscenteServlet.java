@@ -50,7 +50,7 @@ public class DiscenteServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String usuario = "", rg = "", cpf = "", nome = "", acao = "";
         Discente d = Discente.getInstance();
-        byte[] foto = null;
+        byte[] foto = null, fotoCortada = null;
         if (request != null) {
             if (ServletFileUpload.isMultipartContent(request)) {
                 try {
@@ -75,6 +75,13 @@ public class DiscenteServlet extends HttpServlet {
                                     break;
                                 case "acao":
                                     acao = item.getString();
+                                    break;
+                                case "fotoCortada":
+                                    if (item.getString().length() > 0) {
+                                        fotoCortada = item.get();
+                                    } else {
+                                        fotoCortada = null;
+                                    }
                                     break;
                             }
                         }
@@ -124,10 +131,12 @@ public class DiscenteServlet extends HttpServlet {
                     }
                     d.setCPF(cpf);
                     d.setFoto(foto);
-                    response.getWriter().println("Atualizado! " + d.getFoto());
+                    d.setFotoCortada(fotoCortada);
+                    response.getWriter().println("foto normal! " + d.getFoto());
+                    response.getWriter().println("foto cortada! " + d.getFotoCortada());
                     d.setRG(rg);
                     d.setNome(nome);
-                   try {
+                    try {
                         d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                         d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
                         d.setRGbanco(Criptografia.encrypt(d.getRG()));
@@ -135,7 +144,8 @@ public class DiscenteServlet extends HttpServlet {
                         try {
                             str = ddao.atualizar(d);
                             if (str.equals("")) {
-                                response.getWriter().println("Atualizado! " + d.getSenha());
+                                response.getWriter().println("senha! " + d.getSenha());
+                                response.sendRedirect("discente/alterarPerfil.jsp");
                             } else {
                                 response.getWriter().println("Errado!");
                                 response.getWriter().println(str);

@@ -7,9 +7,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
 <jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
 <jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetosDAO"/>
+<jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
 <c:set var="projetos" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
@@ -33,14 +35,26 @@
                 <div class="card px-4 py-4">
                     <section>
                         <h3 class="font-weight-bold mb-4">Dados pessoais
-                            <a href="../discente/alterar_perfil.jsp" class="btn btn-md btn-cyan">
+                            <a href="../discente/alterarPerfil.jsp" class="btn btn-md btn-cyan">
                                 <i class="fa fa-edit mr-1"></i>Atualizar informações
                             </a>
                         </h3>
                         <div class="row my-4">
                             <div class="col-sm-12 col-md-6 col-lg-3">
-                                <!--img class="foto-curriculo" src="/OMT/DiscenteServlet?id=<c:out value="${usuario.id}"/>" alt="Foto de perfil"-->
-                                <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png" alt="Foto de perfil">
+                                <div class="text-center">
+                                <c:choose>
+                                    <c:when test="${fn:length(usuario.fotoCortada) > 0}">
+                                        <div>
+                                            <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.fotoCortada, 'UTF-8')}">
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div>
+                                            <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <h4><c:out value="${usuario.nome}"/></h4>

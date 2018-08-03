@@ -8,7 +8,7 @@
             </li>
             <!--Pefil do Usuário-->
             <li class="nav-item">
-                <a class="nav-link" href="../discente/alterar_perfilNovo.jsp">
+                <a class="nav-link" href="../discente/alterarPerfil.jsp">
                     <img id="icone" src="/OMT/img/Icons/icones/png/edit.png" title="Editar informações">Editar informações</a>
             </li>
             <!--Caixa de Mensagens-->
