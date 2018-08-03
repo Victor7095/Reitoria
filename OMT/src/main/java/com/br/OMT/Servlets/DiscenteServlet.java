@@ -117,6 +117,11 @@ public class DiscenteServlet extends HttpServlet {
                     }
                 }else if(acao.equals("alterar")){
                     d = (Discente) request.getSession().getAttribute("usuario");
+                    try {
+                        response.getWriter().println(Criptografia.decrypt(d.getUsuarioBanco()));
+                    } catch (Exception ex) {
+                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     d.setCPF(cpf);
                     if(foto!=null){
                         d.setFoto(foto);
