@@ -47,24 +47,13 @@ and open the template in the editor.
     }
 }
 
-button, 
-a.btn { 
-    background-color: #189094; 
-    color: white; 
-    padding: 10px 15px; 
-    border-radius: 3px; 
-    border: 1px solid rgba(255, 255, 255, 0.5); 
-    font-size: 16px; 
-    cursor: pointer; 
-    text-decoration: none; 
-    text-shadow: none; 
-} 
 button:focus { 
     outline: 0; 
 } 
  
 .file-btn { 
     position: relative; 
+    cursor: pointer;
 } 
 .file-btn input[type="file"] { 
     position: absolute; 

@@ -42,18 +42,18 @@
                         <div class="row my-4">
                             <div class="col-sm-12 col-md-6 col-lg-3">
                                 <div class="text-center">
-                                <c:choose>
-                                    <c:when test="${fn:length(usuario.fotoCortada) > 0}">
-                                        <div>
-                                            <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.fotoCortada, 'UTF-8')}">
-                                        </div>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <div>
-                                            <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
-                                        </div>
-                                    </c:otherwise>
-                                </c:choose>
+                                    <c:choose>
+                                        <c:when test="${fn:length(usuario.foto) > 0}">
+                                            <div>
+                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.foto, 'UTF-8')}">
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div>
+                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="../img/student.png">
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -196,13 +196,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${projetos}" var="trabalhoCurriculo">
-                                    <tr>
-                                        <td><c:out value="${trabalhoCurriculo.nome}"/></td>
-                                        <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                        <td><c:out value="${trabalhoCurriculo.area}"/></td>
-                                    </tr>
-                                </c:forEach>
+                                    <c:forEach items="${projetos}" var="trabalhoCurriculo">
+                                        <tr>
+                                            <td><c:out value="${trabalhoCurriculo.nome}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
+                                            <td><c:out value="${trabalhoCurriculo.area}"/></td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </c:if>

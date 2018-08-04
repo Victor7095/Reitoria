@@ -48,118 +48,85 @@ public class DiscenteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String usuario = "", rg = "", cpf = "", nome = "", acao = "";
         Discente d = Discente.getInstance();
-        byte[] foto = null, fotoCortada = null;
-        if (request != null) {
-            if (ServletFileUpload.isMultipartContent(request)) {
+        DiscenteDAO ddao = new DiscenteDAO();
+        String usuario = "", rg = "", cpf = "", nome = "", acao = "";
+        byte[] foto = null;
+        
+        acao = request.getParameter("acao");
+        rg = request.getParameter("rg");
+        cpf = request.getParameter("cpf");
+        nome = request.getParameter("nome");
+        usuario = request.getParameter("usuario");
+        System.out.println(request.getParameter("acao"));
+        if (request.getParameter("fotoCortada").length() > 0) {
+            foto = request.getParameter("fotoCortada").getBytes();
+        } else {
+            foto = null;
+        }
+        
+        if (acao.equals("cadastrar")) {
+            d.setCPF(cpf);
+            d.setFoto(foto);
+            d.setRG(rg);
+            d.setUsuario(usuario);
+            d.setNome(nome);
+            Random r = new Random();
+            int tam = r.nextInt(4) + 3;
+            int senha = r.nextInt(tam * 1000);
+            d.setSenha(Integer.toString(senha));
+
+            try {
+                d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                d.setRGbanco(Criptografia.encrypt(d.getRG()));
+                d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+                String str;
                 try {
-                    List<FileItem> m = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-                    for (FileItem item : m) {//Mudar a ordem dos inputs, colocar o usuario em cima da imagem
-                        if (!item.isFormField()) {
-                            foto = item.get();
-                            response.getWriter().print(item.get());
-                        } else {
-                            switch (item.getFieldName()) {
-                                case "usuario":
-                                    usuario = item.getString();
-                                    break;
-                                case "nome":
-                                    nome = item.getString();
-                                    break;
-                                case "cpf":
-                                    cpf = item.getString();
-                                    break;
-                                case "rg":
-                                    rg = item.getString();
-                                    break;
-                                case "acao":
-                                    acao = item.getString();
-                                    break;
-                                case "fotoCortada":
-                                    if (item.getString().length() > 0) {
-                                        fotoCortada = item.get();
-                                    } else {
-                                        fotoCortada = null;
-                                    }
-                                    break;
-                            }
-                        }
+                    str = ddao.salvar(d);
+                    if (str.equals("")) {
+                        response.getWriter().println("Salvo! " + d.getSenha());
+                    } else {
+                        response.getWriter().println("Errado!");
+                        response.getWriter().println(str);
                     }
-
                 } catch (Exception ex) {
+                    response.getWriter().println("Erro! " + ex.getMessage());
                 }
-                DiscenteDAO ddao = new DiscenteDAO();
-                if (acao.equals("cadastrar")) {
-                    d.setCPF(cpf);
-                    d.setFoto(foto);
-                    d.setRG(rg);
-                    d.setUsuario(usuario);
-                    d.setNome(nome);
-                    Random r = new Random();
-                    int tam = r.nextInt(4) + 3;
-                    int senha = r.nextInt(tam * 1000);
-                    d.setSenha(Integer.toString(senha));
-
-                    try {
-                        d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
-                        d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-                        d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-                        d.setRGbanco(Criptografia.encrypt(d.getRG()));
-                        d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-                        String str;
-                        try {
-                            str = ddao.salvar(d);
-                            if (str.equals("")) {
-                                response.getWriter().println("Salvo! " + d.getSenha());
-                            } else {
-                                response.getWriter().println("Errado!");
-                                response.getWriter().println(str);
-                            }
-                        } catch (Exception ex) {
-                            response.getWriter().println("Erro! " + ex.getMessage());
-                        }
-                    } catch (Exception ex) {
-                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (acao.equals("alterar")) {
+            d = (Discente) request.getSession().getAttribute("usuario");
+            try {
+                response.getWriter().println(Criptografia.decrypt(d.getUsuarioBanco()));
+            } catch (Exception ex) {
+                Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            d.setCPF(cpf);
+            d.setFoto(foto);
+            d.setRG(rg);
+            d.setNome(nome);
+            try {
+                d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                d.setRGbanco(Criptografia.encrypt(d.getRG()));
+                String str;
+                try {
+                    str = ddao.atualizar(d);
+                    if (str.equals("")) {
+                        response.sendRedirect("discente/alterarPerfil.jsp");
+                    } else {
+                        response.getWriter().println("Errado!");
+                        response.getWriter().println(str);
                     }
-                } else if (acao.equals("alterar")) {
-                    d = (Discente) request.getSession().getAttribute("usuario");
-                    try {
-                        response.getWriter().println(Criptografia.decrypt(d.getUsuarioBanco()));
-                    } catch (Exception ex) {
-                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    d.setCPF(cpf);
-                    d.setFoto(foto);
-                    d.setFotoCortada(fotoCortada);
-                    response.getWriter().println("foto normal! " + d.getFoto());
-                    response.getWriter().println("foto cortada! " + d.getFotoCortada());
-                    d.setRG(rg);
-                    d.setNome(nome);
-                    try {
-                        d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-                        d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-                        d.setRGbanco(Criptografia.encrypt(d.getRG()));
-                        String str;
-                        try {
-                            str = ddao.atualizar(d);
-                            if (str.equals("")) {
-                                response.getWriter().println("senha! " + d.getSenha());
-                                response.sendRedirect("discente/alterarPerfil.jsp");
-                            } else {
-                                response.getWriter().println("Errado!");
-                                response.getWriter().println(str);
-                            }
-                        } catch (Exception ex) {
-                            response.getWriter().println("Erro! " + ex.getMessage());
-                        }
-                    } catch (Exception ex) {
-                        Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                } catch (Exception ex) {
+                    response.getWriter().println("Erro! " + ex.getMessage());
                 }
-
+            } catch (Exception ex) {
+                Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-
 }

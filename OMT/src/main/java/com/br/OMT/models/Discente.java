@@ -32,9 +32,6 @@ public class Discente extends Usuario implements Serializable {
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
     private byte[] foto;
-    @Lob
-    @Column(name = "fotoCortada", nullable = true, length = 255, columnDefinition = "longblob")
-    private byte[] fotoCortada;
 
     @OneToMany(cascade = ALL, mappedBy = "discente")
     private List<Projetos> projetos;
@@ -81,15 +78,7 @@ public class Discente extends Usuario implements Serializable {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
-    public byte[] getFotoCortada() {
-        return fotoCortada;
-    }
-
-    public void setFotoCortada(byte[] fotoCortada) {
-        this.fotoCortada = fotoCortada;
-    }
-
+    
     public List<Projetos> getProjetos() {
         return projetos;
     }

@@ -19,23 +19,18 @@
         <jsp:include page="../header.jsp"/>
         <jsp:include page="alunoMenu.jsp"/>
         <div class="container">
-            <!--object type="image/svg+xml" data="/OMT/img/logoIF.svg">
-                Your browser does not support SVG
-                <img src="/OMT/img/logoIF.png" />
-            </object-->
             <div class="card px-4 py-4">
                 <h3 class="font-weight-bold mb-4">Seu Perfil</h3>
-                <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet"
-                      enctype="multipart/form-data" data-id="<c:out value="${usuario.id}"/>">
+                <form id="formAlterar" name="formAlterar" method="post" action="/OMT/DiscenteServlet" data-id="<c:out value="${usuario.id}"/>">
                     <div class="section">
                         <h5 class="mb-4">Informações Básicas</h5>
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-lg-3">
                                 <div class="text-center">
                                     <c:choose>
-                                        <c:when test="${fn:length(usuario.fotoCortada) > 0}">
+                                        <c:when test="${fn:length(usuario.foto) > 0}">
                                             <div>
-                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.fotoCortada, 'UTF-8')}">
+                                                <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.foto, 'UTF-8')}">
                                             </div>
                                         </c:when>
                                         <c:otherwise>
@@ -44,7 +39,7 @@
                                             </div>
                                         </c:otherwise>
                                     </c:choose>
-                                    <button class="btn btn-md btn-primary file-btn"> 
+                                    <button class="btn btn-md btn-primary file-btn mt-4"> 
                                         <span><i class="fa fa-image fa-lg left"></i>Selecionar foto de perfil</span> 
                                         <input type="file" id="upload" name="upload" accept="image/*" value="Selecionar foto de perfil" /> 
                                     </button> 
@@ -162,7 +157,7 @@
                     }
                     if (result.src) {
                         var label = "<figcaption>Foto de perfil nova</figcaption>";
-                        html = '<img class="foto-curriculo border border-light rounded z-depth-1" src="' + result.src + '" />' + label;
+                        html = '<img class="foto-curriculo border border-light rounded z-depth-1 mb-4" src="' + result.src + '" />' + label;
                     }
                     $("#result").html(html);
                     $("#fotoCortada").val(result.src);
