@@ -21,7 +21,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="alunoMenu.jsp"/>
+        <jsp:include page="menu.jsp"/>
         <c:set var="eventos" value="${EventoDAO.listEventos()}"/>
         <c:if test="${not empty usuario}">
             <div class="container">

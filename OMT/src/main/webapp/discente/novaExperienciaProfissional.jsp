@@ -13,7 +13,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="alunoMenu.jsp"/>
+        <jsp:include page="menu.jsp"/>
         <jsp:include page="../cadastro/trabalhoCurriculo.jsp"/>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>

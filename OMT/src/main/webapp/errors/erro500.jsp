@@ -27,14 +27,14 @@
         <jsp:include page="../header.jsp"/>
         <c:if test="${not empty usuario}">
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Discente'}">
-                <jsp:include page="/discente/alunoMenu.jsp"/>
+                <jsp:include page="/discente/menu.jsp"/>
             </c:if>
             <c:if test="${usuario['class'].name eq 'com.br.OMT.models.Usuario'}">
                 <c:if test="${entidade.tipo eq 'R'.charAt(0)}">
-                    <jsp:include page="/reitoria/reitoriaMenu.jsp"/>
+                    <jsp:include page="/reitoria/menu.jsp"/>
                 </c:if>
                 <c:if test="${entidade.tipo eq 'C'.charAt(0)}">
-                    <jsp:include page="/campus/campusMenu.jsp"/>
+                    <jsp:include page="/campus/menu.jsp"/>
                 </c:if>
             </c:if>
         </c:if>

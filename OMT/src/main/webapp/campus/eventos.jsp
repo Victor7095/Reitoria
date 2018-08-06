@@ -22,7 +22,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="../campus/campusMenu.jsp" />
+        <jsp:include page="../campus/menu.jsp" />
         <div class="container">
             <div class="card px-4 py-4">
                 <h1 class="font-weight-bold mb-4">Eventos</h1>

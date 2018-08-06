@@ -22,7 +22,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="campusMenu.jsp" />
+        <jsp:include page="menu.jsp" />
         <div class="container">
             <div class="card px-4 py-4">
                 <h1 class="font-weight-bold mb-4">Cursos Especializantes</h1>

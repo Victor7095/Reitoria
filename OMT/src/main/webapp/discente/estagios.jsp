@@ -19,7 +19,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/alunoMenu.jsp"/>
+        <jsp:include page="../discente/menu.jsp"/>
         <div class="container">
             
         </div>

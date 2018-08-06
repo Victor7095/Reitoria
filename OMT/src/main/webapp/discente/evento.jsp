@@ -25,7 +25,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"></jsp:include>
-        <jsp:include page="alunoMenu.jsp"></jsp:include>
+        <jsp:include page="menu.jsp"></jsp:include>
         <c:if test="${not empty usuario}">
             <div class="container">
                 <div class="card px-4 py-4">

@@ -18,7 +18,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="reitoriaMenu.jsp" /> 
+        <jsp:include page="menu.jsp" /> 
         <div class="container">
             <div class="card">
                 <div class="card-content" id="recentBlock1">

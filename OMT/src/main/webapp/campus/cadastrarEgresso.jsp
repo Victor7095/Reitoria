@@ -21,7 +21,7 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="campusMenu.jsp" />
+        <jsp:include page="menu.jsp" />
         <jsp:include page="../cadastro/egresso.jsp" />
         <jsp:include page="../footer.jsp" />
     </body>

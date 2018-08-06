@@ -4,8 +4,7 @@
     Author     : Natan S. dos Santos
 --%>
 
-<%@page pageEncoding="ISO-8859-1"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page pageEncoding="ISO-8859-1" language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,25 +19,20 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="campusMenu.jsp"/> 
+        <jsp:include page="menu.jsp"/> 
         <div class="container" >
             <div class="card px-4 py-4">
-                <div class="card-content" id="recentBlock1">
-                    <input type="image" src="" name="recent1">
-                    <label id="recentText1"/>
-                </div>   
-                <div class="card-content" id="recentBlock2">
-                    <input type="image" src="" name="recent2">
-                    <label id="recentText2"/>
-                </div>    
-                <div class="card-content" id="recentBlock3">
-                    <input type="image" src="" name="recent3">
-                    <label id="recentText3"/>
-                </div>    
-                <div class="card-content" id="recentBlock4">
-                    <input type="image" src="" name="recent3">
-                    <label id="recentText2"/>
-                </div>    
+                <div class="row">
+                    <div class="col-sm-12 col-xl-4">
+                        <canvas id="graficoGenero1"></canvas>
+                    </div>      
+                    <div class="col-sm-12 col-xl-4">
+                        <canvas id="graficoGenero2"></canvas>
+                    </div>      
+                    <div class="col-sm-12 col-xl-4">
+                        <canvas id="graficoGenero3"></canvas>
+                    </div>       
+                </div>       
             </div>
         </div>
         <jsp:include page="../footer.jsp"/>
@@ -46,6 +40,7 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/graficos/graficoGenero.js" charset="UTF-8"></script>
     </body>
 </html>
 
