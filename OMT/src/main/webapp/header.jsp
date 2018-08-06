@@ -1,20 +1,28 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark green darken-3">
+        <!--Botão home-->
+        <a class="navbar-brand" href="/OMT/home.jsp">IFAM - SiCE</a>
 
-<nav id="cabecalhoHome" class="not-printable">
-    <div class="nav-wrapper">
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down white-text">
-            <li><a href="http://localhost:8084/OMT/home.jsp">OMT</a></li>
-        </ul>
-        <ul class="right hide-on-med-and-down white-text">
-            <li><a href="">Suporte</a></li>
-            <li><a href="">Acessibilidade</a></li>
-            <li><a href="http://www2.ifam.edu.br">Site do IFAM</a></li>
-        </ul>
-    </div>
-</nav>
-
-<ul class="sidenav not-printable" id="mobile-demo">
-    <li><a href="">Suporte</a></li>
-    <li><a href="">Acessibilidade</a></li>
-    <li><a href="http://www2.ifam.edu.br">Site do IFAM</a></li>        
-</ul>
+        <!--Botão Menu tela pequena-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".barraPrincipal" aria-controls="barraPrincipal"
+                aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Conteúdo ajustável-->
+        <div class="collapse navbar-collapse barraPrincipal">
+            <!--Links-->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="" class="nav-link"><i class="fa fa-question-circle fa-lg mr-1"></i>Suporte</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link"><i class="fa fa-universal-access fa-lg mr-1"></i>Acessibilidade</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://www2.ifam.edu.br" class="nav-link">
+                        <img class="mr-1" height="25" width="20" src="/OMT/img/logoIF.png"/>Site do IFAM</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

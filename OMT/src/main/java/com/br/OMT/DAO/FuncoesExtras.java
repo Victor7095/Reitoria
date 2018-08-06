@@ -7,7 +7,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateFactory;
 import com.br.OMT.Hibernate.HibernateUtil;
-import com.br.OMT.models.Eventos;
+import com.br.OMT.models.Evento;
 import com.br.OMT.models.Trabalho;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +19,7 @@ import org.hibernate.Session;
  */
 public class FuncoesExtras {
 
-    private HibernateUtil<Eventos> hue;
+    private HibernateUtil<Evento> hue;
     private Session s;
 
     public FuncoesExtras() {
@@ -29,7 +29,7 @@ public class FuncoesExtras {
     }
 
     public ArrayList<Object> listNoticias() {
-        ArrayList<Eventos> ale = (ArrayList<Eventos>) new EventoDAO().listEventos();
+        ArrayList<Evento> ale = (ArrayList<Evento>) new EventoDAO().listEventos();
         ArrayList<Trabalho> alt = (ArrayList<Trabalho>) new TrabalhoDAO().listTrabalho();
 
         ArrayList<Object> alo = new ArrayList<>();
@@ -40,14 +40,14 @@ public class FuncoesExtras {
         Object aux = null;
         for (int i = 0; i < alo.size() - 1; i++) {
             for (int y = i + 1; y < alo.size(); y++) {
-                if(alo.get(i) instanceof Eventos){
-                    data1 = ((Eventos) alo.get(i)).getDataInicioIncricao();
+                if(alo.get(i) instanceof Evento){
+                    data1 = ((Evento) alo.get(i)).getDataInicioInscricao();
                 }else{
                     data1 = ((Trabalho) alo.get(i)).getTempoInicio();
                 }
                 
-                if(alo.get(y) instanceof Eventos){
-                    data2 = ((Eventos) alo.get(y)).getDataInicioIncricao();
+                if(alo.get(y) instanceof Evento){
+                    data2 = ((Evento) alo.get(y)).getDataInicioInscricao();
                 }else{
                     data2 = ((Trabalho) alo.get(y)).getTempoInicio();
                 }

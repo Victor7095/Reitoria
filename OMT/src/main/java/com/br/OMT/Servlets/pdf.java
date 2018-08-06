@@ -6,7 +6,7 @@
 package com.br.OMT.Servlets;
 
 import com.br.OMT.DAO.EventoDAO;
-import com.br.OMT.models.Eventos;
+import com.br.OMT.models.Evento;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -79,7 +79,7 @@ public class pdf extends HttpServlet {
         try {
             Map<String, Object> parametros = new HashMap();
             parametros.put("descricao", "123");
-            List<Eventos> dataSource = new EventoDAO().listEventos();
+            List<Evento> dataSource = new EventoDAO().listEventos();
 
             JasperReport report = JasperCompileManager.compileReport(jrxml);
 

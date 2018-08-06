@@ -1,27 +1,40 @@
-<nav class="row not-printable" id="nav-bar">
-    <div class="col s12">
-        <div id="flex-line">
+<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario mb-4 py-0">
+    <div class="collapse navbar-collapse barraPrincipal py-2">
+        <ul class="navbar-nav">
             <!--Pagina Inicial-->
-            <a href="../discente/pagina_inicial.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/home-1.png" title="Página Inicial">Página inicial</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../discente/index.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/home-1.png" title="Página Inicial">Página inicial</a>
+            </li>
             <!--Pefil do Usuário-->
-            <a href="../discente/alterar_perfil.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/edit.png" title="Editar informações">Editar informações</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../discente/alterarPerfil.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/edit.png" title="Editar informações">Editar informações</a>
+            </li>
             <!--Caixa de Mensagens-->
-            <a href="../errors/manutencao.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../errors/manutencao.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens</a>
+            </li>
             <!--Oportunidade de Estágios-->
-            <a href="../errors/manutencao.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../errors/manutencao.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos</a>
+            </li>
             <!--Cursos Extra-curriculares-->
-            <a href="../errors/manutencao.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/notepad-2.png" title="Cursos Extras">Cursos extras</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../errors/manutencao.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/notepad-2.png" title="Cursos Extras">Cursos extras</a>
+            </li>
             <!--Currículo do Aluno-->
-            <a href="../discente/curriculo.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/diploma.png" title="Seu Currículo">Seu currículo</div></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../discente/curriculo.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/diploma.png" title="Seu Currículo">Seu currículo</a>
+            </li>
             <!--Voltar para Página de Login-->
-            <a href="../home.jsp">
-                <div class="valign-wrapper"><img id="icone" src="../img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão</div></a>
-        </div>
-    </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/LoginServlet">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão</a>
+            </li>
+        </ul>
 </nav>

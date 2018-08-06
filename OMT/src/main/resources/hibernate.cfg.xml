@@ -55,11 +55,12 @@ Contributor(s):
     <mapping class="com.br.OMT.models.Trabalho"/>
     <mapping class="com.br.OMT.models.Projetos"/>
     <mapping class="com.br.OMT.models.Formacao"/>
-    <mapping class="com.br.OMT.models.Eventos"/>
+    <mapping class="com.br.OMT.models.Evento"/>
     <mapping class="com.br.OMT.models.Entidade"/>
     <mapping class="com.br.OMT.models.DiscenteEstagio"/>
     <mapping class="com.br.OMT.models.Discente"/>
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
+    <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>
     <mapping class="com.br.OMT.models.FotosEventos"/>
   </session-factory>
 </hibernate-configuration>

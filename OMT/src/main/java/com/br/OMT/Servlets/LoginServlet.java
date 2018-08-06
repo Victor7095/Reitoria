@@ -25,7 +25,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.getSession().setAttribute("usuario", null);
+        request.getSession().setAttribute("entidade", null);
+        response.sendRedirect("/OMT/home.jsp");
     }
 
     @Override
@@ -52,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                         d = ddao.buscarById(resposta);
                         if (d != null) {
                             request.getSession().setAttribute("usuario", d);
-                            response.sendRedirect("/OMT/discente/pagina_inicial.jsp");
+                            response.sendRedirect("/OMT/discente/index.jsp");
                         } else {
                             response.getWriter().println("ERRO");//erro
                         }
@@ -80,16 +82,18 @@ public class LoginServlet extends HttpServlet {
                         if (u != null) {
                             Entidade e;
                             e = u.getEntidade();
-                            response.getWriter().println("Entidade: " + e);//
+                            response.getWriter().println("Entidade: " + e+" "+entidade+" "+e.getTipo());//
                             if (e != null) {
                                 if (entidade.equals("campus") && e.getTipo() == 'C') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/campus/pagina_inicial.jsp");
+                                    response.getWriter().println("132");
+                                    response.sendRedirect("/OMT/campus/index.jsp");
                                 } else if (entidade.equals("reitoria") && e.getTipo() == 'R') {
                                     request.getSession().setAttribute("usuario", u);
                                     request.getSession().setAttribute("entidade", e);
-                                    response.sendRedirect("/OMT/reitoria/pagina_inicial.jsp");
+                                    response.getWriter().println("456");
+                                    response.sendRedirect("/OMT/reitoria/index.jsp");
                                 }
                             }
                         } else {

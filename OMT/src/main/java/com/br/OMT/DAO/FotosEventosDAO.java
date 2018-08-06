@@ -76,4 +76,25 @@ public class FotosEventosDAO {
             s.close();
         }
     }
+    
+    public List<FotosEventos> getSingleFotosEventos(Long id) {
+        System.out.println(id);
+        List<FotosEventos> fe = null;
+        try {
+            s = HibernateFactory.getSessionFactory().openSession();
+            s.beginTransaction();
+            Query query = s.createQuery("select fe.id from FotosEventos fe where fe.evento.id =:id");
+            query.setParameter("id", id);
+            query.setMaxResults(1);
+            fe = query.getResultList();
+            System.out.println("789456132");
+            s.getTransaction().commit();
+            return fe;
+        } catch (HibernateException ex) {
+            s.getTransaction().rollback();
+            return null;
+        } finally {
+            s.close();
+        }
+    }
 }

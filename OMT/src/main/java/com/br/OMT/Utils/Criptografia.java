@@ -16,7 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class Criptografia {
     private final static String IV = "AAAAAAAAAAAAAAAA";
     private final static String chaveencriptacao = "0123456789abcdef";
-    public byte[] encrypt(String textopuro) throws Exception {
+    public static byte[] encrypt(String textopuro) throws Exception {
         Cipher encripta = Cipher.getInstance("AES/CBC/PKCS5Padding", "SunJCE");
         SecretKeySpec key = new SecretKeySpec(chaveencriptacao.getBytes("UTF-8"), "AES");
         encripta.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(IV.getBytes("UTF-8")));

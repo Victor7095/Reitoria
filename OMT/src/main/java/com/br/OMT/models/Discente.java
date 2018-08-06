@@ -78,7 +78,7 @@ public class Discente extends Usuario implements Serializable {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
+    
     public List<Projetos> getProjetos() {
         return projetos;
     }

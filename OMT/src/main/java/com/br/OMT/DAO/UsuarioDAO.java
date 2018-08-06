@@ -43,9 +43,8 @@ public class UsuarioDAO {
             query.setParameter("id", id);
             u = (Usuario) query.getSingleResult();
             s.getTransaction().commit();
-            Criptografia c = new Criptografia();
-            u.setNome(c.decrypt(u.getNomeBanco()));
-            u.setUsuario(c.decrypt(u.getUsuarioBanco()));
+            u.setNome(Criptografia.decrypt(u.getNomeBanco()));
+            u.setUsuario(Criptografia.decrypt(u.getUsuarioBanco()));
             return u;
         } catch (HibernateException ex) {
             s.getTransaction().rollback();
@@ -58,15 +57,15 @@ public class UsuarioDAO {
     public Long login(String usuario, String senha) {
         Usuario u = null;
         try {
-            Criptografia c = new Criptografia();
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             System.out.println("heloooooooooooo");
             Query query = s.createQuery("from Usuario u where u.usuarioBanco =:usuario");
-            query.setParameter("usuario", c.encrypt(usuario));
+            query.setParameter("usuario", Criptografia.encrypt(usuario));
             u = (Usuario) query.getSingleResult();
-            u.setSenha(c.decrypt(u.getSenhaBanco()));
+            u.setSenha(Criptografia.decrypt(u.getSenhaBanco()));
             s.getTransaction().commit();
+            System.out.println(Criptografia.decrypt(u.getNomeBanco()));
             System.out.println(u.getSenha());
             if (u.getSenha().equals(senha)) {
                 return u.getId();

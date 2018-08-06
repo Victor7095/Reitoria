@@ -1,42 +1,48 @@
-<nav class="row not-printable" id="nav-bar">
-    <div class="col s12">
-        <div id="flex-line">
+<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario mb-4 py-0">
+    <div class="collapse navbar-collapse barraPrincipal py-2">
+        <ul class="navbar-nav">
             <!--Pagina Inicial-->
-            <a href="pagina_inicial.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/Icons/icones/png/home-1.png" title="Página Inicial">Página Inicial
-                </div>
-            </a>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/campus/index.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/home-1.png" title="Página Inicial">Página Inicial
+                </a>
+            </li>
             <!--Pefil do Usuário-->
-            <a href="../errors/manutencao.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens
-                </div>
-            </a>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/errors/manutencao.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/folder-14.png" title="Caixa de Mensagens">Caixa de Mensagens
+                </a>
+            </li>
             <!--Oportunidade de Estágios-->
-            <a href="../errors/manutencao.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos
-                </div>
-            </a>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/errors/manutencao.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/briefcase.png" title="Estágios/Trabalhos">Estágios/Trabalhos
+                </a>
+            </li>
             <!--Cursos Extra-curriculares-->
-            <a href="../cadastro/evento.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/Icons/icones/png/notepad-2.png" title="Cursos Extras">Cursos Extras
-                </div>
-            </a>
-            <!--Pesquisar egressos-->
-            <a href="manter_egresso.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/student.png" alt="Egressos" title="Egressos">Egressos
-                </div>
-            </a>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/campus/eventos.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/notepad-2.png" title="Cursos Extras">Cursos Extras
+                </a>
+            </li>
+            <!--Manter eventos-->
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/campus/eventos.jsp">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/newspaper.png" title="Manter Eventos">Eventos
+                </a>
+            </li>
+            <!--Manter egressos-->
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/campus/manterEgresso.jsp">
+                    <img id="icone" src="/OMT/img/student.png" alt="Egressos" title="Egressos">Egressos
+                </a>
+            </li>
             <!--Voltar para Página de Login-->
-            <a href="../home.jsp">
-                <div class="valign-wrapper">
-                    <img id="icone" src="../img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão
-                </div>
-            </a>
-        </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/OMT/LoginServlet">
+                    <img id="icone" src="/OMT/img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
