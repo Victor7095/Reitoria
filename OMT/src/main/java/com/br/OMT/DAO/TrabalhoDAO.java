@@ -25,7 +25,6 @@ public class TrabalhoDAO {
     public TrabalhoDAO() {
         HibernateFactory.initSessionFactory();
         hut = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(Trabalho t) {

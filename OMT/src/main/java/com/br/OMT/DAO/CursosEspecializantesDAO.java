@@ -25,7 +25,6 @@ public class CursosEspecializantesDAO {
     public CursosEspecializantesDAO() {
         HibernateFactory.initSessionFactory();
         huce = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(CursosEspecializantes ce) {

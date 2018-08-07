@@ -75,7 +75,7 @@ public class EncherBanco extends HttpServlet {
             d.setRGbanco(Criptografia.encrypt(d.getRG()));
             d.setSenha("456");
             d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-            d.setFoto(IOUtils.toByteArray(stream));
+            //d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
 
             e = Entidade.getInstance();

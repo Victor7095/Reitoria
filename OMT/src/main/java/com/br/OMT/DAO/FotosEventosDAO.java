@@ -26,7 +26,6 @@ public class FotosEventosDAO {
     public FotosEventosDAO() {
         HibernateFactory.initSessionFactory();
         hue = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(FotosEventos e) {

@@ -25,7 +25,6 @@ public class ProjetosDAO {
     public ProjetosDAO() {
         HibernateFactory.initSessionFactory();
         hup = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(Projetos p) {

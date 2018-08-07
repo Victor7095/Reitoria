@@ -23,13 +23,13 @@
         <div class="container" >
             <div class="card px-4 py-4">
                 <div class="row">
-                    <div class="col-sm-12 col-xl-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
                         <canvas id="graficoGenero1"></canvas>
                     </div>      
-                    <div class="col-sm-12 col-xl-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
                         <canvas id="graficoGenero2"></canvas>
                     </div>      
-                    <div class="col-sm-12 col-xl-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
                         <canvas id="graficoGenero3"></canvas>
                     </div>       
                 </div>       

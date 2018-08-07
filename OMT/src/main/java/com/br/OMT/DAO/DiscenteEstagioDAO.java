@@ -7,6 +7,7 @@ package com.br.OMT.DAO;
 
 import com.br.OMT.Hibernate.HibernateUtil;
 import com.br.OMT.models.DiscenteEstagio;
+import org.hibernate.Session;
 
 /**
  *
@@ -15,6 +16,7 @@ import com.br.OMT.models.DiscenteEstagio;
 public class DiscenteEstagioDAO {
 
     HibernateUtil<DiscenteEstagio> hude;
+    private Session s;
 
     public DiscenteEstagioDAO() {
         hude = new HibernateUtil<>();

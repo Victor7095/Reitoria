@@ -25,7 +25,6 @@ public class EventoDAO {
     public EventoDAO() {
         HibernateFactory.initSessionFactory();
         hue = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(Evento evento) {

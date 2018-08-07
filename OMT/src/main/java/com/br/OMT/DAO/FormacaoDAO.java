@@ -25,7 +25,6 @@ public class FormacaoDAO {
     public FormacaoDAO() {
         HibernateFactory.initSessionFactory();
         huf = new HibernateUtil<>();
-        s = HibernateFactory.getSessionFactory().openSession();
     }
 
     public String salvar(Formacao f) {
@@ -41,7 +40,6 @@ public class FormacaoDAO {
     }
     
     public List<Formacao> listarPorID(Long id){
-        
         List<Formacao> le = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
