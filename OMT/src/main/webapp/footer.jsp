@@ -21,42 +21,16 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Very long link 1</a>
+                        <a href="#!">Portal do IFAM</a>
                     </li>
                     <li>
-                        <a href="#!">Very long link 2</a>
+                        <a href="#!">Q-acadêmico</a>
                     </li>
                     <li>
-                        <a href="#!">Very long link 3</a>
+                        <a href="#!">Facebook</a>
                     </li>
                     <li>
-                        <a href="#!">Very long link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
+                        <a href="#!">Sobre</a>
                     </li>
                 </ul>
 
@@ -73,16 +47,16 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a href="#!">Portal do IFAM</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
+                        <a href="#!">Q-acadêmico</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
+                        <a href="#!">Facebook</a>
                     </li>
                     <li>
-                        <a href="#!">Link 4</a>
+                        <a href="#!">Processo Seletivo</a>
                     </li>
                 </ul>
 
@@ -99,16 +73,42 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a href="#!">Portal do IFAM</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
+                        <a href="#!">Q-acadêmico</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
+                        <a href="#!">Facebook</a>
                     </li>
                     <li>
-                        <a href="#!">Link 4</a>
+                        <a href="#!">Contate-nos</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Portal do IFAM</a>
+                    </li>
+                    <li>
+                        <a href="#!">Q-acadêmico</a>
+                    </li>
+                    <li>
+                        <a href="#!">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#!">Ajuda</a>
                     </li>
                 </ul>
 

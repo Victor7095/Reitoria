@@ -70,11 +70,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Sexo</th>
-                                    <td>Masculino</td>
+                                    <td><c:out value="${usuario.sexo}"/></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Etnia</th>
-                                    <td>Branca</td>
+                                    <td><c:out value="${usuario.etnia}"/></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Filiação</th>
@@ -82,7 +82,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Estado Civil</th>
-                                    <td>Casado</td>
+                                    <td><c:out value="${usuario.estadoCivil}"/></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Idade</th>
@@ -255,7 +255,7 @@
                     <hr>
 
                     <div class="text-right">
-                        <button id="btnBaixarCurriculo" class="btn btn-md btn-cyan"><i class="fa fa-download mr-1"></i>Baixar</button>
+                        <!--button id="btnBaixarCurriculo" class="btn btn-md btn-cyan"><i class="fa fa-download mr-1"></i>Baixar</button-->
                         <button id="btnImprimirCurriculo" class="btn btn-md btn-mdb-color"><i class="fa fa-print mr-1"></i>Imprimir</button>
                     </div>
                 </div>

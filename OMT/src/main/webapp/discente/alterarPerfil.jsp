@@ -80,6 +80,37 @@
                                 <input class="form-control RG" type="text" id="rg" name="rg" maxlength="8" value="<c:out value="${usuario.RG}"/>">
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <label for="sexo">Sexo</label>
+                                <select class="form-control" name="sexo" id="sexo" required>
+                                    <option value="M" selected>Masculino</option>
+                                    <option value="F">Feminino</option>
+                                    <option value="O">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <label for="estadoCivil">Estado Civil</label>
+                                <select class="form-control" name="estadoCivil" id="estadoCivil" required>
+                                    <option value="S" selected>Solteiro</option>
+                                    <option value="C">Casado</option>
+                                    <option value="D">Divorciado</option>
+                                    <option value="V">Viúvo</option>
+                                    <option value="Sep">Separado</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <label for="etnia">Etnia</label>
+                                <select class="form-control" name="etnia" id="etnia" required>
+                                    <option value="B" selected>Branca</option>
+                                    <option value="N">Negra</option>
+                                    <option value="A">Amarela</option>
+                                    <option value="P">Parda</option>
+                                    <option value="I">Indígena</option>
+                                    <option value="Nao">Não declarado</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-4">
                         <div class="text-right">

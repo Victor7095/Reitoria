@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark green darken-3">
         <!--Botão home-->
-        <a class="navbar-brand" href="/OMT/home.jsp">IFAM - SiCE</a>
+        <a class="navbar-brand" href="/OMT/home.jsp">IFAM - Sistema de Egressos</a>
 
         <!--Botão Menu tela pequena-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".barraPrincipal" aria-controls="barraPrincipal"
