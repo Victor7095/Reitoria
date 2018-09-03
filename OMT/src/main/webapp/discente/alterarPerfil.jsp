@@ -82,6 +82,20 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-lg-4">
+                                <label for="email">E-mail</label>
+                                <input class="form-control" readonly="true" type="text" name="email" id="email" maxlength="14" value="<c:out value="${usuario.email}"/>">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <label for="linkCurriculoLattes">Link Currículo Lattes</label>
+                                <input class="form-control" type="text" name="linkCurriculoLattes" id="linkCurriculoLattes" maxlength="80" value="<c:out value="${usuario.linkCurriculoLattes}"/>">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4">
+                                <label for="linkPerfilLinkedIn">Link Perfil LinkedIn</label>
+                                <input class="form-control" type="text" id="linkPerfilLinkedIn" name="linkPerfilLinkedIn" maxlength="80" value="<c:out value="${usuario.linkPerfilLinkedIn}"/>">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-lg-4">
                                 <label for="sexo">Sexo</label>
                                 <select class="form-control" name="sexo" id="sexo" required>
                                     <option value="M" selected>Masculino</option>

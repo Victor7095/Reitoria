@@ -30,6 +30,21 @@ public class Discente extends Usuario implements Serializable {
     @Transient
     private String CPF;
     
+    @Column(length = 40)
+    private String email;
+    
+    @Column(length = 80)
+    private String linkCurriculoLattes;
+    
+    @Column(length = 80)
+    private String linkPerfilLinkedIn;
+    
+    @Column(length = 80)
+    private String nomeMae;
+    
+    @Column(length = 80)
+    private String nomePai;
+    
     @Enumerated(EnumType.STRING)
     @Column(length = 9)
     private Sexo sexo;
@@ -41,6 +56,7 @@ public class Discente extends Usuario implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(length = 13)
     private Etnia etnia;
+    
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
     private byte[] foto;
@@ -153,6 +169,46 @@ public class Discente extends Usuario implements Serializable {
 
     public void setEtnia(String etnia) {
         this.etnia = Etnia.valueOf(etnia);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLinkCurriculoLattes() {
+        return linkCurriculoLattes;
+    }
+
+    public void setLinkCurriculoLattes(String linkCurriculoLattes) {
+        this.linkCurriculoLattes = linkCurriculoLattes;
+    }
+
+    public String getLinkPerfilLinkedIn() {
+        return linkPerfilLinkedIn;
+    }
+
+    public void setLinkPerfilLinkedIn(String linkPerfilLinkedIn) {
+        this.linkPerfilLinkedIn = linkPerfilLinkedIn;
+    }
+
+    public String getNomeMae() {
+        return nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
+    }
+
+    public String getNomePai() {
+        return nomePai;
+    }
+
+    public void setNomePai(String nomePai) {
+        this.nomePai = nomePai;
     }
 
 }

@@ -78,6 +78,9 @@ public class EncherBanco extends HttpServlet {
             d.setSexo("MASCULINO");
             d.setEtnia("BRANCA");
             d.setEstadoCivil("SOLTEIRO");
+            d.setEmail("exemplo123@gmail.com");
+            d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+            d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
             //d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
 

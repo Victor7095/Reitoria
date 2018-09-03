@@ -65,9 +65,9 @@ public class DiscenteServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
-        String usuario = "", rg = "", cpf = "", nome = "", sexo="", estadoCivil="", etnia="", acao = "";
+        String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "", etnia = "", acao = "";
         byte[] foto = null;
-        
+
         acao = request.getParameter("acao");
         rg = request.getParameter("rg");
         cpf = request.getParameter("cpf");
@@ -82,7 +82,7 @@ public class DiscenteServlet extends HttpServlet {
         } else {
             foto = null;
         }
-        
+
         if (acao.equals("cadastrar")) {
             d.setCPF(cpf);
             d.setFoto(foto);
@@ -126,7 +126,7 @@ public class DiscenteServlet extends HttpServlet {
             d.setFoto(foto);
             d.setRG(rg);
             d.setNome(nome);
-            switch(sexo){
+            switch (sexo) {
                 case "M":
                     d.setSexo("MASCULINO");
                     break;
@@ -137,9 +137,9 @@ public class DiscenteServlet extends HttpServlet {
                     d.setSexo("OUTRO");
                     break;
             }
-            switch(estadoCivil){
+            switch (estadoCivil) {
                 case "S":
-                        d.setEstadoCivil("SOLTEIRO");
+                    d.setEstadoCivil("SOLTEIRO");
                     break;
                 case "C":
                     d.setEstadoCivil("CASADO");
@@ -154,7 +154,7 @@ public class DiscenteServlet extends HttpServlet {
                     d.setEstadoCivil("SEPARADO");
                     break;
             }
-            switch(etnia){
+            switch (etnia) {
                 case "B":
                     d.setEtnia("BRANCA");
                     break;
