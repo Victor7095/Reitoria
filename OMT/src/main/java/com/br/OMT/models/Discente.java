@@ -29,6 +29,18 @@ public class Discente extends Usuario implements Serializable {
     private byte[] CPFbanco;
     @Transient
     private String CPF;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(length = 9)
+    private Sexo sexo;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10)
+    private EstadoCivil estadoCivil;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(length = 13)
+    private Etnia etnia;
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
     private byte[] foto;
@@ -117,6 +129,30 @@ public class Discente extends Usuario implements Serializable {
 
     public void setCPFbanco(byte[] CPFbanco) {
         this.CPFbanco = CPFbanco;
+    }
+
+    public String getSexo() {
+        return sexo.toString();
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = Sexo.valueOf(sexo);
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil.toString();
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = EstadoCivil.valueOf(estadoCivil);
+    }
+
+    public String getEtnia() {
+        return etnia.toString();
+    }
+
+    public void setEtnia(String etnia) {
+        this.etnia = Etnia.valueOf(etnia);
     }
 
 }

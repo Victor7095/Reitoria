@@ -65,13 +65,16 @@ public class DiscenteServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
-        String usuario = "", rg = "", cpf = "", nome = "", acao = "";
+        String usuario = "", rg = "", cpf = "", nome = "", sexo="", estadoCivil="", etnia="", acao = "";
         byte[] foto = null;
         
         acao = request.getParameter("acao");
         rg = request.getParameter("rg");
         cpf = request.getParameter("cpf");
         nome = request.getParameter("nome");
+        sexo = request.getParameter("sexo");
+        estadoCivil = request.getParameter("estadoCivil");
+        etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
         System.out.println(request.getParameter("acao"));
         if (request.getParameter("fotoCortada").length() > 0) {
@@ -123,6 +126,54 @@ public class DiscenteServlet extends HttpServlet {
             d.setFoto(foto);
             d.setRG(rg);
             d.setNome(nome);
+            switch(sexo){
+                case "M":
+                    d.setSexo("MASCULINO");
+                    break;
+                case "F":
+                    d.setSexo("FEMININO");
+                    break;
+                case "O":
+                    d.setSexo("OUTRO");
+                    break;
+            }
+            switch(estadoCivil){
+                case "S":
+                        d.setEstadoCivil("SOLTEIRO");
+                    break;
+                case "C":
+                    d.setEstadoCivil("CASADO");
+                    break;
+                case "D":
+                    d.setEstadoCivil("DIVORCIADO");
+                    break;
+                case "V":
+                    d.setEstadoCivil("VIUVO");
+                    break;
+                case "Sep":
+                    d.setEstadoCivil("SEPARADO");
+                    break;
+            }
+            switch(etnia){
+                case "B":
+                    d.setEtnia("BRANCA");
+                    break;
+                case "N":
+                    d.setEtnia("NEGRA");
+                    break;
+                case "A":
+                    d.setEtnia("AMARELA");
+                    break;
+                case "P":
+                    d.setEtnia("PARDA");
+                    break;
+                case "I":
+                    d.setEtnia("INDIGENA");
+                    break;
+                case "Nao":
+                    d.setEtnia("NAO_DECLARADO");
+                    break;
+            }
             try {
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                 d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
