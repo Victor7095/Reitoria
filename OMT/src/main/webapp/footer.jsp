@@ -21,13 +21,13 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Portal do IFAM</a>
+                        <a href="http://www2.ifam.edu.br/">Portal do IFAM</a>
                     </li>
                     <li>
-                        <a href="#!">Q-acadêmico</a>
+                        <a href="http://academico.ifam.edu.br/">Q-acadêmico</a>
                     </li>
                     <li>
-                        <a href="#!">Facebook</a>
+                        <a href="https://pt-br.facebook.com/ifamoficial/">Facebook</a>
                     </li>
                     <li>
                         <a href="#!">Sobre</a>
