@@ -33,10 +33,10 @@ public class Discente extends Usuario implements Serializable {
     @Column(length = 40)
     private String email;
     
-    @Column(length = 80)
+    @Column(length = 128)
     private String linkCurriculoLattes;
     
-    @Column(length = 80)
+    @Column(length = 128)
     private String linkPerfilLinkedIn;
     
     @Column(length = 80)

@@ -28,4 +28,8 @@ public enum EstadoCivil {
     public String toString() {
         return text;
     }
+    
+    public EstadoCivil[] toArray(){
+        return EstadoCivil.values();
+    }
 }

@@ -13,7 +13,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,9 +21,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -65,7 +61,8 @@ public class DiscenteServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
-        String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "", etnia = "", acao = "";
+        String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "",
+                etnia = "", acao = "", email="", linkCurriculoLattes="", linkPerfilLinkedIn="";
         byte[] foto = null;
 
         acao = request.getParameter("acao");
@@ -73,6 +70,9 @@ public class DiscenteServlet extends HttpServlet {
         cpf = request.getParameter("cpf");
         nome = request.getParameter("nome");
         sexo = request.getParameter("sexo");
+        email = request.getParameter("email");
+        linkCurriculoLattes = request.getParameter("linkCurriculoLattes");
+        linkPerfilLinkedIn = request.getParameter("linkPerfilLinkedIn");
         estadoCivil = request.getParameter("estadoCivil");
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
@@ -126,51 +126,54 @@ public class DiscenteServlet extends HttpServlet {
             d.setFoto(foto);
             d.setRG(rg);
             d.setNome(nome);
+            d.setEmail(email);
+            d.setLinkCurriculoLattes(linkCurriculoLattes);
+            d.setLinkPerfilLinkedIn(linkPerfilLinkedIn);
             switch (sexo) {
-                case "M":
+                case "Masculino":
                     d.setSexo("MASCULINO");
                     break;
-                case "F":
+                case "Feminino":
                     d.setSexo("FEMININO");
                     break;
-                case "O":
+                case "Outro":
                     d.setSexo("OUTRO");
                     break;
             }
             switch (estadoCivil) {
-                case "S":
+                case "Solteiro":
                     d.setEstadoCivil("SOLTEIRO");
                     break;
-                case "C":
+                case "Casado":
                     d.setEstadoCivil("CASADO");
                     break;
-                case "D":
+                case "Divorciado":
                     d.setEstadoCivil("DIVORCIADO");
                     break;
-                case "V":
+                case "Viúvo":
                     d.setEstadoCivil("VIUVO");
                     break;
-                case "Sep":
+                case "Separado":
                     d.setEstadoCivil("SEPARADO");
                     break;
             }
             switch (etnia) {
-                case "B":
+                case "Branca":
                     d.setEtnia("BRANCA");
                     break;
-                case "N":
+                case "Negra":
                     d.setEtnia("NEGRA");
                     break;
-                case "A":
+                case "Amarela":
                     d.setEtnia("AMARELA");
                     break;
-                case "P":
+                case "Parda":
                     d.setEtnia("PARDA");
                     break;
-                case "I":
+                case "Indígena":
                     d.setEtnia("INDIGENA");
                     break;
-                case "Nao":
+                case "Não declarado":
                     d.setEtnia("NAO_DECLARADO");
                     break;
             }

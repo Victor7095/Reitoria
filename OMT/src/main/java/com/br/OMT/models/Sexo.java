@@ -28,4 +28,8 @@ public enum Sexo {
     public String toString() {
         return text;
     }
+    
+    public Sexo[] getValues(){
+        return Sexo.values();
+    }
 }

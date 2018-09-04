@@ -28,4 +28,8 @@ public enum Etnia {
     public String toString() {
         return text;
     }
+    
+    public Etnia[] toArray(){
+        return Etnia.values();
+    }
 }

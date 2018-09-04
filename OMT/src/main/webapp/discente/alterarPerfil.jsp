@@ -2,6 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
+<jsp:useBean id="Sexo" class="com.br.OMT.Beans.SexoBean"/>
+<jsp:useBean id="EstadoCivil" class="com.br.OMT.Beans.EstadoCivilBean"/>
+<jsp:useBean id="Etnia" class="com.br.OMT.Beans.EtniaBean"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -80,48 +83,64 @@
                                 <input class="form-control RG" type="text" id="rg" name="rg" maxlength="8" value="<c:out value="${usuario.RG}"/>">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input class="form-control" type="email" name="email" id="email" maxlength="40" value="<c:out value="${usuario.email}"/>">
+                        </div>
                         <div class="form-row">
-                            <div class="form-group col-sm-12 col-lg-4">
-                                <label for="email">E-mail</label>
-                                <input class="form-control" readonly="true" type="text" name="email" id="email" maxlength="14" value="<c:out value="${usuario.email}"/>">
-                            </div>
-                            <div class="form-group col-sm-12 col-lg-4">
+                            <div class="form-group col-sm-12 col-lg-6">
                                 <label for="linkCurriculoLattes">Link Currículo Lattes</label>
-                                <input class="form-control" type="text" name="linkCurriculoLattes" id="linkCurriculoLattes" maxlength="80" value="<c:out value="${usuario.linkCurriculoLattes}"/>">
+                                <input class="form-control" type="url" name="linkCurriculoLattes" id="linkCurriculoLattes" maxlength="128" value="<c:out value="${usuario.linkCurriculoLattes}"/>">
                             </div>
-                            <div class="form-group col-sm-12 col-lg-4">
+                            <div class="form-group col-sm-12 col-lg-6">
                                 <label for="linkPerfilLinkedIn">Link Perfil LinkedIn</label>
-                                <input class="form-control" type="text" id="linkPerfilLinkedIn" name="linkPerfilLinkedIn" maxlength="80" value="<c:out value="${usuario.linkPerfilLinkedIn}"/>">
+                                <input class="form-control" type="url" id="linkPerfilLinkedIn" name="linkPerfilLinkedIn" maxlength="128" value="<c:out value="${usuario.linkPerfilLinkedIn}"/>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-lg-4">
                                 <label for="sexo">Sexo</label>
                                 <select class="form-control" name="sexo" id="sexo" required>
-                                    <option value="M" selected>Masculino</option>
-                                    <option value="F">Feminino</option>
-                                    <option value="O">Outro</option>
+                                    <c:forEach items="${Sexo.values}" var="sexo" varStatus="loop">
+                                        <c:choose>
+                                            <c:when test="${sexo eq usuario.sexo}">
+                                                <option value="${sexo}" selected="true">${sexo}</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="${sexo}">${sexo}</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group col-sm-12 col-lg-4">
                                 <label for="estadoCivil">Estado Civil</label>
                                 <select class="form-control" name="estadoCivil" id="estadoCivil" required>
-                                    <option value="S" selected>Solteiro</option>
-                                    <option value="C">Casado</option>
-                                    <option value="D">Divorciado</option>
-                                    <option value="V">Viúvo</option>
-                                    <option value="Sep">Separado</option>
+                                    <c:forEach items="${EstadoCivil.values}" var="estadoCivil" varStatus="loop">
+                                        <c:choose>
+                                            <c:when test="${estadoCivil eq usuario.estadoCivil}">
+                                                <option value="${estadoCivil}" selected="true">${estadoCivil}</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="${estadoCivil}">${estadoCivil}</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group col-sm-12 col-lg-4">
                                 <label for="etnia">Etnia</label>
                                 <select class="form-control" name="etnia" id="etnia" required>
-                                    <option value="B" selected>Branca</option>
-                                    <option value="N">Negra</option>
-                                    <option value="A">Amarela</option>
-                                    <option value="P">Parda</option>
-                                    <option value="I">Indígena</option>
-                                    <option value="Nao">Não declarado</option>
+                                    <c:forEach items="${Etnia.values}" var="etnia" varStatus="loop">
+                                        <c:choose>
+                                            <c:when test="${etnia eq usuario.etnia}">
+                                                <option value="${etnia}" selected="true">${etnia}</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="${etnia}">${etnia}</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>

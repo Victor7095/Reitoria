@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../fileinput/js/fontawesome-all.min.js"></script>
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
@@ -60,6 +59,10 @@
                                 <h4><c:out value="${usuario.nome}"/></h4>
                                 <h5>Aluno no IFAM</h5>
                                 <h6>Manaus, Amazonas, Brasil</h6>
+                                <a class="d-block" href="${usuario.linkCurriculoLattes}">
+                                    Currículo Lattes</a>
+                                <a class="d-block" href="${usuario.linkPerfilLinkedIn}">
+                                    <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                             </div>
                         </div>
                         <table class="table table-sm">
@@ -105,12 +108,16 @@
                                     <td>Av. Djalma Batista</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Telefone</th>
+                                    <th scope="row">
+                                        <i class="fa fa-phone mr-1"></i>Telefone
+                                    </th>
                                     <td>4002-8922</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Endereço eletrônico</th>
-                                    <td>E-mail para contato : victoryan123@hotmail.com</td>
+                                    <th scope="row">
+                                        <i class="fa fa-at mr-1"></i>Endereço eletrônico
+                                    </th>
+                                    <td>E-mail para contato : ${usuario.email}</td>
                                 </tr>
                             </tbody>
                         </table>
