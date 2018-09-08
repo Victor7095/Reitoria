@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/datatables/datatables.min.css">
     </head>
     <body>
         <jsp:include page="../header.jsp" />
@@ -30,16 +31,18 @@
                     <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                 </div>
                 <c:if test="${eventos.size()>0}">
-                    <table class="table mb-4">
+                    <table class="table table-striped table-bordered table-hover" id="table-eventos">
                         <caption>Lista de eventos</caption>
-                        <thead class="table-dark">
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Local</th>
-                        <th>In. Inscrições</th>
-                        <th>Fim Inscrições</th>
-                        <th>In. Evento</th>
-                        <th>Fim Evento</th>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Local</th>
+                                <th>In. Inscrições</th>
+                                <th>Fim Inscrições</th>
+                                <th>In. Evento</th>
+                                <th>Fim Evento</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <c:forEach items="${eventos}" var="evento">
@@ -54,6 +57,17 @@
                                 </tr>
                             </c:forEach>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Local</th>
+                                <th>In. Inscrições</th>
+                                <th>Fim Inscrições</th>
+                                <th>In. Evento</th>
+                                <th>Fim Evento</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </c:if>
                 <c:if test="${eventos.size()==0}">
@@ -66,5 +80,16 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/datatables/datatables.min.js"></script>
+        <script>
+            $("#table-eventos").DataTable({
+                "language": {
+                    "url": "/OMT/js/datatables/datatables-pt-br.json"
+                },
+                "order": [[0, "asc"]],
+                "pagingType": "full_numbers"
+            });
+            $(".datatables_length").addClass("bs-select");
+        </script>
     </body>
 </html>

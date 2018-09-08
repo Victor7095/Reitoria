@@ -6,6 +6,9 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="Sexo" class="com.br.OMT.Beans.SexoBean"/>
+<jsp:useBean id="EstadoCivil" class="com.br.OMT.Beans.EstadoCivilBean"/>
+<jsp:useBean id="Etnia" class="com.br.OMT.Beans.EtniaBean"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -16,8 +19,6 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
-        <link href="../css/inputFotoPerfil.css" media="all" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="../header.jsp" />
@@ -31,15 +32,6 @@
         <script src="../js/mdb.min.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
-        <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
-            This must be loaded before fileinput.min.js -->
-        <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
-        <!-- the main fileinput plugin file -->
-        <script src="../fileinput/js/fileinput.min.js"></script>
-        <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
-        <script src="../fileinput/themes/fa/theme.min.js"></script>
-        <script src="../fileinput/js/locales/pt-BR.js"></script>
-        <script src="../js/inputFotoPerfil.js"></script>
         <script>
             $('#cadastrar-egresso').submit(function () {
                 $('#cpf').unmask('000.000.000-00');

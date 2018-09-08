@@ -37,4 +37,5 @@
                     <img id="icone" src="/OMT/img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão</a>
             </li>
         </ul>
+    </div>
 </nav>

@@ -84,6 +84,26 @@ public class EncherBanco extends HttpServlet {
             //d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
 
+            for (int i = 0; i < 25; i++) {
+                d.setNome("Aluno Teste " + i);
+                d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                d.setCPF("025465692" + i);
+                d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                d.setUsuario("2016114403" + i);
+                d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                d.setRG("1234567" + i);
+                d.setRGbanco(Criptografia.encrypt(d.getRG()));
+                d.setSenha("4" + i);
+                d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+                d.setSexo("MASCULINO");
+                d.setEtnia("BRANCA");
+                d.setEstadoCivil("SOLTEIRO");
+                d.setEmail("exemplo1" + i + "@gmail.com");
+                d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+                d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+                out.println(dDAO.salvar(d));
+            }
+
             e = Entidade.getInstance();
             e.setBairro("Centro");
             e.setCEP("69097781");
@@ -117,7 +137,7 @@ public class EncherBanco extends HttpServlet {
             ev.setDataInicioEvento(Calendar.getInstance().getTime());
             ev.setDataFinalEvento(Calendar.getInstance().getTime());
             System.out.println(ev.getNome());
-            ev.setURL(Normalizer.normalize(ev.getNome(),Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
+            ev.setURL(Normalizer.normalize(ev.getNome(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
             System.out.println(ev.getURL());
             ev.setLocal("IFAM-CMC");
             ev.setEntidade(e);
@@ -138,7 +158,7 @@ public class EncherBanco extends HttpServlet {
             fe.setEvento(ev);
             fe.setFoto(IOUtils.toByteArray(stream));
             out.println(feDAO.salvar(fe));
-            
+
             ev.setNome("Aulas de Química");
             ev.setDescricao("Aulas oferecidas ao IFAM");
             ev.setDataInicioInscricao(Calendar.getInstance().getTime());
@@ -146,7 +166,7 @@ public class EncherBanco extends HttpServlet {
             ev.setDataInicioEvento(Calendar.getInstance().getTime());
             ev.setDataFinalEvento(Calendar.getInstance().getTime());
             System.out.println(ev.getNome());
-            ev.setURL(Normalizer.normalize(ev.getNome(),Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
+            ev.setURL(Normalizer.normalize(ev.getNome(), Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").replace(" ", "_"));
             System.out.println(ev.getURL());
             ev.setLocal("IFAM-CMC");
             ev.setEntidade(e);

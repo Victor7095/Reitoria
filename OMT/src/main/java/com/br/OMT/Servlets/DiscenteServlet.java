@@ -13,6 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +63,7 @@ public class DiscenteServlet extends HttpServlet {
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
         String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "",
-                etnia = "", acao = "", email="", linkCurriculoLattes="", linkPerfilLinkedIn="";
+                etnia = "", acao = "", email = "", linkCurriculoLattes = "", linkPerfilLinkedIn = "";
         byte[] foto = null;
 
         acao = request.getParameter("acao");
@@ -76,19 +77,20 @@ public class DiscenteServlet extends HttpServlet {
         estadoCivil = request.getParameter("estadoCivil");
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
-        System.out.println(request.getParameter("acao"));
-        if (request.getParameter("fotoCortada").length() > 0) {
-            foto = request.getParameter("fotoCortada").getBytes();
-        } else {
-            foto = null;
+        
+        if (request.getParameter("fotoCortada") != null) {
+            if (request.getParameter("fotoCortada").length() > 0) {
+                foto = request.getParameter("fotoCortada").getBytes();
+            } else {
+                foto = null;
+            }
         }
 
         if (acao.equals("cadastrar")) {
-            d.setCPF(cpf);
-            d.setFoto(foto);
-            d.setRG(rg);
             d.setUsuario(usuario);
-            d.setNome(nome);
+            setDados(d,cpf,foto,rg,nome,email,linkCurriculoLattes,linkPerfilLinkedIn,sexo,estadoCivil,etnia);
+            
+            //Gerando senha aleatória
             Random r = new Random();
             int tam = r.nextInt(4) + 3;
             int senha = r.nextInt(tam * 1000);
@@ -122,61 +124,7 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            d.setCPF(cpf);
-            d.setFoto(foto);
-            d.setRG(rg);
-            d.setNome(nome);
-            d.setEmail(email);
-            d.setLinkCurriculoLattes(linkCurriculoLattes);
-            d.setLinkPerfilLinkedIn(linkPerfilLinkedIn);
-            switch (sexo) {
-                case "Masculino":
-                    d.setSexo("MASCULINO");
-                    break;
-                case "Feminino":
-                    d.setSexo("FEMININO");
-                    break;
-                case "Outro":
-                    d.setSexo("OUTRO");
-                    break;
-            }
-            switch (estadoCivil) {
-                case "Solteiro":
-                    d.setEstadoCivil("SOLTEIRO");
-                    break;
-                case "Casado":
-                    d.setEstadoCivil("CASADO");
-                    break;
-                case "Divorciado":
-                    d.setEstadoCivil("DIVORCIADO");
-                    break;
-                case "Viúvo":
-                    d.setEstadoCivil("VIUVO");
-                    break;
-                case "Separado":
-                    d.setEstadoCivil("SEPARADO");
-                    break;
-            }
-            switch (etnia) {
-                case "Branca":
-                    d.setEtnia("BRANCA");
-                    break;
-                case "Negra":
-                    d.setEtnia("NEGRA");
-                    break;
-                case "Amarela":
-                    d.setEtnia("AMARELA");
-                    break;
-                case "Parda":
-                    d.setEtnia("PARDA");
-                    break;
-                case "Indígena":
-                    d.setEtnia("INDIGENA");
-                    break;
-                case "Não declarado":
-                    d.setEtnia("NAO_DECLARADO");
-                    break;
-            }
+            setDados(d,cpf,foto,rg,nome,email,linkCurriculoLattes,linkPerfilLinkedIn,sexo,estadoCivil,etnia);
             try {
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                 d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
@@ -196,6 +144,68 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+
+    private void setDados(Discente d,
+            String cpf, byte[] foto, String rg,
+            String nome, String email,
+            String linkCurriculoLattes, String linkPerfilLinkedIn,
+            String sexo, String estadoCivil, String etnia) {
+        d.setCPF(cpf);
+        d.setFoto(foto);
+        d.setRG(rg);
+        d.setNome(nome);
+        d.setEmail(email);
+        d.setLinkCurriculoLattes(linkCurriculoLattes);
+        d.setLinkPerfilLinkedIn(linkPerfilLinkedIn);
+        switch (sexo) {
+            case "Masculino":
+                d.setSexo("MASCULINO");
+                break;
+            case "Feminino":
+                d.setSexo("FEMININO");
+                break;
+            case "Outro":
+                d.setSexo("OUTRO");
+                break;
+        }
+        switch (estadoCivil) {
+            case "Solteiro":
+                d.setEstadoCivil("SOLTEIRO");
+                break;
+            case "Casado":
+                d.setEstadoCivil("CASADO");
+                break;
+            case "Divorciado":
+                d.setEstadoCivil("DIVORCIADO");
+                break;
+            case "Viúvo":
+                d.setEstadoCivil("VIUVO");
+                break;
+            case "Separado":
+                d.setEstadoCivil("SEPARADO");
+                break;
+        }
+        switch (etnia) {
+            case "Branca":
+                d.setEtnia("BRANCA");
+                break;
+            case "Negra":
+                d.setEtnia("NEGRA");
+                break;
+            case "Amarela":
+                d.setEtnia("AMARELA");
+                break;
+            case "Parda":
+                d.setEtnia("PARDA");
+                break;
+            case "Indígena":
+                d.setEtnia("INDIGENA");
+                break;
+            case "Não declarado":
+                d.setEtnia("NAO_DECLARADO");
+                break;
         }
     }
 }
