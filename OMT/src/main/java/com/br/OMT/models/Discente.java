@@ -61,14 +61,20 @@ public class Discente extends Usuario implements Serializable {
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
     private byte[] foto;
 
-    @OneToMany(cascade = ALL, mappedBy = "discente")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "discente")
+    private Formacao formacaoEmCampus;
+
+    @OneToOne(mappedBy = "discente")
+    private DiscenteEstagio discenteEstagio;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = ALL, mappedBy = "discente")
     private List<Projetos> projetos;
 
     @OneToMany(cascade = ALL, mappedBy = "discente")
     private List<CursosEspecializantes> cursos;
 
-    @OneToOne(mappedBy = "discente")
-    private DiscenteEstagio discenteEstagio;
+    @OneToMany(cascade = ALL, mappedBy = "discente")
+    private List<Formacao> formacoesExtras;
 
     @Transient
     private static Discente getInstance;
@@ -106,6 +112,14 @@ public class Discente extends Usuario implements Serializable {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
+
+    public Formacao getFormacao() {
+        return formacaoEmCampus;
+    }
+
+    public void setFormacao(Formacao Formacao) {
+        this.formacaoEmCampus = Formacao;
+    }
     
     public List<Projetos> getProjetos() {
         return projetos;
@@ -113,6 +127,14 @@ public class Discente extends Usuario implements Serializable {
 
     public void setProjetos(List<Projetos> projetos) {
         this.projetos = projetos;
+    }
+
+    public List<Formacao> getFormacoesExtras() {
+        return formacoesExtras;
+    }
+
+    public void setFormacoesExtras(List<Formacao> formacoesExtras) {
+        this.formacoesExtras = formacoesExtras;
     }
 
     public List<CursosEspecializantes> getCursos() {

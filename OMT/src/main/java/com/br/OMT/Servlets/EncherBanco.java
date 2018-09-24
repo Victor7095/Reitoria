@@ -8,6 +8,7 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.CampusDAO;
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.DAO.EventoDAO;
+import com.br.OMT.DAO.FormacaoEmCampusDAO;
 import com.br.OMT.DAO.FotosEventosDAO;
 import com.br.OMT.DAO.TrabalhoDAO;
 import com.br.OMT.DAO.UsuarioDAO;
@@ -15,6 +16,7 @@ import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Evento;
+import com.br.OMT.models.FormacaoEmCampus;
 import com.br.OMT.models.FotosEventos;
 import com.br.OMT.models.Trabalho;
 import com.br.OMT.models.Usuario;
@@ -53,6 +55,7 @@ public class EncherBanco extends HttpServlet {
             Evento ev;
             Trabalho t;
             FotosEventos fe;
+            FormacaoEmCampus fec;
 
             InputStream stream;
 
@@ -62,6 +65,7 @@ public class EncherBanco extends HttpServlet {
             EventoDAO evDAO = new EventoDAO();
             TrabalhoDAO tDAO = new TrabalhoDAO();
             FotosEventosDAO feDAO = new FotosEventosDAO();
+            FormacaoEmCampusDAO fecDAO = new FormacaoEmCampusDAO();
 
             stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
             d = Discente.getInstance();
@@ -83,6 +87,13 @@ public class EncherBanco extends HttpServlet {
             d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
             //d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
+            
+            fec = FormacaoEmCampus.getInstance();
+            fec.setNome("Engenharia de Software");
+            fec.setAnoTermino(2018);
+            fec.setEscola("IFAM-CMC");
+            fec.setDiscente(d);
+            out.println(fecDAO.salvar(fec));
 
             for (int i = 0; i < 25; i++) {
                 d.setNome("Aluno Teste " + i);

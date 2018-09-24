@@ -14,7 +14,6 @@
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
-<c:set var="projetos" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -57,7 +56,7 @@
                             </div>
                             <div class="col-auto">
                                 <h4><c:out value="${usuario.nome}"/></h4>
-                                <h5>Aluno no IFAM</h5>
+                                <h5><c:out value="${usuario.formacaoEmCampus.nome}"/></h5>
                                 <h6>Manaus, Amazonas, Brasil</h6>
                                 <a class="d-block" href="${usuario.linkCurriculoLattes}">
                                     Currículo Lattes</a>
@@ -203,11 +202,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${projetos}" var="trabalhoCurriculo">
+                                    <c:forEach items="${usuario.projetos}" var="projeto">
                                         <tr>
-                                            <td><c:out value="${trabalhoCurriculo.nome}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.area}"/></td>
+                                            <td><c:out value="${projeto.nome}"/></td>
+                                            <td><c:out value="${projeto.descricao}"/></td>
+                                            <td><c:out value="${projeto.area}"/></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

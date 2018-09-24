@@ -37,27 +37,26 @@
                     <thead>
                         <tr>
                             <th>Nome<i class="fa fa-sort float-right"></i></th>
-                            <th>RG<i class="fa fa-sort float-right"></i></th>
-                            <th>CPF<i class="fa fa-sort float-right"></i></th>
+                            <th>Matrícula<i class="fa fa-sort float-right"></i></th>
+                            <th>Sexo<i class="fa fa-sort float-right"></i></th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${discentes}" var="discente">
                             <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                            <c:set target="${discente}" property="RG" value="${Criptografia.decrypt(discente.RGbanco)}"/>
-                            <c:set target="${discente}" property="CPF" value="${Criptografia.decrypt(discente.CPFbanco)}"/>
+                            <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
                             <tr>
                                 <td><c:out value="${discente.nome}"/></td>
-                                <td class="RG">${discente.RG}</td>
-                                <td class="CPF">${discente.CPF}</td>                      
+                                <td>${discente.usuario}</td>
+                                <td>${discente.sexo}</td>                  
                             </tr>
                         </c:forEach>
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Nome</th>
-                            <th>RG</th>
-                            <th>CPF</th>
+                            <th>Matrícula</th>
+                            <th>Sexo</th>
                         </tr>
                     </tfoot>
                 </table>
