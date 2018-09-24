@@ -39,6 +39,7 @@
                             <th>Nome<i class="fa fa-sort float-right"></i></th>
                             <th>Matrícula<i class="fa fa-sort float-right"></i></th>
                             <th>Sexo<i class="fa fa-sort float-right"></i></th>
+                            <th>Formação<i class="fa fa-sort float-right"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +49,8 @@
                             <tr>
                                 <td><c:out value="${discente.nome}"/></td>
                                 <td>${discente.usuario}</td>
-                                <td>${discente.sexo}</td>                  
+                                <td>${discente.sexo}</td>                
+                                <td>${discente.formacao.nome}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -57,6 +59,7 @@
                             <th>Nome</th>
                             <th>Matrícula</th>
                             <th>Sexo</th>
+                            <th>Formação</th>
                         </tr>
                     </tfoot>
                 </table>
