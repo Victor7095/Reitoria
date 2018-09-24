@@ -62,5 +62,6 @@ Contributor(s):
     <mapping class="com.br.OMT.models.CursosEspecializantes"/>
     <mapping class="com.br.OMT.models.TrabalhoCurriculo"/>
     <mapping class="com.br.OMT.models.FotosEventos"/>
+    <mapping class="com.br.OMT.models.FormacaoEmCampus"/>
   </session-factory>
 </hibernate-configuration>

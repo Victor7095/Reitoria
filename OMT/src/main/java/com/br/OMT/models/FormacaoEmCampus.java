@@ -13,7 +13,7 @@ import javax.persistence.*;
  * @author vinic
  */
 @Entity
-@Table(name = "formacao")
+@Table(name = "formacaoEmCampus")
 public class FormacaoEmCampus implements Serializable {
 
     @Id
@@ -29,7 +29,7 @@ public class FormacaoEmCampus implements Serializable {
     @Column(name = "anoTermino", nullable = false)
     private int anoTermino;
 
-    @OneToOne(mappedBy="Discente")
+    @OneToOne
     private Discente discente;
 
     @Transient

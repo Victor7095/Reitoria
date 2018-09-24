@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-auto">
                                 <h4><c:out value="${usuario.nome}"/></h4>
-                                <h5><c:out value="${usuario.formacaoEmCampus.nome}"/></h5>
+                                <h5><c:out value="${usuario.formacao.nome}"/></h5>
                                 <h6>Manaus, Amazonas, Brasil</h6>
                                 <a class="d-block" href="${usuario.linkCurriculoLattes}">
                                     Currículo Lattes</a>

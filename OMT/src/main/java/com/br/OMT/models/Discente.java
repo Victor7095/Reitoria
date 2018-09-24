@@ -62,7 +62,7 @@ public class Discente extends Usuario implements Serializable {
     private byte[] foto;
 
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "discente")
-    private Formacao formacaoEmCampus;
+    private FormacaoEmCampus formacaoEmCampus;
 
     @OneToOne(mappedBy = "discente")
     private DiscenteEstagio discenteEstagio;
@@ -113,11 +113,11 @@ public class Discente extends Usuario implements Serializable {
         this.foto = foto;
     }
 
-    public Formacao getFormacao() {
+    public FormacaoEmCampus getFormacao() {
         return formacaoEmCampus;
     }
 
-    public void setFormacao(Formacao Formacao) {
+    public void setFormacao(FormacaoEmCampus Formacao) {
         this.formacaoEmCampus = Formacao;
     }
     
