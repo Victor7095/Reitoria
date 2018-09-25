@@ -77,10 +77,6 @@
                                     <td><c:out value="${discente.etnia}"/></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Filiação</th>
-                                    <td>Lino Eugenio Auzier e Lima e Cyana Lara Pereira</td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Estado Civil</th>
                                     <td><c:out value="${discente.estadoCivil}"/></td>
                                 </tr>
@@ -155,9 +151,9 @@
                                         <tr>
                                             <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
                                             <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.tempoInicio}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.tempoFinal}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.duracao}"/></td>
+                                            <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoInicio}"/></td>
+                                            <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoFinal}"/></td>
+                                            <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -172,7 +168,7 @@
                     <hr class="my-4">
                     <section>
                         <h3 class="font-weight-bold mb-4">Participação em projetos academêmicos</h3>
-                        <c:if test="${projetos.size() > 0}">
+                        <c:if test="${discente.projetos.size() > 0}">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -192,7 +188,7 @@
                                 </tbody>
                             </table>
                         </c:if>
-                        <c:if test="${trabalhosCurriculo.size() == 0}">
+                        <c:if test="${discente.projetos.size() == 0}">
                             <h4 class="grey-text text-center my-4">
                                 Nenhum projeto registrado
                             </h4>

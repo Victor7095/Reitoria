@@ -14,7 +14,6 @@
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
-<c:set var="projs" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -174,9 +173,9 @@
                                         <tr>
                                             <td><c:out value="${trabalhoCurriculo.profissao}"/></td>
                                             <td><c:out value="${trabalhoCurriculo.descricao}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.tempoInicio}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.tempoFinal}"/></td>
-                                            <td><c:out value="${trabalhoCurriculo.duracao}"/></td>
+                                            <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoInicio}"/></td>
+                                            <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${trabalhoCurriculo.tempoFinal}"/></td>
+                                            <td><fmt:formatNumber type="number" maxFractionDigits="2" value="${trabalhoCurriculo.duracao/1000/60/60/24/365}"/> anos</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -190,10 +189,10 @@
                     </section>
                     <hr class="my-4">
                     <section>
-                        <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos: ${projs.size()}
+                        <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos:
                             <a href="novoProjeto.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
                         </h3>
-                        <c:if test="${projs.size() > 0}">
+                        <c:if test="${usuario.projetos.size() > 0}">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -203,7 +202,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${projs}" var="projeto">
+                                    <c:forEach items="${usuario.projetos}" var="projeto">
                                         <tr>
                                             <td><c:out value="${projeto.nome}"/></td>
                                             <td><c:out value="${projeto.descricao}"/></td>
@@ -213,7 +212,7 @@
                                 </tbody>
                             </table>
                         </c:if>
-                        <c:if test="${projs.size() == 0}">
+                        <c:if test="${usuario.projetos.size() == 0}">
                             <h4 class="grey-text text-center my-4">
                                 Nenhum projeto registrado
                             </h4>
