@@ -14,6 +14,7 @@
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
 <c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
+<c:set var="projs" value="${ProjetosDAO.listByDiscente(usuario.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -189,10 +190,10 @@
                     </section>
                     <hr class="my-4">
                     <section>
-                        <h3 class="font-weight-bold mb-4">Participação em projetos academêmicos
+                        <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos: ${projs.size()}
                             <a href="novoProjeto.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
                         </h3>
-                        <c:if test="${projetos.size() > 0}">
+                        <c:if test="${projs.size() > 0}">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -202,7 +203,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${usuario.projetos}" var="projeto">
+                                    <c:forEach items="${projs}" var="projeto">
                                         <tr>
                                             <td><c:out value="${projeto.nome}"/></td>
                                             <td><c:out value="${projeto.descricao}"/></td>
@@ -212,7 +213,7 @@
                                 </tbody>
                             </table>
                         </c:if>
-                        <c:if test="${trabalhosCurriculo.size() == 0}">
+                        <c:if test="${projs.size() == 0}">
                             <h4 class="grey-text text-center my-4">
                                 Nenhum projeto registrado
                             </h4>
