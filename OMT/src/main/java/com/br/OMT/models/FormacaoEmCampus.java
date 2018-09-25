@@ -23,8 +23,9 @@ public class FormacaoEmCampus implements Serializable {
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
 
-    @Column(name = "escola", nullable = false, length = 50)
-    private String escola;
+    @ManyToOne
+    @JoinColumn(name = "campus")
+    private Entidade campus;
 
     @Column(name = "anoTermino", nullable = false)
     private int anoTermino;
@@ -61,14 +62,6 @@ public class FormacaoEmCampus implements Serializable {
         this.nome = nome;
     }
 
-    public String getEscola() {
-        return escola;
-    }
-
-    public void setEscola(String escola) {
-        this.escola = escola;
-    }
-
     public int getAnoTermino() {
         return anoTermino;
     }
@@ -77,6 +70,14 @@ public class FormacaoEmCampus implements Serializable {
         this.anoTermino = anoTermino;
     }
 
+    public Entidade getCampus() {
+        return campus;
+    }
+
+    public void setCampus(Entidade campus) {
+        this.campus = campus;
+    }
+    
     public Discente getDiscente() {
         return discente;
     }

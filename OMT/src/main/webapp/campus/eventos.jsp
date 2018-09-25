@@ -31,7 +31,7 @@
                     <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                 </div>
                 <c:if test="${eventos.size()>0}">
-                    <table class="table table-striped table-bordered table-hover" id="table-eventos">
+                    <table class="table table-striped table-bordered table-hover table-sm" id="table-eventos">
                         <caption>Lista de eventos</caption>
                         <thead>
                             <tr>

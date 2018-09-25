@@ -32,7 +32,7 @@
                     <a class="btn btn-md btn-light-green" href="cadastrarEgresso.jsp">
                         <i class="fa fa-plus mr-1"></i>Novo egresso</a>
                 </div>
-                <table class="table table-striped table-bordered table-hover" id="table-egressos">
+                <table class="table table-striped table-bordered table-hover table-sm" id="table-egressos">
                     <caption>Lista de egressos</caption>
                     <thead>
                         <tr>
@@ -40,6 +40,8 @@
                             <th>Matrícula<i class="fa fa-sort float-right"></i></th>
                             <th>Sexo<i class="fa fa-sort float-right"></i></th>
                             <th>Formação<i class="fa fa-sort float-right"></i></th>
+                            <th>Campus<i class="fa fa-sort float-right"></i></th>
+                            <th>Currículo<i class="fa fa-sort float-right"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,8 @@
                                 <td>${discente.usuario}</td>
                                 <td>${discente.sexo}</td>                
                                 <td>${discente.formacao.nome}</td>
+                                <td>${discente.formacao.campus.nome}</td>
+                                <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -60,6 +64,8 @@
                             <th>Matrícula</th>
                             <th>Sexo</th>
                             <th>Formação</th>
+                            <th>Campus</th>
+                            <th>Currículo<i class="fa fa-sort float-right"></i></th>
                         </tr>
                     </tfoot>
                 </table>
