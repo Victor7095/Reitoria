@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Reitoria - OMT</title>
+        <title>Home Reitoria</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -18,34 +18,36 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="menu.jsp" /> 
-        <div class="container">
-            <div class="card">
-                <div class="card-content" id="recentBlock1">
-                    <input type="image" src="" name="recent1">
-                    <label id="recentText1"/>
+        <jsp:include page="../reitoria/menu.jsp" />
+        <main>
+            <div class="container">
+                <div class="card">
+                    <div class="card-content" id="recentBlock1">
+                        <input type="image" src="" name="recent1">
+                        <label id="recentText1"/>
 
-                </div>   
+                    </div>   
 
-                <div class="card-content" id="recentBlock2">
-                    <input type="image" src="" name="recent2">
-                    <label id="recentText2"/>
+                    <div class="card-content" id="recentBlock2">
+                        <input type="image" src="" name="recent2">
+                        <label id="recentText2"/>
 
-                </div>    
+                    </div>    
 
-                <div class="card-content" id="recentBlock3">
-                    <input type="image" src="" name="recent3">
-                    <label id="recentText3"/>
+                    <div class="card-content" id="recentBlock3">
+                        <input type="image" src="" name="recent3">
+                        <label id="recentText3"/>
 
-                </div>    
+                    </div>    
 
-                <div class="card-content" id="recentBlock4">
-                    <input type="image" src="" name="recent3">
-                    <label id="recentText2"/>
+                    <div class="card-content" id="recentBlock4">
+                        <input type="image" src="" name="recent3">
+                        <label id="recentText2"/>
 
-                </div>    
+                    </div>    
+                </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp" />
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

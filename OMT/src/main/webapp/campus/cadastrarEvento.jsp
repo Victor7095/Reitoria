@@ -20,10 +20,11 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="menu.jsp" />
-        <jsp:include page="../cadastro/evento.jsp" />
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <jsp:include page="../cadastro/evento.jsp" />
+        </main>
         <jsp:include page="../footer.jsp" />
-    </body>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>

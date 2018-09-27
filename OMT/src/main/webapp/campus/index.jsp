@@ -19,26 +19,28 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="menu.jsp"/> 
-        <div class="container" >
-            <div class="card px-4 py-4">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <canvas id="graficoGenero1"></canvas>
-                    </div> 
-                </div>      
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <canvas id="graficoGenero3"></canvas>
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <div class="container" >
+                <div class="card px-4 py-4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-xl-4">
+                            <canvas id="graficoGenero1"></canvas>
+                        </div> 
+                    </div>      
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-xl-4">
+                            <canvas id="graficoGenero3"></canvas>
+                        </div>       
+                    </div>      
+                    <div class="row">      
+                        <div class="col-sm-12 col-md-6 col-xl-4">
+                            <canvas id="graficoGenero2"></canvas>
+                        </div>   
                     </div>       
-                </div>      
-                <div class="row">      
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <canvas id="graficoGenero2"></canvas>
-                    </div>   
-                </div>       
+                </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

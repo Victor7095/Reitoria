@@ -12,16 +12,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Aluno - OMT</title>
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/parallax-template/css/style.css">  
-        <link rel="stylesheet" type="text/css" href="../CSS/forms.css">
-        <link rel="stylesheet" type="text/css" href="../CSS/general.css">
+        <title>Cadastrar Curso</title>
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <link rel="stylesheet" href="../css/mdb.css"/>
+        <link rel="stylesheet" href="../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="menu.jsp"/> 
-        <jsp:include page="../cadastro/cursosextras.jsp"/>
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <jsp:include page="../cadastro/cursosextras.jsp"/>
+        </main>
         <jsp:include page="../footer.jsp"/>
     </body>
 </html>
