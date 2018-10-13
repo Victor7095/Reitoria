@@ -8,6 +8,7 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.CampusDAO;
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.DAO.EventoDAO;
+import com.br.OMT.DAO.FormacaoEmCampusDAO;
 import com.br.OMT.DAO.FotosEventosDAO;
 import com.br.OMT.DAO.TrabalhoDAO;
 import com.br.OMT.DAO.UsuarioDAO;
@@ -15,6 +16,7 @@ import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Entidade;
 import com.br.OMT.models.Evento;
+import com.br.OMT.models.FormacaoEmCampus;
 import com.br.OMT.models.FotosEventos;
 import com.br.OMT.models.Trabalho;
 import com.br.OMT.models.Usuario;
@@ -23,6 +25,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.Normalizer;
 import java.util.Calendar;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -42,6 +45,8 @@ public class EncherBanco extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
+        String[] cursos = new String[]{"Licenciatura em Teatro", "Licentuara em Matemática", "Bacharelado em Sistemas de Informaação", "Bacharelado em Engenharia Civil"};
+
         out.println(getServletContext().getContextPath() + "\n"
                 + getServletContext().getRealPath("/index.jsp") + "\n"
                 + request.getContextPath() + "\n"
@@ -53,6 +58,7 @@ public class EncherBanco extends HttpServlet {
             Evento ev;
             Trabalho t;
             FotosEventos fe;
+            FormacaoEmCampus fec;
 
             InputStream stream;
 
@@ -62,47 +68,7 @@ public class EncherBanco extends HttpServlet {
             EventoDAO evDAO = new EventoDAO();
             TrabalhoDAO tDAO = new TrabalhoDAO();
             FotosEventosDAO feDAO = new FotosEventosDAO();
-
-            stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
-            d = Discente.getInstance();
-            d.setNome("Yan");
-            d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-            d.setCPF("02546569279");
-            d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-            d.setUsuario("201611440335");
-            d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
-            d.setRG("123456789");
-            d.setRGbanco(Criptografia.encrypt(d.getRG()));
-            d.setSenha("456");
-            d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-            d.setSexo("MASCULINO");
-            d.setEtnia("BRANCA");
-            d.setEstadoCivil("SOLTEIRO");
-            d.setEmail("exemplo123@gmail.com");
-            d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
-            d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
-            //d.setFoto(IOUtils.toByteArray(stream));
-            out.println(dDAO.salvar(d));
-
-            for (int i = 0; i < 25; i++) {
-                d.setNome("Aluno Teste " + i);
-                d.setNomeBanco(Criptografia.encrypt(d.getNome()));
-                d.setCPF("025465692" + i);
-                d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
-                d.setUsuario("2016114403" + i);
-                d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
-                d.setRG("1234567" + i);
-                d.setRGbanco(Criptografia.encrypt(d.getRG()));
-                d.setSenha("4" + i);
-                d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
-                d.setSexo("MASCULINO");
-                d.setEtnia("BRANCA");
-                d.setEstadoCivil("SOLTEIRO");
-                d.setEmail("exemplo1" + i + "@gmail.com");
-                d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
-                d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
-                out.println(dDAO.salvar(d));
-            }
+            FormacaoEmCampusDAO fecDAO = new FormacaoEmCampusDAO();
 
             e = Entidade.getInstance();
             e.setBairro("Centro");
@@ -128,6 +94,62 @@ public class EncherBanco extends HttpServlet {
             u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
             u.setEntidade(e);
             out.println(uDAO.salvar(u));
+
+            stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
+            d = Discente.getInstance();
+            d.setNome("Yan");
+            d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+            d.setCPF("02546569279");
+            d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+            d.setUsuario("201611440335");
+            d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+            d.setRG("123456789");
+            d.setRGbanco(Criptografia.encrypt(d.getRG()));
+            d.setSenha("456");
+            d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+            d.setSexo("MASCULINO");
+            d.setEtnia("BRANCA");
+            d.setEstadoCivil("SOLTEIRO");
+            d.setEmail("exemplo123@gmail.com");
+            d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+            d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+            //d.setFoto(IOUtils.toByteArray(stream));
+            out.println(dDAO.salvar(d));
+
+            fec = FormacaoEmCampus.getInstance();
+            fec.setNome(cursos[new Random().nextInt(4)]);
+            fec.setAnoTermino(2018);
+            fec.setDiscente(d);
+            fec.setCampus(e);
+            out.println(fecDAO.salvar(fec));
+            
+            for (int i = 0; i < 25; i++) {
+                d = Discente.getInstance();
+                d.setNome("Aluno Teste " + i);
+                d.setNomeBanco(Criptografia.encrypt(d.getNome()));
+                d.setCPF("025465692" + i);
+                d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
+                d.setUsuario("2016114403" + i);
+                d.setUsuarioBanco(Criptografia.encrypt(d.getUsuario()));
+                d.setRG("1234567" + i);
+                d.setRGbanco(Criptografia.encrypt(d.getRG()));
+                d.setSenha("4" + i);
+                d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
+                d.setSexo("MASCULINO");
+                d.setEtnia("BRANCA");
+                d.setEstadoCivil("SOLTEIRO");
+                d.setEmail("exemplo1" + i + "@gmail.com");
+                d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
+                d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+                out.println(dDAO.salvar(d));
+
+                fec = FormacaoEmCampus.getInstance();
+                fec.setNome(cursos[new Random().nextInt(4)]);
+                fec.setAnoTermino(2018);
+                fec.setDiscente(d);
+                fec.setCampus(e);
+                out.println(fecDAO.salvar(fec));
+            }
 
             ev = Evento.getInstance();
             ev.setNome("Aulas de Informática");

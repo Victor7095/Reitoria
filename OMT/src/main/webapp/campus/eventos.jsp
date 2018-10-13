@@ -24,57 +24,59 @@
     <body>
         <jsp:include page="../header.jsp" />
         <jsp:include page="../campus/menu.jsp" />
-        <div class="container">
-            <div class="card px-4 py-4">
-                <h1 class="font-weight-bold mb-4">Eventos</h1>
-                <div class="btn-group mb-4">
-                    <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
-                </div>
-                <c:if test="${eventos.size()>0}">
-                    <table class="table table-striped table-bordered table-hover" id="table-eventos">
-                        <caption>Lista de eventos</caption>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Local</th>
-                                <th>In. Inscrições</th>
-                                <th>Fim Inscrições</th>
-                                <th>In. Evento</th>
-                                <th>Fim Evento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${eventos}" var="evento">
+        <main>
+            <div class="container">
+                <div class="card px-4 py-4">
+                    <h1 class="font-weight-bold mb-4">Eventos</h1>
+                    <div class="btn-group mb-4">
+                        <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+                    </div>
+                    <c:if test="${eventos.size()>0}">
+                        <table class="table table-striped table-bordered table-hover table-sm" id="table-eventos">
+                            <caption>Lista de eventos</caption>
+                            <thead>
                                 <tr>
-                                    <td>${evento.nome}</td>
-                                    <td>${evento.descricao}</td>
-                                    <td>${evento.local}</td>
-                                    <td>${evento.dataInicioInscricao}</td>
-                                    <td>${evento.dataFinalInscricao}</td>
-                                    <td>${evento.dataInicioEvento}</td>
-                                    <td>${evento.dataFinalEvento}</td>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Local</th>
+                                    <th>In. Inscrições</th>
+                                    <th>Fim Inscrições</th>
+                                    <th>In. Evento</th>
+                                    <th>Fim Evento</th>
                                 </tr>
-                            </c:forEach>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Local</th>
-                                <th>In. Inscrições</th>
-                                <th>Fim Inscrições</th>
-                                <th>In. Evento</th>
-                                <th>Fim Evento</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </c:if>
-                <c:if test="${eventos.size()==0}">
-                    <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
-                </c:if>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${eventos}" var="evento">
+                                    <tr>
+                                        <td>${evento.nome}</td>
+                                        <td>${evento.descricao}</td>
+                                        <td>${evento.local}</td>
+                                        <td>${evento.dataInicioInscricao}</td>
+                                        <td>${evento.dataFinalInscricao}</td>
+                                        <td>${evento.dataInicioEvento}</td>
+                                        <td>${evento.dataFinalEvento}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Local</th>
+                                    <th>In. Inscrições</th>
+                                    <th>Fim Inscrições</th>
+                                    <th>In. Evento</th>
+                                    <th>Fim Evento</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </c:if>
+                    <c:if test="${eventos.size()==0}">
+                        <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
+                    </c:if>
+                </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp" />
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

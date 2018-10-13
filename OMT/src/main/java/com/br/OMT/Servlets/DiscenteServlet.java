@@ -59,7 +59,7 @@ public class DiscenteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("ISO-8859-1");
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
         String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "",

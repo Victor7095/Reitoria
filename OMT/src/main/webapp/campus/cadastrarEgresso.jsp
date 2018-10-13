@@ -6,9 +6,6 @@
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="Sexo" class="com.br.OMT.Beans.SexoBean"/>
-<jsp:useBean id="EstadoCivil" class="com.br.OMT.Beans.EstadoCivilBean"/>
-<jsp:useBean id="Etnia" class="com.br.OMT.Beans.EtniaBean"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -22,22 +19,23 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="menu.jsp" />
-        <jsp:include page="../cadastro/egresso.jsp" />
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <jsp:include page="../cadastro/egresso.jsp" />
+        </main>
         <jsp:include page="../footer.jsp" />
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
+        <script>
+            $('#cadastrar-egresso').submit(function () {
+                $('#cpf').unmask('000.000.000-00');
+                $('#rg').unmask('00.000.000-0');
+            });
+        </script>
     </body>
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/mdb.min.js"></script>
-    <script src="../js/general.js"></script>
-    <script src="../js/jquery.mask.min.js"></script>
-    <script src="../js/mascaras.js"></script>
-    <script>
-        $('#cadastrar-egresso').submit(function () {
-            $('#cpf').unmask('000.000.000-00');
-            $('#rg').unmask('00.000.000-0');
-        });
-    </script>
-</body>
 </html>

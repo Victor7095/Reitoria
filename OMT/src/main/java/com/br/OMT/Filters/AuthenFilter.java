@@ -111,7 +111,6 @@ public class AuthenFilter implements Filter {
             httpRes.sendRedirect("/OMT/errors/sessaoExpirada.jsp");
         } else if ((httpReq.getSession().getAttribute("usuario") instanceof Discente)) {
             Discente d = (Discente) httpReq.getSession().getAttribute("usuario");
-            System.out.println("Sou aluno");
         }
         chain.doFilter(request, response);
     }

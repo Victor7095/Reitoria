@@ -21,8 +21,10 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="menu.jsp"/>
-        <jsp:include page="../cadastro/projeto.jsp"/>
+        <jsp:include page="../discente/menu.jsp"/>
+        <main>
+            <jsp:include page="../cadastro/projeto.jsp"/>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

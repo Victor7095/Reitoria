@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("ISO-8859-1");
         if (request != null && request.getMethod().equalsIgnoreCase("post")) {
             String entidade = request.getParameter("entidade");
             if (entidade.equals("discente")) {

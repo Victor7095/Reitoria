@@ -58,6 +58,8 @@ public class Entidade implements Serializable {
     @Column(name = "tipo", nullable = false, length = 1)
     private char tipo;
 
+    @OneToMany(cascade = ALL, mappedBy = "campus")
+    private List<FormacaoEmCampus> cursosOfertados;
     @OneToMany(cascade = ALL, mappedBy = "entidade")
     private List<Usuario> usuarios;
     @OneToMany(cascade = ALL, mappedBy = "entidade")

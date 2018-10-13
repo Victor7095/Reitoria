@@ -22,45 +22,47 @@
     </head>
     <body>
         <jsp:include page="../header.jsp" />
-        <jsp:include page="menu.jsp" />
-        <div class="container">
-            <div class="card px-4 py-4">
-                <h1 class="font-weight-bold mb-4">Cursos Especializantes</h1>
-                <div class="btn-group mb-4">
-                    <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Curso Especializante</a>
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <div class="container">
+                <div class="card px-4 py-4">
+                    <h1 class="font-weight-bold mb-4">Cursos Especializantes</h1>
+                    <div class="btn-group mb-4">
+                        <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Curso Especializante</a>
+                    </div>
+                    <c:if test="${cursosEspecializantes.size()>0}">
+                        <table class="table mb-4">
+                            <caption>Lista de eventos</caption>
+                            <thead class="table-dark">
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Local</th>
+                            <th>In. Inscrições</th>
+                            <th>Fim Inscrições</th>
+                            <th>In. Evento</th>
+                            <th>Fim Evento</th>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${cursosEspecializantes}" var="cursoEspecializante">
+                                    <tr>
+                                        <td><c:out value="${cursoEspecializante.nome}"/></td>
+                                        <td><c:out value="${cursoEspecializante.descricao}"/></td>
+                                        <td><c:out value="${cursoEspecializante.local}"/></td>
+                                        <td><c:out value="${cursoEspecializante.dataInicioInscricao}"/></td>
+                                        <td><c:out value="${cursoEspecializante.dataFinalInscricao}"/></td>
+                                        <td><c:out value="${cursoEspecializante.dataInicioEvento}"/></td>
+                                        <td><c:out value="${cursoEspecializante.dataFinalEvento}"/></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    <c:if test="${cursosEspecializantes.size()==0}">
+                        <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
+                    </c:if>
                 </div>
-                <c:if test="${cursosEspecializantes.size()>0}">
-                    <table class="table mb-4">
-                        <caption>Lista de eventos</caption>
-                        <thead class="table-dark">
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Local</th>
-                        <th>In. Inscrições</th>
-                        <th>Fim Inscrições</th>
-                        <th>In. Evento</th>
-                        <th>Fim Evento</th>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${cursosEspecializantes}" var="cursoEspecializante">
-                                <tr>
-                                    <td><c:out value="${cursoEspecializante.nome}"/></td>
-                                    <td><c:out value="${cursoEspecializante.descricao}"/></td>
-                                    <td><c:out value="${cursoEspecializante.local}"/></td>
-                                    <td><c:out value="${cursoEspecializante.dataInicioInscricao}"/></td>
-                                    <td><c:out value="${cursoEspecializante.dataFinalInscricao}"/></td>
-                                    <td><c:out value="${cursoEspecializante.dataInicioEvento}"/></td>
-                                    <td><c:out value="${cursoEspecializante.dataFinalEvento}"/></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </c:if>
-                <c:if test="${cursosEspecializantes.size()==0}">
-                    <h1 class="text-center my-5">Nenhum evento registrado ainda</h1>
-                </c:if>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp" />
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

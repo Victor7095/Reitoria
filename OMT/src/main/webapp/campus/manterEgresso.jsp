@@ -24,45 +24,55 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="menu.jsp"/>
-        <div class="container" >
-            <div class="card px-4 py-4">
-                <h1 class="font-weight-bold mb-4">Egressos</h1>
-                <div class="btn-group mb-4">
-                    <a class="btn btn-md btn-light-green" href="cadastrarEgresso.jsp">
-                        <i class="fa fa-plus mr-1"></i>Novo egresso</a>
-                </div>
-                <table class="table table-striped table-bordered table-hover" id="table-egressos">
-                    <caption>Lista de egressos</caption>
-                    <thead>
-                        <tr>
-                            <th>Nome<i class="fa fa-sort float-right"></i></th>
-                            <th>RG<i class="fa fa-sort float-right"></i></th>
-                            <th>CPF<i class="fa fa-sort float-right"></i></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${discentes}" var="discente">
-                            <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                            <c:set target="${discente}" property="RG" value="${Criptografia.decrypt(discente.RGbanco)}"/>
-                            <c:set target="${discente}" property="CPF" value="${Criptografia.decrypt(discente.CPFbanco)}"/>
+        <jsp:include page="../campus/menu.jsp"/> 
+        <main>
+            <div class="container" >
+                <div class="card px-4 py-4">
+                    <h1 class="font-weight-bold mb-4">Egressos</h1>
+                    <div class="btn-group mb-4">
+                        <a class="btn btn-md btn-light-green" href="cadastrarEgresso.jsp">
+                            <i class="fa fa-plus mr-1"></i>Novo egresso</a>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover table-sm" id="table-egressos">
+                        <caption>Lista de egressos</caption>
+                        <thead>
                             <tr>
-                                <td><c:out value="${discente.nome}"/></td>
-                                <td class="RG">${discente.RG}</td>
-                                <td class="CPF">${discente.CPF}</td>                      
+                                <th>Nome<i class="fa fa-sort float-right"></i></th>
+                                <th>Matrícula<i class="fa fa-sort float-right"></i></th>
+                                <th>Sexo<i class="fa fa-sort float-right"></i></th>
+                                <th>Formação<i class="fa fa-sort float-right"></i></th>
+                                <th>Campus<i class="fa fa-sort float-right"></i></th>
+                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Nome</th>
-                            <th>RG</th>
-                            <th>CPF</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${discentes}" var="discente">
+                                <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
+                                <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
+                                <tr>
+                                    <td><c:out value="${discente.nome}"/></td>
+                                    <td>${discente.usuario}</td>
+                                    <td>${discente.sexo}</td>                
+                                    <td>${discente.formacao.nome}</td>
+                                    <td>${discente.formacao.campus.nome}</td>
+                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Matrícula</th>
+                                <th>Sexo</th>
+                                <th>Formação</th>
+                                <th>Campus</th>
+                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

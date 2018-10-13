@@ -8,18 +8,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<jsp:useBean id="DiscenteDAO" class="com.br.OMT.DAO.DiscenteDAO"/>
 <jsp:useBean id="FormacaoDAO" class="com.br.OMT.DAO.FormacaoDAO"/>
 <jsp:useBean id="TrabalhoCurriculoDAO" class="com.br.OMT.DAO.TrabalhoCurriculoDAO"/>
 <jsp:useBean id="ProjetosDAO" class="com.br.OMT.DAO.ProjetosDAO"/>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
-<c:set var="formacoes" value="${FormacaoDAO.listarPorID(usuario.id)}"/>
-<c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(usuario.id)}"/>
+<c:set var="discente" value="${DiscenteDAO.buscarById(param['id'])}"/>
+<c:set var="formacoes" value="${FormacaoDAO.listarPorID(discente.id)}"/>
+<c:set var="trabalhosCurriculo" value="${TrabalhoCurriculoDAO.listTrabalhoCurriculoByDiscente(discente.id)}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Currículo</title>
+        <title>${discente.nome}</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
@@ -27,24 +29,20 @@
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
-        <jsp:include page="../discente/menu.jsp"/>
+        <jsp:include page="../campus/menu.jsp"/>
         <main>
             <div class="container">
                 <div id="to-pdf">
                     <div class="card px-4 py-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Dados pessoais
-                                <a href="../discente/alterarPerfil.jsp" class="btn btn-md btn-cyan">
-                                    <i class="fa fa-edit mr-1"></i>Atualizar informações
-                                </a>
-                            </h3>
+                            <h3 class="font-weight-bold mb-4">Dados pessoais</h3>
                             <div class="row my-4">
                                 <div class="col-sm-12 col-md-6 col-lg-3">
                                     <div class="text-center">
                                         <c:choose>
-                                            <c:when test="${fn:length(usuario.foto) > 0}">
+                                            <c:when test="${fn:length(discente.foto) > 0}">
                                                 <div>
-                                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(usuario.foto, 'UTF-8')}">
+                                                    <img class="foto-curriculo border border-light rounded z-depth-1" src="${IOUtils.toString(discente.foto, 'UTF-8')}">
                                                 </div>
                                             </c:when>
                                             <c:otherwise>
@@ -56,12 +54,12 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <h4><c:out value="${usuario.nome}"/></h4>
-                                    <h5><c:out value="${usuario.formacao.nome}"/></h5>
+                                    <h4><c:out value="${discente.nome}"/></h4>
+                                    <h5><c:out value="${discente.formacao.nome}"/></h5>
                                     <h6>Manaus, Amazonas, Brasil</h6>
-                                    <a class="d-block" href="${usuario.linkCurriculoLattes}">
+                                    <a class="d-block" href="${discente.linkCurriculoLattes}">
                                         Currículo Lattes</a>
-                                    <a class="d-block" href="${usuario.linkPerfilLinkedIn}">
+                                    <a class="d-block" href="${discente.linkPerfilLinkedIn}">
                                         <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                                 </div>
                             </div>
@@ -73,19 +71,15 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Sexo</th>
-                                        <td><c:out value="${usuario.sexo}"/></td>
+                                        <td><c:out value="${discente.sexo}"/></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Etnia</th>
-                                        <td><c:out value="${usuario.etnia}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Filiação</th>
-                                        <td>Lino Eugenio Auzier e Lima e Cyana Lara Pereira</td>
+                                        <td><c:out value="${discente.etnia}"/></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Estado Civil</th>
-                                        <td><c:out value="${usuario.estadoCivil}"/></td>
+                                        <td><c:out value="${discente.estadoCivil}"/></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Idade</th>
@@ -94,18 +88,6 @@
                                     <tr>
                                         <th scope="row">Nascimento</th>
                                         <td>14/06/2001 - Brasil</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Carteira de Identidade</th>
-                                        <td>40028922 SSP - AM - 12/07/2012</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">CPF</th>
-                                        <td class="CPF"><c:out value="${usuario.CPF}"/> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Endereço residencial</th>
-                                        <td>Av. Djalma Batista</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">
@@ -117,16 +99,14 @@
                                         <th scope="row">
                                             <i class="fa fa-at mr-1"></i>Endereço eletrônico
                                         </th>
-                                        <td>E-mail para contato : ${usuario.email}</td>
+                                        <td>E-mail para contato : ${discente.email}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </section> 
                         <hr class="my-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Formação acadêmica/ titulação 
-                                <a href="novaFormacao.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar formação</a>
-                            </h3>
+                            <h3 class="font-weight-bold mb-4">Formação acadêmica/ titulação</h3>
                             <c:if test="${formacoes.size() > 0}">
                                 <table class="table table-sm">
                                     <thead>
@@ -155,9 +135,7 @@
                         </section>
                         <hr class="my-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Experiências profissionais
-                                <a href="novaExperienciaProfissional.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar experiência</a>
-                            </h3>
+                            <h3 class="font-weight-bold mb-4">Experiências profissionais</h3>
                             <c:if test="${trabalhosCurriculo.size() > 0}">
                                 <table class="table table-sm">
                                     <thead>
@@ -190,10 +168,8 @@
                         </section>
                         <hr class="my-4">
                         <section>
-                            <h3 class="font-weight-bold mb-4">Participação em projetos acadêmicos:
-                                <a href="novoProjeto.jsp" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar projeto</a>
-                            </h3>
-                            <c:if test="${usuario.projetos.size() > 0}">
+                            <h3 class="font-weight-bold mb-4">Participação em projetos academêmicos</h3>
+                            <c:if test="${discente.projetos.size() > 0}">
                                 <table class="table table-sm">
                                     <thead>
                                         <tr>
@@ -203,7 +179,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${usuario.projetos}" var="projeto">
+                                        <c:forEach items="${discente.projetos}" var="projeto">
                                             <tr>
                                                 <td><c:out value="${projeto.nome}"/></td>
                                                 <td><c:out value="${projeto.descricao}"/></td>
@@ -213,7 +189,7 @@
                                     </tbody>
                                 </table>
                             </c:if>
-                            <c:if test="${usuario.projetos.size() == 0}">
+                            <c:if test="${discente.projetos.size() == 0}">
                                 <h4 class="grey-text text-center my-4">
                                     Nenhum projeto registrado
                                 </h4>
@@ -222,9 +198,7 @@
                         <hr class="my-4">
                         <div class="row">
                             <section class="col-sm-12 col-lg-6">
-                                <h3 class="font-weight-bold mb-4">Áreas de atuação 
-                                    <a href="#" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar área de atuação</a>
-                                </h3>
+                                <h3 class="font-weight-bold mb-4">Áreas de atuação</h3>
                                 <table class="table table-sm">
                                     <thead>
                                         <tr>
@@ -242,9 +216,7 @@
                             </section>
                             <hr class="my-4">
                             <section class="col-sm-12 col-lg-6">
-                                <h3 class="font-weight-bold mb-4">Idiomas 
-                                    <a href="#" class="btn btn-md btn-cyan"><i class="fa fa-plus mr-1"></i>Adicionar idioma</a>
-                                </h3>
+                                <h3 class="font-weight-bold mb-4">Idiomas</h3>
                                 <table class="table table-sm">
                                     <tbody>
                                         <tr>
@@ -274,12 +246,10 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
-        <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/jspdf.min.js"></script>
         <script src="../js/html2canvas.min.js"></script>
-        <script src="../js/general.js"></script>
         <script type="text/javascript">
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');

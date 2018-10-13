@@ -32,7 +32,7 @@ public class ProjetoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("ISO-8859-1");
 
         if (request != null) {
             String butao = request.getParameter("acao");
@@ -54,6 +54,7 @@ public class ProjetoServlet extends HttpServlet {
                 String str = pdao.salvar(p);
                 if (str.equals("")) {
                     response.getWriter().println("Certo!");
+                        response.sendRedirect("discente/curriculo.jsp");
                 } else {
                     response.getWriter().println("Errado:: " + str);
                 }

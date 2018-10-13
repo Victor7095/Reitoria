@@ -32,7 +32,7 @@ public class TrabalhoCurriculoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("ISO-8859-1");
         if (request != null) {
             Discente d = (Discente) request.getSession().getAttribute("usuario");
             String butao = request.getParameter("acao");
@@ -51,6 +51,7 @@ public class TrabalhoCurriculoServlet extends HttpServlet {
                     String str = tcdao.salvar(tc);
                     if (str.equals("")) {
                         response.getWriter().println("Certo");
+                        response.sendRedirect("discente/curriculo.jsp");
                     } else {
                         response.getWriter().println("Errrado: " + str);
                     }
