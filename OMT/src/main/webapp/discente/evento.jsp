@@ -86,6 +86,7 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
     </body>
 </html>
 

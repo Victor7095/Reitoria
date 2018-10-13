@@ -21,12 +21,13 @@
         <jsp:include page="../header.jsp"/>
         <jsp:include page="../discente/menu.jsp"/>
         <div class="container">
-            
+
         </div>
         <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
     </body>
 </html>

@@ -26,17 +26,18 @@
         <jsp:include page="../cadastro/egresso.jsp" />
         <jsp:include page="../footer.jsp" />
     </body>
-        <script src="../js/jquery-3.3.1.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.js"></script>
-        <script src="../js/mdb.min.js"></script>
-        <script src="../js/jquery.mask.min.js"></script>
-        <script src="../js/mascaras.js"></script>
-        <script>
-            $('#cadastrar-egresso').submit(function () {
-                $('#cpf').unmask('000.000.000-00');
-                $('#rg').unmask('00.000.000-0');
-            });
-        </script>
-    </body>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/general.js"></script>
+    <script src="../js/jquery.mask.min.js"></script>
+    <script src="../js/mascaras.js"></script>
+    <script>
+        $('#cadastrar-egresso').submit(function () {
+            $('#cpf').unmask('000.000.000-00');
+            $('#rg').unmask('00.000.000-0');
+        });
+    </script>
+</body>
 </html>

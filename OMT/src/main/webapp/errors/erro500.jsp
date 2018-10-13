@@ -48,5 +48,6 @@
         <script src="/OMT/js/popper.min.js"></script>
         <script src="/OMT/js/bootstrap.js"></script>
         <script src="/OMT/js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
     </body>
 </html>

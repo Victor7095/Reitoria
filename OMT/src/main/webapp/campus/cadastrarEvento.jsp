@@ -24,20 +24,21 @@
         <jsp:include page="../cadastro/evento.jsp" />
         <jsp:include page="../footer.jsp" />
     </body>
-        <script src="../js/jquery-3.3.1.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.js"></script>
-        <script src="../js/mdb.min.js"></script>
-        <script src="../js/jquery.mask.min.js"></script>
-        <script src="../js/mascaras.js"></script>
-        <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
-            This must be loaded before fileinput.min.js -->
-        <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
-        <!-- the main fileinput plugin file -->
-        <script src="../fileinput/js/fileinput.min.js"></script>
-        <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
-        <script src="../fileinput/themes/fa/theme.min.js"></script>
-        <script src="../fileinput/js/locales/pt-BR.js"></script>
-        <script src="../js/inputFotoPerfil.js"></script>
-    </body>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/mdb.min.js"></script>
+    <script src="../js/general.js"></script>
+    <script src="../js/jquery.mask.min.js"></script>
+    <script src="../js/mascaras.js"></script>
+    <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
+        This must be loaded before fileinput.min.js -->
+    <script src="../fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
+    <!-- the main fileinput plugin file -->
+    <script src="../fileinput/js/fileinput.min.js"></script>
+    <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
+    <script src="../fileinput/themes/fa/theme.min.js"></script>
+    <script src="../fileinput/js/locales/pt-BR.js"></script>
+    <script src="../js/inputFotoPerfil.js"></script>
+</body>
 </html>

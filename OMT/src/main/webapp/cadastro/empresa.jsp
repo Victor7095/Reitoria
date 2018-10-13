@@ -115,6 +115,7 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/consultaCNPJ.js"></script>

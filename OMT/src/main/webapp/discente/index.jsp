@@ -50,13 +50,13 @@
                                         <h4 class="card-title"><c:out value="${evento.nome}"></c:out></h4>
                                             <!--Descrição-->
                                             <p class="card-text"><c:out value="${evento.descricao}"></c:out></p>
-                                            <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
-                                        </div>
+                                        <a href="evento.jsp?q=${evento.URL}" class="btn btn-blue btn-sm"><i class="fa fa-pencil-alt left"></i>Saiba mais</a>
+                                    </div>
 
-                                        <!-- Card footer -->
-                                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-                                            <ul class="list-unstyled list-inline font-small">
-                                                <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
+                                    <!-- Card footer -->
+                                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                        <ul class="list-unstyled list-inline font-small">
+                                            <li class="list-inline-item pr-2 white-text"><i class="fa fa-clock pr-1"></i>
                                                 <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value="${evento.dataFinalEvento}"/>
                                             </li>
                                         </ul>
@@ -78,6 +78,7 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
     </body>
 </html>
 

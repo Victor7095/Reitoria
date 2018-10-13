@@ -273,10 +273,12 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
         <script src="../js/jspdf.min.js"></script>
         <script src="../js/html2canvas.min.js"></script>
+        <script src="../js/general.js"></script>
         <script type="text/javascript">
             $("#btnBaixarCurriculo").click(function () {
                 var pdf = new jsPDF('p', 'pt', 'a4');

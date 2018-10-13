@@ -40,6 +40,7 @@
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
         <script src="../js/mdb.min.js"></script>
+        <script src="../js/general.js"></script>
         <script src="../js/graficos/graficoGenero.js" charset="UTF-8"></script>
     </body>
 </html>
