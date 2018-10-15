@@ -45,6 +45,9 @@
                         Campus
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="consultoria/consultoria.jsp" class="nav-link"><i class="fa fa-search fa-lg"></i>Ver Egressos</a>
+                </li>
             </ul>
 
             <div class="tab-content card mb-5">
