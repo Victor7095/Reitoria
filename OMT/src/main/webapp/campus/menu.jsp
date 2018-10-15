@@ -39,7 +39,7 @@
             </li>
             <!--Voltar para Página de Login-->
             <li class="nav-item">
-                <a class="nav-link" href="/OMT/LoginServlet">
+                <a class="nav-link" href="../LoginServlet">
                     <img id="icone" src="/OMT/img/Icons/icones/png/exit-1.png" alt="Sair" title="Encerrar sessão">Encerrar sessão
                 </a>
             </li>

@@ -70,11 +70,38 @@ public class EncherBanco extends HttpServlet {
             FotosEventosDAO feDAO = new FotosEventosDAO();
             FormacaoEmCampusDAO fecDAO = new FormacaoEmCampusDAO();
 
+            //Cadastro de Reitoria
             e = Entidade.getInstance();
             e.setBairro("Centro");
             e.setCEP("69097781");
             e.setCNAE("1234567");
             e.setCNPJ("1234567891234");
+            e.setCidade("Manaus");
+            e.setComplemento("Próximo a penitenciária");
+            e.setEstado("AM");
+            e.setNome("IFAM - Campus Manaus Centro");
+            e.setNomeFantasia("IFAM - CMC");
+            e.setNumero("401");
+            e.setRua("Av. 7 de setembro");
+            e.setTipo('R');
+            out.println(cDAO.salvar(e));
+
+            u = Usuario.getInstance();
+            u.setNome("Usuário Teste");
+            u.setNomeBanco(Criptografia.encrypt(u.getNome()));
+            u.setUsuario("reitor");
+            u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
+            u.setSenha("789");
+            u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
+            u.setEntidade(e);
+            out.println(uDAO.salvar(u));
+            
+            //Cadastro de Campus
+            e = Entidade.getInstance();
+            e.setBairro("Centro");
+            e.setCEP("69097781");
+            e.setCNAE("1234567");
+            e.setCNPJ("1234567891235");
             e.setCidade("Manaus");
             e.setComplemento("Próximo a penitenciária");
             e.setEstado("AM");
@@ -95,6 +122,7 @@ public class EncherBanco extends HttpServlet {
             u.setEntidade(e);
             out.println(uDAO.salvar(u));
 
+            //Cadastro Discente
             stream = getServletContext().getResourceAsStream("/img/templates/info1.jpg");
             d = Discente.getInstance();
             d.setNome("Yan");
@@ -123,6 +151,7 @@ public class EncherBanco extends HttpServlet {
             fec.setCampus(e);
             out.println(fecDAO.salvar(fec));
             
+            //Cadastro de outros discentes
             for (int i = 0; i < 25; i++) {
                 d = Discente.getInstance();
                 d.setNome("Aluno Teste " + i);
@@ -150,7 +179,8 @@ public class EncherBanco extends HttpServlet {
                 fec.setCampus(e);
                 out.println(fecDAO.salvar(fec));
             }
-
+            
+            //Cadastro de Eventos
             ev = Evento.getInstance();
             ev.setNome("Aulas de Informática");
             ev.setDescricao("Aulas oferecidas ao IFAM");
@@ -204,7 +234,8 @@ public class EncherBanco extends HttpServlet {
             fe.setEvento(ev);
             fe.setFoto(IOUtils.toByteArray(stream));
             out.println(feDAO.salvar(fe));
-
+            
+            stream.close();
         } catch (Exception ex) {
             Logger.getLogger(EncherBanco.class.getName()).log(Level.SEVERE, null, ex);
         }

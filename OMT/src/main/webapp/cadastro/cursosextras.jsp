@@ -13,7 +13,7 @@
         <link href="../fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <%@include file="../header.jsp"%>
+        <jsp:include page="../header.jsp"/>
         <div class="container">
             <div class="card py-4 px-4">
                 <form id="cadastrar-curso-extra" method="post" action="/OMT/CursosEspecializantesServlet">
@@ -36,7 +36,7 @@
                 </form>
             </div>
         </div>
-        <%@include file="../footer.jsp"%>
+        <jsp:include page="../footer.jsp"/>
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.js"></script>
