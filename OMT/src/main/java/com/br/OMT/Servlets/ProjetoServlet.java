@@ -10,6 +10,7 @@ import com.br.OMT.DAO.ProjetosDAO;
 import com.br.OMT.models.Discente;
 import com.br.OMT.models.Projetos;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -46,15 +47,21 @@ public class ProjetoServlet extends HttpServlet {
                 p.setArea(request.getParameter("area"));
                 try {
                     d = ddao.buscarById(new Long(d.getId()));
+                    List<Projetos> projetos = d.getProjetos();
+                    if (projetos.add(p)) {
+                        System.out.println("Funcionou");
+                        d.setProjetos(projetos);
+                    }
                 } catch (Exception ex) {
                     Logger.getLogger(ProjetoServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 p.setDiscente(d);
                 ProjetosDAO pdao = new ProjetosDAO();
                 String str = pdao.salvar(p);
+                ddao.atualizar(d);
                 if (str.equals("")) {
                     response.getWriter().println("Certo!");
-                        response.sendRedirect("discente/curriculo.jsp");
+                    response.sendRedirect("discente/curriculo.jsp");
                 } else {
                     response.getWriter().println("Errado:: " + str);
                 }

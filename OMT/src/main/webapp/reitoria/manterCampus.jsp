@@ -33,7 +33,7 @@
                         <a class="btn btn-md btn-light-green" href="cadastrarCampus.jsp">
                             <i class="fa fa-plus mr-1"></i>Novo campus</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-sm" id="table-campi">
+                    <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-campi">
                         <caption>Lista de campi</caption>
                         <thead>
                             <tr>
@@ -102,7 +102,6 @@
                         });
                     });
                 },
-                "scrollX":true,
                 "language": {
                     "url": "/OMT/js/datatables/datatables-pt-br.json"
                 },
