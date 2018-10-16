@@ -1,60 +1,70 @@
+<%-- 
+    Document   : pagina_inicial
+    Created on : 07/06/2018, 15:17:41
+    Author     : Natan S. dos Santos
+--%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="DiscenteDAO" class="com.br.OMT.DAO.DiscenteDAO"/>
+<jsp:useBean id="CampusDAO" class="com.br.OMT.DAO.CampusDAO"/>
 <jsp:useBean id="Criptografia" class="com.br.OMT.Utils.Criptografia"/>
-<c:set var="discentes" value="${DiscenteDAO.listar()}"/>
+<c:set var="campi" value="${CampusDAO.listarCampus()}"/>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Consultar Egressos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Campi</title>
         <link rel="stylesheet" href="../css/bootstrap.css"/>
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/datatables/datatables.min.css">
     </head>
-
     <body>
         <jsp:include page="../header.jsp"/>
+        <jsp:include page="../reitoria/menu.jsp"/> 
         <main>
-            <div class="container my-4" >
+            <div class="container" >
                 <div class="card px-4 py-4">
-                    <h1 class="font-weight-bold mb-4">Veja nossos Egressos</h1>
-                    <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-egressos">
-                        <caption>Lista de egressos</caption>
+                    <h1 class="font-weight-bold mb-4">Campi</h1>
+                    <div class="btn-group mb-4">
+                        <a class="btn btn-md btn-light-green" href="cadastrarCampus.jsp">
+                            <i class="fa fa-plus mr-1"></i>Novo campus</a>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover table-sm" id="table-campi">
+                        <caption>Lista de campi</caption>
                         <thead>
                             <tr>
                                 <th>Nome<i class="fa fa-sort float-right"></i></th>
-                                <th>Formação<i class="fa fa-sort float-right"></i></th>
-                                <th>Campus<i class="fa fa-sort float-right"></i></th>
-                                <th>Ano de formação <i class="fa fa-sort float-right"></i></th>
-                                <th>Currículo<i class="fa fa-sort float-right"></i></th>
+                                <th>Nome Fantasia<i class="fa fa-sort float-right"></i></th>
+                                <th>CNPJ<i class="fa fa-sort float-right"></i></th>
+                                <th>CNAE<i class="fa fa-sort float-right"></i></th>
+                                <th>CEP<i class="fa fa-sort float-right"></i></th>
+                                <th>Estado<i class="fa fa-sort float-right"></i></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${discentes}" var="discente">
-                                <c:set target="${discente}" property="nome" value="${Criptografia.decrypt(discente.nomeBanco)}"/>
-                                <c:set target="${discente}" property="usuario" value="${Criptografia.decrypt(discente.usuarioBanco)}"/>
+                            <c:forEach items="${campi}" var="campus">
                                 <tr>
-                                    <td><c:out value="${discente.nome}"/></td>               
-                                    <td>${discente.formacao.nome}</td>
-                                    <td>${discente.formacao.campus.nome}</td>
-                                    <td>${discente.formacao.anoTermino}</td>
-                                    <td><a class="blue-text" href="curriculoDiscente.jsp?id=${discente.id}">curriculo</a></td>
+                                    <td>${campus.nome}</td>
+                                    <td>${campus.nomeFantasia}</td>
+                                    <td>${campus.CNPJ}</td>
+                                    <td>${campus.CNAE}</td>                
+                                    <td>${campus.CEP}</td>
+                                    <td>${campus.estado}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Nome</th>
-                                <th>Formação</th>
-                                <th>Campus</th>
-                                <th>Ano de formação</th>
-                                <th>Currículo</th>
+                                <th>Nome Fantasia</th>
+                                <th>CNPJ</th>
+                                <th>CNAE</th>
+                                <th>CEP</th>
+                                <th>Estado</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -71,7 +81,7 @@
         <script src="../js/mascaras.js"></script>
         <script src="../js/datatables/datatables.min.js"></script>
         <script>
-            $("#table-egressos").DataTable({
+            var table = $("#table-campi").DataTable({
                 initComplete: function () {
                     this.api().columns().every(function () {
                         var column = this;
@@ -92,6 +102,7 @@
                         });
                     });
                 },
+                "scrollX":true,
                 "language": {
                     "url": "/OMT/js/datatables/datatables-pt-br.json"
                 },

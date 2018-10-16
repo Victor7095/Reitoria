@@ -29,10 +29,11 @@
                 <div class="card px-4 py-4">
                     <h1 class="font-weight-bold mb-4">Eventos</h1>
                     <div class="btn-group mb-4">
-                        <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
+                        <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green">
+                            <i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                     </div>
                     <c:if test="${eventos.size()>0}">
-                        <table class="table table-striped table-bordered table-hover table-sm" id="table-eventos">
+                        <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-eventos">
                             <caption>Lista de eventos</caption>
                             <thead>
                                 <tr>
@@ -85,7 +86,27 @@
         <script src="../js/general.js"></script>
         <script src="../js/datatables/datatables.min.js"></script>
         <script>
-            $("#table-eventos").DataTable({
+            var table = $("#table-eventos").DataTable({
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                            );
+
+                                    column
+                                            .search(val ? '^' + val + '$' : '', true, false)
+                                            .draw();
+                                });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
                 "language": {
                     "url": "/OMT/js/datatables/datatables-pt-br.json"
                 },

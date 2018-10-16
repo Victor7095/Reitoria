@@ -39,7 +39,7 @@
             </li>
             <!--Pesquisar campus-->
             <li class="nav-item">
-                <a class="nav-link" href="../cadastro/campus.jsp">
+                <a class="nav-link" href="../reitoria/manterCampus.jsp">
                     <img id="icone" src="../img/Icons/icones/png/campus.png" alt="Campus" title="Campus">Campus
                 </a>
             </li>
