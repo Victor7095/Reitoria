@@ -39,14 +39,14 @@ public class FormacaoEmCampusDAO{
         return hufec.deletar(fec);
     }
     
-    public List<FormacaoEmCampus> listarPorID(Long id){
-        List<FormacaoEmCampus> le = null;
+    public FormacaoEmCampus procurarPorID(Long id){
+        FormacaoEmCampus le = null;
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
             Query query = s.createQuery("from FormacaoEmCampus fec where fec.discente.id =:id");
             query.setParameter("id", id);
-            le = query.getResultList();
+            le = (FormacaoEmCampus) query.getSingleResult();
             s.getTransaction().commit();
             return le;
         } catch (HibernateException ex) {

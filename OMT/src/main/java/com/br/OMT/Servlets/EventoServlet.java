@@ -108,7 +108,10 @@ public class EventoServlet extends HttpServlet {
             e.setDataFinalEvento(finalEvento);
             e.setDataInicioInscricao(inicioInscricao);
             e.setDataFinalInscricao(finalInscricao);
-            e.setEntidade((Entidade) request.getSession().getAttribute("entidade"));
+
+            Entidade ent = (Entidade) request.getSession().getAttribute("entidade");
+            e.setEntidade(ent);
+            
             EventoDAO edao = new EventoDAO();
             String str = edao.salvar(e);
             if (str.equals("")) {
@@ -124,7 +127,11 @@ public class EventoServlet extends HttpServlet {
                             break;
                         }
                     }
-                    response.sendRedirect("../OMT/campus/eventos.jsp");
+                    if (ent.getTipo() == 'C') {
+                        response.sendRedirect("../OMT/campus/eventos.jsp");
+                    } else {
+                        response.sendRedirect("../OMT/reitoria/eventos.jsp");
+                    }
                 } else {
                     response.getWriter().println("Sem foto");
                 }

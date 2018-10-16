@@ -8,6 +8,7 @@ package com.br.OMT.Servlets;
 import com.br.OMT.DAO.DiscenteDAO;
 import com.br.OMT.Utils.Criptografia;
 import com.br.OMT.models.Discente;
+import com.br.OMT.models.Entidade;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -77,7 +78,7 @@ public class DiscenteServlet extends HttpServlet {
         estadoCivil = request.getParameter("estadoCivil");
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
-        
+
         if (request.getParameter("fotoCortada") != null) {
             if (request.getParameter("fotoCortada").length() > 0) {
                 foto = request.getParameter("fotoCortada").getBytes();
@@ -88,8 +89,8 @@ public class DiscenteServlet extends HttpServlet {
 
         if (acao.equals("cadastrar")) {
             d.setUsuario(usuario);
-            setDados(d,cpf,foto,rg,nome,email,linkCurriculoLattes,linkPerfilLinkedIn,sexo,estadoCivil,etnia);
-            
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia);
+
             //Gerando senha aleatória
             Random r = new Random();
             int tam = r.nextInt(4) + 3;
@@ -107,6 +108,13 @@ public class DiscenteServlet extends HttpServlet {
                     str = ddao.salvar(d);
                     if (str.equals("")) {
                         response.getWriter().println("Salvo! " + d.getSenha());
+
+                        Entidade ent = (Entidade) request.getSession().getAttribute("entidade");
+                        if (ent.getTipo() == 'C') {
+                            response.sendRedirect("../OMT/campus/eventos.jsp");
+                        } else {
+                            response.sendRedirect("../OMT/reitoria/eventos.jsp");
+                        }
                     } else {
                         response.getWriter().println("Errado!");
                         response.getWriter().println(str);
@@ -124,7 +132,7 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            setDados(d,cpf,foto,rg,nome,email,linkCurriculoLattes,linkPerfilLinkedIn,sexo,estadoCivil,etnia);
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia);
             try {
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                 d.setCPFbanco(Criptografia.encrypt(d.getCPF()));

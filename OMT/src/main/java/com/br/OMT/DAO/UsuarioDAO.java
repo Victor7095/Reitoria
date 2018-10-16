@@ -59,7 +59,7 @@ public class UsuarioDAO {
         try {
             s = HibernateFactory.getSessionFactory().openSession();
             s.beginTransaction();
-            System.out.println("heloooooooooooo");
+            System.out.println("heloooooooooooo "+usuario+" "+senha);
             Query query = s.createQuery("from Usuario u where u.usuarioBanco =:usuario");
             query.setParameter("usuario", Criptografia.encrypt(usuario));
             u = (Usuario) query.getSingleResult();

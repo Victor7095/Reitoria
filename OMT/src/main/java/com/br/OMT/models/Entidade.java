@@ -79,6 +79,12 @@ public class Entidade implements Serializable {
         }
         return getInstance;
     }
+    
+    
+    // TODO: remover imediatamente. Apenas teste
+    public static Entidade newInstance() {
+        return new Entidade();
+    }
 
     public Long getId() {
         return id;

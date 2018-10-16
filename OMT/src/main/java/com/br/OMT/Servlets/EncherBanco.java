@@ -54,7 +54,7 @@ public class EncherBanco extends HttpServlet {
         try {
             Discente d;
             Usuario u;
-            Entidade e;
+            Entidade e, entTeste1, entTeste2;
             Evento ev;
             Trabalho t;
             FotosEventos fe;
@@ -73,14 +73,14 @@ public class EncherBanco extends HttpServlet {
             //Cadastro de Reitoria
             e = Entidade.getInstance();
             e.setBairro("Centro");
-            e.setCEP("69097781");
+            e.setCEP("690977123");
             e.setCNAE("1234567");
             e.setCNPJ("1234567891234");
             e.setCidade("Manaus");
-            e.setComplemento("Próximo a penitenciária");
+            e.setComplemento("Próximo a Algum Lugar");
             e.setEstado("AM");
-            e.setNome("IFAM - Campus Manaus Centro");
-            e.setNomeFantasia("IFAM - CMC");
+            e.setNome("IFAM - Reitoria");
+            e.setNomeFantasia("Reitoria");
             e.setNumero("401");
             e.setRua("Av. 7 de setembro");
             e.setTipo('R');
@@ -96,7 +96,7 @@ public class EncherBanco extends HttpServlet {
             u.setEntidade(e);
             out.println(uDAO.salvar(u));
             
-            //Cadastro de Campus
+            //Cadastro de Campus 1
             e = Entidade.getInstance();
             e.setBairro("Centro");
             e.setCEP("69097781");
@@ -111,13 +111,41 @@ public class EncherBanco extends HttpServlet {
             e.setRua("Av. 7 de setembro");
             e.setTipo('C');
             out.println(cDAO.salvar(e));
+            entTeste1 = e;
 
             u = Usuario.getInstance();
             u.setNome("Yan2");
             u.setNomeBanco(Criptografia.encrypt(u.getNome()));
-            u.setUsuario("abc");
+            u.setUsuario("campus1");
             u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
             u.setSenha("123");
+            u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
+            u.setEntidade(e);
+            out.println(uDAO.salvar(u));
+            
+            //Cadastro de Campus 2
+            e = Entidade.newInstance();
+            e.setBairro("São José Operário");
+            e.setCEP("69086486");
+            e.setCNAE("1234568");
+            e.setCNPJ("1234567891236");
+            e.setCidade("Manaus");
+            e.setComplemento("Próximo a Lugar 2");
+            e.setEstado("AM");
+            e.setNome("IFAM - Campus Manaus Zona Leste");
+            e.setNomeFantasia("IFAM - CMZL");
+            e.setNumero("123");
+            e.setRua("Av. 8 de setembro");
+            e.setTipo('C');
+            out.println(cDAO.salvar(e));
+            entTeste2 = e;
+
+            u = Usuario.getInstance();
+            u.setNome("Yan3");
+            u.setNomeBanco(Criptografia.encrypt(u.getNome()));
+            u.setUsuario("teste2");
+            u.setUsuarioBanco(Criptografia.encrypt(u.getUsuario()));
+            u.setSenha("333");
             u.setSenhaBanco(Criptografia.encrypt(u.getSenha()));
             u.setEntidade(e);
             out.println(uDAO.salvar(u));
@@ -176,7 +204,16 @@ public class EncherBanco extends HttpServlet {
                 fec.setNome(cursos[new Random().nextInt(4)]);
                 fec.setAnoTermino(2018);
                 fec.setDiscente(d);
-                fec.setCampus(e);
+                
+                int sorteiaCampus = new Random().nextInt(2);
+                System.out.println(entTeste1.getNome()+" "+entTeste2.getNome()+" "+sorteiaCampus);
+                if(sorteiaCampus==0){
+                    fec.setCampus(entTeste1);
+                }else{
+                    fec.setCampus(entTeste2);
+                }
+                
+                //fec.setCampus(e);
                 out.println(fecDAO.salvar(fec));
             }
             
