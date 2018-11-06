@@ -48,6 +48,10 @@ body {
     border-radius: .25rem;
 }
 
+.nav-tabs .nav-link{
+    color: #fff;
+}
+
 .menu-usuario img{
     height: 30px;
     padding: 0px 5px;

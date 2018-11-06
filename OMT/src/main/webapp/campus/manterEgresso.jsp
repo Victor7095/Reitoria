@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/datatables/datatables.min.css">
+        <link rel="stylesheet" href="../css/addons/datatables.min.css">
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
@@ -81,7 +81,7 @@
         <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
-        <script src="../js/datatables/datatables.min.js"></script>
+        <script src="../js/addons/datatables.min.js"></script>
         <script>
             var table = $("#table-egressos").DataTable({
                 initComplete: function () {
@@ -105,7 +105,7 @@
                     });
                 },
                 "language": {
-                    "url": "/OMT/js/datatables/datatables-pt-br.json"
+                    "url": "/OMT/js/addons/datatables-pt-br.json"
                 },
                 "order": [[0, "asc"]],
                 "pagingType": "full_numbers"

@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="../css/mdb.css"/>
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/datatables/datatables.min.css">
+        <link rel="stylesheet" href="../css/addons/datatables.min.css">
     </head>
 
     <body>
@@ -24,7 +24,7 @@
             <div class="container my-4" >
                 <div class="card px-4 py-4">
                     <h1 class="font-weight-bold mb-4">Veja nossos Egressos</h1>
-                    <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-egressos">
+                    <table class="table table-sm table-striped table-bordered table-hover" id="table-egressos">
                         <caption>Lista de egressos</caption>
                         <thead>
                             <tr>
@@ -69,14 +69,14 @@
         <script src="../js/general.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
         <script src="../js/mascaras.js"></script>
-        <script src="../js/datatables/datatables.min.js"></script>
+        <script src="../js/addons/datatables.min.js"></script>
         <script>
             $("#table-egressos").DataTable({
                 initComplete: function () {
                     this.api().columns().every(function () {
                         var column = this;
-                        var select = $('<select><option value=""></option></select>')
-                                .appendTo($(column.footer()).empty())
+                        var select = $('<select class="browser-default custom-select"><option value=""></option></select>')
+                                .appendTo($(column.header()))
                                 .on('change', function () {
                                     var val = $.fn.dataTable.util.escapeRegex(
                                             $(this).val()
@@ -93,7 +93,7 @@
                     });
                 },
                 "language": {
-                    "url": "/OMT/js/datatables/datatables-pt-br.json"
+                    "url": "/OMT/js/addons/datatables-pt-br.json"
                 },
                 "order": [[0, "asc"]],
                 "pagingType": "full_numbers"
