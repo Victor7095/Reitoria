@@ -33,7 +33,7 @@
                         <a class="btn btn-md btn-light-green" href="cadastrarEgresso.jsp">
                             <i class="fa fa-plus mr-1"></i>Novo egresso</a>
                     </div>
-                    <table class="table table-striped table-bordered table-hover table-sm" id="table-egressos">
+                    <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-egressos">
                         <caption>Lista de egressos</caption>
                         <thead>
                             <tr>
@@ -104,7 +104,6 @@
                         });
                     });
                 },
-                "scrollX":true,
                 "language": {
                     "url": "/OMT/js/addons/datatables-pt-br.json"
                 },

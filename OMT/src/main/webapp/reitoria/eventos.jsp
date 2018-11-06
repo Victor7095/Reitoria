@@ -32,7 +32,7 @@
                         <a href="../campus/cadastrarEvento.jsp" class="btn btn-md btn-light-green"><i class="fa fa-plus mr-1"></i>Cadastrar Evento</a>
                     </div>
                     <c:if test="${eventos.size()>0}">
-                        <table class="table table-striped table-bordered table-hover table-sm" id="table-eventos">
+                        <table class="table table-striped table-bordered table-hover table-sm table-responsive" id="table-eventos">
                             <caption>Lista de eventos</caption>
                             <thead>
                                 <tr>
@@ -86,6 +86,26 @@
         <script src="../js/addons/datatables.min.js"></script>
         <script>
             $("#table-eventos").DataTable({
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                            );
+
+                                    column
+                                            .search(val ? '^' + val + '$' : '', true, false)
+                                            .draw();
+                                });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
                 "language": {
                     "url": "/OMT/js/addons/datatables-pt-br.json"
                 },
