@@ -23,21 +23,23 @@
         <main>
             <div class="container" >
                 <div class="card px-4 py-4">
+                    <h1 class="mb-4 font-weight-bold">Bem-vindo 
+                        <c:out value="${usuario.nome}"></c:out>!</h1>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-xl-4">
                             <canvas id="graficoGenero1"></canvas>
                         </div> 
-                    </div>      
-                    <div class="row">
                         <div class="col-sm-12 col-md-6 col-xl-4">
                             <canvas id="graficoGenero3"></canvas>
                         </div>       
-                    </div>      
-                    <div class="row">      
                         <div class="col-sm-12 col-md-6 col-xl-4">
                             <canvas id="graficoGenero2"></canvas>
-                        </div>   
-                    </div>       
+                        </div>  
+                    </div>      
+                    <div class="row">   
+                    </div>      
+                    <div class="row">    
+                    </div>        
                 </div>
             </div>
         </main>
