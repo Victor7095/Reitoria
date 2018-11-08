@@ -30,7 +30,7 @@
     <body>
         <jsp:include page="../header.jsp"/>
         <main>
-            <div class="container">
+            <div class="container mt-4">
                 <div id="to-pdf">
                     <div class="card px-4 py-4">
                         <section>
@@ -56,9 +56,9 @@
                                     <h4><c:out value="${discente.nome}"/></h4>
                                     <h5><c:out value="${discente.formacao.nome}"/></h5>
                                     <h6>Manaus, Amazonas, Brasil</h6>
-                                    <a class="d-block" href="${discente.linkCurriculoLattes}">
+                                    <a class="d-block" target="blank" href="${discente.linkCurriculoLattes}">
                                         Currículo Lattes</a>
-                                    <a class="d-block" href="${discente.linkPerfilLinkedIn}">
+                                    <a class="d-block" target="blank" href="${discente.linkPerfilLinkedIn}">
                                         <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                                 </div>
                             </div>
@@ -82,11 +82,11 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Idade</th>
-                                        <td>24 anos</td>
+                                        <td>${discente.idade} anos</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Nascimento</th>
-                                        <td>14/06/2001 - Brasil</td>
+                                        <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${discente.dataNascimento}"/> - Brasil</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">

@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.Normalizer;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,6 +47,7 @@ public class EncherBanco extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String[] cursos = new String[]{"Licenciatura em Teatro", "Licentuara em Matemática", "Bacharelado em Sistemas de Informaação", "Bacharelado em Engenharia Civil"};
+        Calendar data = Calendar.getInstance();
 
         out.println(getServletContext().getContextPath() + "\n"
                 + getServletContext().getRealPath("/index.jsp") + "\n"
@@ -167,8 +169,17 @@ public class EncherBanco extends HttpServlet {
             d.setEtnia("BRANCA");
             d.setEstadoCivil("SOLTEIRO");
             d.setEmail("exemplo123@gmail.com");
+            
+            data.set(Calendar.DAY_OF_MONTH, 14);
+            data.set(Calendar.MONTH, Calendar.JUNE);
+            data.set(Calendar.YEAR, 2001);
+            
+            d.setDataNascimento(data.getTime());
+            
             d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
             d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+            d.setNomePai("Exemplo de Nome do Pai da Silva");
+            d.setNomeMae("Exemplo de Nome da Mãe da Silva");
             //d.setFoto(IOUtils.toByteArray(stream));
             out.println(dDAO.salvar(d));
 
@@ -194,10 +205,19 @@ public class EncherBanco extends HttpServlet {
                 d.setSenhaBanco(Criptografia.encrypt(d.getSenha()));
                 d.setSexo("MASCULINO");
                 d.setEtnia("BRANCA");
+                d.setNomePai("Exemplo de Nome do Pai "+i);
+                d.setNomeMae("Exemplo de Nome da Mãe "+i);
                 d.setEstadoCivil("SOLTEIRO");
                 d.setEmail("exemplo1" + i + "@gmail.com");
                 d.setLinkCurriculoLattes("https://wwws.cnpq.br/cvlattesweb/PKG_MENU.menu?f_cod=66443CA9D507B0651D4690F514632E67#");
                 d.setLinkPerfilLinkedIn("https://www.linkedin.com/in/victor-yan-b4312415b/");
+                
+                data.set(Calendar.DAY_OF_MONTH, new Random().nextInt(30));
+                data.set(Calendar.MONTH, new Random().nextInt(12));
+                data.set(Calendar.YEAR, 1980 + (new Random().nextInt(10)));
+
+                d.setDataNascimento(data.getTime());
+                
                 out.println(dDAO.salvar(d));
 
                 fec = FormacaoEmCampus.getInstance();
