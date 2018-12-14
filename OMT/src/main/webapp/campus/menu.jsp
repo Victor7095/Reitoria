@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario mb-4 py-0">
+<nav class="navbar navbar-expand-lg navbar-dark green darken-1 menu-usuario py-0">
     <div class="collapse navbar-collapse barraPrincipal py-2">
         <ul class="navbar-nav">
             <!--Pagina Inicial-->
@@ -46,3 +46,6 @@
         </ul>
     </div>
 </nav>
+<div class="green darken-2 white-text mb-4">
+    <h6 class="ml-4 pt-2">Logado como Campus</h6>
+</div>

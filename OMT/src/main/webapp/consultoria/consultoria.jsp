@@ -75,7 +75,7 @@
                 initComplete: function () {
                     this.api().columns().every(function () {
                         var column = this;
-                        var select = $('<select class="browser-default custom-select"><option value=""></option></select>')
+                        var select = $('<select class="custom-select w-auto"><option value=""></option></select>')
                                 .appendTo($(column.header()))
                                 .on('change', function () {
                                     var val = $.fn.dataTable.util.escapeRegex(

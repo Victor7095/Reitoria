@@ -3,6 +3,7 @@
     Created on : 07/06/2018, 15:20:11
     Author     : Natan S. dos Santos
 --%>
+<%@page import="java.time.Period"%>
 <%@page pageEncoding="ISO-8859-1"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -60,9 +61,9 @@
                                     <h4><c:out value="${usuario.nome}"/></h4>
                                     <h5><c:out value="${usuario.formacao.nome}"/></h5>
                                     <h6>Manaus, Amazonas, Brasil</h6>
-                                    <a class="d-block" href="${usuario.linkCurriculoLattes}">
+                                    <a class="d-block" target="blank" href="${usuario.linkCurriculoLattes}">
                                         Currículo Lattes</a>
-                                    <a class="d-block" href="${usuario.linkPerfilLinkedIn}">
+                                    <a class="d-block" target="blank" href="${usuario.linkPerfilLinkedIn}">
                                         <i class="fab fa-linkedin-in mr-1"></i>Perfil LinkedIn</a>
                                 </div>
                             </div>
@@ -82,7 +83,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Filiação</th>
-                                        <td>Lino Eugenio Auzier e Lima e Cyana Lara Pereira</td>
+                                        <td>${usuario.nomePai} e ${usuario.nomeMae}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Estado Civil</th>
@@ -90,11 +91,11 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Idade</th>
-                                        <td>24 anos</td>
+                                        <td>${usuario.idade} anos </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Nascimento</th>
-                                        <td>14/06/2001 - Brasil</td>
+                                        <td><fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/> - Brasil</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Carteira de Identidade</th>

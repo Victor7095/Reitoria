@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:useBean id="IOUtils" class="org.apache.commons.io.IOUtils"/>
 <jsp:useBean id="Sexo" class="com.br.OMT.Beans.SexoBean"/>
@@ -66,9 +67,25 @@
                                     <input type="hidden" value="" name="fotoCortada" id="fotoCortada">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="nome">Nome Completo</label>
-                                <input class="form-control" type="text" id="nome" name="nome" value="<c:out value="${usuario.nome}"/>">
+                            <div class="form-row">
+                                <div class="form-group col-sm-12 col-lg-8">
+                                    <label for="nome">Nome Completo</label>
+                                    <input class="form-control" type="text" id="nome" name="nome" value="<c:out value="${usuario.nome}"/>">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-4">
+                                    <label for="dataNasc">Data de nascimento</label>
+                                    <input class="form-control" type="text" id="dataNasc" name="dataNasc" value="<fmt:formatDate type="both" dateStyle="short" pattern="dd/MM/yyyy" value="${usuario.dataNascimento}"/>">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label for="nomeMae">Nome da mãe</label>
+                                    <input class="form-control" type="text" id="nomeMae" name="nomeMae" value="<c:out value="${usuario.nomeMae}"/>">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label for="nomePai">Nome do pai</label>
+                                    <input class="form-control" type="text" id="nomePai" name="nomePai" value="<c:out value="${usuario.nomePai}"/>">
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-12 col-lg-4">

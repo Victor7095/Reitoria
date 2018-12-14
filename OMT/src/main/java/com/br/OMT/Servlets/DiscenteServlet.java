@@ -14,7 +14,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,7 +67,9 @@ public class DiscenteServlet extends HttpServlet {
         Discente d = Discente.getInstance();
         DiscenteDAO ddao = new DiscenteDAO();
         String usuario = "", rg = "", cpf = "", nome = "", sexo = "", estadoCivil = "",
-                etnia = "", acao = "", email = "", linkCurriculoLattes = "", linkPerfilLinkedIn = "";
+                etnia = "", acao = "", email = "", linkCurriculoLattes = "", linkPerfilLinkedIn = "",
+                nomePai = "", nomeMae = "";
+        Date dataNasc = null;
         byte[] foto = null;
 
         acao = request.getParameter("acao");
@@ -75,9 +80,19 @@ public class DiscenteServlet extends HttpServlet {
         email = request.getParameter("email");
         linkCurriculoLattes = request.getParameter("linkCurriculoLattes");
         linkPerfilLinkedIn = request.getParameter("linkPerfilLinkedIn");
+        nomePai = request.getParameter("nomePai");
+        nomeMae = request.getParameter("nomeMae");
         estadoCivil = request.getParameter("estadoCivil");
         etnia = request.getParameter("etnia");
         usuario = request.getParameter("usuario");
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+        try {
+            dataNasc = df.parse(request.getParameter("dataNasc"));
+        } catch (ParseException ex) {
+            Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (request.getParameter("fotoCortada") != null) {
             if (request.getParameter("fotoCortada").length() > 0) {
@@ -89,7 +104,7 @@ public class DiscenteServlet extends HttpServlet {
 
         if (acao.equals("cadastrar")) {
             d.setUsuario(usuario);
-            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia);
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae);
 
             //Gerando senha aleatória
             Random r = new Random();
@@ -132,7 +147,7 @@ public class DiscenteServlet extends HttpServlet {
             } catch (Exception ex) {
                 Logger.getLogger(DiscenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia);
+            setDados(d, cpf, foto, rg, nome, email, linkCurriculoLattes, linkPerfilLinkedIn, sexo, estadoCivil, etnia, dataNasc, nomePai, nomeMae);
             try {
                 d.setNomeBanco(Criptografia.encrypt(d.getNome()));
                 d.setCPFbanco(Criptografia.encrypt(d.getCPF()));
@@ -159,7 +174,8 @@ public class DiscenteServlet extends HttpServlet {
             String cpf, byte[] foto, String rg,
             String nome, String email,
             String linkCurriculoLattes, String linkPerfilLinkedIn,
-            String sexo, String estadoCivil, String etnia) {
+            String sexo, String estadoCivil, String etnia, Date dataNasc,
+            String nomePai, String nomeMae) {
         d.setCPF(cpf);
         d.setFoto(foto);
         d.setRG(rg);
@@ -167,6 +183,9 @@ public class DiscenteServlet extends HttpServlet {
         d.setEmail(email);
         d.setLinkCurriculoLattes(linkCurriculoLattes);
         d.setLinkPerfilLinkedIn(linkPerfilLinkedIn);
+        d.setNomePai(nomePai);
+        d.setNomeMae(nomeMae);
+        d.setDataNascimento(dataNasc);
         switch (sexo) {
             case "Masculino":
                 d.setSexo("MASCULINO");

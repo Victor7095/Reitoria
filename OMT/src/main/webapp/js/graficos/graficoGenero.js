@@ -18,6 +18,7 @@ var myChart = new Chart(ctx, {
             }]
     },
     options: {
+        aspectRatio : 1,
         scales: {
             yAxes: [{
                     ticks: {
@@ -27,7 +28,8 @@ var myChart = new Chart(ctx, {
         },
         title: {
             display: true,
-            text: 'Egressos empregados'
+            text: 'Egressos empregados',
+            fontSize:20
         }
     }
 });
@@ -51,6 +53,7 @@ var myChart = new Chart(ctx, {
             }]
     },
     options: {
+        aspectRatio : 1,
         scales: {
             yAxes: [{
                     ticks: {
@@ -60,7 +63,8 @@ var myChart = new Chart(ctx, {
         },
         title: {
             display: true,
-            text: 'Egressos desempregados'
+            text: 'Egressos desempregados',
+            fontSize:20
         }
     }
 });
@@ -84,6 +88,7 @@ var myChart = new Chart(ctx, {
             }]
     },
     options: {
+        aspectRatio : 1,
         scales: {
             yAxes: [{
                     ticks: {
@@ -93,7 +98,8 @@ var myChart = new Chart(ctx, {
         },
         title: {
             display: true,
-            text: 'Outros'
+            text: 'Outros',
+            fontSize:20
         }
     }
 });

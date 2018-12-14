@@ -6,7 +6,11 @@
 package com.br.OMT.models;
 
 import java.io.Serializable;
-import java.sql.Blob;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import static javax.persistence.CascadeType.ALL;
@@ -55,7 +59,10 @@ public class Discente extends Usuario implements Serializable {
     
     @Enumerated(EnumType.STRING)
     @Column(length = 13)
-    private Etnia etnia;
+    
+    private Etnia etnia;@Column(name = "tempoInicio", nullable = true)
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
     
     @Lob
     @Column(name = "foto", nullable = true, length = 255, columnDefinition = "longblob")
@@ -233,4 +240,20 @@ public class Discente extends Usuario implements Serializable {
         this.nomePai = nomePai;
     }
 
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+    
+    public int getIdade(){
+        LocalDate date = Instant.ofEpochMilli(dataNascimento.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate hoje = LocalDate.now();                          //Today's date
+ 
+        Period p = Period.between(date, hoje);
+        System.out.println(p+" hgjhfgjfgkjhfdgfdgnjfdgnfdg");
+        return p.getYears();
+    }
 }
