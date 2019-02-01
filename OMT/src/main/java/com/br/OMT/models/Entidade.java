@@ -66,6 +66,8 @@ public class Entidade implements Serializable {
     private List<Trabalho> trabalhos;
     @OneToMany(cascade = ALL, mappedBy = "entidade")
     private List<Evento> eventos;
+    @OneToMany(cascade = ALL, mappedBy = "entidade")
+    private List<Formulario> formularios;
 
     @Transient
     private static Entidade getInstance;
